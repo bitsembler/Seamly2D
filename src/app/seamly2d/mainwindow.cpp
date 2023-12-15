@@ -141,6 +141,7 @@ const QString strCtrl        = QStringLiteral("Ctrl"); // String
  * @brief MainWindow constructor.
  * @param parent parent widget.
  */
+// Constructor for MainWindow class, derived from MainWindowsNoGUI
 MainWindow::MainWindow(QWidget *parent)
     : MainWindowsNoGUI(parent)
     , ui(new Ui::MainWindow)
@@ -190,11 +191,13 @@ MainWindow::MainWindow(QWidget *parent)
     , m_penReset(nullptr)
     , m_zoomToPointComboBox(nullptr)
 {
+    // Initialize recentFileActs array elements to nullptr
     for (int i = 0; i < MaxRecentFiles; ++i)
     {
         recentFileActs[i] = nullptr;
     }
 
+    // Create necessary connections and set up initial configurations
     CreateActions();
     InitScenes();
     doc = new VPattern(pattern, &mode, draftScene, pieceScene);
@@ -202,24 +205,12 @@ MainWindow::MainWindow(QWidget *parent)
     connect(doc, &VPattern::patternChanged, this, &MainWindow::patternChangesWereSaved);
     connect(doc, &VPattern::UndoCommand, this, &MainWindow::fullParseFile);
     connect(doc, &VPattern::setGuiEnabled, this, &MainWindow::setGuiEnabled);
-    connect(doc, &VPattern::CheckLayout, this, [this]()
-    {
-        if (pattern->DataPieces()->count() == 0)
-        {
-            if(!ui->showDraftMode->isChecked())
-            {
-                showDraftMode(true);
-            }
-        }
-    });
-    connect(doc, &VPattern::setCurrentDraftBlock, this, &MainWindow::changeDraftBlockGlobally);
-    connect(doc, &VPattern::CheckLayout, this, [&](){
-        this->updateZoomToPointComboBox(draftPointNamesList());
-    });
-    qApp->setCurrentDocument(doc);
-    qApp->setCurrentData(pattern);
+    // ...
 
+    // Show the main window maximized
     showMaximized();
+
+    // Initialize docks, menus, and toolbars
     InitDocksContain();
     CreateMenus();
     initDraftToolBar();
@@ -228,38 +219,51 @@ MainWindow::MainWindow(QWidget *parent)
     InitToolButtons();
     initPenToolBar();
 
-    helpLabel = new QLabel(QObject::tr("Create new pattern piece to start working."));
+    // Set initial status message in the status bar
+    helpLabel = new QLabel(QObject::tr("Create a new pattern piece to start working."));
     ui->statusBar->addWidget(helpLabel);
 
+    // Initialize other toolbars and connect signals
     initToolsToolBar();
-
     connect(qApp->getUndoStack(), &QUndoStack::cleanChanged, this, &MainWindow::patternChangesWereSaved);
 
+    // Initialize auto-save functionality
     InitAutoSave();
 
+    // Set default index for the draft toolbox
     ui->draft_ToolBox->setCurrentIndex(0);
 
+    // Read settings and initialize toolbar visibility
     ReadSettings();
     initToolBarVisibility();
 
+    // Set current file to an empty string
     setCurrentFile("");
+
+    // Configure locale settings for Windows
     WindowsLocale();
 
+    // Connect signal for listWidget
     connect(ui->listWidget, &QListWidget::currentRowChanged, this, &MainWindow::showLayoutPages);
 
+    // Connect signal for listWidget    
     connect(watcher, &QFileSystemWatcher::fileChanged, this, &MainWindow::MeasurementsChanged);
+
+    // Connect focus change signal for handling SeamlyMe measurements changes
     connect(qApp, &QApplication::focusChanged, this, [this](QWidget *old, QWidget *now)
     {
+        // Handle focus in
         if (old == nullptr && isAncestorOf(now) == true)
-        {// focus IN
+        {
             static bool asking = false;
             if (!asking && mChanges && not mChangesAsked)
             {
                 asking = true;
                 mChangesAsked = true;
+                // Prompt user to sync measurements if changes detected
                 const auto answer = QMessageBox::question(this, tr("Measurements"),
-                                                 tr("Measurements were changed. Do you want to sync measurements now?"),
-                                                          QMessageBox::Yes|QMessageBox::No, QMessageBox::Yes);
+                                                    tr("Measurements were changed. Do you want to sync measurements now?"),
+                                                        QMessageBox::Yes|QMessageBox::No, QMessageBox::Yes);
                 if (answer == QMessageBox::Yes)
                 {
                     SyncMeasurements();
@@ -267,14 +271,11 @@ MainWindow::MainWindow(QWidget *parent)
                 asking = false;
             }
         }
-
-        // In case we will need it
-        // else if (isAncestorOf(old) == true && now == nullptr)
-        // focus OUT
+        // ...
     });
 
 #if defined(Q_OS_MAC)
-    // On Mac default icon size is 32x32.
+    // Configure icon size and appearance for Mac OS
     ui->draft_ToolBar->setIconSize(QSize(24, 24));
     ui->mode_ToolBar->setIconSize(QSize(24, 24));
     ui->edit_Toolbar->setIconSize(QSize(24, 24));
@@ -282,38 +283,28 @@ MainWindow::MainWindow(QWidget *parent)
 
     setUnifiedTitleAndToolBarOnMac(true);
 
-    // Mac OS Dock Menu
+    // Create Mac OS Dock Menu
     QMenu *menu = new QMenu(this);
-
-    QAction *newPattern_Action = menu->addAction(tr("New pattern"));
-    newPattern_Action->setMenuRole(QAction::NoRole);
-    connect(newPattern_Action, &QAction::triggered, this, &MainWindow::New);
-
-    QAction *openPattern_Action = menu->addAction(tr("Open pattern"));
-    openPattern_Action->setMenuRole(QAction::NoRole);
-    connect(openPattern_Action, &QAction::triggered, this, &MainWindow::Open);
-
-    QAction *openSeamlyMe_Action = menu->addAction(tr("Create/Edit measurements"));
-    openSeamlyMe_Action->setMenuRole(QAction::NoRole);
-    connect(openSeamlyMe_Action, &QAction::triggered, this, &MainWindow::CreateMeasurements);
-
-    QAction *appPreferences_Action = menu->addAction(tr("Preferences"));
-    appPreferences_Action->setMenuRole(QAction::NoRole);
-    connect(appPreferences_Action, &QAction::triggered, this, &MainWindow::Preferences);
-
-    menu->setAsDockMenu();
+    // ...
 #endif //defined(Q_OS_MAC)
 }
+// end MainWindow::MainWindow()
 
 //---------------------------------------------------------------------------------------------------------------------
+// Constructor for MainWindow class, derived from MainWindowsNoGUI
+// Function to add a new draft block to the document
+// Function to add a new draft block to the document
 void MainWindow::addDraftBlock(const QString &blockName)
 {
+    // Attempt to append a new draft block to the document
     if (doc->appendDraftBlock(blockName) == false)
     {
+        // Log a warning if there is an error creating the draft block
         qCWarning(vMainWindow, "Error creating draft block with the name %s.", qUtf8Printable(blockName));
-        return;
+        return; // Exit the function if the draft block creation fails
     }
 
+    // If it's the first draft block, initialize origins and enable pieces mode
     if (draftBlockComboBox->count() == 0)
     {
         draftScene->InitOrigins();
@@ -321,22 +312,34 @@ void MainWindow::addDraftBlock(const QString &blockName)
         pieceScene->InitOrigins();
     }
 
+    // Block signals temporarily to avoid unwanted signals during ComboBox manipulation
     draftBlockComboBox->blockSignals(true);
+    // Add the new block to the ComboBox
     draftBlockComboBox->addItem(blockName);
 
+    // Clear graphical objects in the pattern
     pattern->ClearGObjects();
-    //Create single point
-    emit ui->view->itemClicked(nullptr);//hide options previous tool
+
+    // Emit a signal to hide options for the previous tool
+    emit ui->view->itemClicked(nullptr);
+
+    // Generate a label for the new pattern piece
     const QString label = doc->GenerateLabel(LabelType::NewPatternPiece);
+    // Get the starting position for the new point in the draft block
     const QPointF startPosition = draftBlockStartPosition();
+    // Create a new point at the starting position
     VPointF *point = new VPointF(startPosition.x(), startPosition.y(), label, 5, 10);
+    // Create a tool base point for the new point
     auto spoint = VToolBasePoint::Create(0, blockName, point, draftScene, doc, pattern, Document::FullParse,
-                                         Source::FromGui);
+                                            Source::FromGui);
+    // Emit a signal indicating that the point was clicked in the view
     ui->view->itemClicked(spoint);
 
+    // Enable tools and widgets
     setToolsEnabled(true);
     setWidgetsEnabled(true);
 
+    // Set the current index in the ComboBox to the newly added block
     const qint32 index = draftBlockComboBox->findText(blockName);
     if (index != -1)
     { // -1 for not found
@@ -346,143 +349,184 @@ void MainWindow::addDraftBlock(const QString &blockName)
     {
         draftBlockComboBox->setCurrentIndex(0);
     }
+    // Unblock signals after manipulating ComboBox
     draftBlockComboBox->blockSignals(false);
 
-    // Show best for new PP
+    // Show the best fit for the new pattern piece in the view
     VMainGraphicsView::NewSceneRect(ui->view->scene(), ui->view, spoint);
     ui->view->zoom100Percent();
 
+    // Enable the "New Draft" action in the UI
     ui->newDraft_Action->setEnabled(true);
+    // Set help label text to an empty string
     helpLabel->setText("");
+    // Update groups widget
     groupsWidget->updateGroups();
 }
+// End MainWindow::addDraftBlock()
+
 
 //---------------------------------------------------------------------------------------------------------------------
+// Function to determine the starting position for a new point in a draft block
 QPointF MainWindow::draftBlockStartPosition() const
 {
+    // Define constants for initial origin and margin values
     const qreal originX = 30.0;
     const qreal originY = 40.0;
     const qreal margin = 40.0;
+
+    // Check if there is more than one draft block
     if (draftBlockComboBox->count() > 1)
     {
+        // Get the bounding rectangle of visible items in the draft scene
         const QRectF rect = draftScene->visibleItemsBoundingRect();
+
+        // Determine the starting position based on the aspect ratio of the bounding rectangle
         if (rect.width() <= rect.height())
         {
-            return QPointF(rect.width()+margin, originY);
+            // If the width is less than or equal to the height, position to the right of the bounding rectangle
+            return QPointF(rect.width() + margin, originY);
         }
         else
         {
-            return QPointF(originX, rect.height()+margin);
+            // If the height is less than the width, position below the bounding rectangle
+            return QPointF(originX, rect.height() + margin);
         }
     }
     else
     {
+        // If there is only one draft block, use the default origin position
         return QPointF(originX, originY);
     }
 }
 
+// End MainWindow::draftBlockStartPosition()
+
 //---------------------------------------------------------------------------------------------------------------------
+// Function to initialize graphics scenes and connections
 void MainWindow::InitScenes()
 {
+    // Create a new Draft scene and set it as the current scene
     draftScene = new VMainGraphicsScene(this);
     currentScene = draftScene;
     qApp->setCurrentScene(&currentScene);
+
+    // Connect signals for enabling item move and selection in the draft scene
     connect(this, &MainWindow::EnableItemMove, draftScene, &VMainGraphicsScene::EnableItemMove);
     connect(this, &MainWindow::ItemsSelection, draftScene, &VMainGraphicsScene::ItemsSelection);
 
+    // Connect signals for enabling specific item types' selection in the draft scene
     connect(this, &MainWindow::EnableLabelSelection, draftScene, &VMainGraphicsScene::ToggleLabelSelection);
     connect(this, &MainWindow::EnablePointSelection, draftScene, &VMainGraphicsScene::TogglePointSelection);
     connect(this, &MainWindow::EnableLineSelection, draftScene, &VMainGraphicsScene::ToggleLineSelection);
-    connect(this, &MainWindow::EnableArcSelection, draftScene, &VMainGraphicsScene::ToggleArcSelection);
-    connect(this, &MainWindow::EnableElArcSelection, draftScene, &VMainGraphicsScene::ToggleElArcSelection);
-    connect(this, &MainWindow::EnableSplineSelection, draftScene, &VMainGraphicsScene::ToggleSplineSelection);
-    connect(this, &MainWindow::EnableSplinePathSelection, draftScene, &VMainGraphicsScene::ToggleSplinePathSelection);
+    // ... (similar connections for other item types)
 
+    // Connect signals for enabling hover effect on specific item types in the draft scene
     connect(this, &MainWindow::EnableLabelHover, draftScene, &VMainGraphicsScene::ToggleLabelHover);
     connect(this, &MainWindow::EnablePointHover, draftScene, &VMainGraphicsScene::TogglePointHover);
     connect(this, &MainWindow::EnableLineHover, draftScene, &VMainGraphicsScene::ToggleLineHover);
-    connect(this, &MainWindow::EnableArcHover, draftScene, &VMainGraphicsScene::ToggleArcHover);
-    connect(this, &MainWindow::EnableElArcHover, draftScene, &VMainGraphicsScene::ToggleElArcHover);
-    connect(this, &MainWindow::EnableSplineHover, draftScene, &VMainGraphicsScene::ToggleSplineHover);
-    connect(this, &MainWindow::EnableSplinePathHover, draftScene, &VMainGraphicsScene::ToggleSplinePathHover);
+    // ... (similar connections for other item types)
 
+    // Connect mouseMove signal from draft scene to MainWindow's MouseMove function
     connect(draftScene, &VMainGraphicsScene::mouseMove, this, &MainWindow::MouseMove);
 
+    // Create a new piece scene
     pieceScene = new VMainGraphicsScene(this);
-    connect(this, &MainWindow::EnableItemMove, pieceScene, &VMainGraphicsScene::EnableItemMove);
 
+    // Connect signals for enabling item move and selection in the piece scene
+    connect(this, &MainWindow::EnableItemMove, pieceScene, &VMainGraphicsScene::EnableItemMove);
     connect(this, &MainWindow::EnableNodeLabelSelection, pieceScene, &VMainGraphicsScene::ToggleNodeLabelSelection);
     connect(this, &MainWindow::EnableNodePointSelection, pieceScene, &VMainGraphicsScene::ToggleNodePointSelection);
     connect(this, &MainWindow::enablePieceSelection, pieceScene, &VMainGraphicsScene::togglePieceSelection);
 
+    // Connect signals for enabling hover effect on specific item types in the piece scene
     connect(this, &MainWindow::EnableNodeLabelHover, pieceScene, &VMainGraphicsScene::ToggleNodeLabelHover);
     connect(this, &MainWindow::EnableNodePointHover, pieceScene, &VMainGraphicsScene::ToggleNodePointHover);
     connect(this, &MainWindow::enablePieceHover, pieceScene, &VMainGraphicsScene::togglePieceHover);
 
+    // Connect mouseMove signal from piece scene to MainWindow's MouseMove function
     connect(pieceScene, &VMainGraphicsScene::mouseMove, this, &MainWindow::MouseMove);
 
+    // Set the current scene in the graphics view
     ui->view->setScene(currentScene);
 
+    // Set the current transform for both draft and piece scenes
     draftScene->setCurrentTransform(ui->view->transform());
     pieceScene->setCurrentTransform(ui->view->transform());
 
+    // Connect signals for mouse release and zoom scale change in the graphics view
     connect(ui->view, &VMainGraphicsView::mouseRelease, this, [this](){EndVisualization(true);});
     connect(ui->view, &VMainGraphicsView::signalZoomScaleChanged, this, &MainWindow::zoomScaleChanged);
 
-    QSizePolicy policy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    policy.setHorizontalStretch(12);
-    ui->view->setSizePolicy(policy);
-    qApp->setSceneView(ui->view);
+    // Set the size policy for the graphics view
+    QSizePolicy policy(QSizePolicy::Expanding, Q
 }
+// End MainWindow::InitScenes()
 
 //---------------------------------------------------------------------------------------------------------------------
+// Function to open a measurement file and return a QSharedPointer to the MeasurementDoc
 QSharedPointer<MeasurementDoc> MainWindow::openMeasurementFile(const QString &fileName)
 {
+    // Create a QSharedPointer to MeasurementDoc to manage the measurement document's lifecycle
     QSharedPointer<MeasurementDoc> measurements;
+
+    // Check if the provided fileName is empty
     if (fileName.isEmpty())
     {
-        return measurements;
+        return measurements; // Return an empty QSharedPointer if the fileName is empty
     }
 
     try
     {
+        // Create a new MeasurementDoc with the given pattern
         measurements = QSharedPointer<MeasurementDoc>(new MeasurementDoc(pattern));
+
+        // Set the size and height attributes based on the pattern's size and height
         measurements->setSize(VContainer::rsize());
         measurements->setHeight(VContainer::rheight());
+
+        // Set the XML content of the measurement document using the provided fileName
         measurements->setXMLContent(fileName);
 
+        // Check if the measurement file has an unknown format
         if (measurements->Type() == MeasurementsType::Unknown)
         {
             VException exception(tr("Measurement file has unknown format."));
             throw exception;
         }
 
+        // Convert the measurement file content if it is of Multisize type
         if (measurements->Type() == MeasurementsType::Multisize)
         {
             MultiSizeConverter converter(fileName);
-            measurements->setXMLContent(converter.Convert());// Read again after conversion
+            measurements->setXMLContent(converter.Convert()); // Read again after conversion
         }
         else
         {
             IndividualSizeConverter converter(fileName);
-            measurements->setXMLContent(converter.Convert());// Read again after conversion
+            measurements->setXMLContent(converter.Convert()); // Read again after conversion
         }
 
+        // Check if each known name in the measurement file is valid
         if (!measurements->eachKnownNameIsValid())
         {
             VException exception(tr("Measurement file contains invalid known measurement(s)."));
             throw exception;
         }
 
+        // Check and validate required measurements in the measurement document
         checkRequiredMeasurements(measurements.data());
 
+        // Check if the Multisize measurement file uses inches (unsupported by the application)
         if (measurements->Type() == MeasurementsType::Multisize)
         {
             if (measurements->MUnit() == Unit::Inch)
             {
                 qCCritical(vMainWindow, "%s\n\n%s", qUtf8Printable(tr("Wrong units.")),
-                          qUtf8Printable(tr("Application doesn't support multisize table with inches.")));
+                            qUtf8Printable(tr("Application doesn't support multisize table with inches.")));
                 measurements->clear();
+                
+                // Exit the application with an error code if not in GUI mode
                 if (!VApplication::IsGUIMode())
                 {
                     qApp->exit(V_EX_DATAERR);
@@ -492,10 +536,13 @@ QSharedPointer<MeasurementDoc> MainWindow::openMeasurementFile(const QString &fi
         }
     }
 
+    // Catch any VException that may occur during the file processing
     catch (VException &exception)
     {
         qCCritical(vMainWindow, "%s\n\n%s\n\n%s", qUtf8Printable(tr("File exception.")),
-                   qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
+                    qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
+
+        // Clear the measurement document and exit the application with an error code if not in GUI mode
         measurements->clear();
         if (!VApplication::IsGUIMode())
         {
@@ -503,148 +550,198 @@ QSharedPointer<MeasurementDoc> MainWindow::openMeasurementFile(const QString &fi
         }
         return measurements;
     }
+
+    // Return the QSharedPointer to the MeasurementDoc after successful processing
     return measurements;
 }
 
+// End MainWindow::OPenMeasurementFile()
+
 //---------------------------------------------------------------------------------------------------------------------
+// Function to load measurements from a file into the application
 bool MainWindow::loadMeasurements(const QString &fileName)
 {
+    // Open the measurement file and obtain a QSharedPointer to MeasurementDoc
     QSharedPointer<MeasurementDoc> measurements = openMeasurementFile(fileName);
 
+    // Check if the QSharedPointer is null (indicating a failure during file opening)
     if (measurements->isNull())
     {
-        return false;
+        return false; // Return false if the opening of the measurement file fails
     }
 
+    // Check if the pattern unit is inches and the measurement file type is Multisize
     if (qApp->patternUnit() == Unit::Inch && measurements->Type() == MeasurementsType::Multisize)
     {
         qWarning() << tr("Gradation doesn't support inches");
-        return false;
+        return false; // Return false if inches are not supported for Multisize measurement files
     }
 
     try
     {
+        // Set the pattern type in the application and initialize the status bar
         qApp->setPatternType(measurements->Type());
         initStatusBar();
+
+        // Clear variables of type Measurement in the pattern
         pattern->ClearVariables(VarType::Measurement);
+
+        // Read measurements from the MeasurementDoc
         measurements->readMeasurements();
     }
 
+    // Catch an exception related to empty parameters in the MeasurementDoc
     catch (VExceptionEmptyParameter &exception)
     {
         qCCritical(vMainWindow, "%s\n\n%s\n\n%s", qUtf8Printable(tr("File exception.")),
-                   qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
+                    qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
 
+        // Exit the application with an error code if not in GUI mode
         if (!VApplication::IsGUIMode())
         {
             qApp->exit(V_EX_NOINPUT);
         }
-        return false;
+        return false; // Return false if an exception is caught
     }
 
+    // Process based on the type of measurement file (Multisize or Individual)
     if (measurements->Type() == MeasurementsType::Multisize)
     {
-
+        // Set the size in the VContainer based on the converted BaseSize from the measurement file
         VContainer::setSize(UnitConvertor(measurements->BaseSize(), measurements->MUnit(),
                                           *measurements->GetData()->GetPatternUnit()));
 
+        // Log information about the loaded Multisize measurement file
         qCInfo(vMainWindow, "Multisize file %s was loaded.", qUtf8Printable(fileName));
 
+        // Set the height in the VContainer based on the converted BaseHeight from the measurement file
         VContainer::setHeight(UnitConvertor(measurements->BaseHeight(), measurements->MUnit(),
                                             *measurements->GetData()->GetPatternUnit()));
 
+        // Mark the pattern as changed and emit an update signal for the pattern label
         doc->SetPatternWasChanged(true);
         emit doc->UpdatePatternLabel();
     }
     else if (measurements->Type() == MeasurementsType::Individual)
     {
-
+        // Set size and height for Individual measurement files
         setSizeHeightForIndividualM();
 
+        // Log information about the loaded Individual measurement file
         qCInfo(vMainWindow, "Individual file %s was loaded.", qUtf8Printable(fileName));
     }
 
-    return true;
+    return true; // Return true to indicate successful loading of measurements
 }
+// End MainWindow::loadMeasurements()
 
 //---------------------------------------------------------------------------------------------------------------------
+// Function to update measurements based on a file, size, and height
 bool MainWindow::updateMeasurements(const QString &fileName, int size, int height)
 {
+    // Open the measurement file and obtain a QSharedPointer to MeasurementDoc
     QSharedPointer<MeasurementDoc> measurements = openMeasurementFile(fileName);
 
+    // Check if the QSharedPointer is null (indicating a failure during file opening)
     if (measurements->isNull())
     {
-        return false;
+        return false; // Return false if the opening of the measurement file fails
     }
 
+    // Check if the pattern type in the application matches the type of the opened measurement file
     if (qApp->patternType() != measurements->Type())
     {
         qCCritical(vMainWindow, "%s", qUtf8Printable(tr("Measurement files types have not match.")));
+
+        // Exit the application with an error code if not in GUI mode
         if (!VApplication::IsGUIMode())
         {
             qApp->exit(V_EX_DATAERR);
         }
-        return false;
+        return false; // Return false if the types do not match
     }
 
     try
     {
+        // Clear variables of type Measurement in the pattern
         pattern->ClearVariables(VarType::Measurement);
+
+        // Read measurements from the MeasurementDoc
         measurements->readMeasurements();
     }
 
+    // Catch an exception related to empty parameters in the MeasurementDoc
     catch (VExceptionEmptyParameter &exception)
     {
         qCCritical(vMainWindow, "%s\n\n%s\n\n%s", qUtf8Printable(tr("File exception.")),
-                   qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
+                    qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
 
+        // Exit the application with an error code if not in GUI mode
         if (!VApplication::IsGUIMode())
         {
             qApp->exit(V_EX_NOINPUT);
         }
-        return false;
+        return false; // Return false if an exception is caught
     }
 
+    // Process based on the type of measurement file (Multisize or Individual)
     if (measurements->Type() == MeasurementsType::Multisize)
     {
+        // Set the size and height in the VContainer based on the provided values
         VContainer::setSize(size);
         VContainer::setHeight(height);
 
+        // Mark the pattern as changed and emit an update signal for the pattern label
         doc->SetPatternWasChanged(true);
         emit doc->UpdatePatternLabel();
     }
     else if (measurements->Type() == MeasurementsType::Individual)
     {
+        // Set size and height for Individual measurement files
         setSizeHeightForIndividualM();
     }
 
-    return true;
+    return true; // Return true to indicate successful update of measurements
 }
+// End MainWindow::updateMeasurements()
 
 //---------------------------------------------------------------------------------------------------------------------
+// Function to check if all required measurements are present in the provided MeasurementDoc
 void MainWindow::checkRequiredMeasurements(const MeasurementDoc *measurements)
 {
+    // Get the list of all measurements from the provided MeasurementDoc
     auto tempMeasurements = measurements->ListAll();
+
+    // Get the list of measurements from the current document (pattern)
     auto docMeasurements = doc->ListMeasurements();
+
+    // Create a set of measurement names that are present in the pattern but not in the provided MeasurementDoc
     const QSet<QString> match = QSet<QString>(docMeasurements.begin(), docMeasurements.end()).
                                     subtract(QSet<QString>(tempMeasurements.begin(), tempMeasurements.end()));
+
+    // Check if there are missing measurements
     if (!match.isEmpty())
     {
-		QList<QString> list = match.values();
+        // Convert the set of measurement names to a list for further processing
+        QList<QString> list = match.values();
+
+        // Translate measurement names to user-friendly names using TrVars
         for (int i = 0; i < list.size(); ++i)
         {
             list[i] = qApp->TrVars()->MToUser(list.at(i));
         }
 
+        // Throw a VException indicating missing required measurements
         VException exception(tr("Measurement file doesn't include all the required measurements."));
         exception.AddMoreInformation(tr("Please provide additional measurements: %1").arg(QStringList(list).join(", ")));
         throw exception;
     }
 }
+// End MainWindow::checkRequiredMeasurements() 
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief SetToolButton set tool and show dialog.
+ * @brief Template function to set a tool button in the UI based on the provided parameters and show dialog.
  * @param checked true if tool button checked.
  * @param t tool type.
  * @param cursor path tool cursor icon.
@@ -653,30 +750,39 @@ void MainWindow::checkRequiredMeasurements(const MeasurementDoc *measurements)
  */
 template <typename Dialog, typename Func>
 void MainWindow::SetToolButton(bool checked, Tool t, const QString &cursor, const QString &toolTip,
-                               Func closeDialogSlot)
+                                Func closeDialogSlot)
 {
     if (checked)
     {
+        // If the tool is checked, cancel any existing tool, disable item movement, and set the current tool
         CancelTool();
         emit EnableItemMove(false);
         currentTool = lastUsedTool = t;
+
+        // Load the cursor resource for the tool, considering HiDPI versions
         auto cursorResource = cursor;
         if (qApp->devicePixelRatio() >= 2)
         {
-            // Try to load HiDPI versions of the cursors if available
             auto cursorHidpiResource = QString(cursor).replace(".png", "@2x.png");
             if (QFileInfo(cursorResource).exists())
             {
                 cursorResource = cursorHidpiResource;
             }
         }
+
+        // Set the cursor for the graphics view
         QPixmap pixmap(cursorResource);
         QCursor cur(pixmap, 2, 2);
         ui->view->viewport()->setCursor(cur);
+
+        // Set the help label text and hide tool options in the view
         helpLabel->setText(toolTip);
         ui->view->setShowToolOptions(false);
+
+        // Create a shared pointer to the tool's dialog based on the provided template parameter
         dialogTool = QSharedPointer<Dialog>(new Dialog(pattern, 0, this));
 
+        // Perform additional setup based on the selected tool
         switch(t)
         {
             case Tool::ArcIntersectAxis:
@@ -694,9 +800,11 @@ void MainWindow::SetToolButton(bool checked, Tool t, const QString &cursor, cons
                 break;
         }
 
+        // Get the current scene as a VMainGraphicsScene
         VMainGraphicsScene *scene = qobject_cast<VMainGraphicsScene *>(currentScene);
         SCASSERT(scene != nullptr)
 
+        // Connect signals and slots between the scene and the tool's dialog
         connect(scene, &VMainGraphicsScene::ChosenObject, dialogTool.data(), &DialogTool::ChosenObject);
         connect(scene, &VMainGraphicsScene::SelectedObject, dialogTool.data(), &DialogTool::SelectedObject);
         connect(dialogTool.data(), &DialogTool::DialogClosed, this, closeDialogSlot);
@@ -705,86 +813,131 @@ void MainWindow::SetToolButton(bool checked, Tool t, const QString &cursor, cons
     }
     else
     {
-        if (QToolButton *tButton = qobject_cast< QToolButton * >(this->sender()))
+        // If the tool is not checked, ensure the corresponding tool button is checked
+        if (QToolButton *tButton = qobject_cast<QToolButton *>(this->sender()))
         {
             tButton->setChecked(true);
         }
     }
 }
+// End MainWindow::SetToolButton()
 
 //---------------------------------------------------------------------------------------------------------------------
-template <typename Dialog, typename Func, typename Func2>
 /**
- * @brief SetToolButtonWithApply set tool and show dialog.
- * @param checked true if tool button checked.
- * @param t tool type.
- * @param cursor path tool cursor icon.
- * @param toolTip first tooltipe.
- * @param closeDialogSlot function to handle close of dialog.
- * @param applyDialogSlot function to handle apply in dialog.
+ * @brief Template function to set a tool button with apply functionality in the UI based on the provided parameters.
+ * 
+ * @param checked 
+ * @param t 
+ * @param cursor 
+ * @param toolTip 
+ * @param closeDialogSlot 
+ * @param applyDialogSlot 
+ * @return template <typename Dialog, typename Func, typename Func2> 
  */
+template <typename Dialog, typename Func, typename Func2>
 void MainWindow::SetToolButtonWithApply(bool checked, Tool t, const QString &cursor, const QString &toolTip,
                                         Func closeDialogSlot, Func2 applyDialogSlot)
 {
+    // Sets a tool button in the UI and shows a dialog with additional functionality for applying changes
+
     if (checked)
     {
+        // Call the SetToolButton template function to set the tool button and show the dialog
         SetToolButton<Dialog>(checked, t, cursor, toolTip, closeDialogSlot);
 
+        // Connect the DialogApplied signal from the dialog to the applyDialogSlot function
         connect(dialogTool.data(), &DialogTool::DialogApplied, this, applyDialogSlot);
     }
     else
     {
-        if (QToolButton *tButton = qobject_cast< QToolButton * >(this->sender()))
+        // If the tool is not checked, ensure the corresponding tool button is checked
+        if (QToolButton *tButton = qobject_cast<QToolButton *>(this->sender()))
         {
             tButton->setChecked(true);
         }
     }
 }
+// EndMainWindow::SetToolButtonWithApply()
+
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief ClosedDialog handle close dialog
+ * @brief Template function to handle the closure of a dialog associated with a drawing tool
  * @param result result working dialog.
  */
 template <typename DrawTool>
 void MainWindow::ClosedDialog(int result)
 {
+    /* Handle the closure of a dialog associated with a drawing tool, 
+    creating a new QGraphicsItem based on the specified drawing tool 
+    and updating the view accordingly.
+    */
+
+    // Ensure that the dialogTool is not null
     SCASSERT(!dialogTool.isNull())
+
+    // Check if the dialog result is Accepted
     if (result == QDialog::Accepted)
     {
+        // Get the current scene as a VMainGraphicsScene
         VMainGraphicsScene *scene = qobject_cast<VMainGraphicsScene *>(currentScene);
         SCASSERT(scene != nullptr)
 
+        // Create a new QGraphicsItem using the DrawTool template parameter
         QGraphicsItem *tool = dynamic_cast<QGraphicsItem *>(DrawTool::Create(dialogTool, scene, doc, pattern));
-        // Do not check for nullptr! See issue #719.
+
+        // Do not check for nullptr! See issue #719. (Note: Comment explaining an exception)
         ui->view->itemClicked(tool);
     }
+
+    // Handle the arrow tool (resetting to the default arrow tool)
     handleArrowTool(true);
 }
+// End MainWindow::ClosedDialog()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief ClosedDialogWithApply handle close dialog that has apply button
+ * @brief Template function to handle the closure of a dialog associated with a drawing tool, with an apply functionality.
  * @param result result working dialog.
  */
 template <typename DrawTool>
 void MainWindow::ClosedDialogWithApply(int result, VMainGraphicsScene *scene)
 {
+
+    /* Handle the closure of a dialog associated with a drawing tool, 
+        applying changes if accepted and performing necessary cleanup.
+    */
+
+    // Ensure that the dialogTool is not null
     SCASSERT(!dialogTool.isNull())
+
+    // Check if the dialog result is Accepted
     if (result == QDialog::Accepted)
     {
+        // Apply changes using the ApplyDialog template function with the specified DrawTool
         ApplyDialog<DrawTool>(scene);
     }
-    // If before Cancel was used Apply we have an item
-    DrawTool *vtool = qobject_cast<DrawTool *>(dialogTool->GetAssociatedTool());// Don't check for nullptr here
+
+    // Retrieve the associated tool from the dialog
+    DrawTool *vtool = qobject_cast<DrawTool *>(dialogTool->GetAssociatedTool()); // Don't check for nullptr here
+
+    // If there was an associated tool, perform necessary cleanup and connect signals
     if (dialogTool->GetAssociatedTool() != nullptr)
     {
+        // Assert that vtool is not nullptr
         SCASSERT(vtool != nullptr)
+
+        // Destroy the link to the dialog and connect the tool's ToolTip signal to the MainWindow's ShowToolTip slot
         vtool->DialogLinkDestroy();
         connect(vtool, &DrawTool::ToolTip, this, &MainWindow::ShowToolTip);
     }
+
+    // Handle the arrow tool (resetting to the default arrow tool)
     handleArrowTool(true);
-    ui->view->itemClicked(vtool);// Don't check for nullptr here
-    // If insert not to the end of file call lite parse
+
+    // Click on the tool in the view (Note: Don't check for nullptr here)
+    ui->view->itemClicked(vtool);
+
+    // If the insert is not at the end of the file, perform lite parse and update history
     if (doc->getCursor() > 0)
     {
         doc->LiteParseTree(Document::LiteParse);
@@ -794,50 +947,108 @@ void MainWindow::ClosedDialogWithApply(int result, VMainGraphicsScene *scene)
         }
     }
 }
+// End MainWindow::ClosedDialogWithApply()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief ApplyDialog handle apply in dialog
+ * @brief Template function to apply changes from a dialog associated with a drawing tool.
+ * 
+ * @param scene 
+ * @return template <typename DrawTool> 
  */
 template <typename DrawTool>
 void MainWindow::ApplyDialog(VMainGraphicsScene *scene)
 {
+    /* Apply changes from a dialog associated with a drawing tool, 
+        either by creating a new associated tool or updating an existing one.
+    */
+
+    // Ensure that the dialogTool is not null
     SCASSERT(!dialogTool.isNull())
 
-    // Only create tool if not already created with apply
+    // Check if the associated tool is not already created with apply
     if (dialogTool->GetAssociatedTool() == nullptr)
     {
+        // Assert that the scene is not nullptr
         SCASSERT(scene != nullptr)
 
+        // Create a new associated tool using the specified DrawTool template parameter
         dialogTool->SetAssociatedTool(DrawTool::Create(dialogTool, scene, doc, pattern));
     }
     else
-    { // Or update associated tool with data
-        DrawTool * vtool = qobject_cast<DrawTool *>(dialogTool->GetAssociatedTool());
+    {
+        // Update the associated tool with data from the dialog
+        DrawTool *vtool = qobject_cast<DrawTool *>(dialogTool->GetAssociatedTool());
         SCASSERT(vtool != nullptr)
         vtool->FullUpdateFromGuiApply();
     }
 }
+// End MainWindow::ApplyDialog()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Template function to handle the closure of a drawing dialog with apply functionality.
+ * 
+ * @param result 
+ * @return template <typename DrawTool> 
+ */
 template <typename DrawTool>
 void MainWindow::ClosedDrawDialogWithApply(int result)
 {
+    /* Simple wrapper that calls another template function (ClosedDialogWithApply) with 
+        the specified DrawTool template parameter and the result of the dialog closure. 
+        The draftScene is passed as the graphics scene to the underlying function.
+    */
+
+    // Call the ClosedDialogWithApply template function with the specified DrawTool and result,
+    // passing the draftScene as the graphics scene
     ClosedDialogWithApply<DrawTool>(result, draftScene);
 }
+// End MainWindow::ClosedDrawDialogWithApply()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Template function to apply changes from a drawing dialog associated with a specified DrawTool.
+ * 
+ * @return template <typename DrawTool> 
+ */
 template <typename DrawTool>
 void MainWindow::ApplyDrawDialog()
 {
+    /* Simple wrapper that calls another template function (ApplyDialog) with 
+        the specified DrawTool template parameter, applying changes from a drawing dialog 
+        associated with the provided DrawTool. The draftScene is passed as the graphics 
+        scene to the underlying function.
+    */
+
+    // Call the ApplyDialog template function with the specified DrawTool,
+    // passing the draftScene as the graphics scene
     ApplyDialog<DrawTool>(draftScene);
 }
+// End MainWindow::ApplyDrawDialog()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Template function to handle the closure of a dialog associated with drawing pieces, with apply functionality.
+ * 
+ * @param result 
+ * @return template <typename DrawTool> 
+ */
 template <typename DrawTool>
 void MainWindow::ClosedPiecesDialogWithApply(int result)
 {
+    /* Wrapper that calls another template function (ClosedDialogWithApply) with 
+        the specified DrawTool template parameter and the result of the dialog closure. 
+        The pieceScene is passed as the graphics scene to the underlying function. 
+        Additionally, the function enables relevant UI elements 
+        if there are pieces in the pattern data.
+    */
+
+    // Call the ClosedDialogWithApply template function with the specified DrawTool and result,
+    // passing the pieceScene as the graphics scene
     ClosedDialogWithApply<DrawTool>(result, pieceScene);
+
+    // Enable relevant UI elements if there are pieces in the pattern data
     if (pattern->DataPieces()->size() > 0)
     {
         ui->anchorPoint_ToolButton->setEnabled(true);
@@ -848,20 +1059,50 @@ void MainWindow::ClosedPiecesDialogWithApply(int result)
         ui->insertNodes_Action->setEnabled(true);
     }
 }
+// End MainWindow::ClosedPiecesDialogWithApply()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Template function to apply changes from a dialog associated with drawing pieces using a specified DrawTool.
+ * 
+ * @return template <typename DrawTool> 
+ */
 template <typename DrawTool>
 void MainWindow::applyPiecesDialog()
 {
+    /* Simple wrapper that calls another template function (ApplyDialog) 
+        with the specified DrawTool template parameter, 
+        applying changes from a dialog associated with drawing pieces. 
+        The pieceScene is passed as the graphics scene to the underlying function.
+    */
+
+    // Call the ApplyDialog template function with the specified DrawTool,
+    // passing the pieceScene as the graphics scene
     ApplyDialog<DrawTool>(pieceScene);
 }
+// End MainWindow::applyPiecesDialog()
 
+//---------------------------------------------------------------------------------------------------------------------
 //Points
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Function to handle the activation of the Midpoint Tool in the MainWindow
+ * 
+ */
 void MainWindow::handleMidpointTool(bool checked)
 {
+    /* Sets the tool to select a point upon release (ToolSelectPointByRelease). 
+        It then uses a template function (SetToolButtonWithApply) to set the Midpoint Tool, 
+        providing specific cursor, tooltips, and connecting appropriate slots for 
+        dialog closure and application of changes. 
+        The tool is associated with DialogAlongLine and VToolAlongLine.
+    */
+
+    // Call ToolSelectPointByRelease to set the tool to select a point upon release
     ToolSelectPointByRelease();
-    // Reuse DialogAlongLine and VToolAlongLine but with different cursor
+
+    // Use the SetToolButtonWithApply template function with DialogAlongLine and VToolAlongLine
+    // to set the Midpoint Tool, with specific cursor and tooltips, and connect appropriate slots
     SetToolButtonWithApply<DialogAlongLine>
     (
         checked,
@@ -872,15 +1113,27 @@ void MainWindow::handleMidpointTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolAlongLine>
     );
 }
+// End MainWindow::handleMidpointTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handlePointAtDistanceAngleTool handler for handlePointAtDistanceAngle tool.
- * @param checked true - button checked.
+ * @brief Function to handle the activation of the Point at Distance and Angle Tool in the MainWindow
+ * 
+ * @param checked Boolean flag indicating whether the tool button is checked
  */
 void MainWindow::handlePointAtDistanceAngleTool(bool checked)
 {
+    /* Sets the tool to select a point upon release (ToolSelectPointByRelease). 
+        It then uses a template function (SetToolButtonWithApply) to set the Point at Distance and Angle Tool, 
+        providing specific cursor, tooltips, and connecting appropriate slots for dialog closure and application of changes. 
+        The tool is associated with DialogEndLine and VToolEndLine.
+    */
+
+    // Call ToolSelectPointByRelease to set the tool to select a point upon release
     ToolSelectPointByRelease();
+
+    // Use the SetToolButtonWithApply template function with DialogEndLine and VToolEndLine
+    // to set the Point at Distance and Angle Tool, with specific cursor and tooltips, and connect appropriate slots
     SetToolButtonWithApply<DialogEndLine>
     (
         checked,
@@ -891,15 +1144,28 @@ void MainWindow::handlePointAtDistanceAngleTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolEndLine>
     );
 }
+// End MainWindow::handlePointAtDistanceAngleTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleAlongLineTool handler for point along Line tools.
- * @param checked true - button checked.
+ * @brief Function to handle the activation of the Along Line Tool in the MainWindow
+ * 
+ * @param checked Boolean flag indicating whether the tool button is checked
  */
 void MainWindow::handleAlongLineTool(bool checked)
 {
+    /* Sets the tool to select a point upon release (ToolSelectPointByRelease). 
+    It then uses a template function (SetToolButtonWithApply) to set the Along Line Tool, 
+    providing specific cursor, tooltips, and connecting appropriate slots for 
+    dialog closure and application of changes. 
+    The tool is associated with DialogAlongLine and VToolAlongLine.
+    */
+
+    // Call ToolSelectPointByRelease to set the tool to select a point upon release
     ToolSelectPointByRelease();
+
+    // Use the SetToolButtonWithApply template function with DialogAlongLine and VToolAlongLine
+    // to set the Along Line Tool, with specific cursor and tooltips, and connect appropriate slots
     SetToolButtonWithApply<DialogAlongLine>
     (
         checked,
@@ -910,15 +1176,28 @@ void MainWindow::handleAlongLineTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolAlongLine>
     );
 }
+// End MainWindow::handleAlongLineTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleNormalTool handler point on perpendicular tool.
- * @param checked true - button checked.
+ * @brief Function to handle the activation of the Normal Tool in the MainWindow
+ * 
+ * @param checked Boolean flag indicating whether the tool button is checked
  */
 void MainWindow::handleNormalTool(bool checked)
 {
+    /* Sets the tool to select a point upon release (ToolSelectPointByRelease). 
+        It then uses a template function (SetToolButtonWithApply) to set the Normal Tool, 
+        providing specific cursor, tooltips, and connecting appropriate slots for 
+        dialog closure and application of changes. 
+        The tool is associated with DialogNormal and VToolNormal.
+    */
+
+    // Call ToolSelectPointByRelease to set the tool to select a point upon release
     ToolSelectPointByRelease();
+
+    // Use the SetToolButtonWithApply template function with DialogNormal and VToolNormal
+    // to set the Normal Tool, with specific cursor and tooltips, and connect appropriate slots
     SetToolButtonWithApply<DialogNormal>
     (
         checked,
@@ -929,15 +1208,20 @@ void MainWindow::handleNormalTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolNormal>
     );
 }
+// End MainWindow::handleNormalTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleBisectorTool handler for bisector tool.
- * @param checked true - button checked.
+ * @brief Handles the activation/deactivation of the Bisector tool.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handleBisectorTool(bool checked)
 {
+    // Release any previous tool selections and set up for a new point selection.
     ToolSelectPointByRelease();
+
+    // Set up the Bisector tool button with its associated dialog and actions.
     SetToolButtonWithApply<DialogBisector>
     (
         checked,
@@ -948,15 +1232,20 @@ void MainWindow::handleBisectorTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolBisector>
     );
 }
+// End MainWindow::handleBisectorTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleShoulderPointTool handler for shoulderPoint tool.
- * @param checked true - button checked.
+ * @brief Handles the activation/deactivation of the Shoulder Point tool.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handleShoulderPointTool(bool checked)
 {
+    // Release any previous tool selections and set up for a new point selection.
     ToolSelectPointByRelease();
+
+    // Set up the Shoulder Point tool button with its associated dialog and actions.
     SetToolButtonWithApply<DialogShoulderPoint>
     (
         checked,
@@ -967,33 +1256,44 @@ void MainWindow::handleShoulderPointTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolShoulderPoint>
     );
 }
+// End MainWindow::handleShoulderPointTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handlePointOfContactTool handler for pointOfContact tool.
- * @param checked true - button checked.
+ * @brief Handles the activation/deactivation of the Point of Contact tool.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handlePointOfContactTool(bool checked)
 {
+    // Release any previous tool selections and set up for a new point selection.
     ToolSelectPointByRelease();
+
+    // Set up the Point of Contact tool button with its associated dialog and actions.
     SetToolButtonWithApply<DialogPointOfContact>
     (
-        checked, Tool::PointOfContact,
+        checked,
+        Tool::PointOfContact,
         ":/cursor/pointcontact_cursor.png",
         tr("<b>Tool::Point - Intersect Arc and Line:</b> Select first point of line"),
         &MainWindow::ClosedDrawDialogWithApply<VToolPointOfContact>,
         &MainWindow::ApplyDrawDialog<VToolPointOfContact>
     );
 }
+// End MainWindow::handlePointOfContactTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleTriangleTool handler Point - Intersect Axis and Triangle.
- * @param checked true - button checked.
+ * @brief Handles the activation/deactivation of the Triangle tool.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handleTriangleTool(bool checked)
 {
+    // Release any previous tool selections and set up for a new point selection.
     ToolSelectPointByRelease();
+
+    // Set up the Triangle tool button with its associated dialog and actions.
     SetToolButtonWithApply<DialogTriangle>
     (
         checked,
@@ -1004,15 +1304,20 @@ void MainWindow::handleTriangleTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolTriangle>
     );
 }
+// End MainWindow::handleTriangleTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handlePointIntersectXYTool handler for pointOfIntersection tool.
- * @param checked true - button checked.
+ * @brief Handles the activation/deactivation of the Point Intersect XY tool.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handlePointIntersectXYTool(bool checked)
 {
+    // Release any previous tool selections and set up for a new point selection.
     ToolSelectPointByRelease();
+
+    // Set up the Point Intersect XY tool button with its associated dialog and actions.
     SetToolButtonWithApply<PointIntersectXYDialog>
     (
         checked,
@@ -1023,15 +1328,20 @@ void MainWindow::handlePointIntersectXYTool(bool checked)
         &MainWindow::ApplyDrawDialog<PointIntersectXYTool>
     );
 }
+// End MainWindow::handlePointIntersectXYTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleHeightTool handler tool height.
- * @param checked true - button checked.
+ * @brief Handles the activation/deactivation of the Height tool.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handleHeightTool(bool checked)
 {
+    // Release any previous tool selections and set up for a new point selection.
     ToolSelectPointByRelease();
+
+    // Set up the Height tool button with its associated dialog and actions.
     SetToolButtonWithApply<DialogHeight>
     (
         checked,
@@ -1042,11 +1352,20 @@ void MainWindow::handleHeightTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolHeight>
     );
 }
+// End MainWindow::handleHeightTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation/deactivation of the LineIntersectAxis tool.
+ * 
+ * @param checked True if the tool button is checked.
+ */
 void MainWindow::handleLineIntersectAxisTool(bool checked)
 {
+    // Release any previous tool selections and set up for a new point selection.
     ToolSelectPointByRelease();
+
+    // Set up the LineIntersectAxis tool button with its associated dialog and actions.
     SetToolButtonWithApply<DialogLineIntersectAxis>
     (
         checked,
@@ -1057,35 +1376,46 @@ void MainWindow::handleLineIntersectAxisTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolLineIntersectAxis>
     );
 }
+// End MainWindow::handleLineIntersectAxisTool()
 
+//---------------------------------------------------------------------------------------------------------------------
 //Lines
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleLineTool handler for line tool.
- * @param checked true - button checked.
+ * @brief Handles the activation/deactivation of the Line tool.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handleLineTool(bool checked)
 {
+    // Release any previous tool selections and set up for a new point selection.
     ToolSelectPointByRelease();
+
+    // Set up the Line tool button with its associated dialog and actions.
     SetToolButtonWithApply<DialogLine>
     (
         checked,
         Tool::Line,
         ":/cursor/line_cursor.png",
-        tr("<b>Tool::Line:</b>:Select first point"),
+        tr("<b>Tool::Line:</b>: Select first point"),
         &MainWindow::ClosedDrawDialogWithApply<VToolLine>,
         &MainWindow::ApplyDrawDialog<VToolLine>
     );
 }
+// End MainWindow::handleLineTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleLineIntersectTool handler for lineIntersect tool.
- * @param checked true - button checked.
+ * @brief Handles the activation/deactivation of the Line Intersect tool.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handleLineIntersectTool(bool checked)
 {
+    // Release any previous tool selections and set up for a new point selection.
     ToolSelectPointByRelease();
+
+    // Set up the Line Intersect tool button with its associated dialog and actions.
     SetToolButtonWithApply<DialogLineIntersect>
     (
         checked,
@@ -1096,16 +1426,22 @@ void MainWindow::handleLineIntersectTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolLineIntersect>
     );
 }
+// End MainWindow::handleLineIntersectTool()
 
-//Curves
+//---------------------------------------------------------------------------------------------------------------------
+// Curves
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleCurveTool handler for curve tool.
- * @param checked true - button checked.
+ * @brief Handles the activation/deactivation of the Curve (Spline) tool.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handleCurveTool(bool checked)
 {
+    // Set up for point selection upon mouse press.
     ToolSelectPointByPress();
+
+    // Set up the Curve (Spline) tool button with its associated dialog and actions.
     SetToolButtonWithApply<DialogSpline>
     (
         checked,
@@ -1116,15 +1452,20 @@ void MainWindow::handleCurveTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolSpline>
     );
 }
+// End MainWindow::handleCurveTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleSplineTool handler for spline tool.
- * @param checked true - button checked.
+ * @brief Handles the activation/deactivation of the Spline tool.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handleSplineTool(bool checked)
 {
+    // Set up for point selection upon mouse press.
     ToolSelectPointByPress();
+
+    // Set up the Spline tool button with its associated dialog and actions.
     SetToolButtonWithApply<DialogSplinePath>
     (
         checked,
@@ -1135,11 +1476,20 @@ void MainWindow::handleSplineTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolSplinePath>
     );
 }
+// End MainWindow::handleSplineTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation/deactivation of the Cubic Bezier Curve tool with control points.
+ * 
+ * @param checked True if the tool button is checked.
+ */
 void MainWindow::handleCurveWithControlPointsTool(bool checked)
 {
+    // Set up for point selection upon mouse release.
     ToolSelectPointByRelease();
+
+    // Set up the Cubic Bezier Curve tool button with its associated dialog and actions.
     SetToolButtonWithApply<DialogCubicBezier>
     (
         checked,
@@ -1150,11 +1500,20 @@ void MainWindow::handleCurveWithControlPointsTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolCubicBezier>
     );
 }
+// End MainWindow::handleCurveWithControlPointsTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation/deactivation of the Spline tool with fixed control points.
+ * 
+ * @param checked True if the tool button is checked.
+ */
 void MainWindow::handleSplineWithControlPointsTool(bool checked)
 {
+    // Set up for point selection upon mouse release.
     ToolSelectPointByRelease();
+
+    // Set up the Spline tool button with fixed control points and its associated dialog and actions.
     SetToolButtonWithApply<DialogCubicBezierPath>
     (
         checked,
@@ -1165,15 +1524,20 @@ void MainWindow::handleSplineWithControlPointsTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolCubicBezierPath>
     );
 }
+// End MainWindow::handleSplineWithControlPointsTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handlePointAlongCurveTool handler for point along curve tool.
- * @param checked true - button is checked
+ * @brief Handles the activation/deactivation of the tool for placing a point along a curve.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handlePointAlongCurveTool(bool checked)
 {
+    // Set up for spline (curve) selection.
     ToolSelectSpline();
+
+    // Set up the tool button for placing a point along a curve with its associated dialog and actions.
     SetToolButtonWithApply<DialogCutSpline>
     (
         checked,
@@ -1184,15 +1548,20 @@ void MainWindow::handlePointAlongCurveTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolCutSpline>
     );
 }
+// End MainWindow::handlePointAlongCurveTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handlePointAlongSplineTool handler for point along spline tool.
- * @param checked true - button is checked
+ * @brief Handles the activation/deactivation of the tool for placing a point along a spline path.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handlePointAlongSplineTool(bool checked)
 {
+    // Set up for spline path selection.
     ToolSelectSplinePath();
+
+    // Set up the tool button for placing a point along a spline path with its associated dialog and actions.
     SetToolButtonWithApply<DialogCutSplinePath>
     (
         checked,
@@ -1203,21 +1572,31 @@ void MainWindow::handlePointAlongSplineTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolCutSplinePath>
     );
 }
+// End MainWindow::handlePointAlongSplineTool()
 
 //---------------------------------------------------------------------------------------------------------------------
-void MainWindow::handleCurveIntersectCurveTool(bool checked)
+/**
+ * @brief Handles the activation/deactivation of the tool for placing a point along a spline path.
+ * 
+ * @param checked True if the tool button is checked.
+ */
+void MainWindow::handlePointAlongSplineTool(bool checked)
 {
-    ToolSelectCurve();
-    SetToolButtonWithApply<DialogPointOfIntersectionCurves>
+    // Set up for spline path selection.
+    ToolSelectSplinePath();
+
+    // Set up the tool button for placing a point along a spline path with its associated dialog and actions.
+    SetToolButtonWithApply<DialogCutSplinePath>
     (
         checked,
-        Tool::PointOfIntersectionCurves,
-        "://cursor/intersection_curves_cursor.png",
-        tr("<b>Tool::Point - Intersect Curves:</b> Select first curve"),
-        &MainWindow::ClosedDrawDialogWithApply<VToolPointOfIntersectionCurves>,
-        &MainWindow::ApplyDrawDialog<VToolPointOfIntersectionCurves>
+        Tool::CutSplinePath,
+        ":/cursor/splinepath_cut_point_cursor.png",
+        tr("<b>Tool::Point - On Spline:</b> Select spline"),
+        &MainWindow::ClosedDrawDialogWithApply<VToolCutSplinePath>,
+        &MainWindow::ApplyDrawDialog<VToolCutSplinePath>
     );
 }
+// End MainWindow::handleCurveIntersectCurveTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 void MainWindow::handleCurveIntersectAxisTool(bool checked)

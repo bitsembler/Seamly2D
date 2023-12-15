@@ -63,9 +63,10 @@
 #include <QTimer>
 
 //---------------------------------------------------------------------------------------------------------------------
-
+// Entry point of the program
 int main(int argc, char *argv[])
 {
+    // Initialize Qt resources for various components
     Q_INIT_RESOURCE(cursor);
     Q_INIT_RESOURCE(icon);
     Q_INIT_RESOURCE(schema);
@@ -75,41 +76,55 @@ int main(int argc, char *argv[])
     Q_INIT_RESOURCE(toolicon);
     Q_INIT_RESOURCE(sounds);
 
+    // Ensure the required version of Qt is present
     QT_REQUIRE_VERSION(argc, argv, "5.15.2");
 
-    // Need to internally move a node inside a piece main path
+    // Register meta-type stream operators for VPieceNode
+    // This allows serialization and deserialization of VPieceNode objects
     qRegisterMetaTypeStreamOperators<VPieceNode>("VPieceNode");
 
     //------------------------------------------------------------------------
-    // On macOS, correct WebView / QtQuick compositing and stacking requires running
-    // Qt in layer-backed mode, which again requires rendering on the Gui thread.
+    // On macOS, configure WebView / QtQuick compositing and stacking
+    // Requires running Qt in layer-backed mode for correct rendering
     qWarning("Seamly2D: Setting QT_MAC_WANTS_LAYER=1 and QSG_RENDER_LOOP=basic");
     qputenv("QT_MAC_WANTS_LAYER", "1");
     //------------------------------------------------------------------------
 
-#ifndef Q_OS_MAC // supports natively
+    // Enable high DPI scaling, excluding macOS which supports it natively
+#ifndef Q_OS_MAC
     initHighDpiScaling(argc, argv);
 #endif //Q_OS_MAC
 
+    // Create application instance
     VApplication app(argc, argv);
 
+    // Initialize application options
     app.InitOptions();
 
+    // Create main window
     MainWindow w;
+
+    // Set window icon (excluding macOS)
 #if !defined(Q_OS_MAC)
     app.setWindowIcon(QIcon(":/icon/64x64/icon64x64.png"));
 #endif // !defined(Q_OS_MAC)
+
+    // Set main window for the application
     app.setMainWindow(&w);
 
+    // Initialize delay for correct fitbest zoom
     int msec = 0;
-    //Before we load pattern show window.
+
+    // Before loading the pattern, show the main window if in GUI mode
     if (VApplication::IsGUIMode())
     {
         w.show();
         msec = 15; // set delay for correct the first fitbest zoom
     }
 
+    // Use a single shot timer to process command after a delay
     QTimer::singleShot(msec, &w, SLOT(ProcessCMD()));
 
+    // Start the application event loop
     return app.exec();
 }
