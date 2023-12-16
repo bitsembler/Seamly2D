@@ -2147,27 +2147,45 @@ void MainWindow::handleAnchorPointTool(bool checked)
         &MainWindow::ClosedDialogAnchorPoint // Function for handling closed dialog
     );
 }
-
 // End MainWindow::handleAnchorPointTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles actions after closing the Anchor Point tool dialog.
+ * 
+ * @param result The result of the dialog's execution.
+ */
 void MainWindow::ClosedDialogAnchorPoint(int result)
 {
     SCASSERT(dialogTool != nullptr);
+
+    // If the dialog was accepted, create an anchor point using the Anchor Point Tool.
     if (result == QDialog::Accepted)
     {
         AnchorPointTool::Create(dialogTool, doc, pattern);
     }
+
+    // Switch back to the arrow tool.
     handleArrowTool(true);
+
+    // Lite-parse the document's tree.
     doc->LiteParseTree(Document::LiteParse);
 }
+// End MainWindow::ClosedDialogAnchorPoint()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the Internal Path Tool.
+ * 
+ * @param checked Indicates whether the tool is checked/active.
+ */
 void MainWindow::handleInternalPathTool(bool checked)
 {
+    // Selects all draft objects
     selectAllDraftObjectsTool();
-    SetToolButton<DialogInternalPath>
-    (
+
+    // Sets the tool button for the Internal Path Tool
+    SetToolButton<DialogInternalPath>(
         checked,
         Tool::InternalPath,
         ":/cursor/path_cursor.png",
@@ -2175,28 +2193,52 @@ void MainWindow::handleInternalPathTool(bool checked)
         &MainWindow::ClosedDialogInternalPath
     );
 }
+// End MainWindow::handleInternalPathTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles actions after closing an Internal Path Tool dialog.
+ * 
+ * @param result The result of the dialog's operation.
+ */
 void MainWindow::ClosedDialogInternalPath(int result)
 {
+    // Ensure that dialogTool is not null
     SCASSERT(dialogTool != nullptr);
+
+    // If the dialog result is accepted, create an internal path using the dialogTool
     if (result == QDialog::Accepted)
     {
         VToolInternalPath::Create(dialogTool, pieceScene, doc, pattern);
     }
+
+    // Switch back to the Arrow Tool
     handleArrowTool(true);
+
+    // Update the LiteParseTree and document state
     doc->LiteParseTree(Document::LiteParse);
 }
+// MainWindow::ClosedDialogInternalPath()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the Insert Nodes Tool button state change.
+ * 
+ * @param checked The new checked state of the button.
+ */
 void MainWindow::handleInsertNodesTool(bool checked)
 {
+    // Switch to the ToolSelectOperationObjects mode
     ToolSelectOperationObjects();
+
+    // Create a tooltip with keyboard shortcuts
     const QString tooltip = tr("<b>Tool::Piece - Insert Nodes:</b> Select one or more objects -"
                                " Hold <b>%1</b> for multiple selection, "
                                "Press <b>ENTER</b> to confirm selection")
                                .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
                                                                 strCtrl.toUtf8().constData()));
+
+    // Set the Insert Nodes Tool button and associated actions
     SetToolButton<InsertNodesDialog>
     (
         checked,
@@ -2206,31 +2248,51 @@ void MainWindow::handleInsertNodesTool(bool checked)
         &MainWindow::ClosedInsertNodesDialog
     );
 }
-
-//---------------------------------------------------------------------------------------------------------------------
-void MainWindow::ClosedInsertNodesDialog(int result)
-{
-    SCASSERT(dialogTool != nullptr);
-    if (result == QDialog::Accepted)
-    {
-        QSharedPointer<InsertNodesDialog> tool = dialogTool.objectCast<InsertNodesDialog>();
-        SCASSERT(tool != nullptr)
-        PatternPieceTool::insertNodes(tool->getNodes(), tool->getPieceId(), pieceScene, pattern, doc);
-    }
-    handleArrowTool(true);
-    doc->LiteParseTree(Document::LiteParse);
-}
+// End MainWindow::handleInsertNodesTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleUnionTool handler for Union tool.
- * @param checked true - button checked.
+ * @brief Actions to perform after closing the Insert Nodes Tool dialog.
+ * 
+ * @param result The result of the dialog's operation.
+ */
+void MainWindow::ClosedInsertNodesDialog(int result)
+{
+    // Ensure that dialogTool is not null
+    SCASSERT(dialogTool != nullptr);
+
+    // Check if the dialog result is Accepted
+    if (result == QDialog::Accepted)
+    {
+        // Attempt to cast dialogTool to InsertNodesDialog
+        QSharedPointer<InsertNodesDialog> tool = dialogTool.objectCast<InsertNodesDialog>();
+        SCASSERT(tool != nullptr); // Ensure that the cast is successful
+
+        // Use the Insert Nodes Tool to insert nodes into the pattern piece
+        PatternPieceTool::insertNodes(tool->getNodes(), tool->getPieceId(), pieceScene, pattern, doc);
+    }
+
+    // Switch to the Arrow Tool
+    handleArrowTool(true);
+
+    // Lite parse the document after dialog closure
+    doc->LiteParseTree(Document::LiteParse);
+}
+// End MainWindow::ClosedInsertNodesDialog()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Slot for handling the Union Tool button's state change.
+ * 
+ * @param checked The new checked state of the Union Tool button.
  */
 void MainWindow::handleUnionTool(bool checked)
 {
+    // Activate the Select Piece Tool before enabling the Union Tool
     selectPieceTool();
-    SetToolButton<UnionDialog>
-    (
+
+    // Set the Union Tool button and dialog
+    SetToolButton<UnionDialog>(
         checked,
         Tool::Union,
         ":/cursor/union_cursor.png",
@@ -2238,17 +2300,23 @@ void MainWindow::handleUnionTool(bool checked)
         &MainWindow::closeUnionDialog
     );
 }
+// End MainWindow::handleUnionTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief closeUnionDialog actions after closing Union tool dialog.
- * @param result result of dialog working.
+ * @brief Actions to perform after closing the Union Tool dialog.
+ * 
+ * @param result The result of the dialog's operation.
  */
 void MainWindow::closeUnionDialog(int result)
 {
+    // Perform actions specific to closing the Union Tool dialog
     ClosedDialog<UnionTool>(result);
+
+    // Lite parse the document after dialog closure
     doc->LiteParseTree(Document::LiteParse);
 }
+// End MainWindow::closeUnionDialog()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
@@ -2258,7 +2326,7 @@ void MainWindow::closeUnionDialog(int result)
  */
 void MainWindow::handleNewLayout(bool checked)
 {
-      toolLayoutSettings(ui->layoutSettings_ToolButton, checked);
+    toolLayoutSettings(ui->layoutSettings_ToolButton, checked);
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -2273,7 +2341,7 @@ void MainWindow::ShowToolTip(const QString &toolTip)
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief triggers the update of the groups
+ * @brief triggers the update, show, hide, lock, unlock, add, delete, and edit of the groups
  */
 void MainWindow::updateGroups()
 {
@@ -2318,30 +2386,33 @@ void MainWindow::addSelectedItemsToGroup()
 {
     qCDebug(vMainWindow, "Add Selected items to Group.");
 }
+//  End update, show, hide, lock, unlock, add, delete, and edit groups, and add selected items to group message
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief showEvent handle after show window.
- * @param event show event.
+ * @brief Event handler for the main window's show event.
+ * 
+ * @param event The show event object.
  */
 void MainWindow::showEvent(QShowEvent *event)
 {
     QMainWindow::showEvent(event);
-    if (event->spontaneous())
+
+    // Check if the event is spontaneous or if the window is already initialized
+    if (event->spontaneous() || isInitialized)
     {
         return;
     }
 
-    if (isInitialized)
-    {
-        return;
-    }
-    // do your init stuff here
+    // Perform initialization tasks
+    // (Place your initialization code here)
 
     MinimumScrollBar();
 
-    isInitialized = true;//first show windows are held
+    // Mark the window as initialized to prevent re-initialization
+    isInitialized = true; // First show event is handled
 }
+// End MainWindow::showEvent()
 
 //---------------------------------------------------------------------------------------------------------------------
 void MainWindow::changeEvent(QEvent *event)
@@ -2374,27 +2445,47 @@ void MainWindow::changeEvent(QEvent *event)
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief closeEvent handle after close window.
- * @param event close event.
+ * @brief Event handler for the close event of the main window.
+ * 
+ * @param event The close event object.
  */
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     qCDebug(vMainWindow, "Closing main window");
+
+    // Check if the user wants to save any unsaved changes before closing
     if (MaybeSave())
     {
+        // Perform cleanup and close the file
         FileClosedCorrect();
 
+        // Accept the close event and close all windows
         event->accept();
         QApplication::closeAllWindows();
     }
     else
     {
         qCDebug(vMainWindow, "Closing canceled.");
+
+        // Ignore the close event to prevent the window from closing
         event->ignore();
     }
 }
+// End MainWindow::closeEvent()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Custom event handler for handling undo events.
+ * 
+ * @param event A pointer to the custom event.
+ * 
+ * @details This function is a custom event handler for handling undo events.
+ * When a custom event of type UNDO_EVENT is received, it calls the undo function
+ * of the application's undo stack (qApp->getUndoStack()) to perform an undo operation.
+ * 
+ * @note UNDO_EVENT should be a user-defined event type specific to the application.
+ * Ensure that this function is registered to handle UNDO_EVENT custom events.
+ */
 void MainWindow::customEvent(QEvent *event)
 {
     if (event->type() == UNDO_EVENT)
@@ -2402,25 +2493,55 @@ void MainWindow::customEvent(QEvent *event)
         qApp->getUndoStack()->undo();
     }
 }
+// End MainWindow::customEvent()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Clears the layout and associated data.
+ * 
+ * @details This function is responsible for cleaning up the layout, including removing
+ * all scenes, shadows, papers, and related UI elements. It also resets the layout mode actions.
+ * 
+ * @note Use this function to clear and reset the layout, typically when starting a new project
+ * or when switching between different layout modes.
+ */
 void MainWindow::CleanLayout()
 {
-    qDeleteAll (scenes);
+    // Delete and clear the scenes
+    qDeleteAll(scenes);
     scenes.clear();
+
+    // Clear the shadows and papers
     shadows.clear();
     papers.clear();
+
+    // Clear the list widget
     ui->listWidget->clear();
+
+    // Clear the groups widget
     groupsWidget->clear();
+
+    // Reset the layout mode actions
     SetLayoutModeActions();
 }
+// End MainWindow::CleanLayout()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Prepare the list of scenes for display.
+ * 
+ * @details This function prepares the list of scenes for display in the user interface.
+ * It iterates through the scenes and creates a QListWidgetItem for each scene, displaying its preview and numbering.
+ * These items are then added to the list widget (ui->listWidget) in the main window.
+ * If there are scenes available, it sets the currently selected row to the first scene and enables layout mode actions.
+ * 
+ * @note The scenes should be available and properly initialized before calling this function.
+ */
 void MainWindow::PrepareSceneList()
 {
-    for (int i=1; i<=scenes.size(); ++i)
+    for (int i = 1; i <= scenes.size(); ++i)
     {
-        QListWidgetItem *item = new QListWidgetItem(ScenePreview(i-1), QString::number(i));
+        QListWidgetItem *item = new QListWidgetItem(ScenePreview(i - 1), QString::number(i));
         ui->listWidget->addItem(item);
     }
 
@@ -2430,8 +2551,23 @@ void MainWindow::PrepareSceneList()
         SetLayoutModeActions();
     }
 }
+// MainWindow::PrepareSceneList()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Export data to a CSV file.
+ * 
+ * @param fileName The name of the CSV file to export to.
+ * @param dialog A dialog containing export options.
+ * 
+ * @details This function exports data to a CSV (Comma-Separated Values) file with the given filename and using the provided export options.
+ * It creates a QxtCsvModel to organize the data in tabular format, with columns for "Name," "The calculated value," and "Formula."
+ * If the dialog specifies including a header row, column headers are set accordingly.
+ * It retrieves variable increments from the pattern's variables data and sorts them by their index.
+ * Then, it iterates through the increments, adding each to the CSV model as a new row with its name, calculated value, and formula.
+ * The formula is converted to user-friendly format using the TrVars module, and any errors during the conversion are caught and handled.
+ * Finally, the data is saved to the specified CSV file with the chosen separator and text encoding.
+ */
 void MainWindow::exportToCSVData(const QString &fileName, const DialogExportToCSV &dialog)
 {
     QxtCsvModel csv;
@@ -2447,10 +2583,11 @@ void MainWindow::exportToCSVData(const QString &fileName, const DialogExportToCS
         csv.setHeaderText(2, tr("Formula"));
     }
 
-    const QMap<QString, QSharedPointer<VIncrement> > increments = pattern->variablesData();
-    QMap<QString, QSharedPointer<VIncrement> >::const_iterator i;
+    const QMap<QString, QSharedPointer<VIncrement>> increments = pattern->variablesData();
+    QMap<QString, QSharedPointer<VIncrement>>::const_iterator i;
     QMap<quint32, QString> map;
-    //Sorting QHash by id
+
+    // Sorting QHash by id
     for (i = increments.constBegin(); i != increments.constEnd(); ++i)
     {
         QSharedPointer<VIncrement> incr = i.value();
@@ -2461,14 +2598,19 @@ void MainWindow::exportToCSVData(const QString &fileName, const DialogExportToCS
     QMapIterator<quint32, QString> iMap(map);
     while (iMap.hasNext())
     {
+        // create the next row
         iMap.next();
         QSharedPointer<VIncrement> incr = increments.value(iMap.value());
+
+        // next row is now the current row
         currentRow++;
 
+        // write out the name & value to the current row
         csv.insertRow(currentRow);
         csv.setText(currentRow, 0, incr->GetName()); // name
         csv.setText(currentRow, 1, qApp->LocaleToString(*incr->GetValue())); // calculated value
 
+        // format the formula
         QString formula;
         try
         {
@@ -2480,87 +2622,139 @@ void MainWindow::exportToCSVData(const QString &fileName, const DialogExportToCS
             formula = incr->GetFormula();
         }
 
+        // write out the formula to the current row
         csv.setText(currentRow, 2, formula); // formula
     }
 
     csv.toCSV(fileName, dialog.WithHeader(), dialog.Separator(), QTextCodec::codecForMib(dialog.SelectedMib()));
 }
+// End MainWindow::exportToCSVData()
 
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles exporting data to a CSV file.
+ * 
+ * @details This function is responsible for exporting data to a CSV (Comma-Separated Values) file. 
+ * It determines the default filename based on the current document or sets it to "untitled" if no document is open, 
+ * and then calls the exportToCSV function to perform the actual export operation.
+ */
 void MainWindow::handleExportToCSV()
 {
     QString file = tr("untitled");
-    if(!qApp->getFilePath().isEmpty())
+
+    // Check if there is a currently open document
+    if (!qApp->getFilePath().isEmpty())
     {
         QString filePath = qApp->getFilePath();
+
+        // Extract the base name of the file (without extension) as the default filename
         file = QFileInfo(filePath).baseName();
     }
+
+    // Call the exportToCSV function with the default filename
     exportToCSV(file);
 }
+// End MainWindow::handleExportToCSV()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Loads an individual measurements file.
+ * 
+ * @details This function allows the user to load an individual measurements file. 
+ * It opens a file dialog to select the file, and if the file is successfully loaded, 
+ * it updates the UI and document accordingly. 
+ * It also handles creating the directory if it doesn't exist.
+ */
 void MainWindow::LoadIndividual()
 {
+    // Define the filter for file selection dialog
     const QString filter = tr("Individual measurements") + QLatin1String(" (*.") + smisExt +
-                                                           QLatin1String(" *.") + vitExt  + QLatin1String(")");
+                           QLatin1String(" *.") + vitExt  + QLatin1String(")");
 
-    //Use standard path to individual measurements
+    // Use standard path to individual measurements
     const QString dir = qApp->Seamly2DSettings()->getIndividualSizePath();
 
     bool usedNotExistedDir = false;
 
+    // Create a QDir object for the directory path
     QDir directory(dir);
 
     if (!directory.exists())
     {
+        // Create the directory if it doesn't exist
         usedNotExistedDir = directory.mkpath(".");
     }
 
+    // Open a file dialog to select the individual measurements file
     const QString filename = fileDialog(this, tr("Open file"), dir, filter, nullptr, QFileDialog::DontUseNativeDialog,
                                         QFileDialog::ExistingFile, QFileDialog::AcceptOpen);
 
-
     if (!filename.isEmpty())
     {
+        // Attempt to load the selected individual measurements file
         if (loadMeasurements(filename))
         {
             if (!doc->MPath().isEmpty())
             {
+                // Remove the previous measurements file from the watcher
                 watcher->removePath(AbsoluteMPath(qApp->getFilePath(), doc->MPath()));
             }
 
+            // Log the successful loading of the individual file
             qCInfo(vMainWindow, "Individual file %s was loaded.", qUtf8Printable(filename));
 
+            // Enable the "Unload Measurements File" action
             ui->unloadMeasurements_Action->setEnabled(true);
 
+            // Set the measurements file path in the document
             doc->SetMPath(RelativeMPath(qApp->getFilePath(), filename));
+
+            // Add the new measurements file to the watcher
             watcher->addPath(filename);
+
+            // Mark pattern changes as unsaved
             patternChangesWereSaved(false);
 
+            // Enable the "Edit Current Measurement File" action
             ui->editCurrent_Action->setEnabled(true);
+
+            // Set the status label text to indicate measurements loaded
             helpLabel->setText(tr("Measurements loaded"));
+
+            // Lite parse the document
             doc->LiteParseTree(Document::LiteParse);
 
+            // Update the main window title
             UpdateWindowTitle();
         }
     }
 
+    // Remove the created directory if it didn't exist before
     if (usedNotExistedDir)
     {
         QDir directory(dir);
         directory.rmpath(".");
     }
 }
+// End MainWindow::LoadIndividual()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Loads a multisize measurements file.
+ * 
+ * @details This function allows the user to load a multisize measurements file. It opens a file dialog to select the file, and if the file is successfully loaded, it updates the UI and document accordingly. It also handles setting gradation heights and sizes if previously selected.
+ */
 void MainWindow::LoadMultisize()
 {
+    // Define the filter for file selection dialog
     const QString filter = tr("Multisize measurements")  + QLatin1String(" (*.") + smmsExt +
-                                                           QLatin1String(" *.") + vstExt  + QLatin1String(")");
+                           QLatin1String(" *.") + vstExt  + QLatin1String(")");
 
-    //Use standard path to multisize measurements
+    // Use standard path to multisize measurements
     QString dir = qApp->Seamly2DSettings()->getMultisizePath();
     dir = VCommonSettings::prepareMultisizeTables(dir);
 
+    // Open a file dialog to select the multisize measurements file
     const QString filename = fileDialog(this, tr("Open file"), dir, filter, nullptr, QFileDialog::DontUseNativeDialog,
                                         QFileDialog::ExistingFile, QFileDialog::AcceptOpen);
 
@@ -2577,35 +2771,51 @@ void MainWindow::LoadMultisize()
             sText = gradationSizes->currentText();
         }
 
-        if(loadMeasurements(filename))
+        // Attempt to load the selected multisize measurements file
+        if (loadMeasurements(filename))
         {
             if (!doc->MPath().isEmpty())
             {
+                // Remove the previous measurements file from the watcher
                 watcher->removePath(AbsoluteMPath(qApp->getFilePath(), doc->MPath()));
             }
 
+            // Log the successful loading of the multisize file
             qCInfo(vMainWindow, "Multisize file %s was loaded.", qUtf8Printable(filename));
 
+            // Enable the "Unload Measurements File" action
             ui->unloadMeasurements_Action->setEnabled(true);
 
+            // Set the measurements file path in the document
             doc->SetMPath(RelativeMPath(qApp->getFilePath(), filename));
+
+            // Add the new measurements file to the watcher
             watcher->addPath(filename);
+
+            // Mark pattern changes as unsaved
             patternChangesWereSaved(false);
 
+            // Enable the "Edit Current Measurement File" action
             ui->editCurrent_Action->setEnabled(true);
+
+            // Set the status label text to indicate measurements loaded
             helpLabel->setText(tr("Measurements loaded"));
+
+            // Lite parse the document
             doc->LiteParseTree(Document::LiteParse);
 
+            // Update the main window title
             UpdateWindowTitle();
 
+            // If the pattern type is multisize, restore the previously selected gradation heights and sizes
             if (qApp->patternType() == MeasurementsType::Multisize)
             {
-                if (!hText.isEmpty() && not gradationHeights.isNull())
+                if (!hText.isEmpty() && !gradationHeights.isNull())
                 {
                     gradationHeights->setCurrentText(hText);
                 }
 
-                if (!sText.isEmpty() && not gradationSizes.isNull())
+                if (!sText.isEmpty() && !gradationSizes.isNull())
                 {
                     gradationSizes->setCurrentText(sText);
                 }
@@ -2613,50 +2823,88 @@ void MainWindow::LoadMultisize()
         }
     }
 }
+// End MainWindow::LoadMultisize()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Unloads the measurements file.
+ * 
+ * @details This function unloads the currently loaded measurements file. 
+ * If the measurements file is empty, it disables the "Unload Measurements File" action. 
+ * If there are measurements being used in the pattern, it displays a warning message and does not unload the file.
+ */
 void MainWindow::UnloadMeasurements()
 {
     if (doc->MPath().isEmpty())
     {
+        // Disable the action if the measurements file path is empty
         ui->unloadMeasurements_Action->setDisabled(true);
         return;
     }
 
     if (doc->ListMeasurements().isEmpty())
     {
+        // Remove the file from the watcher and reset status if there are no measurements in use
         watcher->removePath(AbsoluteMPath(qApp->getFilePath(), doc->MPath()));
+        
         if (qApp->patternType() == MeasurementsType::Multisize)
         {
+            // Initialize the status bar if it's a multisize pattern
             initStatusBar();
         }
+        
+        // Reset the pattern type and measurements path
         qApp->setPatternType(MeasurementsType::Unknown);
         doc->SetMPath(QString());
+        
+        // Emit signal to update the pattern label
         emit doc->UpdatePatternLabel();
+        
+        // Mark pattern changes as unsaved
         patternChangesWereSaved(false);
+        
+        // Disable the "Edit Current Measurement File" action
         ui->editCurrent_Action->setEnabled(false);
+        
+        // Disable the "Unload Measurements File" action
         ui->unloadMeasurements_Action->setDisabled(true);
+        
+        // Set the status label text to indicate measurements unloaded
         helpLabel->setText(tr("Measurements unloaded"));
-
+        
+        // Update the main window title
         UpdateWindowTitle();
     }
     else
     {
+        // Display a warning message if measurements are in use
         qCWarning(vMainWindow, "%s",
                   qUtf8Printable(tr("Couldn't unload measurements. Some of them are used in the pattern.")));
     }
 }
+// End MainWindow::UnloadMeasurements()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Opens the measurements file for editing.
+ * 
+ * @details This function is responsible for opening the measurements file for editing. 
+ * It constructs the necessary command-line arguments based on the application's configuration 
+ * and launches an external process to open the file in the default associated editor.
+ * 
+ * @note If the measurements file path is empty or not configured, it disables the "Edit Current Measurement File" action.
+ */
 void MainWindow::ShowMeasurements()
 {
     if (!doc->MPath().isEmpty())
     {
+        // Get the absolute path to the measurements file
         const QString absoluteMPath = AbsoluteMPath(qApp->getFilePath(), doc->MPath());
 
         QStringList arguments;
         if (qApp->patternType() == MeasurementsType::Multisize)
         {
+            // Construct arguments for multisize patterns
             arguments = QStringList()
                     << absoluteMPath
                     << "-u"
@@ -2668,6 +2916,7 @@ void MainWindow::ShowMeasurements()
         }
         else
         {
+            // Construct arguments for other pattern types
             arguments = QStringList() << absoluteMPath
                                       << "-u"
                                       << UnitsToStr(qApp->patternUnit());
@@ -2675,24 +2924,46 @@ void MainWindow::ShowMeasurements()
 
         if (isNoScaling)
         {
+            // Append the option for disabling high-DPI scaling
             arguments.append(QLatin1String("--") + LONG_OPTION_NO_HDPI_SCALING);
         }
 
+        // Get the path to the SeamlyMe executable
         const QString seamlyme = qApp->SeamlyMeFilePath();
         const QString workingDirectory = QFileInfo(seamlyme).absoluteDir().absolutePath();
+
+        // Launch an external process to open the measurements file
         QProcess::startDetached(seamlyme, arguments, workingDirectory);
     }
     else
     {
+        // Disable the "Edit Current Measurement File" action if the measurements file path is empty
         ui->editCurrent_Action->setEnabled(false);
     }
 }
+// End  MainWindow::ShowMeasurements()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles changes in the measurements file.
+ * 
+ * @details This function is called when changes are detected in the measurements file specified by the given 'path'. 
+ * It resets the 'mChanges' flag to false and checks if the file still exists. 
+ * If the file exists, it sets 'mChanges' to true and 'mChangesAsked' to false, 
+ * indicating that changes have been detected but not yet acknowledged. 
+ * If the file does not exist, it periodically checks for the file's existence up to a certain number of iterations (1000), 
+ * sleeping for 10 milliseconds between checks. 
+ * If the file is found during this period, 'mChanges' and 'mChangesAsked' are set as described above.
+ * 
+ * @param path The path to the measurements file that has changed.
+ * 
+ * @note This function is used to track changes in the measurements file and update the application's state accordingly.
+ */
 void MainWindow::MeasurementsChanged(const QString &path)
 {
     mChanges = false;
     QFileInfo checkFile(path);
+
     if (checkFile.exists())
     {
         mChanges = true;
@@ -2718,23 +2989,44 @@ void MainWindow::MeasurementsChanged(const QString &path)
     UpdateWindowTitle();
     ui->syncMeasurements_Action->setEnabled(mChanges);
 }
+// End MainWindow::MeasurementsChanged()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Synchronizes measurements with the document.
+ * 
+ * @details This function checks if there have been any changes to the measurements, 
+ * and if so, it updates the measurements in the document. 
+ * It uses the provided document path to determine where to update the measurements. 
+ * If the update is successful, it adds the path to the watcher for monitoring changes, 
+ * displays a message indicating that measurements have been synced, 
+ * and updates the document's parse tree. 
+ * If the update fails, a warning message is displayed.
+ * 
+ * @note This function is responsible for keeping measurements in sync with the document 
+ * and is typically called when there are changes to measurements that need to be saved and updated.
+ */
 void MainWindow::SyncMeasurements()
 {
     if (mChanges)
     {
         const QString path = AbsoluteMPath(qApp->getFilePath(), doc->MPath());
-        if(updateMeasurements(path, static_cast<int>(VContainer::size()), static_cast<int>(VContainer::height())))
+
+        // Attempt to update measurements
+        if (updateMeasurements(path, static_cast<int>(VContainer::size()), static_cast<int>(VContainer::height())))
         {
+            // Add the path to the watcher for monitoring changes
             if (!watcher->files().contains(path))
             {
                 watcher->addPath(path);
             }
+
             const QString msg = tr("Measurements have been synced");
             qCDebug(vMainWindow, "%s", qUtf8Printable(msg));
             helpLabel->setText(msg);
             VWidgetPopup::PopupMessage(this, msg);
+
+            // Update the document's parse tree and other related flags
             doc->LiteParseTree(Document::LiteParse);
             mChanges = false;
             mChangesAsked = true;
@@ -2747,87 +3039,119 @@ void MainWindow::SyncMeasurements()
         }
     }
 }
+// End MainWindow::SyncMeasurements()
 
 //---------------------------------------------------------------------------------------------------------------------
 #if defined(Q_OS_MAC)
+/**
+ * @brief Opens the specified location using the default application on macOS.
+ * 
+ * @param where The QAction representing the location to open.
+ * 
+ * @details This function is specific to macOS and allows opening a specified location using the 
+ * default application associated with the given location. 
+ * It constructs the path based on the provided QAction and then uses the `/usr/bin/open` command 
+ * to open it with the default application. 
+ * The function waits for the process to finish before returning.
+ * 
+ * @note This function is only compiled and available on macOS platforms.
+ * 
+ * @param where The QAction representing the location to open.
+ */
 void MainWindow::OpenAt(QAction *where)
 {
+    // Construct the path based on the QAction text
     const QString path = qApp->getFilePath().left(qApp->getFilePath().indexOf(where->text())) + where->text();
+
+    // Check if the constructed path is the same as the current application path
     if (path == qApp->getFilePath())
     {
-        return;
+        return; // Do not open the current application itself
     }
+
+    // Start the process to open the specified location with the default application
     QProcess process;
     process.start(QStringLiteral("/usr/bin/open"), QStringList() << path, QIODevice::ReadOnly);
     process.waitForFinished();
 }
-#endif //defined(Q_OS_MAC)
+// End MainWindow::OpenAt()
+#endif // defined(Q_OS_MAC)
+
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief initStatusBar initialize horizontal bar for presenting status information
+ * @brief Initializes the application's status bar with various widgets and information.
+ * 
+ * @details This function sets up the status bar by creating and configuring widgets such as mouse coordinates display, gradation heights and sizes selection, and a tool button for document information. It also establishes connections for handling user interactions with gradation selection.
+ * 
+ * @note This function is called during the initialization of the main window.
  */
 void MainWindow::initStatusBar()
 {
+    // Clean up any existing widgets
     if (!mouseCoordinates.isNull())
-    {
         delete mouseCoordinates;
-    }
     if (!infoToolButton.isNull())
-    {
         delete infoToolButton;
-    }
     if (!gradationHeights.isNull())
-    {
         delete gradationHeights;
-    }
     if (!gradationSizes.isNull())
-    {
         delete gradationSizes;
-    }
     if (!gradationHeightsLabel.isNull())
-    {
         delete gradationHeightsLabel;
-    }
     if (!gradationSizesLabel.isNull())
-    {
         delete gradationSizesLabel;
-    }
 
+    // Check if the pattern type is Multisize
     if (qApp->patternType() == MeasurementsType::Multisize)
     {
+        // Create lists of heights and sizes based on pattern data
         const QStringList listHeights = MeasurementVariable::ListHeights(doc->GetGradationHeights(), qApp->patternUnit());
         const QStringList listSizes = MeasurementVariable::ListSizes(doc->GetGradationSizes(), qApp->patternUnit());
 
+        // Create and configure widgets for gradation heights and sizes
         gradationHeightsLabel = new QLabel(tr("Height:"), this);
         gradationHeights = SetGradationList(gradationHeightsLabel, listHeights);
 
-        // set default height
+        // Set default height and connect signals for height changes
         SetDefaultHeight();
-
         connect(gradationHeights.data(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
                 this, &MainWindow::ChangedHeight);
 
         gradationSizesLabel = new QLabel(tr("Size:"), this);
         gradationSizes = SetGradationList(gradationSizesLabel, listSizes);
 
-        // set default size
+        // Set default size and connect signals for size changes
         SetDefaultSize();
-
         connect(gradationSizes.data(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
                 this, &MainWindow::ChangedSize);
-
     }
 
+    // Create and add mouse coordinates display widget to the status bar
     mouseCoordinates = new MouseCoordinates(qApp->patternUnit());
     ui->statusBar->addPermanentWidget((mouseCoordinates));
 
+    // Create and add a tool button for document information to the status bar
     infoToolButton = new QToolButton();
     infoToolButton->setDefaultAction(ui->documentInfo_Action);
     ui->statusBar->addPermanentWidget((infoToolButton));
 }
+// End MainWindow::initStatusBar()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Creates and sets up a QComboBox widget with a specified label and a list of items.
+ * 
+ * @details This function creates a QComboBox widget, populates it with items from the provided list, 
+ * adds the specified label and the QComboBox to the application's status bar as permanent widgets, 
+ * and returns a pointer to the created QComboBox.
+ * 
+ * @param label A QLabel representing the label for the QComboBox.
+ * @param list A QStringList containing the items to populate the QComboBox with.
+ * @return A pointer to the created QComboBox.
+ * 
+ * @note This function is typically used to set up combo boxes in the status bar of the main window.
+ */
 QComboBox *MainWindow::SetGradationList(QLabel *label, const QStringList &list)
 {
     QComboBox *comboBox = new QComboBox(this);
@@ -2837,31 +3161,49 @@ QComboBox *MainWindow::SetGradationList(QLabel *label, const QStringList &list)
 
     return comboBox;
 }
+// End MainWindow::SetGradationList()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initializes the Modes Toolbar and adds widgets for switching between modes.
+ * 
+ * @details This function initializes the Modes Toolbar and adds QLabel widgets with arrow icons to the toolbar. 
+ * These arrow icons represent the transition between different modes.
+ * 
+ * @note This function is typically called during the application's initialization process.
+ */
 void MainWindow::initModesToolBar()
 {
+    // Create and set up the leftGoToStage QLabel with an arrow icon for piece mode
     leftGoToStage = new QLabel(this);
     leftGoToStage->setPixmap(QPixmap("://icon/24x24/fast_forward_left_to_right_arrow.png"));
     ui->mode_ToolBar->insertWidget(ui->pieceMode_Action, leftGoToStage);
 
+    // Create and set up the rightGoToStage QLabel with an arrow icon for layout mode
     rightGoToStage = new QLabel(this);
     rightGoToStage->setPixmap(QPixmap("://icon/24x24/left_to_right_arrow.png"));
     ui->mode_ToolBar->insertWidget(ui->layoutMode_Action, rightGoToStage);
 }
+// End MainWindow::initModesToolBar()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief initPointNameToolBar enable Point Name toolbar.
+ * @brief Initializes the Point Name Toolbar and connects relevant UI elements to actions.
+ * 
+ * @details This function initializes the Point Name Toolbar and adds font and font size selection widgets (QFontComboBox and QComboBox) to the toolbar. It also connects these widgets to actions that update the point name font and font size settings.
+ * 
+ * @note This function is typically called during the application's initialization process.
  */
 void MainWindow::initPointNameToolBar()
 {
-    fontComboBox = new QFontComboBox ;
+    // Create and set up the fontComboBox
+    fontComboBox = new QFontComboBox;
     fontComboBox->setCurrentFont(qApp->Seamly2DSettings()->getPointNameFont());
-    ui->pointName_ToolBar->insertWidget(ui->showPointNames_Action,fontComboBox);
+    ui->pointName_ToolBar->insertWidget(ui->showPointNames_Action, fontComboBox);
     fontComboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     fontComboBox->setEnabled(true);
 
+    // Connect the currentFontChanged signal of fontComboBox to update the point name font
     connect(fontComboBox, static_cast<void (QFontComboBox::*)(const QFont &)>(&QFontComboBox::currentFontChanged),
             this, [this](QFont font)
             {
@@ -2869,9 +3211,12 @@ void MainWindow::initPointNameToolBar()
                 upDateScenes();
             });
 
+    // Create and set up the fontSizeComboBox
     fontSizeComboBox = new QComboBox ;
     ui->pointName_ToolBar->insertWidget(ui->showPointNames_Action,fontSizeComboBox);
     fontSizeComboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
+
+    // Add font size options to the fontSizeComboBox
     fontSizeComboBox->addItem("6", QVariant(static_cast<int>(6)));
     fontSizeComboBox->addItem("7", QVariant(static_cast<int>(7)));
     fontSizeComboBox->addItem("8", QVariant(static_cast<int>(8)));
@@ -2901,6 +3246,7 @@ void MainWindow::initPointNameToolBar()
     fontSizeComboBox->addItem("80", QVariant(static_cast<int>(80)));
     fontSizeComboBox->addItem("96", QVariant(static_cast<int>(96)));
 
+    // Set the initial font size based on the application settings
     int index = fontSizeComboBox->findData(qApp->Seamly2DSettings()->getPointNameSize());
     if (index < 0 || index > 28)
     {
@@ -2908,6 +3254,7 @@ void MainWindow::initPointNameToolBar()
     }
     fontSizeComboBox->setCurrentIndex(index);
 
+    // Connect the currentTextChanged signal of fontSizeComboBox to update the point name font size
     connect(fontSizeComboBox, &QComboBox::currentTextChanged, this, [this](QString text)
             {
                 qApp->Seamly2DSettings()->setPointNameSize(text.toInt());
@@ -2915,99 +3262,132 @@ void MainWindow::initPointNameToolBar()
             });
     fontSizeComboBox->setEnabled(true);
 }
+// End MainWindow::initPointNameToolBar()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief initDraftToolBar enable draw toolbar.
+ * @brief Initializes the Draft Toolbar and connects relevant UI elements to actions.
+ * 
+ * @details This function initializes the Draft Toolbar and adds a label and a combo box for selecting draft blocks. 
+ * It also connects the combo box's currentIndexChanged signal to the changeDraftBlock slot. 
+ * Additionally, it connects the renameDraft_Action trigger to a lambda function that handles renaming draft blocks.
+ * 
+ * @note This function is typically called during the application's initialization process.
  */
 void MainWindow::initDraftToolBar()
 {
+    // Create and set up the draftBlockLabel
     draftBlockLabel = new QLabel(tr("Draft Block:"));
     ui->draft_ToolBar->addWidget(draftBlockLabel);
 
-    // By using Qt UI Designer we can't add QComboBox to toolbar
+    // Create and set up the draftBlockComboBox
     draftBlockComboBox = new QComboBox;
     ui->draft_ToolBar->addWidget(draftBlockComboBox);
     draftBlockComboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     draftBlockComboBox->setEnabled(false);
 
-    connect(draftBlockComboBox,  static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, [this](int index){changeDraftBlock(index);});
+    // Connect the currentIndexChanged signal of draftBlockComboBox to the changeDraftBlock slot
+    connect(draftBlockComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, [this](int index) { changeDraftBlock(index); });
 
+    // Connect the renameDraft_Action trigger to a lambda function for renaming draft blocks
     connect(ui->renameDraft_Action, &QAction::triggered, this, [this]()
     {
+        // Get the active draft block and create a new name
         const QString activeDraftBlock = doc->getActiveDraftBlockName();
         const QString draftBlockName = createDraftBlockName(activeDraftBlock);
+
+        // If the new name is empty, return
         if (draftBlockName.isEmpty())
         {
             return;
         }
+
+        // Create a RenameDraftBlock command and push it to the undo stack
         RenameDraftBlock *draftBlock = new RenameDraftBlock(doc, draftBlockName, draftBlockComboBox);
         qApp->getUndoStack()->push(draftBlock);
+
+        // Trigger a full parse of the file
         fullParseFile();
     });
 }
+// End MainWindow::initDraftToolBar()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initializes the Tools Toolbar and sets up shortcut actions for zoom and navigation.
+ * 
+ * @details This function initializes the Tools Toolbar and sets up shortcut actions for various zoom and navigation functionalities. It connects these shortcuts to corresponding slots for performing zoom operations and navigation. Additionally, it sets up a combo box for zooming to specific points and connects it to the zoomToPoint slot.
+ * 
+ * @note This function is typically called during the application's initialization process.
+ */
 void MainWindow::initToolsToolBar()
 {
-    /*First we will try use Standard Shortcuts from Qt, but because keypad "-" and "+" not the same keys like in main
-    keypad, shortcut Ctrl+"-" or "+" from keypad will not working with standard shortcut (QKeySequence::ZoomIn or
-    QKeySequence::ZoomOut). For example "+" is Qt::Key_Plus + Qt::KeypadModifier for keypad.
-    Also for me don't work Qt:CTRL and work Qt::ControlModifier.*/
+    // Set up shortcuts and connect them to slots for zoom and navigation operations.
 
+    // Zoom In
     QList<QKeySequence> zoomInShortcuts;
     zoomInShortcuts.append(QKeySequence(QKeySequence::ZoomIn));
     zoomInShortcuts.append(QKeySequence(Qt::ControlModifier + Qt::Key_Plus + Qt::KeypadModifier));
     ui->zoomIn_Action->setShortcuts(zoomInShortcuts);
     connect(ui->zoomIn_Action, &QAction::triggered, ui->view, &VMainGraphicsView::zoomIn);
 
+    // Zoom Out
     QList<QKeySequence> zoomOutShortcuts;
     zoomOutShortcuts.append(QKeySequence(QKeySequence::ZoomOut));
     zoomOutShortcuts.append(QKeySequence(Qt::ControlModifier + Qt::Key_Minus + Qt::KeypadModifier));
     ui->zoomOut_Action->setShortcuts(zoomOutShortcuts);
     connect(ui->zoomOut_Action, &QAction::triggered, ui->view, &VMainGraphicsView::zoomOut);
 
+    // Zoom to 100%
     QList<QKeySequence> zoom100PercentShortcuts;
     zoom100PercentShortcuts.append(QKeySequence(Qt::ControlModifier + Qt::Key_0));
     zoom100PercentShortcuts.append(QKeySequence(Qt::ControlModifier + Qt::Key_0 + Qt::KeypadModifier));
     ui->zoom100Percent_Action->setShortcuts(zoom100PercentShortcuts);
     connect(ui->zoom100Percent_Action, &QAction::triggered, ui->view, &VMainGraphicsView::zoom100Percent);
 
+    // Zoom to Fit
     QList<QKeySequence> zoomToFitShortcuts;
     zoomToFitShortcuts.append(QKeySequence(Qt::ControlModifier + Qt::Key_Equal));
     ui->zoomToFit_Action->setShortcuts(zoomToFitShortcuts);
     connect(ui->zoomToFit_Action, &QAction::triggered, ui->view, &VMainGraphicsView::zoomToFit);
 
+    // Zoom to Selected
     QList<QKeySequence> zoomToSelectedShortcuts;
     zoomToSelectedShortcuts.append(QKeySequence(Qt::ControlModifier + Qt::Key_Right));
     ui->zoomToSelected_Action->setShortcuts(zoomToSelectedShortcuts);
     connect(ui->zoomToSelected_Action, &QAction::triggered, this, &MainWindow::zoomToSelected);
 
+    // Zoom to Previous
     QList<QKeySequence> zoomToPreviousShortcuts;
     zoomToPreviousShortcuts.append(QKeySequence(Qt::ControlModifier + Qt::Key_Left));
     ui->zoomToPrevious_Action->setShortcuts(zoomToPreviousShortcuts);
     connect(ui->zoomToPrevious_Action, &QAction::triggered,  this, &MainWindow::zoomToPrevious);
 
+    // Zoom to Area
     QList<QKeySequence> zoomToAreaShortcuts;
     zoomToAreaShortcuts.append(QKeySequence(Qt::ControlModifier + Qt::Key_A));
     ui->zoomToArea_Action->setShortcuts(zoomToAreaShortcuts);
     connect(ui->zoomToArea_Action, &QAction::toggled, this, &MainWindow::zoomToArea);
 
+    // Reset Pan
     resetPanShortcuts();
     connect(ui->zoomPan_Action, &QAction::toggled, this, &MainWindow::zoomPan);
 
+    // Zoom to Point
     QList<QKeySequence> zoomToPointShortcuts;
     zoomToPointShortcuts.append(QKeySequence(Qt::ControlModifier + Qt::AltModifier + Qt::Key_P));
     ui->zoomToPoint_Action->setShortcuts(zoomToPointShortcuts);
     connect(ui->zoomToPoint_Action, &QAction::triggered, this, &MainWindow::showZoomToPointDialog);
 
+    // Set up the zoomToPoint combo box
     m_zoomToPointComboBox = new QComboBox(ui->zoom_ToolBar);
     m_zoomToPointComboBox->setEnabled(false);
     m_zoomToPointComboBox->setToolTip(ui->zoomToPoint_Action->toolTip());
     ui->zoom_ToolBar->addWidget(m_zoomToPointComboBox);
     connect(m_zoomToPointComboBox, &QComboBox::currentTextChanged, this, &MainWindow::zoomToPoint);
 
+    // Create and set up the zoom scale spin box
     if (zoomScaleSpinBox != nullptr)
     {
         delete zoomScaleSpinBox;
@@ -3016,117 +3396,165 @@ void MainWindow::initToolsToolBar()
     zoomScaleSpinBox->setDecimals(1);
     zoomScaleSpinBox->setAlignment(Qt::AlignRight);
     zoomScaleSpinBox->setSingleStep(0.1);
-    zoomScaleSpinBox->setMinimum(qFloor(VMainGraphicsView::MinScale()*1000)/10.0);
-    zoomScaleSpinBox->setMaximum(qFloor(VMainGraphicsView::MaxScale()*1000)/10.0);
+    zoomScaleSpinBox->setMinimum(qFloor(VMainGraphicsView::MinScale() * 1000) / 10.0);
+    zoomScaleSpinBox->setMaximum(qFloor(VMainGraphicsView::MaxScale() * 1000) / 10.0);
     zoomScaleSpinBox->setSuffix("%");
     zoomScaleSpinBox->setMaximumWidth(80);
     zoomScaleSpinBox->setKeyboardTracking(false);
-    ui->zoom_ToolBar->insertWidget(ui->zoomIn_Action,zoomScaleSpinBox);
+    ui->zoom_ToolBar->insertWidget(ui->zoomIn_Action, zoomScaleSpinBox);
 
+    // Connect the zoom scale spin box to the zoomByScale slot
     zoomScaleChanged(ui->view->transform().m11());
     connect(zoomScaleSpinBox, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
-            this,[this](double d){ui->view->zoomByScale(d/100.0);});
-
+            this, [this](double d) { ui->view->zoomByScale(d / 100.0); });
 }
 
+// End MainWindow::initToolsToolBar()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initializes the toolbars' visibility and connects visibility change signals.
+ * 
+ * @details This function initializes the visibility of various toolbars in the application's user interface and connects signals to track changes in toolbar visibility. It sets the initial visibility based on the application settings and ensures that changes in toolbar visibility are reflected in the application's settings.
+ * 
+ * @note This function is typically called during the application's initialization process.
+ */
 void MainWindow::initToolBarVisibility()
 {
+    // Initialize the initial visibility state of toolbars based on application settings.
     updateToolBarVisibility();
+
+    // Connect signals to track changes in toolbar visibility and update application settings accordingly.
     connect(ui->tools_ToolBox_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->tools_ToolBox_ToolBar->setVisible(visible);
         qApp->Settings()->setShowToolsToolBar(visible);
     });
+
     connect(ui->points_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->points_ToolBar->setVisible(visible);
         qApp->Settings()->setShowPointToolBar(visible);
     });
+
     connect(ui->lines_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->lines_ToolBar->setVisible(visible);
         qApp->Settings()->setShowLineToolBar(visible);
     });
+
     connect(ui->curves_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->curves_ToolBar->setVisible(visible);
         qApp->Settings()->setShowCurveToolBar(visible);
     });
+
     connect(ui->arcs_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->arcs_ToolBar->setVisible(visible);
         qApp->Settings()->setShowArcToolBar(visible);
     });
+
     connect(ui->operations_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->operations_ToolBar->setVisible(visible);
         qApp->Settings()->setShowOpsToolBar(visible);
     });
+
     connect(ui->pieces_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->pieces_ToolBar->setVisible(visible);
         qApp->Settings()->setShowPieceToolBar(visible);
     });
+
     connect(ui->details_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->details_ToolBar->setVisible(visible);
         qApp->Settings()->setShowDetailsToolBar(visible);
     });
+
     connect(ui->layout_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->layout_ToolBar->setVisible(visible);
         qApp->Settings()->setShowLayoutToolBar(visible);
     });
 }
+// End MainWindow::initToolBarVisibility()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief initPenToolBar enable default color, line wight & type toolbar.
+ * @brief Initializes the Pen Toolbar.
+ * 
+ * @details This function is responsible for initializing the Pen Toolbar in the application. 
+ * The Pen Toolbar is a user interface component that provides tools and options related to drawing 
+ * and editing pen properties, such as line thickness and color. 
+ * It creates a new instance of the 'PenToolBar' class, sets its properties, 
+ * and connects signals and slots to handle pen property changes.
+ * 
+ * @note The Pen Toolbar typically appears as a top toolbar in the application's user interface.
  */
 void MainWindow::initPenToolBar()
 {
+    // Check if the m_penToolBar instance already exists and clean it up if necessary.
     if (m_penToolBar != nullptr)
     {
         disconnect(m_penToolBar, nullptr, this, nullptr);
         delete m_penToolBar;
     }
+
+    // Create a new instance of PenToolBar, set its properties, and add it as a top toolbar.
     m_penToolBar = new PenToolBar(tr("Pen Toolbar"), this);
     m_penToolBar->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_penToolBar->setObjectName("penToolBar");
     this->addToolBar(Qt::TopToolBarArea, m_penToolBar);
 
+    // Connect the penChanged signal of the PenToolBar to the penChanged slot in the MainWindow.
     connect(m_penToolBar, &PenToolBar::penChanged, this, &MainWindow::penChanged);
 }
+// End MainWindow::initPenToolBar()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief initPropertyEditor initialize the Properties Editor.
+ * @brief Initializes the Tool Property Editor.
+ * 
+ * @details This function is responsible for initializing the Tool Property Editor, which is used to display and edit properties of various tools in the application. It creates a new instance of the 'VToolOptionsPropertyBrowser' class and connects it to relevant signals and slots to ensure proper functionality.
+ * 
+ * @note The Tool Property Editor is a user interface component that allows users to interact with and modify properties of tools, and it is typically displayed in a dockable widget.
  */
 void MainWindow::initPropertyEditor()
 {
     qCDebug(vMainWindow, "Initialize the Tool Property Editor.");
+
+    // Check if the toolProperties instance already exists and clean it up if necessary.
     if (toolProperties != nullptr)
     {
         disconnect(toolProperties, nullptr, this, nullptr);
         delete toolProperties;
     }
+
+    // Create a new instance of VToolOptionsPropertyBrowser and associate it with a dock widget.
     toolProperties = new VToolOptionsPropertyBrowser(pattern, ui->toolProperties_DockWidget);
 
+    // Connect relevant signals and slots to ensure proper functionality.
     connect(ui->view, &VMainGraphicsView::itemClicked, toolProperties, &VToolOptionsPropertyBrowser::itemClicked);
     connect(doc, &VPattern::FullUpdateFromFile, toolProperties, &VToolOptionsPropertyBrowser::updateOptions);
 }
+// End MainWindow::initPropertyEditor()
 
+//---------------------------------------------------------------------------------------------------------------------
 /**
- * Called when something changed in the pen tool bar
- * (e.g. color, weight, or type).
+ * @brief Updates the visibility of various toolbars based on application settings.
+ * 
+ * @details This function updates the visibility of different toolbars in the main window based on application settings. 
+ * It checks the application settings for each toolbar and calls the 'setToolBarVisibility' function to set their visibility accordingly.
+ * Called when something changed in the pen tool bar (e.g. color, weight, or type).
+ * 
+ * @note Toolbars in the user interface can be shown or hidden based on user preferences and application settings. 
+ * This function synchronizes the visibility of these toolbars with the corresponding settings.
  */
-void MainWindow::penChanged(Pen pen)
-{
-    doc->setDefaultPen(pen);
-}
-
 void MainWindow::updateToolBarVisibility()
 {
+    // Update the visibility of each toolbar based on application settings.
     setToolBarVisibility(ui->tools_ToolBox_ToolBar, qApp->Settings()->getShowToolsToolBar());
     setToolBarVisibility(ui->points_ToolBar, qApp->Settings()->getShowPointToolBar());
     setToolBarVisibility(ui->lines_ToolBar, qApp->Settings()->getShowLineToolBar());
@@ -3137,44 +3565,126 @@ void MainWindow::updateToolBarVisibility()
     setToolBarVisibility(ui->details_ToolBar, qApp->Settings()->getShowDetailsToolBar());
     setToolBarVisibility(ui->layout_ToolBar, qApp->Settings()->getShowLayoutToolBar());
 }
-
-void MainWindow::setToolBarVisibility(QToolBar *toolbar, bool visible)
-{
-    toolbar->blockSignals(true);
-    toolbar->setVisible(visible);
-    toolbar->blockSignals(false);
-}
-
-void MainWindow::zoomScaleChanged(qreal scale)
-{
-    zoomScaleSpinBox->blockSignals(true);
-    zoomScaleSpinBox->setValue(qFloor(scale*1000)/10.0);
-    zoomScaleSpinBox->blockSignals(false);
-    qCDebug(vMainWindow, "Value %f\n", (qreal(qFloor(scale*1000)/10.0)));
-}
+// End MainWindow::penChanged()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Updates the visibility of various toolbars based on application settings.
+ * 
+ * @details This function updates the visibility of different toolbars in the main window based on application settings. 
+ * It checks the application settings for each toolbar and calls the 'setToolBarVisibility' function to set their visibility accordingly.
+ * 
+ * @note Toolbars in the user interface can be shown or hidden based on user preferences and application settings. 
+ * This function synchronizes the visibility of these toolbars with the corresponding settings.
+ */
+void MainWindow::updateToolBarVisibility()
+{
+    // Update the visibility of each toolbar based on application settings.
+    setToolBarVisibility(ui->tools_ToolBox_ToolBar, qApp->Settings()->getShowToolsToolBar());
+    setToolBarVisibility(ui->points_ToolBar, qApp->Settings()->getShowPointToolBar());
+    setToolBarVisibility(ui->lines_ToolBar, qApp->Settings()->getShowLineToolBar());
+    setToolBarVisibility(ui->curves_ToolBar, qApp->Settings()->getShowCurveToolBar());
+    setToolBarVisibility(ui->arcs_ToolBar, qApp->Settings()->getShowArcToolBar());
+    setToolBarVisibility(ui->operations_ToolBar, qApp->Settings()->getShowOpsToolBar());
+    setToolBarVisibility(ui->pieces_ToolBar, qApp->Settings()->getShowPieceToolBar());
+    setToolBarVisibility(ui->details_ToolBar, qApp->Settings()->getShowDetailsToolBar());
+    setToolBarVisibility(ui->layout_ToolBar, qApp->Settings()->getShowLayoutToolBar());
+}
+// End MainWindow::updateToolBarVisibility()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Sets the visibility of a toolbar.
+ * 
+ * @param toolbar A pointer to the toolbar whose visibility is to be set.
+ * @param visible A boolean indicating whether to make the toolbar visible (true) or hidden (false).
+ * 
+ * @details This function allows you to control the visibility of a specific toolbar in the main window. 
+ * It temporarily blocks signals from the toolbar to prevent reentrant calls when changing its visibility.
+ * 
+ * @note Toolbars are user interface elements that typically contain buttons and controls for specific actions or features. 
+ * This function provides a way to show or hide a toolbar based on the 'visible' parameter.
+ */
+void MainWindow::setToolBarVisibility(QToolBar *toolbar, bool visible)
+{
+    // Block signals to prevent reentrant calls when changing visibility.
+    toolbar->blockSignals(true);
+
+    // Set the visibility of the toolbar.
+    toolbar->setVisible(visible);
+
+    // Unblock signals.
+    toolbar->blockSignals(false);
+}
+// End MainWindow::setToolBarVisibility()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles changes in the zoom scale.
+ * 
+ * @param scale The new zoom scale value.
+ * 
+ * @details This function is called when the zoom scale is changed, and it updates the value displayed in the zoom scale spin box. 
+ * It also emits a signal with the updated scale value.
+ * 
+ * @note The function temporarily blocks signals from the zoom scale spin box to prevent reentrant calls when updating the value.
+ */
+void MainWindow::zoomScaleChanged(qreal scale)
+{
+    // Block signals to prevent reentrant calls when updating the value.
+    zoomScaleSpinBox->blockSignals(true);
+
+    // Set the value in the zoom scale spin box.
+    zoomScaleSpinBox->setValue(qFloor(scale * 1000) / 10.0);
+
+    // Unblock signals.
+    zoomScaleSpinBox->blockSignals(false);
+
+    // Output debug information.
+    qCDebug(vMainWindow, "Value %f\n", (qreal(qFloor(scale * 1000) / 10.0)));
+}
+// End MainWindow::zoomScaleChanged()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Zooms the view to the selected object or the active draft bounding rectangle.
+ * 
+ * @details This function checks the current scene and, if it's the draft scene, 
+ * zooms the view to the bounding rectangle of the active draft. 
+ * If the current scene is the piece scene and a piece object is selected, 
+ * it zooms the view to the bounding rectangle of the selected piece object.
+ * 
+ * @note This function does nothing if there is no current scene or 
+ * if the selected object is not a piece object in the piece scene.
+ */
 void MainWindow::zoomToSelected()
 {
+    // Check if the current scene is the draft scene.
     if (qApp->getCurrentScene() == draftScene)
     {
+        // Zoom the view to the bounding rectangle of the active draft.
         ui->view->zoomToRect(doc->ActiveDrawBoundingRect());
     }
+    // Check if the current scene is the piece scene.
     else if (qApp->getCurrentScene() == pieceScene)
     {
+        // Get the currently focused item in the scene.
         QGraphicsItem *item = qApp->getCurrentScene()->focusItem();
+        
+        // Check if an item is selected and if it's a piece object.
+        if ((item != nullptr) && (item->type() == QGraphicsItem::UserType + static_cast<int>(Tool::Piece)))
         {
-            if ((item != nullptr) && (item->type() == QGraphicsItem::UserType + static_cast<int>(Tool::Piece)))
-            {
-                QRectF rect;
-                rect = item->boundingRect();
-                rect.translate(item->scenePos());
-                ui->view->zoomToRect(rect);
-            }
+            // Calculate the bounding rectangle of the selected piece object and zoom the view to it.
+            QRectF rect;
+            rect = item->boundingRect();
+            rect.translate(item->scenePos());
+            ui->view->zoomToRect(rect);
         }
     }
 }
+// End MainWindow::zoomToSelected()
 
+//---------------------------------------------------------------------------------------------------------------------
 void MainWindow::zoomToPrevious()
 {
     VMainGraphicsScene *scene = qobject_cast<VMainGraphicsScene *>(currentScene);
@@ -3187,66 +3697,125 @@ void MainWindow::zoomToPrevious()
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Enables or disables the "Zoom to Area" mode for the main view.
+ * 
+ * @param checked A boolean value indicating whether the "Zoom to Area" mode should be enabled or disabled.
+ * 
+ * @details This function allows the user to toggle the "Zoom to Area" mode for the main view. When "Zoom to Area" mode is enabled, the user can define a rectangular area on the view to zoom in on.
+ * 
+ * @note This function also ensures that the "Zoom Pan" action is unchecked when "Zoom to Area" mode is activated.
+ * 
+ * @param checked A boolean value indicating whether the "Zoom to Area" mode should be enabled or disabled.
+ */
 void MainWindow::zoomToArea(bool checked)
 {
-      ui->view->zoomToAreaEnabled(checked);
+    // Enable or disable the "Zoom to Area" mode for the main view.
+    ui->view->zoomToAreaEnabled(checked);
 
-      if (ui->zoomToArea_Action->isChecked())
-      {
-          ui->zoomPan_Action->setChecked(false);
-      }
+    // If "Zoom to Area" mode is activated, ensure that "Zoom Pan" action is unchecked.
+    if (ui->zoomToArea_Action->isChecked())
+    {
+        ui->zoomPan_Action->setChecked(false);
+    }
 }
+// End MainWindow::zoomToArea()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Enables or disables the zoom pan mode for the main view.
+ * 
+ * @param checked A boolean value indicating whether zoom pan mode should be enabled or disabled.
+ * 
+ * @details This function allows the user to toggle the zoom pan mode for the main view. 
+ * When zoom pan mode is enabled, the user can interactively pan the view by dragging the mouse, 
+ * typically used for navigating within a zoomed-in area.
+ * 
+ * @note This function also ensures that the "Zoom to Area" action is unchecked when zoom pan mode is activated.
+ * 
+ * @param checked A boolean value indicating whether zoom pan mode should be enabled or disabled.
+ */
 void MainWindow::zoomPan(bool checked)
 {
+    // Enable or disable zoom pan mode for the main view.
     ui->view->zoomPanEnabled(checked);
+
+    // If zoom pan mode is activated, ensure that "Zoom to Area" action is unchecked.
     if (checked)
     {
         ui->zoomToArea_Action->setChecked(false);
     }
 }
+// End MainWindow::zoomPan()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief zoomToPoint show dialog for choosing a point and update the graphics view to focus on it.
+ * @brief Displays a dialog to zoom to a selected point.
+ * 
+ * @details This function shows a dialog that allows the user to select a point from a list 
+ * of available point names and then zooms the view to the selected point.
+ * 
+ * @note This function relies on the availability of the 
+ * `draftPointNamesList` function to provide a list of point names and the 
+ * `zoomToPoint` function to perform the zoom operation. 
+ * It also uses Qt's `QInputDialog` to create the selection dialog.
  */
 void MainWindow::showZoomToPointDialog()
 {
+    // Get a list of point names from the draft.
     QStringList pointNames = draftPointNamesList();
 
     bool ok;
+    
+    // Display a dialog to select a point from the list.
     QString pointName = QInputDialog::getItem(this, tr("Zoom to Point"), tr("Point:"), pointNames, 0, true, &ok,
                                               Qt::WindowSystemMenuHint | Qt::WindowTitleHint);
-    if (!ok || pointName.isEmpty()) return;
+    
+    // If the dialog was canceled or no point was selected, return without further action.
+    if (!ok || pointName.isEmpty()) 
+        return;
 
+    // Zoom to the selected point.
     zoomToPoint(pointName);
 }
+// End MainWindow::showZoomToPointDialog()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief zoomToPoint show dialog for choosing a point and update the graphics view to focus on it.
- * @param pointName name of to zoom into.
+ * @brief Zooms to a point with the specified name.
+ * 
+ * @param pointName The name of the point to zoom to.
+ * 
+ * @details This function zooms the view to a point with the specified name. 
+ * It iterates through the available objects to find the point with a matching name and adjusts the view accordingly. 
+ * It also handles showing the point name if it was hidden, displays hidden groups containing the object, 
+ * and resets the combo box for selecting the same point again.
+ * 
+ * @note This function assumes the existence of certain objects and UI elements in the application.
  */
 void MainWindow::zoomToPoint(const QString &pointName)
 {
-    const QHash<quint32, QSharedPointer<VGObject> > *objects = pattern->DataGObjects();
-    QHash<quint32, QSharedPointer<VGObject> >::const_iterator i;
+    // Get the collection of objects in the pattern.
+    const QHash<quint32, QSharedPointer<VGObject>> *objects = pattern->DataGObjects();
+    QHash<quint32, QSharedPointer<VGObject>>::const_iterator i;
 
+    // Iterate through the objects to find the one with a matching name.
     for (i = objects->constBegin(); i != objects->constEnd(); ++i)
     {
         QSharedPointer<VGObject> object = i.value();
         const quint32 objectId = object->getIdObject();
         const QString objectName = object->name();
 
+        // Check if the object's name matches the specified pointName.
         if (objectName == pointName)
         {
-            VPointF *point = (VPointF*)object.data();
+            // Get the point's coordinates and zoom to it with a 100% scale.
+            VPointF *point = static_cast<VPointF*>(object.data());
             ui->view->zoom100Percent();
             ui->view->centerOn(point->toQPointF());
 
-            // show point name if it's hidden
-            // TODO: Need to make this work with operation's and dart tools
+            // Show the point name if it's hidden.
+            // TODO: Need to make this work with operation's and dart tools.
             quint32 toolId = point->getIdTool();
             const quint32 objId = point->getIdObject();
             if (objId != NULL_ID)
@@ -3258,11 +3827,11 @@ void MainWindow::zoomToPoint(const QString &pointName)
                 tool->setPointNameVisiblity(toolId, true);
             }
 
-            // show any hiden groups containing object
-            QMap<quint32,QString> groups = doc->getGroupsContainingItem(toolId, objectId, true);
+            // Show any hidden groups containing the object.
+            QMap<quint32, QString> groups = doc->getGroupsContainingItem(toolId, objectId, true);
             groupsWidget->showGroups(groups);
 
-            // Reset combobox so same point can be selected again
+            // Reset the combo box so the same point can be selected again.
             m_zoomToPointComboBox->blockSignals(true);
             m_zoomToPointComboBox->setCurrentIndex(-1);
             m_zoomToPointComboBox->blockSignals(false);
@@ -3271,15 +3840,24 @@ void MainWindow::zoomToPoint(const QString &pointName)
         }
     }
 }
+// End MainWindow::zoomToPoint()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initializes the tool buttons and connects their click signals to respective handlers.
+ * 
+ * @details This function initializes the tool buttons in the user interface and connects their click signals to the corresponding handlers.
+ * It also includes a check to ensure that all tools have been connected correctly.
+ */
 void MainWindow::InitToolButtons()
 {
+    // Connect the arrow pointer tool button click signal to the arrow tool handler.
     connect(ui->arrowPointer_ToolButton, &QToolButton::clicked, this, &MainWindow::handleArrowTool);
 
-    // This check helps to find missed tools
+    // This check helps to find missed tools.
     Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 53, "Check if all tools were connected.");
 
+    // Connect each tool button to its respective handler.
     connect(ui->pointAtDistanceAngle_ToolButton, &QToolButton::clicked,
             this, &MainWindow::handlePointAtDistanceAngleTool);
     connect(ui->line_ToolButton,           &QToolButton::clicked, this, &MainWindow::handleLineTool);
@@ -3332,7 +3910,15 @@ void MainWindow::InitToolButtons()
     connect(ui->anchorPoint_ToolButton,    &QToolButton::clicked, this, &MainWindow::handleAnchorPointTool);
     connect(ui->insertNodes_ToolButton,     &QToolButton::clicked, this, &MainWindow::handleInsertNodesTool);
 }
+// MainWindow::InitToolButtons()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the Points Menu action.
+ * 
+ * @details This function is called when the Points Menu is selected. 
+ * It displays a submenu with point-related actions and handles the selected action accordingly.
+ */
 void MainWindow::handlePointsMenu()
 {
     qCDebug(vMainWindow, "Points Menu selected. \n");
@@ -3353,6 +3939,7 @@ void MainWindow::handlePointsMenu()
 
     QAction *selectedAction = menu.exec(QCursor::pos());
 
+    // Determine which point tool was selected and process it
     if(selectedAction == nullptr)
     {
         return;
@@ -3424,10 +4011,19 @@ void MainWindow::handlePointsMenu()
         handleLineIntersectAxisTool(true);
     }
 }
+// End MainWindow::handlePointsMenu()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the Lines Menu action.
+ * 
+ * @details This function is called when the Lines Menu is selected. 
+ * It displays a submenu with line-related actions and handles the selected action accordingly.
+ */
 void MainWindow::handleLinesMenu()
 {
     qCDebug(vMainWindow, "Lines Menu selected. \n");
+
     QMenu menu;
 
     QAction *action_Line          = menu.addAction(QIcon(":/toolicon/32x32/line.png"),      tr("Line") + "\t" + tr("Alt+L"));
@@ -3435,6 +4031,7 @@ void MainWindow::handleLinesMenu()
 
     QAction *selectedAction = menu.exec(QCursor::pos());
 
+    // Determine which line tool was selected and process it
     if(selectedAction == nullptr)
     {
         return;
@@ -3452,10 +4049,19 @@ void MainWindow::handleLinesMenu()
         handleLineIntersectTool(true);
     }
 }
+// End MainWindow::handleLinesMenu()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the Arcs Menu action.
+ * 
+ * @details This function is called when the Arcs Menu is selected. 
+ * It displays a submenu with various arc-related actions and handles the selected action accordingly.
+ */
 void MainWindow::handleArcsMenu()
 {
     qCDebug(vMainWindow, "Arcs Menu selected. \n");
+
     QMenu menu;
 
     QAction *action_Arc              = menu.addAction(QIcon(":/toolicon/32x32/arc.png"),                           tr("Radius and Angles") + "\t" + tr("Alt+A"));
@@ -3470,6 +4076,7 @@ void MainWindow::handleArcsMenu()
 
     QAction *selectedAction = menu.exec(QCursor::pos());
 
+    // Determine which arc tool was selected and process it
     if(selectedAction == nullptr)
     {
         return;
@@ -3529,10 +4136,18 @@ void MainWindow::handleArcsMenu()
         handleEllipticalArcTool(true);
     }
 }
+// End  MainWindow::handleArcsMenu()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the Curves Menu action.
+ * 
+ * @details This function is called when the Curves Menu is selected. It displays a submenu with various curve-related actions and handles the selected action accordingly.
+ */
 void MainWindow::handleCurvesMenu()
 {
     qCDebug(vMainWindow, "Curves Menu selected. \n");
+
     QMenu menu;
 
     QAction *action_Curve                = menu.addAction(QIcon(":/toolicon/32x32/spline.png"),               tr("Curve - Interactive") + "\t" + tr("Alt+C"));
@@ -3546,6 +4161,7 @@ void MainWindow::handleCurvesMenu()
 
     QAction *selectedAction = menu.exec(QCursor::pos());
 
+    // Determine which curve tool was selected and process it
     if(selectedAction == nullptr)
     {
         return;
@@ -3599,193 +4215,311 @@ void MainWindow::handleCurvesMenu()
         handleCurveIntersectAxisTool(true);
     }
 }
+// End MainWindow::handleCurvesMenu()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the Circles Menu action.
+ * 
+ * @details This function is called when the Circles Menu is selected. It currently only logs a debug message.
+ */
 void MainWindow::handleCirclesMenu()
 {
     qCDebug(vMainWindow, "Circles Menu selected. \n");
-
 }
+// End MainWindow::handleCirclesMenu()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the Operations Menu action.
+ * 
+ * @details This function is called when the Operations Menu is selected. It displays a context menu with options
+ * to add objects to a group, rotate, mirror by line, mirror by axis, move, perform true darts operation,
+ * or export draft blocks. It responds to the user's choice by triggering the corresponding actions.
+ */
 void MainWindow::handleOperationsMenu()
 {
     qCDebug(vMainWindow, "Operations Menu selected. \n");
     QMenu menu;
 
-    QAction *action_Group        = menu.addAction(QIcon(":/toolicon/32x32/group.png"),          tr("Add Objects to Group") + "\tG");
-    QAction *action_Rotate       = menu.addAction(QIcon(":/toolicon/32x32/rotation.png"),       tr("Rotate") + "\tR");
-    QAction *action_MirrorByLine = menu.addAction(QIcon(":/toolicon/32x32/mirror_by_line.png"), tr("Mirror by Line") + "\tM, L");
-    QAction *action_MirrorByAxis = menu.addAction(QIcon(":/toolicon/32x32/mirror_by_axis.png"), tr("Mirror by Axis") + "\tM, A");
-    QAction *action_Move         = menu.addAction(QIcon(":/toolicon/32x32/move.png"),           tr("Move") + "\t" + tr("Alt+M"));
-    QAction *action_TrueDarts    = menu.addAction(QIcon(":/toolicon/32x32/true_darts.png"),     tr("True Darts") + "\tT, D");
-    QAction *action_ExportDraftBlocks = menu.addAction(QIcon(":/toolicon/32x32/export.png"),    tr("Export Draft Blocks") + "\tE, D");
+    // Create QAction for Add Objects to Group option
+    QAction *action_Group = menu.addAction(QIcon(":/toolicon/32x32/group.png"),
+                                           tr("Add Objects to Group") + "\tG");
 
+    // Create QAction for Rotate option
+    QAction *action_Rotate = menu.addAction(QIcon(":/toolicon/32x32/rotation.png"),
+                                            tr("Rotate") + "\tR");
+
+    // Create QAction for Mirror by Line option
+    QAction *action_MirrorByLine = menu.addAction(QIcon(":/toolicon/32x32/mirror_by_line.png"),
+                                                  tr("Mirror by Line") + "\tM, L");
+
+    // Create QAction for Mirror by Axis option
+    QAction *action_MirrorByAxis = menu.addAction(QIcon(":/toolicon/32x32/mirror_by_axis.png"),
+                                                  tr("Mirror by Axis") + "\tM, A");
+
+    // Create QAction for Move option
+    QAction *action_Move = menu.addAction(QIcon(":/toolicon/32x32/move.png"),
+                                          tr("Move") + "\t" + tr("Alt+M"));
+
+    // Create QAction for True Darts option
+    QAction *action_TrueDarts = menu.addAction(QIcon(":/toolicon/32x32/true_darts.png"),
+                                               tr("True Darts") + "\tT, D");
+
+    // Create QAction for Export Draft Blocks option
+    QAction *action_ExportDraftBlocks = menu.addAction(QIcon(":/toolicon/32x32/export.png"),
+                                                      tr("Export Draft Blocks") + "\tE, D");
+
+    // Display the context menu at the current cursor position
     QAction *selectedAction = menu.exec(QCursor::pos());
 
-    if(selectedAction == nullptr)
+    // Determine which operations tool was selected and process it
+    if (selectedAction == nullptr)
     {
         return;
     }
     else if (selectedAction == action_Group)
     {
+        // Switch to the Operations Page and trigger the action to add objects to a group
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
         ui->group_ToolButton->setChecked(true);
         handleGroupTool(true);
     }
     else if (selectedAction == action_Rotate)
     {
+        // Switch to the Operations Page and trigger the action to rotate
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
         ui->rotation_ToolButton->setChecked(true);
         handleRotationTool(true);
     }
     else if (selectedAction == action_MirrorByLine)
     {
+        // Switch to the Operations Page and trigger the action to mirror by line
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
         ui->mirrorByLine_ToolButton->setChecked(true);
         handleMirrorByLineTool(true);
     }
     else if (selectedAction == action_MirrorByAxis)
     {
+        // Switch to the Operations Page and trigger the action to mirror by axis
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
         ui->mirrorByAxis_ToolButton->setChecked(true);
         handleMirrorByAxisTool(true);
     }
     else if (selectedAction == action_Move)
     {
+        // Switch to the Operations Page and trigger the action to move
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
         ui->move_ToolButton->setChecked(true);
         handleMoveTool(true);
     }
     else if (selectedAction == action_TrueDarts)
     {
+        // Switch to the Operations Page and trigger the action to perform true darts
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
         ui->trueDarts_ToolButton->setChecked(true);
         handleTrueDartTool(true);
     }
     else if (selectedAction == action_ExportDraftBlocks)
     {
+        // Switch to the Operations Page and trigger the action to export draft blocks
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
         exportDraftBlocksAs();
     }
 }
+// End MainWindow::handleOperationsMenu()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the Piece Menu action.
+ * 
+ * @details This function is called when the Piece Menu is selected. It displays a context menu with options
+ * to create a new pattern piece, add anchor points, create internal paths, or insert nodes in a path,
+ * and responds to the user's choice.
+ */
 void MainWindow::handlePieceMenu()
 {
     QMenu menu;
 
-    QAction *action_Piece        = menu.addAction(QIcon(":/toolicon/32x32/new_detail.png"),   tr("New Pattern Piece") + "\tN, P");
-    QAction *action_AnchorPoint  = menu.addAction(QIcon(":/toolicon/32x32/anchor_point.png"), tr("Add AnchorPoint") + "\tA, P");
-    QAction *action_InternalPath = menu.addAction(QIcon(":/toolicon/32x32/path.png"),         tr("Create Internal Path") + "\tI, N");
-    QAction *action_InsertNodes  = menu.addAction(QIcon(":/toolicon/32x32/insert_nodes_icon.png"), tr("Insert Nodes in Path") + "\tI, P");
+    // Create QAction for New Pattern Piece option
+    QAction *action_Piece = menu.addAction(QIcon(":/toolicon/32x32/new_detail.png"),
+                                           tr("New Pattern Piece") + "\tN, P");
 
+    // Create QAction for Add AnchorPoint option
+    QAction *action_AnchorPoint = menu.addAction(QIcon(":/toolicon/32x32/anchor_point.png"),
+                                                 tr("Add AnchorPoint") + "\tA, P");
+
+    // Create QAction for Create Internal Path option
+    QAction *action_InternalPath = menu.addAction(QIcon(":/toolicon/32x32/path.png"),
+                                                  tr("Create Internal Path") + "\tI, N");
+
+    // Create QAction for Insert Nodes in Path option
+    QAction *action_InsertNodes = menu.addAction(QIcon(":/toolicon/32x32/insert_nodes_icon.png"),
+                                                 tr("Insert Nodes in Path") + "\tI, P");
+
+    // Enable/disable certain options based on the number of existing pattern pieces
     action_AnchorPoint->setEnabled(pattern->DataPieces()->size() > 0);
     action_InternalPath->setEnabled(pattern->DataPieces()->size() > 0);
     action_InsertNodes->setEnabled(pattern->DataPieces()->size() > 0);
 
+    // Display the context menu at the current cursor position
     QAction *selectedAction = menu.exec(QCursor::pos());
 
-    if(selectedAction == nullptr)
+        // Determine which piece tool (draft mode) was selected and process it
+    if (selectedAction == nullptr)
     {
         return;
     }
     else if (selectedAction == action_Piece)
     {
+        // Switch to the Piece Page and trigger the action to create a new pattern piece
         ui->draft_ToolBox->setCurrentWidget(ui->piece_Page);
         ui->addPatternPiece_ToolButton->setChecked(true);
         handlePatternPieceTool(true);
     }
     else if (selectedAction == action_AnchorPoint)
     {
+        // Switch to the Piece Page and trigger the action to add anchor points
         ui->draft_ToolBox->setCurrentWidget(ui->piece_Page);
         ui->anchorPoint_ToolButton->setChecked(true);
         handleAnchorPointTool(true);
     }
     else if (selectedAction == action_InternalPath)
     {
+        // Switch to the Piece Page and trigger the action to create an internal path
         ui->draft_ToolBox->setCurrentWidget(ui->piece_Page);
         ui->internalPath_ToolButton->setChecked(true);
         handleInternalPathTool(true);
     }
     else if (selectedAction == action_InsertNodes)
     {
+        // Switch to the Piece Page and trigger the action to insert nodes in a path
         ui->draft_ToolBox->setCurrentWidget(ui->piece_Page);
         ui->insertNodes_ToolButton->setChecked(true);
         handleInsertNodesTool(true);
     }
 }
+// End MainWindow::handlePieceMenu()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the Pattern Pieces Menu action.
+ * 
+ * @details This function is called when the Pattern Pieces Menu is selected. It displays a context menu with options
+ * to use the Union Tool or export pattern pieces, and responds to the user's choice.
+ */
 void MainWindow::handlePatternPiecesMenu()
 {
     qCDebug(vMainWindow, "PatternPieces Menu selected. \n");
+
     QMenu menu;
 
-    QAction *action_Union        = menu.addAction(QIcon(":/toolicon/32x32/union.png"),  tr("Union Tool") + "\tU");
-    QAction *action_ExportPieces = menu.addAction(QIcon(":/toolicon/32x32/export.png"), tr("Export Pattern Pieces") + "\tE, P");
-    QAction *selectedAction      = menu.exec(QCursor::pos());
+    // Create QAction for Union Tool option
+    QAction *action_Union = menu.addAction(QIcon(":/toolicon/32x32/union.png"),
+                                           tr("Union Tool") + "\tU");
 
-    if(selectedAction == nullptr)
+    // Create QAction for Export Pattern Pieces option
+    QAction *action_ExportPieces = menu.addAction(QIcon(":/toolicon/32x32/export.png"),
+                                                  tr("Export Pattern Pieces") + "\tE, P");
+
+    // Display the context menu at the current cursor position
+    QAction *selectedAction = menu.exec(QCursor::pos());
+
+    // Determine which piece tool (Piece mode) was selected and process it
+    if (selectedAction == nullptr)
     {
         return;
     }
     else if (selectedAction == action_Union)
     {
+        // Switch to the Details Page and trigger the Union Tool action
         ui->piece_ToolBox->setCurrentWidget(ui->details_Page);
         ui->unitePieces_ToolButton->setChecked(true);
         handleUnionTool(true);
     }
     else if (selectedAction == action_ExportPieces)
     {
+        // Switch to the Details Page and trigger the action to export pattern pieces
         ui->piece_ToolBox->setCurrentWidget(ui->details_Page);
         exportPiecesAs();
     }
 }
+// End MainWindow::handlePatternPiecesMenu()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the Layout Menu action.
+ * 
+ * @details This function is called when the Layout Menu is selected. It displays a context menu with options
+ * to create a new print layout or export the current layout, and responds to the user's choice.
+ */
 void MainWindow::handleLayoutMenu()
 {
-    qCDebug(vMainWindow, "Layout Menu selected. \n");
-
+    qCDebug(vMainWindow, "Layout Menu selected.\n");
 
     QMenu menu;
 
-    QAction *action_NewLayout    = menu.addAction(QIcon(":/toolicon/32x32/layout_settings.png"), tr("New Print Layout") + "\tN, L");
-    QAction *action_ExportLayout = menu.addAction(QIcon(":/toolicon/32x32/export.png"), tr("Export Layout") + "\tE, L");
+    // Create QAction for New Print Layout option
+    QAction *action_NewLayout = menu.addAction(QIcon(":/toolicon/32x32/layout_settings.png"),
+                                               tr("New Print Layout") + "\tN, L");
 
+    // Create QAction for Export Layout option
+    QAction *action_ExportLayout = menu.addAction(QIcon(":/toolicon/32x32/export.png"),
+                                                  tr("Export Layout") + "\tE, L");
+
+    // Display the context menu at the current cursor position
     QAction *selectedAction = menu.exec(QCursor::pos());
 
-    if(selectedAction == nullptr)
+    // Determine which arclayout tool (Layout mode) was selected and process it
+    if (selectedAction == nullptr)
     {
         return;
     }
     else if (selectedAction == action_NewLayout)
     {
+        // Switch to the Layout Page and trigger the action to create a new layout
         ui->layout_ToolBox->setCurrentWidget(ui->layout_Page);
         ui->layoutSettings_ToolButton->setChecked(true);
         handleNewLayout(true);
     }
     else if (selectedAction == action_ExportLayout)
     {
+        // Switch to the Layout Page and trigger the action to export the current layout
         ui->layout_ToolBox->setCurrentWidget(ui->layout_Page);
         exportLayoutAs();
     }
 }
+// End MainWindow::handleLayoutMenu()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief mouseMove save mouse position and show user.
- * @param scenePos position mouse.
+ * @brief Updates mouse coordinates display based on the given scene position.
+ * 
+ * @param scenePos The scene position where the mouse pointer is located.
+ * 
+ * @details This function updates the display of mouse coordinates based on the provided scene position.
+ * It is typically called when the mouse pointer is moved over the graphics view.
  */
 void MainWindow::MouseMove(const QPointF &scenePos)
 {
     if (mouseCoordinates)
     {
+        // Update the mouse coordinates display with the provided scene position
         mouseCoordinates->updateCoordinates(scenePos);
     }
 }
+// End MainWindow::MouseMove()
 
 //---------------------------------------------------------------------------------------------------------------------
+// Preprocessor directive to silence certain compiler warnings for specific blocks of code 
+// without disabling them globally for the entire project.
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_GCC("-Wswitch-default")
+
 /**
- * @brief CancelTool cancel tool.
+ * @brief Cancels the currently active tool.
+ * 
+ * @details This function is responsible for canceling the currently active tool and cleaning up associated states and actions.
  */
 void MainWindow::CancelTool()
 {
@@ -3793,31 +4527,46 @@ void MainWindow::CancelTool()
     Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 53, "Not all tools were handled.");
 
     qCDebug(vMainWindow, "Canceling tool.");
+
+    // Clear any dialog associated with the tool
     dialogTool.clear();
+
     qCDebug(vMainWindow, "Dialog closed.");
 
+    // Remove focus from the current scene and clear its selection
     currentScene->setFocus(Qt::OtherFocusReason);
     currentScene->clearSelection();
-    emit ui->view->itemClicked(nullptr);           // Hide visualization to avoid a crash
 
-    ui->zoomPan_Action->setChecked(false);         //Disable Pan Zoom
+    // Hide any visualization to avoid a crash
+    emit ui->view->itemClicked(nullptr);
+
+    // Disable Pan Zoom
+    ui->zoomPan_Action->setChecked(false);
     ui->view->zoomPanEnabled(false);
 
-    ui->zoomToArea_Action->setChecked(false);      //Disable Zoom to Area
+    // Disable Zoom to Area
+    ui->zoomToArea_Action->setChecked(false);
     ui->view->zoomToAreaEnabled(false);
 
     switch (currentTool)
     {
         case Tool::Arrow:
+            // Uncheck and clear the arrow tool button and action
             ui->arrowPointer_ToolButton->setChecked(false);
             ui->arrow_Action->setChecked(false);
-            helpLabel->setText(QString(""));
 
+            // Clear the help label
+            helpLabel->setText("");
+
+            // Disable undo and redo actions
             // Crash: using CRTL+Z while using line tool.
             undoAction->setEnabled(false);
             redoAction->setEnabled(false);
+
+            // Suppress context menu
             VAbstractTool::m_suppressContextMenu = true;
             return;
+        // Handle other tool cases (tool-specific actions to be taken on tool cancelation)
         case Tool::BasePoint:
         case Tool::SinglePoint:
         case Tool::DoublePoint:
@@ -3958,30 +4707,47 @@ void MainWindow::CancelTool()
             break;
     }
 
+    // Disable undo and redo actions
     // Crash: using CRTL+Z while using line tool.
     undoAction->setEnabled(qApp->getUndoStack()->canUndo());
     redoAction->setEnabled(qApp->getUndoStack()->canRedo());
 }
+// End MainWindow::CancelTool()
 
+// Preprocessor directive to stop silencing certain compiler warnings
 QT_WARNING_POP
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleArrowTool enable arrow tool.
+ * @brief Handles the arrow tool.
+ * 
+ * @details This function is responsible for handling the arrow tool, which allows selecting and interacting with objects in the scene.
+ * 
+ * @param checked A boolean flag indicating whether the arrow tool is checked or not.
  */
 void  MainWindow::handleArrowTool(bool checked)
 {
     if (checked && currentTool != Tool::Arrow)
     {
         qCDebug(vMainWindow, "Arrow tool.");
+
+        // Cancel any active tool
         CancelTool();
+
+        // Set the arrow tool button and action as checked
         ui->arrowPointer_ToolButton->setChecked(true);
         ui->arrow_Action->setChecked(true);
+        // Set the current tool to Arrow
         currentTool = Tool::Arrow;
+
+        // Enable item movement and selection by mouse release
         emit EnableItemMove(true);
         emit ItemsSelection(SelectionType::ByMouseRelease);
+
+        // Allow context menu
         VAbstractTool::m_suppressContextMenu = false;
 
+        // Enable different types of item selections
         // Only true for rubber band selection
         emit EnableLabelSelection(true);
         emit EnablePointSelection(false);
@@ -3994,7 +4760,7 @@ void  MainWindow::handleArrowTool(bool checked)
         emit EnableNodePointSelection(true);
         emit enablePieceSelection(true);// Disable when done with pattern piece visualization
 
-        // Hovering
+       // Enable hovering for different types of items
         emit EnableLabelHover(true);
         emit EnablePointHover(true);
         emit EnableLineHover(true);
@@ -4006,25 +4772,34 @@ void  MainWindow::handleArrowTool(bool checked)
         emit EnableNodePointHover(true);
         emit enablePieceHover(true);
 
+        // Allow rubber band selection
         ui->view->allowRubberBand(true);
-
+        // Set the cursor to the default arrow cursor
         ui->view->viewport()->unsetCursor();
+        // Clear the help label
         helpLabel->setText("");
+        // Show tool options
         ui->view->setShowToolOptions(true);
+
         qCDebug(vMainWindow, "Enabled arrow tool.");
     }
     else
     {
+        // Set the cursor to the arrow cursor and check the arrow tool button and action
         ui->view->viewport()->setCursor(QCursor(Qt::ArrowCursor));
         ui->arrowPointer_ToolButton->setChecked(true);
         ui->arrow_Action->setChecked(true);
     }
 }
+// End MainWindow::handleArrowTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief keyPressEvent handle key press events.
- * @param event key event.
+ * @brief Handles key press events.
+ * 
+ * @details This function is called when a key is pressed, and it provides the ability to handle specific key events.
+ * 
+ * @param event A pointer to the key event object containing information about the key press event.
  */
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
@@ -4046,13 +4821,20 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         default:
             break;
     }
-    QMainWindow::keyPressEvent (event);
+    QMainWindow::keyPressEvent(event);
 }
+// End MainWindow::keyPressEvent()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief keyReleaseEvent handle key press events.
- * @param event key event.
+ * @brief Handles key release events.
+ * 
+ * @details This function is called when a key is released, and it provides the ability to handle specific key events.
+ * In this case, it checks if the space key was released and, if so, updates the zoom pan action accordingly.
+ * 
+ * @param event A pointer to the key event object containing information about the key release event.
+ * 
+ * @note The space key behavior is configured based on the application settings.
  */
 void MainWindow::keyReleaseEvent(QKeyEvent *event)
 {
@@ -4068,6 +4850,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
     }
     QMainWindow::keyReleaseEvent(event);
 }
+// End MainWindow::keyReleaseEvent()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
@@ -4095,7 +4878,7 @@ void MainWindow::SaveCurrentScene()
         scene->setVerScrollBar(verScrollBar->value());
     }
 }
-// ENd MainWindow::SaveCurrentScene()
+// End MainWindow::SaveCurrentScene()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
@@ -6303,6 +7086,7 @@ void MainWindow::LastUsedTool()
     }
 }
 // End MainWindow::LastUsedTool()
+
 // Preprocessor directive to stop silencing certain compiler warnings
 QT_WARNING_POP
 
