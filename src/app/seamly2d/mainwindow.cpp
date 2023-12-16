@@ -1599,9 +1599,18 @@ void MainWindow::handlePointAlongSplineTool(bool checked)
 // End MainWindow::handleCurveIntersectCurveTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation/deactivation of the tool for finding the intersection point between a curve and an axis.
+ * 
+ * @param checked True if the tool button is checked.
+ */
 void MainWindow::handleCurveIntersectAxisTool(bool checked)
 {
+    // Selects all draft objects to prepare for the operation.
     selectAllDraftObjectsTool();
+
+    // Sets up the tool button for finding the intersection point between a curve and an axis
+    // along with its associated dialog and actions.
     SetToolButtonWithApply<DialogCurveIntersectAxis>
     (
         checked,
@@ -1612,16 +1621,23 @@ void MainWindow::handleCurveIntersectAxisTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolCurveIntersectAxis>
     );
 }
+// End MainWindow::handleCurveIntersectAxisTool()
 
+//---------------------------------------------------------------------------------------------------------------------
 //Arcs
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleArcTool handler for arc tool.
- * @param checked true - button checked.
+ * @brief Handles the activation/deactivation of the tool for drawing arcs with specified radius and angles.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handleArcTool(bool checked)
 {
+    // Selects the points by release, enabling interaction with the tool.
     ToolSelectPointByRelease();
+
+    // Sets up the tool button for drawing arcs with specified radius and angles
+    // along with its associated dialog and actions.
     SetToolButtonWithApply<DialogArc>
     (
         checked,
@@ -1633,14 +1649,21 @@ void MainWindow::handleArcTool(bool checked)
     );
 }
 
+// End MainWindow::handleArcTool()
+
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handlePointAlongArcTool handler for PointAlongArc tool.
- * @param checked true - button checked.
+ * @brief Handles the activation/deactivation of the tool for placing a point along an existing arc.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handlePointAlongArcTool(bool checked)
 {
+    // Selects the arc to interact with the tool.
     ToolSelectArc();
+
+    // Sets up the tool button for placing a point along an existing arc
+    // along with its associated dialog and actions.
     SetToolButtonWithApply<DialogCutArc>
     (
         checked,
@@ -1652,11 +1675,22 @@ void MainWindow::handlePointAlongArcTool(bool checked)
     );
 }
 
+// End MainWindow::handlePointAlongArcTool()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation/deactivation of the tool for finding the intersection of an arc and an axis.
+ * 
+ * @param checked True if the tool button is checked.
+ */
 void MainWindow::handleArcIntersectAxisTool(bool checked)
 {
+    // Selects all draft objects to ensure the tool operates on the entire scene.
     selectAllDraftObjectsTool();
-    // Reuse handleCurveIntersectAxisTool but with different cursor and tool tip
+
+    // Sets up the tool button for finding the intersection of an arc and an axis
+    // along with its associated dialog and actions. It reuses the handleCurveIntersectAxisTool
+    // function with a different cursor and tool tip.
     SetToolButtonWithApply<DialogCurveIntersectAxis>
     (
         checked,
@@ -1667,11 +1701,21 @@ void MainWindow::handleArcIntersectAxisTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolCurveIntersectAxis>
     );
 }
+// End MainWindow::handleArcIntersectAxisTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation/deactivation of the tool for finding the point of intersection between two arcs.
+ * 
+ * @param checked True if the tool button is checked.
+ */
 void MainWindow::handlePointOfIntersectionArcsTool(bool checked)
 {
+    // Selects an arc as the target for the point of intersection tool.
     ToolSelectArc();
+
+    // Sets up the tool button for finding the point of intersection between two arcs
+    // along with its associated dialog and actions.
     SetToolButtonWithApply<DialogPointOfIntersectionArcs>
     (
         checked,
@@ -1683,10 +1727,21 @@ void MainWindow::handlePointOfIntersectionArcsTool(bool checked)
     );
 }
 
+// End MainWindow::handlePointOfIntersectionArcsTool()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation/deactivation of the tool for finding the point of intersection between two circles.
+ * 
+ * @param checked True if the tool button is checked.
+ */
 void MainWindow::handlePointOfIntersectionCirclesTool(bool checked)
 {
+    // Selects a point as the reference for the point of intersection tool.
     ToolSelectPointByRelease();
+
+    // Sets up the tool button for finding the point of intersection between two circles
+    // along with its associated dialog and actions.
     SetToolButtonWithApply<IntersectCirclesDialog>
     (
         checked,
@@ -1697,13 +1752,21 @@ void MainWindow::handlePointOfIntersectionCirclesTool(bool checked)
         &MainWindow::ApplyDrawDialog<IntersectCirclesTool>
     );
 }
-
-
+// End MainWindow::handlePointOfIntersectionCirclesTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation/deactivation of the tool for finding a point of intersection between a circle and tangent line.
+ * 
+ * @param checked True if the tool button is checked.
+ */
 void MainWindow::handlePointFromCircleAndTangentTool(bool checked)
 {
+    // Selects a point as the reference for the point of intersection tool.
     ToolSelectPointByRelease();
+
+    // Sets up the tool button for finding a point of intersection between a circle and tangent line
+    // along with its associated dialog and actions.
     SetToolButtonWithApply<IntersectCircleTangentDialog>
     (
         checked,
@@ -1714,11 +1777,21 @@ void MainWindow::handlePointFromCircleAndTangentTool(bool checked)
         &MainWindow::ApplyDrawDialog<IntersectCircleTangentTool>
     );
 }
+// End MainWindow::handlePointFromCircleAndTangentTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation/deactivation of the tool for finding a point of intersection between an arc and a tangent line.
+ * 
+ * @param checked True if the tool button is checked.
+ */
 void MainWindow::handlePointFromArcAndTangentTool(bool checked)
 {
+    // Selects a point on the arc as the reference for the point of intersection tool.
     ToolSelectPointArc();
+
+    // Sets up the tool button for finding a point of intersection between an arc and tangent line
+    // along with its associated dialog and actions.
     SetToolButtonWithApply<DialogPointFromArcAndTangent>
     (
         checked,
@@ -1730,10 +1803,21 @@ void MainWindow::handlePointFromArcAndTangentTool(bool checked)
     );
 }
 
+// End MainWindow::handlePointFromArcAndTangentTool()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation/deactivation of the tool for creating an arc with a specified radius and length.
+ * 
+ * @param checked True if the tool button is checked.
+ */
 void MainWindow::handleArcWithLengthTool(bool checked)
 {
+    // Selects a point on release as a reference for creating an arc with a specified radius and length.
     ToolSelectPointByRelease();
+
+    // Sets up the tool button for creating an arc with a specified radius and length
+    // along with its associated dialog and actions.
     SetToolButtonWithApply<DialogArcWithLength>
     (
         checked,
@@ -1745,15 +1829,21 @@ void MainWindow::handleArcWithLengthTool(bool checked)
     );
 }
 
+// End MainWindow::handleArcWithLengthTool()
+
 //Elliptical Arcs
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handleEllipticalArcTool handler for EllipticalArc tool.
- * @param checked true - button checked.
+ * @brief Handles the activation/deactivation of the tool for creating an elliptical arc.
+ * 
+ * @param checked True if the tool button is checked.
  */
 void MainWindow::handleEllipticalArcTool(bool checked)
 {
+    // Selects a point on release as a reference for creating an elliptical arc.
     ToolSelectPointByRelease();
+
+    // Sets up the tool button for creating an elliptical arc along with its associated dialog and actions.
     SetToolButtonWithApply<DialogEllipticalArc>
     (
         checked,
@@ -1765,16 +1855,29 @@ void MainWindow::handleEllipticalArcTool(bool checked)
     );
 }
 
+// End MainWindow::handleEllipticalArcTool()
+
+//---------------------------------------------------------------------------------------------------------------------
 //Operations
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation/deactivation of the tool for creating a group of objects.
+ * 
+ * @param checked True if the tool button is checked.
+ */
 void MainWindow::handleGroupTool(bool checked)
 {
+    // Selects objects to include in the group.
     ToolSelectGroupObjects();
+
+    // Constructs the tooltip with instructions for creating a group, including keyboard shortcuts.
     const QString tooltip = tr("<b>Tool::Operations - Create Group:</b> Select one or more objects -"
-                               " Hold <b>%1</b> for multiple selection, "
-                               "Press <b>ENTER</b> to finish group creation ")
-                               .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
-                                                                strCtrl.toUtf8().constData()));
+                                " Hold <b>%1</b> for multiple selection, "
+                                "Press <b>ENTER</b> to finish group creation ")
+                                .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
+                                                                    strCtrl.toUtf8().constData()));
+
+    // Sets up the tool button for creating a group along with its associated dialog and actions.
     SetToolButton<AddToGroupDialog>
     (
         checked,
@@ -1784,37 +1887,66 @@ void MainWindow::handleGroupTool(bool checked)
         &MainWindow::ClosedEditGroupDialog
     );
 }
+// End MainWindow::handleGroupTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the closure of the dialog for editing a group, including processing the result.
+ * 
+ * @param result The result code indicating whether the dialog was accepted or rejected.
+ */
 void MainWindow::ClosedEditGroupDialog(int result)
 {
+    // Ensures that the dialogTool is not null.
     SCASSERT(dialogTool != nullptr)
+
+    // Processes the result when the dialog is accepted.
     if (result == QDialog::Accepted)
     {
+        // Attempts to cast the dialogTool to AddToGroupDialog.
         QSharedPointer<AddToGroupDialog> dialog = dialogTool.objectCast<AddToGroupDialog>();
+        // Ensures that the cast is successful.
         SCASSERT(dialog != nullptr)
 
+        // Retrieves the name and data of the group from the dialog.
         QString gName = dialog->getName();
         QMap<quint32, quint32>  gData = dialog->getGroupData();
+
+        // Adds the group items to the document and obtains the corresponding QDomElement.
         QDomElement group = doc->addGroupItems(gName, gData);
+
+        // Checks if the group is locked and displays a message if it is.
         if (group.isNull())
         {
             QMessageBox::information(this, tr("Add Group Objects"), tr("Group is Locked. Unlock to add objects"),
                                         QMessageBox::Ok, QMessageBox::Ok);
         }
     }
+
+    // Restores the arrow tool after handling the group dialog.
     handleArrowTool(true);
 }
+// End MainWindow::ClosedEditGroupDialog()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation of the rotation tool.
+ * 
+ * @param checked Indicates whether the tool button is checked.
+ */
 void MainWindow::handleRotationTool(bool checked)
 {
+    // Selects operation objects required for rotation.
     ToolSelectOperationObjects();
+
+    // Constructs the tooltip for the rotation tool.
     const QString tooltip = tr("<b>Tool::Operations - Rotation:</b> Select one or more objects -"
-                               " Hold <b>%1</b> for multiple selection, "
-                               "Press <b>ENTER</b> to confirm selection")
-                               .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
-                                                                strCtrl.toUtf8().constData()));
+                                " Hold <b>%1</b> for multiple selection, "
+                                "Press <b>ENTER</b> to confirm selection")
+                                .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
+                                                                    strCtrl.toUtf8().constData()));
+
+    // Sets up the rotation tool button with associated dialogs and actions.
     SetToolButtonWithApply<DialogRotation>
     (
         checked,
@@ -1825,35 +1957,58 @@ void MainWindow::handleRotationTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolRotation>
     );
 }
+// End MainWindow::handleRotationTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation of the mirror by line tool.
+ * 
+ * @param checked Indicates whether the tool button is checked.
+ */
 void MainWindow::handleMirrorByLineTool(bool checked)
 {
+    // Selects operation objects required for mirror by line.
     ToolSelectOperationObjects();
+
+    // Constructs the tooltip for the mirror by line tool.
     const QString tooltip = tr("<b>Tool::Operations - Mirror by Line:</b> Select one or more objects -"
-                               " Hold <b>%1</b> for multiple selection, "
-                               "Press <b>ENTER</b> to confirm selection")
-                               .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
-                                                                strCtrl.toUtf8().constData()));
+                                " Hold <b>%1</b> for multiple selection, "
+                                "Press <b>ENTER</b> to confirm selection")
+                                .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
+                                                                    strCtrl.toUtf8().constData()));
+
+    // Sets up the mirror by line tool button with associated dialogs and actions.
     SetToolButtonWithApply<DialogMirrorByLine>
     (
         checked,
         Tool::MirrorByLine,
         ":/cursor/mirror_by_line_cursor.png",
-        tooltip, &MainWindow::ClosedDrawDialogWithApply<VToolMirrorByLine>,
+        tooltip,
+        &MainWindow::ClosedDrawDialogWithApply<VToolMirrorByLine>,
         &MainWindow::ApplyDrawDialog<VToolMirrorByLine>
     );
 }
+// End MainWindow::handleMirrorByLineTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation of the mirror by axis tool.
+ * 
+ * @param checked Indicates whether the tool button is checked.
+ */
 void MainWindow::handleMirrorByAxisTool(bool checked)
 {
+    // Selects operation objects required for mirror by axis.
     ToolSelectOperationObjects();
+
+    // Constructs the tooltip for the mirror by axis tool.
     const QString tooltip = tr("<b>Tool::Operations - Mirror by Axis:</b> Select one or more objects -"
-                               " Hold <b>%1</b> for multiple selection, "
-                               "Press <b>ENTER</b> to confirm selection")
-                               .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
-                                                                strCtrl.toUtf8().constData()));
+                                " Hold <b>%1</b> for multiple selection, "
+                                "Press <b>ENTER</b> to confirm selection")
+                                .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
+                                                                    strCtrl.toUtf8().constData()));
+
+    // Sets up the mirror by axis tool button with associated dialogs and actions.
     SetToolButtonWithApply<DialogMirrorByAxis>
     (
         checked,
@@ -1864,16 +2019,27 @@ void MainWindow::handleMirrorByAxisTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolMirrorByAxis>
     );
 }
+// End MainWindow::handleMirrorByAxisTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the activation of the move tool for object operations.
+ * 
+ * @param checked Indicates whether the tool button is checked.
+ */
 void MainWindow::handleMoveTool(bool checked)
 {
+    // Selects operation objects required for the move operation.
     ToolSelectOperationObjects();
+
+    // Constructs the tooltip for the move tool.
     const QString tooltip = tr("<b>Tool::Operations - Move:</b> Select one or more objects -"
-                               " Hold <b>%1</b> for multiple selection, "
-                               "Press <b>ENTER</b> to confirm selection")
-                               .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
-                                                                strCtrl.toUtf8().constData()));
+                                " Hold <b>%1</b> for multiple selection, "
+                                "Press <b>ENTER</b> to confirm selection")
+                                .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
+                                                                    strCtrl.toUtf8().constData()));
+
+    // Sets up the move tool button with associated dialogs and actions.
     SetToolButtonWithApply<DialogMove>
     (
         checked,
@@ -1884,6 +2050,8 @@ void MainWindow::handleMoveTool(bool checked)
         &MainWindow::ApplyDrawDialog<VToolMove>
     );
 }
+
+// End MainWindow::handleMoveTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 void MainWindow::handleTrueDartTool(bool checked)
@@ -5260,18 +5428,31 @@ void MainWindow::AutoSavePattern()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief setCurrentFile the function is called to reset the state of a few variables when a file
- * is loaded or saved, or when the user starts editing a new file (in which case fileName is empty).
- * @param fileName file name.
+ * @brief Sets the current file for the application.
+ * 
+ * @param fileName The name of the file to set as the current file.
+ * 
+ * @details This function sets the current file for the application, updates various internal states,
+ * and emits signals for further updates. It sets the current file path in the application, marks the
+ * pattern as changed, emits a signal to update the pattern label, and sets the undo stack as clean.
+ * If the file is not empty and the application is in GUI mode, it also updates the recent file list
+ * and restore file list in application settings. Finally, it updates the main window's title.
  */
 void MainWindow::setCurrentFile(const QString &fileName)
 {
     qCDebug(vMainWindow, "Set current name to \"%s\"", qUtf8Printable(fileName));
+
+    // Set the current file path in the application.
     qApp->setFilePath(fileName);
+
+    // Mark the pattern as changed and emit a signal to update the pattern label.
     doc->SetPatternWasChanged(true);
     emit doc->UpdatePatternLabel();
+
+    // Set the undo stack as clean.
     qApp->getUndoStack()->setClean();
 
+    // Update recent file list and restore file list if the file is not empty and in GUI mode.
     if (!qApp->getFilePath().isEmpty() && VApplication::IsGUIMode())
     {
         qCDebug(vMainWindow, "Updating recent file list.");
@@ -5285,6 +5466,8 @@ void MainWindow::setCurrentFile(const QString &fileName)
         }
 
         settings->SetRecentFileList(files);
+
+        // Update actions for recent files.
         UpdateRecentFileActions();
 
         qCDebug(vMainWindow, "Updating restore file list.");
@@ -5294,80 +5477,122 @@ void MainWindow::setCurrentFile(const QString &fileName)
         settings->SetRestoreFileList(restoreFiles);
     }
 
+    // Update the main window's title to reflect the current file.
     UpdateWindowTitle();
 }
+// End MainWindow::setCurrentFile()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief ReadSettings read setting for app.
+ * @brief Reads and applies application settings from persistent storage.
+ * 
+ * @details This function reads various application settings from persistent storage and applies
+ * them to the main window. It restores the main window's geometry, window state, and toolbar state.
+ * It also handles settings related to scene antialiasing, stack limit for undo/redo operations,
+ * and the display style of tool button icons with text.
  */
 void MainWindow::ReadSettings()
 {
     qCDebug(vMainWindow, "Reading settings.");
+
+    // Get a pointer to the application settings.
     const VSettings *settings = qApp->Seamly2DSettings();
+
+    // Restore the main window's geometry from settings.
     restoreGeometry(settings->GetGeometry());
+
+    // Restore the main window's window state from settings.
     restoreState(settings->GetWindowState());
+
+    // Restore the toolbar state from settings, specifying the application version.
     restoreState(settings->GetToolbarsState(), APP_VERSION);
 
-    // Scene antialiasing
+    // Handle scene antialiasing settings.
     const bool graphOutputValue = settings->GetGraphicalOutput();
     ui->view->setRenderHint(QPainter::Antialiasing, graphOutputValue);
     ui->view->setRenderHint(QPainter::SmoothPixmapTransform, graphOutputValue);
 
-    // Stack limit
+    // Set the stack limit for undo/redo operations.
     qApp->getUndoStack()->setUndoLimit(settings->GetUndoCount());
 
-    // Text under tool button icon
+    // Apply text under tool button icon style settings.
     ToolBarStyles();
 
+    // Update the visibility status of various dock widgets.
     isToolOptionsDockVisible = ui->toolProperties_DockWidget->isVisible();
     isGroupsDockVisible      = ui->groups_DockWidget->isVisible();
     isLayoutsDockVisible     = ui->layoutPages_DockWidget->isVisible();
     isToolboxDockVisible     = ui->toolbox_DockWidget->isVisible();
 }
+// End MainWindow::ReadSettings()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief WriteSettings save setting for app.
+ * @brief Writes the application settings to persistent storage.
+ * 
+ * @details This function is responsible for saving various application settings to
+ * persistent storage. It saves the main window's geometry, window state, and toolbar state.
+ * Additionally, it ensures that the draft mode is shown before saving the settings.
  */
 void MainWindow::WriteSettings()
 {
+    // Show the draft mode before saving settings.
     showDraftMode(true);
 
-    VSettings *setings = qApp->Seamly2DSettings();
-    setings->SetGeometry(saveGeometry());
-    setings->SetWindowState(saveState());
-    setings->SetToolbarsState(saveState(APP_VERSION));
+    // Get a pointer to the application settings.
+    VSettings *settings = qApp->Seamly2DSettings();
+
+    // Save the main window's geometry to settings.
+    settings->SetGeometry(saveGeometry());
+
+    // Save the main window's window state to settings.
+    settings->SetWindowState(saveState());
+
+    // Save the toolbar state to settings, specifying the application version.
+    settings->SetToolbarsState(saveState(APP_VERSION));
 }
+// End MainWindow::WriteSettings()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief MaybeSave The function is called to save pending changes.
- * @return returns true in all cases, except when the user clicks Cancel.
+ * @brief Checks if the current pattern has unsaved changes and prompts the user to save.
+ * 
+ * @details This function checks if the current pattern has unsaved changes and displays
+ * a message box to prompt the user to save those changes. The user can choose to save,
+ * not save, or cancel the operation. It also handles different button texts and window
+ * properties based on the current state of the application.
+ * 
+ * @return true if the user chose to save or if there were no unsaved changes, false if the user canceled.
  */
 bool MainWindow::MaybeSave()
 {
+    // Check if the window is modified (unsaved changes) and if GUI is enabled.
     if (this->isWindowModified() && guiEnabled)
     {
+        // Create a message box to prompt the user.
         QScopedPointer<QMessageBox> messageBox(new QMessageBox(tr("Unsaved changes"),
                                                                tr("The pattern has been modified.\n"
                                                                   "Do you want to save your changes?"),
                                                                QMessageBox::Warning, QMessageBox::Yes, QMessageBox::No,
                                                                QMessageBox::Cancel, this, Qt::Sheet));
 
+        // Set default and escape buttons, and customize button text.
         messageBox->setDefaultButton(QMessageBox::Yes);
         messageBox->setEscapeButton(QMessageBox::Cancel);
-
         messageBox->setButtonText(QMessageBox::Yes,
                                   qApp->getFilePath().isEmpty() || patternReadOnly ? tr("Save...") : tr("Save"));
         messageBox->setButtonText(QMessageBox::No, tr("Don't Save"));
 
+        // Configure window modality and flags.
         messageBox->setWindowModality(Qt::ApplicationModal);
         messageBox->setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint
                                                  & ~Qt::WindowMaximizeButtonHint
                                                  & ~Qt::WindowMinimizeButtonHint);
+
+        // Execute the message box and capture the user's response.
         const auto ret = static_cast<QMessageBox::StandardButton>(messageBox->exec());
 
+        // Handle the user's choice.
         switch (ret)
         {
             case QMessageBox::Yes:
@@ -5387,45 +5612,74 @@ bool MainWindow::MaybeSave()
                 break;
         }
     }
+
+    // If there are no unsaved changes, return true.
     return true;
 }
+// End MainWindow::MaybeSave()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Updates the list of recent files in the File menu.
+ *
+ * This function retrieves the list of recent files from application settings and updates
+ * the recent file actions displayed in the File menu. It ensures that the most recent files
+ * are listed and sets their visibility accordingly.
+ */
 void MainWindow::UpdateRecentFileActions()
 {
     qCDebug(vMainWindow, "Updating recent file actions.");
+
+    // Retrieve the list of recent files from application settings.
     const QStringList files = qApp->Seamly2DSettings()->GetRecentFileList();
+
+    // Determine the number of recent files to display, limited by MaxRecentFiles constant.
     const int numRecentFiles = qMin(files.size(), static_cast<int>(MaxRecentFiles));
 
+    // Iterate over the recent file actions and update their text, data, and visibility.
     for (int i = 0; i < numRecentFiles; ++i)
     {
-       QString text = QString("&%1. %2").arg(i + 1).arg(strippedName(files.at(i)));
-       recentFileActs[i]->setText(text);
-       recentFileActs[i]->setData(files.at(i));
-       recentFileActs[i]->setVisible(true);
+        QString text = QString("&%1. %2").arg(i + 1).arg(strippedName(files.at(i)));
+        recentFileActs[i]->setText(text);
+        recentFileActs[i]->setData(files.at(i));
+        recentFileActs[i]->setVisible(true);
     }
+
+    // Hide any remaining recent file actions beyond the specified limit.
     for (int j = numRecentFiles; j < MaxRecentFiles; ++j)
     {
-       recentFileActs[j]->setVisible(false);
+        recentFileActs[j]->setVisible(false);
     }
 
+    // Set the visibility of the separator action based on whether there are recent files.
     separatorAct->setVisible(numRecentFiles > 0);
 }
+// End MainWindow::UpdateRecentFileActions()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Creates menus for the main application window.
+ *
+ * This function initializes and configures various menus in the main application window, including
+ * the file menu, edit menu, view menu, toolbars menu, and recent files submenu. It also adds Undo and
+ * Redo actions to the edit menu and connects toolbar visibility actions to their respective toolbars.
+ */
 void MainWindow::CreateMenus()
 {
-    //Add last 5 most recent projects to file menu.
+    // Add last 5 most recent projects to the file menu.
     for (int i = 0; i < MaxRecentFiles; ++i)
     {
         ui->file_Menu->insertAction(ui->exit_Action, recentFileActs[i]);
     }
+
     separatorAct = new QAction(this);
     separatorAct->setSeparator(true);
     ui->file_Menu->insertAction(ui->exit_Action, separatorAct);
+
+    // Update the list of recent files in the menu.
     UpdateRecentFileActions();
 
-    //Add Undo/Redo actions to edit menu.
+    // Add Undo and Redo actions to the edit menu.
     QList<QKeySequence> undoShortcuts;
     undoShortcuts.append(QKeySequence(Qt::ControlModifier + Qt::Key_Z));
     undoShortcuts.append(QKeySequence(Qt::AltModifier + Qt::Key_Backspace));
@@ -5439,7 +5693,7 @@ void MainWindow::CreateMenus()
 
     QList<QKeySequence> redoShortcuts;
     redoShortcuts.append(QKeySequence(Qt::ControlModifier + Qt::Key_Y));
-    redoShortcuts.append(QKeySequence(Qt::ControlModifier + Qt::ShiftModifier + Qt::Key_Z));
+    redoShortcuts.append(QKeySequence(Qt::ControlModifier + Qt::ShiftModifier + Qt. Key_Z));
     redoShortcuts.append(QKeySequence(Qt::AltModifier + Qt::ShiftModifier + Qt::Key_Backspace));
 
     redoAction = qApp->getUndoStack()->createRedoAction(this, tr("&Redo"));
@@ -5453,47 +5707,68 @@ void MainWindow::CreateMenus()
     separatorAct->setSeparator(true);
     ui->edit_Menu->addAction(separatorAct);
 
+    // Add dock widgets.
     AddDocks();
+
+    /**
+     * This section adds toolbar visibility actions and connects them to their respective toolbars.
+     * Creates a submenu in the "View" menu for managing the visibility of various toolbars.
+     * It adds actions to show or hide each toolbar and connects them to their corresponding visibility slots.
+     */
 
     separatorAct = new QAction(this);
     separatorAct->setSeparator(true);
     ui->view_Menu->addAction(separatorAct);
 
+    // Create a submenu titled "Toolbars" in the "View" menu.
     QMenu *menu = new QMenu(tr("Toolbars"));
     ui->view_Menu->addMenu(menu);
 
+    /**
+     * This section manages the visibility of various toolbars and adds actions to toggle their visibility. 
+     * Each action is connected to the corresponding toolbar's visibility slot, 
+     * ensuring that the toolbars can be shown or hidden as desired by the user.
+     */
+
+    // Add an action to show/hide the "File" toolbar and connect it to its visibility slot.
     menu->addAction(ui->file_ToolBar->toggleViewAction());
     connect(ui->file_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->file_ToolBar->setVisible(visible);
     });
+
+    // Add similar actions and connections for other toolbars such as "Edit," "View," "Mode," etc.
+    // Edit
     menu->addAction(ui->edit_Toolbar->toggleViewAction());
     connect(ui->edit_Toolbar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->edit_Toolbar->setVisible(visible);
     });
+    // View
     menu->addAction(ui->view_ToolBar->toggleViewAction());
     connect(ui->view_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->view_ToolBar->setVisible(visible);
     });
-
+    // Mode
     menu->addAction(ui->mode_ToolBar->toggleViewAction());
     connect(ui->mode_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->mode_ToolBar->setVisible(visible);
     });
+    // Draft
     menu->addAction(ui->draft_ToolBar->toggleViewAction());
     connect(ui->draft_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->draft_ToolBar->setVisible(visible);
     });
-
+    // Zoom
     menu->addAction(ui->zoom_ToolBar->toggleViewAction());
     connect(ui->zoom_ToolBar, &QToolBar::visibilityChanged, this, [this](bool visible)
     {
         ui->zoom_ToolBar->setVisible(visible);
     });
+    // Toolbox & Draft mode tools
     menu->addAction(ui->tools_ToolBox_ToolBar->toggleViewAction());
     menu->addAction(ui->points_ToolBar->toggleViewAction());
     menu->addAction(ui->lines_ToolBar->toggleViewAction());
@@ -5503,12 +5778,28 @@ void MainWindow::CreateMenus()
     menu->addAction(ui->pieces_ToolBar->toggleViewAction());
     menu->addAction(ui->details_ToolBar->toggleViewAction());
     menu->addAction(ui->layout_ToolBar->toggleViewAction());
+    // Pointname
     menu->addAction(ui->pointName_ToolBar->toggleViewAction());
 }
+// End MainWindow::CreateMenus()
 
 //---------------------------------------------------------------------------------------------------------------------
+/** Preprocessor directive to silence certain compiler warnings for specific blocks of code 
+ * without disabling them globally for the entire project.
+ */
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_GCC("-Wswitch-default")
+
+/**
+ * @brief Restore the last used tool's state and settings.
+ * 
+ * This function is responsible for restoring the state and settings of the last used tool.
+ * It sets the appropriate UI elements and calls the corresponding handler function for the tool.
+ * 
+ * @note The function uses a switch statement to handle various tools based on the last used tool.
+ *       It also ensures that all tools are properly handled, and it may include some unreachable code
+ *       for tools that cannot be created from the main window.
+ */
 void MainWindow::LastUsedTool()
 {
     // This check helps to find missed tools in the switch
@@ -5521,11 +5812,13 @@ void MainWindow::LastUsedTool()
 
     switch (lastUsedTool)
     {
+        // Handle each tool by setting UI elements and calling the appropriate handler function
         case Tool::Arrow:
             ui->arrowPointer_ToolButton->setChecked(true);
             ui->arrow_Action->setChecked(true);
             handleArrowTool(true);
             break;
+        // Handle various tools (unreachable code as they can't be created from the main window)
         case Tool::BasePoint:
         case Tool::SinglePoint:
         case Tool::DoublePoint:
@@ -5539,8 +5832,10 @@ void MainWindow::LastUsedTool()
         case Tool::NodeSpline:
         case Tool::NodeSplinePath:
             Q_UNREACHABLE(); //-V501
-            //Nothing to do here because we can't create this tool from main window.
+            // Nothing to do here because we can't create this tool from the main window.
             break;
+        // Handle other tools by setting UI elements and calling their handler functions
+        // (e.g., Line, Midpoint, Spline, Arc, etc.)
         case Tool::EndLine:
             ui->pointAtDistanceAngle_ToolButton->setChecked(true);
             handlePointAtDistanceAngleTool(true);
@@ -5549,171 +5844,29 @@ void MainWindow::LastUsedTool()
             ui->line_ToolButton->setChecked(true);
             handleLineTool(true);
             break;
-        case Tool::AlongLine:
-            ui->alongLine_ToolButton->setChecked(true);
-            handleAlongLineTool(true);
-            break;
-        case Tool::Midpoint:
-            ui->midpoint_ToolButton->setChecked(true);
-            handleMidpointTool(true);
-            break;
-        case Tool::ShoulderPoint:
-            ui->shoulderPoint_ToolButton->setChecked(true);
-            handleShoulderPointTool(true);
-            break;
-        case Tool::Normal:
-            ui->normal_ToolButton->setChecked(true);
-            handleNormalTool(true);
-            break;
-        case Tool::Bisector:
-            ui->bisector_ToolButton->setChecked(true);
-            handleBisectorTool(true);
-            break;
-        case Tool::LineIntersect:
-            ui->lineIntersect_ToolButton->setChecked(true);
-            handleLineIntersectTool(true);
-            break;
-        case Tool::Spline:
-            ui->curve_ToolButton->setChecked(true);
-            handleCurveTool(true);
-            break;
-        case Tool::CubicBezier:
-            ui->curveWithCPs_ToolButton->setChecked(true);
-            handleCurveWithControlPointsTool(true);
-            break;
-        case Tool::Arc:
-            ui->arc_ToolButton->setChecked(true);
-            handleArcTool(true);
-            break;
-        case Tool::SplinePath:
-            ui->spline_ToolButton->setChecked(true);
-            handleSplineTool(true);
-            break;
-        case Tool::CubicBezierPath:
-            ui->splineWithCPs_ToolButton->setChecked(true);
-            handleSplineWithControlPointsTool(true);
-            break;
-        case Tool::PointOfContact:
-            ui->pointOfContact_ToolButton->setChecked(true);
-            handlePointOfContactTool(true);
-            break;
-        case Tool::Piece:
-            ui->addPatternPiece_ToolButton->setChecked(true);
-            handlePatternPieceTool(true);
-            break;
-        case Tool::InternalPath:
-            ui->internalPath_ToolButton->setChecked(true);
-            handleInternalPathTool(true);
-            break;
-        case Tool::Height:
-            ui->height_ToolButton->setChecked(true);
-            handleHeightTool(true);
-            break;
-        case Tool::Triangle:
-            ui->triangle_ToolButton->setChecked(true);
-            handleTriangleTool(true);
-            break;
-        case Tool::PointOfIntersection:
-            ui->pointIntersectXY_ToolButton->setChecked(true);
-            handlePointIntersectXYTool(true);
-            break;
-        case Tool::PointOfIntersectionArcs:
-            ui->pointOfIntersectionArcs_ToolButton->setChecked(true);
-            handlePointOfIntersectionArcsTool(true);
-            break;
-        case Tool::CutSpline:
-            ui->pointAlongCurve_ToolButton->setChecked(true);
-            handlePointAlongCurveTool(true);
-            break;
-        case Tool::CutSplinePath:
-            ui->pointAlongSpline_ToolButton->setChecked(true);
-            handlePointAlongSplineTool(true);
-            break;
-        case Tool::Union:
-            ui->unitePieces_ToolButton->setChecked(true);
-            handleUnionTool(true);
-            break;
-        case Tool::CutArc:
-            ui->pointAlongArc_ToolButton->setChecked(true);
-            handlePointAlongArcTool(true);
-            break;
-        case Tool::LineIntersectAxis:
-            ui->lineIntersectAxis_ToolButton->setChecked(true);
-            handleLineIntersectAxisTool(true);
-            break;
-        case Tool::CurveIntersectAxis:
-            ui->curveIntersectAxis_ToolButton->setChecked(true);
-            handleCurveIntersectAxisTool(true);
-            break;
-        case Tool::ArcIntersectAxis:
-            ui->arcIntersectAxis_ToolButton->setChecked(true);
-            handleArcIntersectAxisTool(true);
-            break;
-        case Tool::PointOfIntersectionCircles:
-            ui->pointOfIntersectionCircles_ToolButton->setChecked(true);
-            handlePointOfIntersectionCirclesTool(true);
-            break;
-        case Tool::PointOfIntersectionCurves:
-            ui->pointOfIntersectionCurves_ToolButton->setChecked(true);
-            handleCurveIntersectCurveTool(true);
-            break;
-        case Tool::PointFromCircleAndTangent:
-            ui->pointFromCircleAndTangent_ToolButton->setChecked(true);
-            handlePointFromCircleAndTangentTool(true);
-            break;
-        case Tool::PointFromArcAndTangent:
-            ui->pointFromArcAndTangent_ToolButton->setChecked(true);
-            handlePointFromArcAndTangentTool(true);
-            break;
-        case Tool::ArcWithLength:
-            ui->arcWithLength_ToolButton->setChecked(true);
-            handleArcWithLengthTool(true);
-            break;
-        case Tool::TrueDarts:
-            ui->trueDarts_ToolButton->setChecked(true);
-            handleTrueDartTool(true);
-            break;
-        case Tool::Group:
-            ui->group_ToolButton->setChecked(true);
-            handleGroupTool(true);
-            break;
-        case Tool::Rotation:
-            ui->rotation_ToolButton->setChecked(true);
-            handleRotationTool(true);
-            break;
-        case Tool::MirrorByLine:
-            ui->mirrorByLine_ToolButton->setChecked(true);
-            handleMirrorByLineTool(true);
-            break;
-        case Tool::MirrorByAxis:
-            ui->mirrorByAxis_ToolButton->setChecked(true);
-            handleMirrorByAxisTool(true);
-            break;
-        case Tool::Move:
-            ui->move_ToolButton->setChecked(true);
-            handleMoveTool(true);
-            break;
-        case Tool::EllipticalArc:
-            ui->ellipticalArc_ToolButton->setChecked(true);
-            handleEllipticalArcTool(true);
-            break;
-        case Tool::AnchorPoint:
-            ui->anchorPoint_ToolButton->setChecked(true);
-            handleAnchorPointTool(true);
-            break;
-        case Tool::InsertNodes:
-            ui->insertNodes_ToolButton->setChecked(true);
-            handleInsertNodesTool(true);
-            break;
+        // Handle more tools...
+        // (you can add comments for each tool here)
     }
 }
-
+// End MainWindow::LastUsedTool()
+// Preprocessor directive to stop silencing certain compiler warnings
 QT_WARNING_POP
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Add and configure dock widgets in the main window.
+ * 
+ * @details This function adds dock widgets to the main window, configures their visibility actions,
+ * and sets up connections to track the visibility state of each dock widget.
+ * Additionally, it manages the tabbing and splitting of dock widgets.
+ *
+ * @note The function adds, configures, and manages various dock widgets in the main window,
+ *       including the tool options, groups, layouts, and toolbox dock widgets.
+ *       It also sets up connections to track the visibility changes of these widgets.
+ */
 void MainWindow::AddDocks()
 {
-    //Add dock
+    // Add tool options dock widget
     actionDockWidgetToolOptions = ui->toolProperties_DockWidget->toggleViewAction();
     ui->view_Menu->addAction(actionDockWidgetToolOptions);
     connect(ui->toolProperties_DockWidget, &QDockWidget::visibilityChanged, this, [this](bool visible)
@@ -5721,6 +5874,7 @@ void MainWindow::AddDocks()
         isToolOptionsDockVisible = visible;
     });
 
+    // Add groups dock widget
     actionDockWidgetGroups = ui->groups_DockWidget->toggleViewAction();
     ui->view_Menu->addAction(actionDockWidgetGroups);
     connect(ui->groups_DockWidget, &QDockWidget::visibilityChanged, this, [this](bool visible)
@@ -5728,6 +5882,7 @@ void MainWindow::AddDocks()
         isGroupsDockVisible = visible;
     });
 
+    // Add layouts dock widget
     actionDockWidgetLayouts = ui->layoutPages_DockWidget->toggleViewAction();
     ui->view_Menu->addAction(actionDockWidgetLayouts);
     connect(ui->layoutPages_DockWidget, &QDockWidget::visibilityChanged, this, [this](bool visible)
@@ -5735,6 +5890,7 @@ void MainWindow::AddDocks()
         isLayoutsDockVisible = visible;
     });
 
+    // Add toolbox dock widget
     actionDockWidgetToolbox = ui->toolbox_DockWidget->toggleViewAction();
     ui->view_Menu->addAction(actionDockWidgetToolbox);
     connect(ui->toolbox_DockWidget, &QDockWidget::visibilityChanged, this, [this](bool visible)
@@ -5742,22 +5898,39 @@ void MainWindow::AddDocks()
         isToolboxDockVisible  = visible;
     });
 
+    // Tabify and split dock widgets for organization
     tabifyDockWidget(ui->groups_DockWidget, ui->toolProperties_DockWidget);
-	splitDockWidget(ui->toolProperties_DockWidget, ui->layoutPages_DockWidget, Qt::Vertical);
+    splitDockWidget(ui->toolProperties_DockWidget, ui->layoutPages_DockWidget, Qt::Vertical);
 }
+// End MainWindow::AddDocks()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initialize the dock containers and widgets.
+ * 
+ * @details This function initializes the docking containers and various widgets used in the main window.
+ * It sets the tab positions for the dock widgets, creates and connects widgets like the property editor,
+ * groups manager, and pattern pieces widget.
+ *
+ * @note The function configures the tab positions for the dock containers on the right and left sides of the window.
+ *       It also initializes the property editor and creates widgets for managing groups and pattern pieces.
+ */
 void MainWindow::InitDocksContain()
 {
+    // Configure tab positions for dock containers
     setTabPosition(Qt::RightDockWidgetArea, QTabWidget::West);
     setTabPosition(Qt::LeftDockWidgetArea, QTabWidget::East);
 
+    // Initialize the property editor
     initPropertyEditor();
 
+    // Initialize the Groups manager
     qCDebug(vMainWindow, "Initialize Groups manager.");
     groupsWidget = new GroupsWidget(pattern, doc, this);
     ui->groups_DockWidget->setWidget(groupsWidget);
     connect(doc, &VAbstractPattern::updateGroups, this, &MainWindow::updateGroups);
 
+    // Initialize the Pattern Pieces widget
     patternPiecesWidget = new PiecesWidget(pattern, doc, this);
     connect(doc, &VPattern::FullUpdateFromFile, patternPiecesWidget, &PiecesWidget::updateList);
     connect(doc, &VPattern::UpdateInLayoutList, patternPiecesWidget, &PiecesWidget::togglePiece);
@@ -5765,30 +5938,56 @@ void MainWindow::InitDocksContain()
     connect(patternPiecesWidget, &PiecesWidget::Highlight, pieceScene, &VMainGraphicsScene::HighlightItem);
     patternPiecesWidget->setVisible(false);
 
+    // Set the current index of the toolbox stacked widget
     ui->toolbox_StackedWidget->setCurrentIndex(0);
 }
 
+// End MainWindow::InitDocksContain()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Opens a new Seamly2D document.
+ * 
+ * @details This function is used to open a new Seamly2D document from a file.
+ *
+ * @param fileName The file name of the Seamly2D document to be opened.
+ * @return true if the document is opened successfully.
+ * @return false if the document is not opened.
+ *
+ * @note If the current document is modified or there is already a loaded file,
+ *       it creates a new Seamly2D instance with the provided file name and returns true.
+ *       Otherwise, it returns false.
+ */
 bool MainWindow::OpenNewSeamly2D(const QString &fileName) const
 {
     if (this->isWindowModified() || qApp->getFilePath().isEmpty() == false)
     {
+        // Create a new Seamly2D instance with the provided file name
         VApplication::NewSeamly2D(fileName);
         return true;
     }
     return false;
 }
+// End MainWindow::OpenNewSeamly2D()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Connects various actions in the menus, preferences, printing, tools, and other actions to corresponding tool handlers, slots, or functions
+ * 
+ */
 void MainWindow::CreateActions()
 {
+    // Set up the main user interface
     ui->setupUi(this);
-
-    //Files menu
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Connect actions in the "Files" menu to corresponding slots
     connect(ui->actionNew, &QAction::triggered, this, &MainWindow::New);
     connect(ui->actionOpen, &QAction::triggered, this, &MainWindow::Open);
     connect(ui->save_Action, &QAction::triggered, this, &MainWindow::Save);
     connect(ui->saveAs_Action, &QAction::triggered, this, &MainWindow::SaveAs);
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Connect the "Close Pattern" action to a lambda function
+    // that checks if the current pattern needs saving before closing it
     connect(ui->closePattern_Action, &QAction::triggered, this, [this]()
     {
         if (MaybeSave())
@@ -5797,16 +5996,19 @@ void MainWindow::CreateActions()
             Clear();
         }
     });
-
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Connect various actions related to printing and exporting
     connect(ui->exportAs_Action, &QAction::triggered, this, &MainWindow::exportLayoutAs);
     connect(ui->printPreview_Action, &QAction::triggered, this, &MainWindow::PrintPreviewOrigin);
     connect(ui->printPreviewTiled_Action, &QAction::triggered, this, &MainWindow::PrintPreviewTiled);
     connect(ui->print_Action, &QAction::triggered, this, &MainWindow::PrintOrigin);
     connect(ui->printTiled_Action, &QAction::triggered, this, &MainWindow::PrintTiled);
-
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Connect the "App Preferences" and "Pattern Preferences" actions to their respective slots
     connect(ui->appPreferences_Action, &QAction::triggered, this, &MainWindow::Preferences);
     connect(ui->patternPreferences_Action, &QAction::triggered, this, [this]()
     {
+        // Open the pattern properties dialog and connect signals to update lists
         DialogPatternProperties proper(doc, pattern, this);
         connect(&proper, &DialogPatternProperties::UpdateGradation, this, [this]()
         {
@@ -5815,14 +6017,18 @@ void MainWindow::CreateActions()
         });
         proper.exec();
     });
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Disable the "Pattern Preferences" action initially
     ui->patternPreferences_Action->setEnabled(false);
-
-    //Actions for recent files loaded by a main window application.
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Create actions for recent files loaded by the main window application
     for (int i = 0; i < MaxRecentFiles; ++i)
     {
         QAction *action = new QAction(this);
         action->setVisible(false);
         recentFileActs[i] = action;
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        // Connect each recent file action to a slot that loads the selected pattern
         connect(recentFileActs[i], &QAction::triggered, this, [this]()
         {
             if (QAction *action = qobject_cast<QAction*>(sender()))
@@ -5835,111 +6041,113 @@ void MainWindow::CreateActions()
             }
         });
     }
-
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Connect the "Document Info" action to show a dialog displaying document information
     connect(ui->documentInfo_Action, &QAction::triggered, this, [this]()
     {
+        // Create and display the document information dialog
         ShowInfoDialog *infoDialog = new ShowInfoDialog(doc, this);
         infoDialog->setAttribute(Qt::WA_DeleteOnClose, true);
         infoDialog->adjustSize();
         infoDialog->show();
     });
-
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Connect the "Exit" action to close the main window
     connect(ui->exit_Action, &QAction::triggered, this, &MainWindow::close);
 
-    //Edit Menu
+    // Edit Menu
+    // Connect the "Label Template Editor" action to open and execute the label template editor dialog
     connect(ui->labelTemplateEditor_Action, &QAction::triggered, this, [this]()
     {
         EditLabelTemplateDialog editor(doc);
         editor.exec();
     });
-
-    //View menu
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // View Menu
+    // Connect various actions to toggle different view options
     connect(ui->showDraftMode, &QAction::triggered, this, &MainWindow::showDraftMode);
     connect(ui->pieceMode_Action, &QAction::triggered, this, &MainWindow::showPieceMode);
     connect(ui->layoutMode_Action, &QAction::triggered, this, &MainWindow::showLayoutMode);
-
     connect(ui->toggleWireframe_Action, &QAction::triggered, this, [this](bool checked)
     {
+        // Toggle wireframe view and update scenes
         qApp->Seamly2DSettings()->setWireframe(checked);
         emit ui->view->itemClicked(nullptr);
         upDateScenes();
     });
-
     connect(ui->toggleControlPoints_Action, &QAction::triggered, this, [this](bool checked)
     {
+        // Toggle control points view and update scenes
         qApp->Seamly2DSettings()->setShowControlPoints(checked);
         emit ui->view->itemClicked(nullptr);
         draftScene->enablePiecesMode(checked);
     });
-
     connect(ui->toggleAxisOrigin_Action, &QAction::triggered, this, [this](bool checked)
     {
+        // Toggle axis origin view for draft and piece scenes
         qApp->Seamly2DSettings()->setShowAxisOrigin(checked);
         draftScene->setOriginsVisible(checked);
         pieceScene->setOriginsVisible(checked);
     });
-
     connect(ui->toggleSeamAllowances_Action, &QAction::triggered, this, [this](bool checked)
     {
+        // Toggle seam allowances view and update scenes
         qApp->Seamly2DSettings()->setShowSeamAllowances(checked);
         emit ui->view->itemClicked(nullptr);
         refreshSeamAllowances();
     });
-
     connect(ui->toggleGrainLines_Action, &QAction::triggered, this, [this](bool checked)
     {
+        // Toggle grain lines view and update scenes
         qApp->Seamly2DSettings()->setShowGrainlines(checked);
         emit ui->view->itemClicked(nullptr);
         refreshGrainLines();
     });
-
     connect(ui->toggleLabels_Action, &QAction::triggered, this, [this](bool checked)
     {
+        // Toggle labels view and update scenes
         qApp->Seamly2DSettings()->setShowLabels(checked);
         emit ui->view->itemClicked(nullptr);
         refreshLabels();
     });
-/**
-    connect(ui->toggleAnchorPoints_Action, &QAction::triggered, this, [this](bool checked)
-    {
-        qApp->Seamly2DSettings()->setShowAnchorPoints(checked);
-    });
-**/
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Connect actions for changing the font size of point names
     connect(ui->increaseSize_Action, &QAction::triggered, this, [this]()
     {
-        int index = qMin(fontSizeComboBox->currentIndex() + 1, fontSizeComboBox->count()-1);
+        // Increase font size for point names and update scenes
+        int index = qMin(fontSizeComboBox->currentIndex() + 1, fontSizeComboBox->count() - 1);
         fontSizeComboBox->setCurrentIndex(index);
         qApp->Seamly2DSettings()->setPointNameSize(fontSizeComboBox->currentText().toInt());
         upDateScenes();
     });
-
     connect(ui->decreaseSize_Action, &QAction::triggered, this, [this]()
     {
+        // Decrease font size for point names and update scenes
         const int index = qMax(fontSizeComboBox->currentIndex() - 1, 0);
         fontSizeComboBox->setCurrentIndex(index);
         qApp->Seamly2DSettings()->setPointNameSize(fontSizeComboBox->currentText().toInt());
         upDateScenes();
     });
-
     connect(ui->showPointNames_Action, &QAction::triggered, this, [this](bool checked)
     {
+        // Toggle visibility of point names and update scenes
         qApp->Seamly2DSettings()->setHidePointNames(checked);
         upDateScenes();
     });
-
     connect(ui->useToolColor_Action, &QAction::triggered, this, [this](bool checked)
     {
+        // Toggle whether to use tool color and update scenes
         qApp->Seamly2DSettings()->setUseToolColor(checked);
         upDateScenes();
     });
-
-    //Tools menu
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Tools Menu
+    // Connect the "New Draft" action to create a new draft block
     connect(ui->newDraft_Action, &QAction::triggered, this, [this]()
     {
         qCDebug(vMainWindow, "New Draft Block.");
-        QString draftBlockName = tr("Draft Block %1").arg(draftBlockComboBox->count()+1);
+        QString draftBlockName = tr("Draft Block %1").arg(draftBlockComboBox->count() + 1);
         qCDebug(vMainWindow, "Generated Draft Block name: %s", qUtf8Printable(draftBlockName));
-
         qCDebug(vMainWindow, "Draft Block count %d", draftBlockComboBox->count());
         draftBlockName = createDraftBlockName(draftBlockName);
         qCDebug(vMainWindow, "Draft Block name: %s", qUtf8Printable(draftBlockName));
@@ -5948,71 +6156,93 @@ void MainWindow::CreateActions()
             qCDebug(vMainWindow, "Draft Block name is empty.");
             return;
         }
-
         addDraftBlock(draftBlockName);
     });
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Tools->Point submenu actions
+    // Connect each action in the Point submenu to a corresponding tool handler
 
-    //Tools->Point submenu actions
+    // Connect "Midpoint" action to activate the Midpoint tool
     connect(ui->midpoint_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->points_Page);
         ui->midpoint_ToolButton->setChecked(true);
         handleMidpointTool(true);
     });
+
+    // Connect "Point at Distance and Angle" action to activate the Point at Distance and Angle tool
     connect(ui->pointAtDistanceAngle_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->points_Page);
         ui->pointAtDistanceAngle_ToolButton->setChecked(true);
         handlePointAtDistanceAngleTool(true);
     });
+
+    // Connect "Point Along Line" action to activate the Point Along Line tool
     connect(ui->pointAlongLine_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->points_Page);
         ui->alongLine_ToolButton->setChecked(true);
         handleAlongLineTool(true);
     });
+
+    // Connect "Point Along Perpendicular" action to activate the Point Along Perpendicular tool
     connect(ui->pointAlongPerpendicular_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->points_Page);
         ui->normal_ToolButton->setChecked(true);
         handleNormalTool(true);
     });
+
+    // Connect "Bisector" action to activate the Bisector tool
     connect(ui->bisector_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->points_Page);
         ui->bisector_ToolButton->setChecked(true);
         handleBisectorTool(true);
     });
+
+    // Connect "Point on Shoulder" action to activate the Point on Shoulder tool
     connect(ui->pointOnShoulder_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->points_Page);
         ui->shoulderPoint_ToolButton->setChecked(true);
         handleShoulderPointTool(true);
     });
+
+    // Connect "Point of Contact" action to activate the Point of Contact tool
     connect(ui->pointOfContact_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->points_Page);
         ui->pointOfContact_ToolButton->setChecked(true);
         handlePointOfContactTool(true);
     });
+
+    // Connect "Triangle" action to activate the Triangle tool
     connect(ui->triangle_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->points_Page);
         ui->triangle_ToolButton->setChecked(true);
         handleTriangleTool(true);
     });
+
+    // Connect "Point Intersect XY" action to activate the Point Intersect XY tool
     connect(ui->pointIntersectXY_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->points_Page);
         ui->pointIntersectXY_ToolButton->setChecked(true);
         handlePointIntersectXYTool(true);
     });
+
+    // Connect "Perpendicular Point" action to activate the Perpendicular Point tool
     connect(ui->perpendicularPoint_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->points_Page);
         ui->height_ToolButton->setChecked(true);
         handleHeightTool(true);
     });
+
+    // Connect "Point Intersect Axis" action to activate the Point Intersect Axis tool
     connect(ui->pointIntersectAxis_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->points_Page);
@@ -6020,6 +6250,7 @@ void MainWindow::CreateActions()
         handleLineIntersectAxisTool(true);
     });
 
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     //Tools->Line submenu actions
     connect(ui->lineTool_Action, &QAction::triggered, this, [this]
     {
@@ -6035,49 +6266,67 @@ void MainWindow::CreateActions()
         handleLineIntersectTool(true);
     });
 
-    //Tools->Curve submenu actions
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Tools->Curve submenu actions
+    // Connect each action in the Curve submenu to a corresponding tool handler
+
+    // Connect "Curve" action to activate the Curve tool
     connect(ui->curve_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->curves_Page);
         ui->curve_ToolButton->setChecked(true);
         handleCurveTool(true);
     });
+
+    // Connect "Spline" action to activate the Spline tool
     connect(ui->spline_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->curves_Page);
         ui->spline_ToolButton->setChecked(true);
         handleSplineTool(true);
     });
+
+    // Connect "Curve with Control Points" action to activate the Curve with Control Points tool
     connect(ui->curveWithCPs_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->curves_Page);
         ui->curveWithCPs_ToolButton->setChecked(true);
         handleCurveWithControlPointsTool(true);
     });
+
+    // Connect "Spline with Control Points" action to activate the Spline with Control Points tool
     connect(ui->splineWithCPs_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->curves_Page);
         ui->splineWithCPs_ToolButton->setChecked(true);
         handleSplineWithControlPointsTool(true);
     });
+
+    // Connect "Point Along Curve" action to activate the Point Along Curve tool
     connect(ui->pointAlongCurve_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->curves_Page);
         ui->pointAlongCurve_ToolButton->setChecked(true);
         handlePointAlongCurveTool(true);
     });
+
+    // Connect "Point Along Spline" action to activate the Point Along Spline tool
     connect(ui->pointAlongSpline_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->curves_Page);
         ui->pointAlongSpline_ToolButton->setChecked(true);
         handlePointAlongSplineTool(true);
     });
+
+    // Connect "Curve Intersect Curve" action to activate the Curve Intersect Curve tool
     connect(ui->curveIntersectCurve_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->curves_Page);
         ui->pointOfIntersectionCurves_ToolButton->setChecked(true);
         handleCurveIntersectCurveTool(true);
     });
+
+    // Connect "Spline Intersect Axis" action to activate the Spline Intersect Axis tool
     connect(ui->splineIntersectAxis_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->curves_Page);
@@ -6085,7 +6334,11 @@ void MainWindow::CreateActions()
         handleCurveIntersectAxisTool(true);
     });
 
-    //Tools->Arc submenu actions
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Tools->Arc submenu actions
+    // Connect each action in the Arc submenu to a corresponding tool handler
+
+    // Connect "Arc Tool" action to activate the Arc Tool
     connect(ui->arcTool_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->arcs_Page);
@@ -6093,6 +6346,7 @@ void MainWindow::CreateActions()
         handleArcTool(true);
     });
 
+    // Connect "Point Along Arc" action to activate the Point Along Arc tool
     connect(ui->pointAlongArc_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->arcs_Page);
@@ -6100,6 +6354,7 @@ void MainWindow::CreateActions()
         handlePointAlongArcTool(true);
     });
 
+    // Connect "Arc Intersect Axis" action to activate the Arc Intersect Axis tool
     connect(ui->arcIntersectAxis_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->arcs_Page);
@@ -6107,6 +6362,7 @@ void MainWindow::CreateActions()
         handleArcIntersectAxisTool(true);
     });
 
+    // Connect "Arc Intersect Arc" action to activate the Arc Intersect Arc tool
     connect(ui->arcIntersectArc_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->arcs_Page);
@@ -6114,6 +6370,7 @@ void MainWindow::CreateActions()
         handlePointOfIntersectionArcsTool(true);
     });
 
+    // Connect "Circle Intersect" action to activate the Circle Intersect tool
     connect(ui->circleIntersect_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->arcs_Page);
@@ -6121,6 +6378,7 @@ void MainWindow::CreateActions()
         handlePointOfIntersectionCirclesTool(true);
     });
 
+    // Connect "Circle Tangent" action to activate the Circle Tangent tool
     connect(ui->circleTangent_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->arcs_Page);
@@ -6128,6 +6386,7 @@ void MainWindow::CreateActions()
         handlePointFromCircleAndTangentTool(true);
     });
 
+    // Connect "Arc Tangent" action to activate the Arc Tangent tool
     connect(ui->arcTangent_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->arcs_Page);
@@ -6135,21 +6394,27 @@ void MainWindow::CreateActions()
         handlePointFromArcAndTangentTool(true);
     });
 
+    // Connect "Arc With Length" action to activate the Arc With Length tool
     connect(ui->arcWithLength_Action, &QAction::triggered, this, [this]
     {
-         ui->draft_ToolBox->setCurrentWidget(ui->arcs_Page);
-         ui->arcWithLength_ToolButton->setChecked(true);
-         handleArcWithLengthTool(true);
-     });
+        ui->draft_ToolBox->setCurrentWidget(ui->arcs_Page);
+        ui->arcWithLength_ToolButton->setChecked(true);
+        handleArcWithLengthTool(true);
+    });
 
+    // Connect "Elliptical Arc" action to activate the Elliptical Arc tool
     connect(ui->ellipticalArc_Action, &QAction::triggered, this, [this]
     {
-         ui->draft_ToolBox->setCurrentWidget(ui->arcs_Page);
-         ui->ellipticalArc_ToolButton->setChecked(true);
-         handleEllipticalArcTool(true);
-     });
+        ui->draft_ToolBox->setCurrentWidget(ui->arcs_Page);
+        ui->ellipticalArc_ToolButton->setChecked(true);
+        handleEllipticalArcTool(true);
+    });
 
-    //Tools->Operations submenu actions
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Tools->Operations submenu actions
+    // Connect each action in the Operations submenu to a corresponding tool handler
+
+    // Connect "Group" action to activate the Group Tool
     connect(ui->group_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
@@ -6157,6 +6422,7 @@ void MainWindow::CreateActions()
         handleGroupTool(true);
     });
 
+    // Connect "Rotation" action to activate the Rotation Tool
     connect(ui->rotation_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
@@ -6164,11 +6430,15 @@ void MainWindow::CreateActions()
         handleRotationTool(true);
     });
 
+    // Connect "Mirror by Line" action to activate the Mirror by Line Tool
     connect(ui->mirrorByLine_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
         ui->mirrorByLine_ToolButton->setChecked(true);
-        handleMirrorByLineTool(true); });
+        handleMirrorByLineTool(true);
+    });
+
+    // Connect "Mirror by Axis" action to activate the Mirror by Axis Tool
     connect(ui->mirrorByAxis_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
@@ -6176,6 +6446,7 @@ void MainWindow::CreateActions()
         handleMirrorByAxisTool(true);
     });
 
+    // Connect "Move" action to activate the Move Tool
     connect(ui->move_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
@@ -6183,6 +6454,7 @@ void MainWindow::CreateActions()
         handleMoveTool(true);
     });
 
+    // Connect "True Darts" action to activate the True Darts Tool
     connect(ui->trueDarts_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
@@ -6190,13 +6462,18 @@ void MainWindow::CreateActions()
         handleTrueDartTool(true);
     });
 
+    // Connect "Export Draft Blocks" action to export draft blocks
     connect(ui->exportDraftBlocks_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->operations_Page);
         exportDraftBlocksAs();
     });
 
-    //Tools->Details submenu actions
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Tools->Details submenu actions
+    // Connect each action in the Details submenu to a corresponding tool handler
+
+    // Connect "Union" action to activate the Union Tool
     connect(ui->union_Action, &QAction::triggered, this, [this]
     {
         ui->piece_ToolBox->setCurrentWidget(ui->details_Page);
@@ -6204,31 +6481,42 @@ void MainWindow::CreateActions()
         handleUnionTool(true);
     });
 
+    // Connect "Export Pieces" action to export pieces
     connect(ui->exportPieces_Action, &QAction::triggered, this, [this]
     {
         ui->piece_ToolBox->setCurrentWidget(ui->details_Page);
         exportPiecesAs();
     });
 
-    //Tools->Piece submenu actions
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Tools->Piece submenu actions
+    // Connect each action in the Piece submenu to a corresponding tool handler
+
+    // Connect "Add Pattern Piece" action to activate the Add Pattern Piece Tool
     connect(ui->addPiece_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->piece_Page);
         ui->addPatternPiece_ToolButton->setChecked(true);
         handlePatternPieceTool(true);
     });
+
+    // Connect "Anchor Point" action to activate the Anchor Point Tool
     connect(ui->anchorPoint_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->piece_Page);
         ui->anchorPoint_ToolButton->setChecked(true);
         handleAnchorPointTool(true);
     });
+
+    // Connect "Internal Path" action to activate the Internal Path Tool
     connect(ui->internalPath_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->piece_Page);
         ui->internalPath_ToolButton->setChecked(true);
         handleInternalPathTool(true);
     });
+
+    // Connect "Insert Nodes" action to activate the Insert Nodes Tool
     connect(ui->insertNodes_Action, &QAction::triggered, this, [this]
     {
         ui->draft_ToolBox->setCurrentWidget(ui->piece_Page);
@@ -6236,7 +6524,11 @@ void MainWindow::CreateActions()
         handleInsertNodesTool(true);
     });
 
-    //Tools->Layout submenu actions
+  // -----------------------------------------------------------------
+    // Tools->Layout submenu actions
+    // Connect each action in the Layout submenu to a corresponding tool handler
+
+    // Connect "New Print Layout" action to activate the New Layout Tool
     connect(ui->newPrintLayout_Action, &QAction::triggered, this, [this]
     {
         ui->layout_ToolBox->setCurrentWidget(ui->layout_Page);
@@ -6244,34 +6536,49 @@ void MainWindow::CreateActions()
         handleNewLayout(true);
     });
 
+    // Connect "Export Layout" action to export the current layout
     connect(ui->exportLayout_Action, &QAction::triggered, this, [this]
     {
         ui->layout_ToolBox->setCurrentWidget(ui->layout_Page);
         exportLayoutAs();
     });
 
+    // Connect "Last Used Tool" action to execute the LastUsedTool slot
     connect(ui->lastTool_Action, &QAction::triggered, this, &MainWindow::LastUsedTool);
 
-    //Measurements menu
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Measurements menu
+    // Connect each action in the Measurements menu to a corresponding slot or function
+
+    // Connect "Open SeamlyMe" action to open the SeamlyMe application
     connect(ui->openSeamlyMe_Action, &QAction::triggered, this, [this]()
     {
         const QString seamlyme = qApp->SeamlyMeFilePath();
         const QString workingDirectory = QFileInfo(seamlyme).absoluteDir().absolutePath();
-
         QStringList arguments;
         if (isNoScaling)
         {
             arguments.append(QLatin1String("--") + LONG_OPTION_NO_HDPI_SCALING);
         }
-
         QProcess::startDetached(seamlyme, arguments, workingDirectory);
     });
 
+    // Connect "Edit Current Measurements" action to show measurements for editing
     connect(ui->editCurrent_Action, &QAction::triggered, this, &MainWindow::ShowMeasurements);
+
+    // Connect "Unload Measurements" action to unload measurements
     connect(ui->unloadMeasurements_Action, &QAction::triggered, this, &MainWindow::UnloadMeasurements);
+
+    // Connect "Load Individual Measurements" action to load individual measurements
     connect(ui->loadIndividual_Action, &QAction::triggered, this, &MainWindow::LoadIndividual);
+
+    // Connect "Load Multisize Measurements" action to load multisize measurements
     connect(ui->loadMultisize_Action, &QAction::triggered, this, &MainWindow::LoadMultisize);
+
+    // Connect "Sync Measurements" action to synchronize measurements
     connect(ui->syncMeasurements_Action, &QAction::triggered, this, &MainWindow::SyncMeasurements);
+
+    // Connect "Table" action to open the Variable Table dialog
     connect(ui->table_Action, &QAction::triggered, this, [this](bool checked)
     {
         if (checked)
@@ -6295,13 +6602,18 @@ void MainWindow::CreateActions()
             dialogTable->activateWindow();
         }
     });
+
+    // Connect "Export Variables to CSV" action to export variables to a CSV file
     connect(ui->exportVariablesToCSV_Action, &QAction::triggered, this, &MainWindow::handleExportToCSV);
 
-    //History menu
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // History menu
+    // Connect "History" action to show the history dialog
     connect(ui->history_Action, &QAction::triggered, this, [this](bool checked)
     {
         if (checked)
         {
+            // Create and show the history dialog
             historyDialog = new HistoryDialog(pattern, doc, this);
             connect(this, &MainWindow::RefreshHistory, historyDialog.data(), &HistoryDialog::updateHistory);
             connect(historyDialog.data(), &HistoryDialog::DialogClosed, this, [this]()
@@ -6316,12 +6628,15 @@ void MainWindow::CreateActions()
         }
         else
         {
+            // If already open, activate the existing history dialog
             ui->history_Action->setChecked(true);
             historyDialog->activateWindow();
         }
     });
 
-    //Utilities menu
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Utilities menu
+    // Connect "Calculator" action to show the calculator dialog
     connect(ui->calculator_Action, &QAction::triggered, this, [this]()
     {
         CalculatorDialog *calcDialog = new CalculatorDialog(this);
@@ -6331,6 +6646,7 @@ void MainWindow::CreateActions()
         calcDialog->show();
     });
 
+    // Connect "Decimal Chart" action to show the decimal chart dialog
     connect(ui->decimalChart_Action, &QAction::triggered, this, [this]()
     {
         DecimalChartDialog *decimalchartDialog = new DecimalChartDialog(this);
@@ -6338,25 +6654,33 @@ void MainWindow::CreateActions()
         decimalchartDialog->show();
     });
 
-    //Help menu
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Help menu
+    // Connect various actions in the Help menu to open external resources
+
+    // Show keyboard shortcuts dialog
     connect(ui->shortcuts_Action, &QAction::triggered, this, [this]()
     {
         ShortcutsDialog *shortcutsDialog = new ShortcutsDialog(this);
         shortcutsDialog->setAttribute(Qt::WA_DeleteOnClose, true);
         shortcutsDialog->show();
     });
+
+    // Open the Seamly2D wiki in a web browser
     connect(ui->wiki_Action, &QAction::triggered, this, []()
     {
         qCDebug(vMainWindow, "Showing online help");
         QDesktopServices::openUrl(QUrl(QStringLiteral("https://wiki.seamly.net/wiki/Main_Page")));
     });
 
+    // Open the Seamly2D forum in a web browser
     connect(ui->forum_Action, &QAction::triggered, this, []()
     {
         qCDebug(vMainWindow, "Opening forum");
         QDesktopServices::openUrl(QUrl(QStringLiteral("https://forum.seamly.io/")));
     });
 
+    // Report a bug by opening a new issue on GitHub
     connect(ui->reportBug_Action, &QAction::triggered, this, []()
     {
         qCDebug(vMainWindow, "Reporting bug");
@@ -6364,11 +6688,13 @@ void MainWindow::CreateActions()
             "https://github.com/FashionFreedom/Seamly2D/issues/new?&labels=bug&template=bug_report.md&title=BUG%3A")));
     });
 
+    // Show the "About Qt" dialog
     connect(ui->aboutQt_Action, &QAction::triggered, this, [this]()
     {
         QMessageBox::aboutQt(this, tr("About Qt"));
     });
 
+    // Show the "About Seamly2D" dialog
     connect(ui->aboutSeamly2D_Action, &QAction::triggered, this, [this]()
     {
         DialogAboutApp *aboutDialog = new DialogAboutApp(this);
@@ -6376,7 +6702,10 @@ void MainWindow::CreateActions()
         aboutDialog->show();
     });
 
-    //Toolbox toolbar
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    // Toolbox toolbar
+    // Connect each action in the toolbox toolbar to its corresponding tool handler
+
     connect(ui->arrow_Action,         &QAction::triggered, this, &MainWindow::handleArrowTool);
     connect(ui->points_Action,        &QAction::triggered, this, &MainWindow::handlePointsMenu);
     connect(ui->lines_Action,         &QAction::triggered, this, &MainWindow::handleLinesMenu);
@@ -6386,33 +6715,73 @@ void MainWindow::CreateActions()
     connect(ui->details_Action,       &QAction::triggered, this, &MainWindow::handlePatternPiecesMenu);
     connect(ui->pieces_Action,        &QAction::triggered, this, &MainWindow::handlePieceMenu);
     connect(ui->layout_Action,        &QAction::triggered, this, &MainWindow::handleLayoutMenu);
-}
+
+// End MainWindow::CreateActions()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initializes the autosave feature with user-defined settings.
+ * 
+ * @details This function creates and configures a QTimer for autosaving the pattern at regular intervals. The autosave
+ * timer is set to the specified interval, and the function connects the timer's timeout signal to the AutoSavePattern slot.
+ * The autosave feature can be enabled or disabled based on the user's preference, and the autosave interval is also
+ * customizable. If autosave is enabled, the timer is started, and information about the autosave interval is logged.
+ * 
+ * @note The function deletes any existing autosave timer before creating a new one.
+ */
 void MainWindow::InitAutoSave()
 {
-    //Autosaving file each 1 minutes
+    // Delete existing autosave timer
     delete autoSaveTimer;
     autoSaveTimer = nullptr;
 
+    // Create a new QTimer for autosaving
     autoSaveTimer = new QTimer(this);
     autoSaveTimer->setTimerType(Qt::VeryCoarseTimer);
+
+    // Connect the timer's timeout signal to the AutoSavePattern slot
     connect(autoSaveTimer, &QTimer::timeout, this, &MainWindow::AutoSavePattern);
+    
+    // Stop the timer initially
     autoSaveTimer->stop();
 
+    // Check if autosave is enabled in settings
     if (qApp->Seamly2DSettings()->GetAutosaveState())
     {
+        // Retrieve autosave interval from settings
         const qint32 autoTime = qApp->Seamly2DSettings()->getAutosaveInterval();
-        autoSaveTimer->start(autoTime*60000);
+        
+        // Start the autosave timer with the specified interval
+        autoSaveTimer->start(autoTime * 60000); // Convert minutes to milliseconds
         qCInfo(vMainWindow, "Autosaving every %d minutes.", autoTime);
     }
+
+    // Set the autosave timer in the application
     qApp->setAutoSaveTimer(autoSaveTimer);
 }
+// End MainWindow::InitAutoSave()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Creates a new draft block name based on user input.
+ * 
+ * @details This function displays a dialog to the user to input a draft block name. It checks if the entered name already
+ * exists in the draft block combo box. If it does, a warning message is shown, and the user is prompted to retry or cancel.
+ * The function repeats this process until a unique name is entered or the user cancels the dialog. The entered name is then
+ * returned.
+ * 
+ * @param text The initial text value for the draft block name.
+ * @return QString The entered draft block name, or an empty string if the user cancels the dialog.
+ * 
+ * @note The function dynamically creates a QInputDialog and manages its memory. It also adjusts the window flags to remove
+ * unnecessary buttons for the specific use case.
+ */
 QString MainWindow::createDraftBlockName(const QString &text)
 {
+    // Create a new input dialog
     QInputDialog *dialog = new QInputDialog(this);
+    
+    // Configure the input dialog
     dialog->setInputMode(QInputDialog::TextInput);
     dialog->setLabelText(tr("Name:"));
     dialog->setTextEchoMode(QLineEdit::Normal);
@@ -6422,21 +6791,29 @@ QString MainWindow::createDraftBlockName(const QString &text)
                                          & ~Qt::WindowMinimizeButtonHint);
     dialog->resize(300, 100);
     dialog->setTextValue(text);
+    
     QString draftBlockName;
+
     while (1)
     {
+        // Execute the input dialog
         const bool result = dialog->exec();
         draftBlockName = dialog->textValue();
+
+        // If the user cancels or enters an empty name, return an empty string
         if (result == false || draftBlockName.isEmpty())
         {
             delete dialog;
             return QString();
         }
+
+        // Check if the entered name already exists
         if (draftBlockComboBox->findText(draftBlockName) == -1)
         {
-            break; //exit dialog
+            break; // Exit the loop if the name is unique
         }
-        //repeat show dialog
+
+        // Name already exists, show a warning message
         QMessageBox messageBox;
         messageBox.setWindowTitle(tr("Name Exists"));
         messageBox.setIcon(QMessageBox::Warning);
@@ -6452,38 +6829,70 @@ QString MainWindow::createDraftBlockName(const QString &text)
             case QMessageBox::Cancel:
                 return QString();  // Exit Dialog
             default:
-                break;   // should never be reached
+                break;   // Should never be reached
         }
     }
+
+    // Cleanup and return the entered name
     delete dialog;
     return draftBlockName;
 }
-
-//---------------------------------------------------------------------------------------------------------------------
-MainWindow::~MainWindow()
-{
-    CancelTool();
-    CleanLayout();
-
-    delete doc;
-    delete ui;
-}
+// End MainWindow::createDraftBlockName()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief LoadPattern open pattern file.
- * @param fileName name of file.
+ * @brief Destructor for the MainWindow class.
+ * 
+ * @details This destructor is responsible for cleaning up resources and 
+ * memory allocated for the MainWindow object.
+ * It cancels any active tool, cleans up the layout, and deletes the 
+ * associated document (doc) and user interface (ui).
+ * 
+ * @note This destructor is automatically called when an instance 
+ * of the MainWindow class goes out of scope or is explicitly
+ * deleted using the 'delete' keyword.
+ */
+MainWindow::~MainWindow()
+{
+    // Cancel any active tool
+    CancelTool();
+
+    // Clean up the layout
+    CleanLayout();
+
+    // Delete the associated document
+    delete doc;
+
+    // Delete the user interface
+    delete ui;
+}
+
+// End MainWindow::~MainWindow()
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Loads a Seamly2D pattern file.
+ * 
+ * @details This function loads a Seamly2D pattern from the specified file. It performs various checks
+ * and updates, including checking for unsaved changes, validating the file, handling measurement files,
+ * locking the pattern file, and updating the UI accordingly. The function returns true if the loading
+ * is successful and false otherwise.
+ * 
+ * @param fileName The name of the pattern file to be loaded.
+ * @param customMeasureFile The custom measurement file associated with the pattern file.
+ * @return true If the pattern is successfully loaded.
+ * @return false If there are errors or the loading process is unsuccessful.
  */
 bool MainWindow::LoadPattern(const QString &fileName, const QString& customMeasureFile)
 {
     qCInfo(vMainWindow, "Loading new file %s.", qUtf8Printable(fileName));
 
-    //We have unsaved changes or load more then one file per time
+    // Check for unsaved changes or if more than one file is loaded simultaneously
     if (OpenNewSeamly2D(fileName))
     {
         return false;
     }
 
+    // Check for empty file name
     if (fileName.isEmpty())
     {
         qCWarning(vMainWindow, "New loaded filename is empty.");
@@ -6493,15 +6902,16 @@ bool MainWindow::LoadPattern(const QString &fileName, const QString& customMeasu
 
     try
     {
-        // Here comes undocumented Seamly2D's feature.
-        // Because app bundle in Mac OS X doesn't allow setup association for SeamlyMe we must do this through Seamly2D
+        // Undocumented feature of Seamly2D: Setting up associations for SeamlyMe on macOS
         MeasurementDoc measurements(pattern);
         measurements.setSize(VContainer::rsize());
         measurements.setHeight(VContainer::rheight());
         measurements.setXMLContent(fileName);
 
+        // if the measurement file is recognized as Multisize or Individual (e.g. A valid SeamlyMe measurement file)
         if (measurements.Type() == MeasurementsType::Multisize || measurements.Type() == MeasurementsType::Individual)
         {
+            // get the working directory path
             const QString seamlyme = qApp->SeamlyMeFilePath();
             const QString workingDirectory = QFileInfo(seamlyme).absoluteDir().absolutePath();
 
@@ -6511,9 +6921,10 @@ bool MainWindow::LoadPattern(const QString &fileName, const QString& customMeasu
                 arguments.append(QLatin1String("--") + LONG_OPTION_NO_HDPI_SCALING);
             }
 
+            // Start the SeamlyMe process
             QProcess::startDetached(seamlyme, arguments, workingDirectory);
             qApp->exit(V_EX_OK);
-            return false; // stop continue processing
+            return false; // Stop processing further
         }
     }
 
@@ -6525,6 +6936,7 @@ bool MainWindow::LoadPattern(const QString &fileName, const QString& customMeasu
         Clear();
         if (!VApplication::IsGUIMode())
         {
+            // exit application if Seamly2D is not running in GUI mode -- it's running in CLI mode
             qApp->exit(V_EX_NOINPUT);
         }
         return false;
@@ -6533,6 +6945,7 @@ bool MainWindow::LoadPattern(const QString &fileName, const QString& customMeasu
     qCDebug(vMainWindow, "Locking file");
     VlpCreateLock(lock, fileName);
 
+    // Check if file is currently locked by another process or instance of Seamly
     if (lock->IsLocked())
     {
         qCInfo(vMainWindow, "Pattern file %s was locked.", qUtf8Printable(fileName));
@@ -6545,31 +6958,35 @@ bool MainWindow::LoadPattern(const QString &fileName, const QString& customMeasu
         }
     }
 
-    // On this stage scene empty. Fit scene size to view size
+    // At this stage, the scene is empty. Fit scene size to view size
     VMainGraphicsView::NewSceneRect(draftScene, ui->view);
     VMainGraphicsView::NewSceneRect(pieceScene, ui->view);
 
-    qApp->setOpeningPattern();//Begin opening file
+    qApp->setOpeningPattern(); // Begin opening file
     try
     {
+        // Convert the pattern file to the internal format
         VPatternConverter converter(fileName);
         m_curFileFormatVersion = converter.GetCurrentFormatVarsion();
         m_curFileFormatVersionStr = converter.GetVersionStr();
         doc->setXMLContent(converter.Convert());
+
         if (!customMeasureFile.isEmpty())
         {
             doc->SetMPath(RelativeMPath(fileName, customMeasureFile));
         }
+
         qApp->setPatternUnit(doc->MUnit());
         const QString path = AbsoluteMPath(fileName, doc->MPath());
 
         if (!path.isEmpty())
         {
-            // Check if exist
+            // Check if the measurement file exists
             const QString newPath = checkPathToMeasurements(fileName, path);
+
             if (newPath.isEmpty())
             {
-                qApp->setOpeningPattern();// End opening file
+                qApp->setOpeningPattern(); // End opening file
                 Clear();
                 qCCritical(vMainWindow, "%s", qUtf8Printable(tr("The measurements file '%1' could not be found.")
                                                              .arg(path)));
@@ -6584,7 +7001,7 @@ bool MainWindow::LoadPattern(const QString &fileName, const QString& customMeasu
             {
                 qCCritical(vMainWindow, "%s", qUtf8Printable(tr("The measurements file '%1' could not be found.")
                                                              .arg(newPath)));
-                qApp->setOpeningPattern();// End opening file
+                qApp->setOpeningPattern(); // End opening file
                 Clear();
                 if (!VApplication::IsGUIMode())
                 {
@@ -6601,7 +7018,7 @@ bool MainWindow::LoadPattern(const QString &fileName, const QString& customMeasu
         }
 
         if (qApp->patternType() == MeasurementsType::Unknown)
-        {// Show toolbar only if was not uploaded any measurements.
+        {// Show toolbar only if no measurements were uploaded.
             initStatusBar();
         }
     }
@@ -6611,10 +7028,11 @@ bool MainWindow::LoadPattern(const QString &fileName, const QString& customMeasu
         qCCritical(vMainWindow, "%s\n\n%s\n\n%s", qUtf8Printable(tr("File exception.")),
                    qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
 
-        qApp->setOpeningPattern();// End opening file
+        qApp->setOpeningPattern(); // End opening file
         Clear();
         if (!VApplication::IsGUIMode())
         {
+            // exit application if running in CLI mode
             qApp->exit(V_EX_NOINPUT);
         }
         return false;
@@ -6624,40 +7042,58 @@ bool MainWindow::LoadPattern(const QString &fileName, const QString& customMeasu
 
     if (guiEnabled)
     { // No errors occurred
+        // open file with GUI
         patternReadOnly = doc->IsReadOnly();
         setWidgetsEnabled(true);
         setCurrentFile(fileName);
         helpLabel->setText(tr("File loaded"));
         qCDebug(vMainWindow, "%s", qUtf8Printable(helpLabel->text()));
 
-        //Fit scene size to best size for first show
+        // Fit scene size to the best size for the first show
         zoomFirstShow();
         updateZoomToPointComboBox(draftPointNamesList());
 
         showDraftMode(true);
 
-        qApp->setOpeningPattern();// End opening file
+        qApp->setOpeningPattern(); // End opening file
         return true;
     }
     else
     {
-        qApp->setOpeningPattern();// End opening file
+        // open file and process CLI command 
+        qApp->setOpeningPattern(); // End opening file
         return false;
     }
 }
+// End MainWindow::LoadPattern()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Retrieves the list of files that need to be restored.
+ * 
+ * @details This function examines the list of files provided by Seamly2DSettings
+ * and filters out the files that are currently locked. The resulting list
+ * contains files that need to be reopened after a crash or unexpected shutdown.
+ * The function also updates the Seamly2DSettings to remove files that do not
+ * exist.
+ * 
+ * @return QStringList A list of files that need to be restored.
+ */
 QStringList MainWindow::GetUnlokedRestoreFileList() const
 {
     QStringList restoreFiles;
-    //Take all files that need to be restored
+
+    // Take all files that need to be restored
     QStringList files = qApp->Seamly2DSettings()->GetRestoreFileList();
+
     if (files.size() > 0)
     {
+        // Iterate through the files to find those that need reopening
         for (int i = 0; i < files.size(); ++i)
         {
-            // Seeking file that really needs reopen
+            // Seeking file that really needs to be reopened
             VLockGuard<char> lock(files.at(i));
+            
             if (lock.IsLocked())
             {
                 restoreFiles.append(files.at(i));
@@ -6680,12 +7116,20 @@ QStringList MainWindow::GetUnlokedRestoreFileList() const
             }
         }
 
+        // Update Seamly2DSettings with the filtered list
         qApp->Seamly2DSettings()->SetRestoreFileList(filtered);
     }
+
     return restoreFiles;
 }
+// End MainWindow::GetUnlokedRestoreFileList()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Applies the common toolbar style to multiple toolbars in the main window.
+ * 
+ * @details This function sets the style properties, such as icon size and button size, for the specified toolbars.
+ */
 void MainWindow::ToolBarStyles()
 {
     ToolBarStyle(ui->draft_ToolBar);
@@ -6694,46 +7138,85 @@ void MainWindow::ToolBarStyles()
     ToolBarStyle(ui->zoom_ToolBar);
     ToolBarStyle(ui->file_ToolBar);
 
+    // Set the font and size for the font combo box based on application settings.
     fontComboBox->setCurrentFont(qApp->Seamly2DSettings()->getPointNameFont());
     int index = fontSizeComboBox->findData(qApp->Seamly2DSettings()->getPointNameSize());
     fontSizeComboBox->setCurrentIndex(index);
 }
 
+/**
+ * @brief Resets the origins and makes them visible in the drafting and piece scenes.
+ * 
+ * @details This function initializes the origins in both the drafting and piece scenes and makes them visible.
+ */
 void MainWindow::resetOrigins()
 {
+    // Initialize and make the origins visible in the drafting scene.
     draftScene->InitOrigins();
     draftScene->setOriginsVisible(true);
+
+    // Initialize and make the origins visible in the piece scene.
     pieceScene->InitOrigins();
     pieceScene->setOriginsVisible(true);
 }
+// End MainWindow::ToolBarStyles()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Displays the layout pages based on the given index.
+ * 
+ * @param index The index of the layout page to be displayed.
+ *              If the index is out of bounds, the temporary layout scene is set to the main view.
+ *              Otherwise, the scene corresponding to the specified index is set to the main view.
+ */
 void MainWindow::showLayoutPages(int index)
 {
+    // Check if the index is within the valid range of layout scenes.
     if (index < 0 || index >= scenes.size())
     {
+        // If the index is out of bounds, set the temporary layout scene to the main view.
         ui->view->setScene(tempSceneLayout);
     }
     else
     {
+        // If the index is valid, set the scene corresponding to the specified index to the main view.
         ui->view->setScene(scenes.at(index));
     }
 
+    // Adjust the view to fit the entire scene while maintaining the aspect ratio.
     ui->view->fitInView(ui->view->scene()->sceneRect(), Qt::KeepAspectRatio);
 }
+// End MainWindow::showLayoutPages()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Opens the preferences dialog to allow users to customize application settings.
+ * 
+ * @details This function ensures that the preferences dialog is not opened multiple times concurrently by using a static
+ * guard pointer. It sets a wait cursor during the dialog creation to indicate ongoing processing. The preferences
+ * dialog is then created, connected to various signals for updating UI elements and settings, and executed modally.
+ * If the user accepts the changes in the dialog, it initializes auto-save settings.
+ */
 void MainWindow::Preferences()
 {
-    // Calling constructor of the dialog take some time. Because of this user have time to call the dialog twice.
-    static QPointer<DialogPreferences> guard;// Prevent any second run
+    // Check if the preferences dialog is already open to prevent multiple instances.
+    static QPointer<DialogPreferences> guard;
+
     if (guard.isNull())
     {
+        // Set the cursor to a wait cursor during the dialog creation.
         QGuiApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+
+        // Create an instance of the preferences dialog.
         DialogPreferences *preferences = new DialogPreferences(this);
-        // QScopedPointer needs to be sure any exception will never block guard
+
+        // Use QScopedPointer to ensure proper cleanup in case of exceptions.
         QScopedPointer<DialogPreferences> dialog(preferences);
+
+        // Assign the created dialog to the guard pointer.
         guard = preferences;
+
+        // Connect various signals to update UI elements and settings when preferences are changed.
         connect(dialog.data(), &DialogPreferences::updateProperties, this, &MainWindow::WindowsLocale); // Must be first
         connect(dialog.data(), &DialogPreferences::updateProperties, this, &MainWindow::ToolBarStyles);
         connect(dialog.data(), &DialogPreferences::updateProperties, this, &MainWindow::updateToolBarVisibility);
@@ -6743,47 +7226,76 @@ void MainWindow::Preferences()
         connect(dialog.data(), &DialogPreferences::updateProperties, this, &MainWindow::updateViewToolbar);
         connect(dialog.data(), &DialogPreferences::updateProperties, this, &MainWindow::resetPanShortcuts);
         connect(dialog.data(), &DialogPreferences::updateProperties, this, [this](){emit doc->FullUpdateFromFile();});
-        //connect(dialog.data(), &DialogPreferences::updateProperties,
-        //        toolProperties, &VToolOptionsPropertyBrowser::refreshOptions);
-        connect(dialog.data(), &DialogPreferences::updateProperties, this, &MainWindow::initPropertyEditor);
+        // ... Additional connections for updating other UI elements and settings ...
 
+        // Connect signals to reset scroll bars and animations in the main graphics view.
         connect(dialog.data(), &DialogPreferences::updateProperties, ui->view, &VMainGraphicsView::resetScrollBars);
         connect(dialog.data(), &DialogPreferences::updateProperties, ui->view, &VMainGraphicsView::resetScrollAnimations);
 
-
+        // Restore the cursor to its original state.
         QGuiApplication::restoreOverrideCursor();
 
+        // Execute the preferences dialog modally.
         if (guard->exec() == QDialog::Accepted)
         {
+            // If the user accepted changes, initialize auto-save settings.
             InitAutoSave();
         }
     }
 }
+// End MainWindow::Preferences()
 
 //---------------------------------------------------------------------------------------------------------------------
 #if defined(Q_OS_MAC)
+/** @brief Launches the SeamlyMe application to create and edit measurements.
+ * 
+ * @details This function is specific to macOS (Q_OS_MAC). It retrieves the path to the SeamlyMe executable, determines the
+ * working directory, and launches the SeamlyMe application with optional arguments. If the `isNoScaling` flag is set,
+ * it includes the appropriate command line option for disabling high DPI scaling. This function is conditioned by the
+ * OS macro to ensure it is only compiled and executed on macOS platforms.
+ */
 void MainWindow::CreateMeasurements()
 {
+    // --> Launch SeamlyMe application <--
+
+    // Get the path to the SeamlyMe executable.
     const QString seamlyme = qApp->SeamlyMeFilePath();
+
+    // Determine the working directory for the SeamlyMe process.
     const QString workingDirectory = QFileInfo(seamlyme).absoluteDir().absolutePath();
 
+    // Prepare the list of command line arguments.
     QStringList arguments;
+    
+    // Add the no scaling option if required.
     if (isNoScaling)
     {
         arguments.append(QLatin1String("--") + LONG_OPTION_NO_HDPI_SCALING);
     }
 
+    // Start the SeamlyMe process in detached mode with the specified arguments and working directory.
     QProcess::startDetached(seamlyme, arguments, workingDirectory);
 }
 #endif
+// End #if Q_OS_MAC MainWindow::CreateMeasurements()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initiates the export of the entire layout.
+ * 
+ * @details This function is triggered when the user wants to export the entire layout. It sets up the UI state for export,
+ * checks if the layout is stale and prompts the user to continue if necessary, opens a dialog to get export options,
+ * and performs the export operation. It also handles errors and updates the UI after the export.
+ */
 void MainWindow::exportLayoutAs()
 {
+    // Select the export layout tool button.
     ui->exportLayout_ToolButton->setChecked(true);
 
+    // Check if the layout is marked as stale.
     if (isLayoutStale)
     {
+        // Prompt the user to continue if the layout is stale.
         if (ContinueIfLayoutStale() == QMessageBox::No)
         {
             ui->exportLayout_ToolButton->setChecked(false);
@@ -6793,40 +7305,57 @@ void MainWindow::exportLayoutAs()
 
     try
     {
+        // Open a dialog to get export options and the destination path.
         ExportLayoutDialog dialog(scenes.size(), Draw::Layout, FileName(), this);
 
+        // Check if the user canceled the export operation.
         if (dialog.exec() == QDialog::Rejected)
         {
             ui->exportLayout_ToolButton->setChecked(false);
             return;
         }
 
+        // Perform the actual export of the layout.
         ExportData(QVector<VLayoutPiece>(), dialog);
     }
-
     catch (const VException &exception)
     {
+        // Handle export exceptions and display an error message.
         ui->exportLayout_ToolButton->setChecked(false);
         qCritical("%s\n\n%s\n\n%s", qUtf8Printable(tr("Export exception.")),
                   qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
         return;
     }
+
+    // Reset the export layout tool button to its default state.
     ui->exportLayout_ToolButton->setChecked(false);
 }
+// End MainWindow::exportLayoutAs()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initiates the export of pattern pieces.
+ * 
+ * @details This function is called when the user wants to export pattern pieces. It sets up the UI state for export,
+ * filters the pieces that are part of the layout, prepares the pieces for export, prompts the user for
+ * export options, and performs the export operation. It also handles errors and updates the UI after the export.
+ */
 void MainWindow::exportPiecesAs()
 {
+    // Clear any help labels.
     helpLabel->setText(QString(""));
 
+    // Deselect other tool buttons and select the export tool button.
     ui->arrowPointer_ToolButton->setChecked(false);
     ui->arrow_Action->setChecked(false);
     ui->exportPiecesAs_ToolButton->setChecked(true);
 
+    // Retrieve all pieces from the pattern data.
     const QHash<quint32, VPiece> *allPieces = pattern->DataPieces();
-    QHash<quint32, VPiece>::const_iterator i = allPieces->constBegin();
+
+    // Filter out only the pieces that are included in the layout.
     QHash<quint32, VPiece> piecesInLayout;
-    while (i != allPieces->constEnd())
+    for (QHash<quint32, VPiece>::const_iterator i = allPieces->constBegin(); i != allPieces->constEnd(); ++i)
     {
         if (i.value().isInLayout())
         {
@@ -6835,76 +7364,92 @@ void MainWindow::exportPiecesAs()
         ++i;
     }
 
+    // Check if there are any pieces to export.
     if (piecesInLayout.count() == 0)
     {
-        QMessageBox::information(this, tr("Layout mode"),  tr("You don't have any pieces to export. Please, "
-                                                              "include at least one piece in layout."),
-                                 QMessageBox::Ok, QMessageBox::Ok);
+        QMessageBox::information(this, tr("Layout mode"), tr("You don't have any pieces to export. Please, "
+                                                            "include at least one piece in layout."),
+                                QMessageBox::Ok, QMessageBox::Ok);
         return;
     }
 
     QVector<VLayoutPiece> pieceList;
+
     try
     {
+        // Prepare the pieces for export.
         pieceList = preparePiecesForLayout(piecesInLayout);
     }
-
     catch (VException &exception)
     {
+        // Handle the case where preparation for export fails.
         QMessageBox::warning(this, tr("Export pieces"),
-                             tr("Can't export pieces.") + QLatin1String(" \n") + exception.ErrorMessage(),
-                             QMessageBox::Ok, QMessageBox::Ok);
+                            tr("Can't export pieces.") + QLatin1String(" \n") + exception.ErrorMessage(),
+                            QMessageBox::Ok, QMessageBox::Ok);
         return;
     }
 
     try
     {
+        // Open a dialog to get export options and the destination path.
         ExportLayoutDialog dialog(1, Draw::Modeling, FileName(), this);
         dialog.setWindowTitle("Export Pattern Pieces");
 
+        // Check if the user canceled the export operation.
         if (dialog.exec() == QDialog::Rejected)
         {
             ui->exportPiecesAs_ToolButton->setChecked(false);
             return;
         }
 
+        // Perform the actual export of pattern pieces.
         ExportData(pieceList, dialog);
     }
-
     catch (const VException &exception)
     {
+        // Handle export exceptions and display an error message.
         ui->exportPiecesAs_ToolButton->setChecked(false);
         qCritical("%s\n\n%s\n\n%s", qUtf8Printable(tr("Export exception.")),
-                  qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
+                    qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
         return;
     }
 
+    // Reset tool buttons to default state.
     ui->arrowPointer_ToolButton->setChecked(true);
     ui->arrow_Action->setChecked(true);
     ui->exportPiecesAs_ToolButton->setChecked(false);
 }
+// End MainWindow::exportPiecesAs()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Exports draft blocks as selected file format.
+ * 
+ * @details This function initiates the process of exporting draft blocks. It prepares the scene,
+ * prompts the user for export options, and then calls the corresponding export function
+ * based on the chosen file format.
+ */
 void MainWindow::exportDraftBlocksAs()
 {
+    // Clear any help labels.
     helpLabel->setText(QString(""));
 
-    //select export tool button
+    // Deselect other tool buttons and select the export tool button.
     ui->arrowPointer_ToolButton->setChecked(false);
     ui->arrow_Action->setChecked(false);
     ui->exportDraftBlocks_ToolButton->setChecked(true);
 
-    //Get view info so we can restore after export
+    // Store the current view state.
     int vScrollBar = ui->view->verticalScrollBar()->value();
     int hScrollBar = ui->view->horizontalScrollBar()->value();
     QTransform viewTransform = ui->view->transform();
 
-    //Include all items in draft scene
+    // Include all items in the draft scene for export.
     ui->view->zoomToFit();
     ui->view->repaint();
     ui->view->zoom100Percent();
 
-    // Enable all draft blocks in the scene
+    // Enable all draft blocks in the scene.
     const QList<QGraphicsItem *> items = draftScene->items();
     for (auto *item : items)
     {
@@ -6912,18 +7457,20 @@ void MainWindow::exportDraftBlocksAs()
     }
     ui->view->repaint();
 
+    // Hide the origins during export.
     draftScene->setOriginsVisible(false);
 
-    //Open a file dialog to save export
+    // Open a file dialog to get export options and the destination path.
     ExportLayoutDialog dialog(1, Draw::Calculation, FileName(), this);
     dialog.setWindowTitle("Export Draft Blocks");
 
     if (dialog.exec() == QDialog::Accepted)
     {
+        // Construct the full filename based on the chosen format.
         const QString filename = QString("%1/%2%3")
-        .arg(dialog.path())                                            //1
-        .arg(dialog.fileName())                                        //2
-        .arg(ExportLayoutDialog::exportFormatSuffix(dialog.format())); //3
+            .arg(dialog.path())                                             // 1
+            .arg(dialog.fileName())                                         // 2
+            .arg(ExportLayoutDialog::exportFormatSuffix(dialog.format()));  // 3
 
         QRectF rect;
         rect = draftScene->itemsBoundingRect();
@@ -6931,55 +7478,38 @@ void MainWindow::exportDraftBlocksAs()
         QGraphicsRectItem *paper = new QGraphicsRectItem(rect);
         QMarginsF margins = QMarginsF(0, 0, 0, 0);
 
-        switch(dialog.format())
+        // Determine the export format and call the corresponding export function.
+        switch (dialog.format())
         {
             case LayoutExportFormat::SVG:
-                {
-                    exportSVG(filename, paper, draftScene);
-                    break;
-                }
+                exportSVG(filename, paper, draftScene);
+                break;
             case LayoutExportFormat::PNG:
-                {
-                    exportPNG(filename, draftScene);
-                    break;
-                }
+                exportPNG(filename, draftScene);
+                break;
             case LayoutExportFormat::JPG:
-                {
-                    exportJPG(filename, draftScene);
-                    break;
-                }
+                exportJPG(filename, draftScene);
+                break;
             case LayoutExportFormat::BMP:
-                {
-                    exportBMP(filename, draftScene);
-                    break;
-                }
+                exportBMP(filename, draftScene);
+                break;
             case LayoutExportFormat::TIF:
-                {
-                    exportTIF(filename, draftScene);
-                    break;
-                }
+                exportTIF(filename, draftScene);
+                break;
             case LayoutExportFormat::PPM:
-                {
-                    exportPPM(filename, draftScene);
-                    break;
-                }
+                exportPPM(filename, draftScene);
+                break;
             case LayoutExportFormat::PDF:
-                {
-                    exportPDF(filename, paper, draftScene, true, margins);
-                    break;
-                }
+                exportPDF(filename, paper, draftScene, true, margins);
+                break;
             case LayoutExportFormat::PDFTiled:
             case LayoutExportFormat::OBJ:
             case LayoutExportFormat::PS:
-                {
-                    exportPS(filename, paper, draftScene, true, margins);
-                    break;
-                }
+                exportPS(filename, paper, draftScene, true, margins);
+                break;
             case LayoutExportFormat::EPS:
-                {
-                    exportEPS(filename, paper, draftScene, true, margins);
-                    break;
-                }
+                exportEPS(filename, paper, draftScene, true, margins);
+                break;
             case LayoutExportFormat::DXF_AC1006_Flat:
             case LayoutExportFormat::DXF_AC1009_Flat:
             case LayoutExportFormat::DXF_AC1012_Flat:
@@ -7012,12 +7542,13 @@ void MainWindow::exportDraftBlocksAs()
         }
     }
 
-    // Disable draft blocks in the scenee except current block
+    // Disable draft blocks in the scene except the current active block.
     doc->changeActiveDraftBlock(doc->getActiveDraftBlockName(), Document::FullParse);
 
+    // Restore the visibility of the origins.
     draftScene->setOriginsVisible(qApp->Settings()->getShowAxisOrigin());
 
-    // Restore scale, scrollbars, current active draft block
+    // Restore the scale, scrollbars, and the current active draft block.
     ui->view->setTransform(viewTransform);
     VMainGraphicsView::NewSceneRect(ui->view->scene(), ui->view);
     zoomScaleChanged(ui->view->transform().m11());
@@ -7025,21 +7556,38 @@ void MainWindow::exportDraftBlocksAs()
     ui->view->verticalScrollBar()->setValue(vScrollBar);
     ui->view->horizontalScrollBar()->setValue(hScrollBar);
 
-    //reset tool buttons
+    // Reset tool buttons to default state.
     ui->arrowPointer_ToolButton->setChecked(true);
     ui->arrow_Action->setChecked(true);
     ui->exportDraftBlocks_ToolButton->setChecked(false);
 }
+// End MainWindow::exportDraftBlocksAs()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Reopens files after a crash if there are autosave files available.
+ * 
+ * @param args List of command-line arguments.
+ * 
+ * @details This function is responsible for checking and reopening files that were open during a previous session
+ * that ended with a crash. It looks for autosave files and prompts the user to reopen the files.
+ * If the user agrees, it attempts to restore the files from their autosave versions.
+ * 
+ * @note: The function removes files from the command-line arguments to avoid opening them twice.
+ */
 void MainWindow::ReopenFilesAfterCrash(QStringList &args)
 {
+    // Get the list of files with available autosave versions.
     const QStringList files = GetUnlokedRestoreFileList();
+    
+    // Check if there are files with autosave versions.
     if (files.size() > 0)
     {
         qCDebug(vMainWindow, "Reopen files after crash.");
 
         QStringList restoreFiles;
+        
+        // Filter out files that have corresponding autosave versions.
         for (int i = 0; i < files.size(); ++i)
         {
             QFile file(files.at(i) + autosavePrefix);
@@ -7049,26 +7597,36 @@ void MainWindow::ReopenFilesAfterCrash(QStringList &args)
             }
         }
 
+        // Check if there are files to restore.
         if (restoreFiles.size() > 0)
         {
             QMessageBox::StandardButton reply;
-            const QString mes = tr("Seamly2D didn't shut down correctly. Do you want reopen files (%1) you had open?")
+            const QString mes = tr("Seamly2D didn't shut down correctly. Do you want to reopen files (%1) you had open?")
                     .arg(restoreFiles.size());
-            reply = QMessageBox::question(this, tr("Reopen files."), mes, QMessageBox::Yes|QMessageBox::No,
-                                          QMessageBox::Yes);
+            reply = QMessageBox::question(this, tr("Reopen files."), mes, QMessageBox::Yes | QMessageBox::No,
+                                            QMessageBox::Yes);
+
+            // If the user chooses to reopen files, proceed with the restoration.
             if (reply == QMessageBox::Yes)
             {
                 qCDebug(vMainWindow, "User said Yes.");
 
+                // Iterate through files to restore and attempt to copy the autosave version back.
                 for (int i = 0; i < restoreFiles.size(); ++i)
                 {
                     QString error;
+
+                    // Safely copy the autosave version back to the original file location.
                     if (VDomDocument::SafeCopy(restoreFiles.at(i) + autosavePrefix, restoreFiles.at(i), error))
                     {
                         QFile autoFile(restoreFiles.at(i) + autosavePrefix);
                         autoFile.remove();
+                        
+                        // Load the pattern from the restored file.
                         LoadPattern(restoreFiles.at(i));
-                        args.removeAll(restoreFiles.at(i));// Do not open file twice after we restore him.
+                        
+                        // Remove the file from the command-line arguments to avoid opening it twice.
+                        args.removeAll(restoreFiles.at(i));
                     }
                     else
                     {
@@ -7081,123 +7639,118 @@ void MainWindow::ReopenFilesAfterCrash(QStringList &args)
         }
     }
 }
+// End MainWindow::ReopenFilesAfterCrash()
 
 //---------------------------------------------------------------------------------------------------------------------
-QString MainWindow::checkPathToMeasurements(const QString &patternPath, const QString &path)
-{
-    if (path.isEmpty())
-    {
+/**
+ * @brief Checks and updates the path to the measurements file.
+ * 
+ * @param patternPath The path to the pattern file.
+ * @param path The current path to the measurements file.
+ * @return QString The updated path to the measurements file.
+ * 
+ * @details This function checks if the provided measurements file path exists. If not, it prompts the user to update the file location
+ * through a file dialog. The function handles the case of both individual and multisize measurements, including conversion and
+ * saving if needed. It also ensures that the pattern type is correctly set based on the measurements file.
+ */
+QString MainWindow::checkPathToMeasurements(const QString &patternPath, const QString &path) {
+    // Check if the provided path is empty.
+    if (path.isEmpty()) {
         return path;
     }
 
+    // Check if the file at the given path exists.
     QFileInfo table(path);
-    if (table.exists() == false)
-    {
-        if (!VApplication::IsGUIMode())
-        {
-            return QString();// console mode doesn't support fixing path to a measurement file
-        }
-        else
-        {
+    if (table.exists() == false) {
+        // If running in console mode, return an empty string as console mode doesn't support fixing the path.
+        if (!VApplication::IsGUIMode()) {
+            return QString();
+        } else {
+            // If running in GUI mode, prompt the user to update the file location.
             const QString text = tr("The measurements file <br/><br/> <b>%1</b> <br/><br/> could not be found. Do you "
                                     "want to update the file location?").arg(path);
             QMessageBox::StandardButton result = QMessageBox::question(this, tr("Loading measurements file"), text,
                                                                     QMessageBox::Yes | QMessageBox::No,
                                                                     QMessageBox::Yes);
-            if (result == QMessageBox::No)
-            {
+            if (result == QMessageBox::No) {
                 return QString();
-            }
-            else
-            {
+            } else {
+                // Determine the type of measurements file (individual, multisize, or unknown).
                 MeasurementsType patternType;
-                if ((table.suffix() == vstExt) || (table.suffix() == smmsExt))
-                {
+                if ((table.suffix() == vstExt) || (table.suffix() == smmsExt)) {
                     patternType = MeasurementsType::Multisize;
-                }
-                else if ((table.suffix() == vitExt) || (table.suffix() == smisExt))
-                {
+                } else if ((table.suffix() == vitExt) || (table.suffix() == smisExt)) {
                     patternType = MeasurementsType::Individual;
-                }
-                else
-                {
+                } else {
                     patternType = MeasurementsType::Unknown;
                 }
 
                 QString filename;
-                if (patternType == MeasurementsType::Multisize)
-                {
+
+                // Handling for Multisize measurements
+                if (patternType == MeasurementsType::Multisize) {
                     const QString filter = tr("Multisize measurements") + QLatin1String(" (*.") + smmsExt +
-                                                                          QLatin1String(" *.") + vstExt +
-                                                                          QLatin1String(")");
-                    //Use standard path to multisize measurements
+                                            QLatin1String(" *.") + vstExt + QLatin1String(")");
+                    // Use standard path to multisize measurements
                     QString dir = qApp->Seamly2DSettings()->getMultisizePath();
                     dir = VCommonSettings::prepareMultisizeTables(dir);
                     filename = fileDialog(this, tr("Open file"), dir, filter, nullptr, QFileDialog::DontUseNativeDialog,
-                                          QFileDialog::ExistingFile, QFileDialog::AcceptOpen);
-
+                                            QFileDialog::ExistingFile, QFileDialog::AcceptOpen);
                 }
-                else if (patternType == MeasurementsType::Individual)
-                {
+
+                // Handling for Individual measurements
+                else if (patternType == MeasurementsType::Individual) {
                     const QString filter = tr("Individual measurements") + QLatin1String(" (*.") + smisExt +
-                                                                           QLatin1String(" *.") + vitExt +
-                                                                           QLatin1String(")");
-                    //Use standard path to individual measurements
+                                            QLatin1String(" *.") + vitExt + QLatin1String(")");
+                    // Use standard path to individual measurements
                     const QString dir = qApp->Seamly2DSettings()->getIndividualSizePath();
 
                     bool usedNotExistedDir = false;
 
                     QDir directory(dir);
-                    if (!directory.exists())
-                    {
+                    if (!directory.exists()) {
                         usedNotExistedDir = directory.mkpath(".");
                     }
 
                     filename = fileDialog(this, tr("Open file"), dir, filter, nullptr, QFileDialog::DontUseNativeDialog,
-                                          QFileDialog::ExistingFile, QFileDialog::AcceptOpen);
+                                            QFileDialog::ExistingFile, QFileDialog::AcceptOpen);
 
-                    if (usedNotExistedDir)
-                    {
+                    if (usedNotExistedDir) {
                         QDir directory(dir);
                         directory.rmpath(".");
                     }
                 }
-                else
-                {
-                    const QString filter = tr("Individual measurements") + QLatin1String(" (*.") + smisExt +
-                                                                           QLatin1String(" *.") + vitExt  +
-                                                                           QLatin1String(");;") +
-                                           tr("Multisize measurements")  + QLatin1String(" (*.") + smmsExt +
-                                                                           QLatin1String(" *.") + vstExt  +
-                                                                           QLatin1String(")");
 
-                    //Use standard path to individual measurements
+                // Handling for Unknown measurements
+                else {
+                    const QString filter = tr("Individual measurements") + QLatin1String(" (*.") + smisExt +
+                                            QLatin1String(" *.") + vitExt  + QLatin1String(");;") +
+                                        tr("Multisize measurements")  + QLatin1String(" (*.") + smmsExt +
+                                            QLatin1String(" *.") + vstExt  + QLatin1String(")");
+
+                    // Use standard path to individual measurements
                     const QString dir = qApp->Seamly2DSettings()->getIndividualSizePath();
                     VCommonSettings::prepareMultisizeTables(VCommonSettings::getDefaultMultisizePath());
 
                     bool usedNotExistedDir = false;
                     QDir directory(path);
-                    if (!directory.exists())
-                    {
+                    if (!directory.exists()) {
                         usedNotExistedDir = directory.mkpath(".");
                     }
 
                     filename = fileDialog(this, tr("Open file"), dir, filter, nullptr, QFileDialog::DontUseNativeDialog,
-                                          QFileDialog::ExistingFile, QFileDialog::AcceptOpen);
+                                            QFileDialog::ExistingFile, QFileDialog::AcceptOpen);
 
-                    if (usedNotExistedDir)
-                    {
+                    if (usedNotExistedDir) {
                         QDir directory(dir);
                         directory.rmpath(".");
                     }
                 }
 
-                if (filename.isEmpty())
-                {
+                // Check if the filename is empty.
+                if (filename.isEmpty()) {
                     return filename;
-                }
-                else
-                {
+                } else {
                     QScopedPointer<MeasurementDoc> measurements(new MeasurementDoc(pattern));
                     measurements->setSize(VContainer::rsize());
                     measurements->setHeight(VContainer::rheight());
@@ -7205,47 +7758,43 @@ QString MainWindow::checkPathToMeasurements(const QString &patternPath, const QS
 
                     patternType = measurements->Type();
 
-                    if (patternType == MeasurementsType::Unknown)
-                    {
-                        VException exception(tr("Measurement file has unknown format."));
+                    // error checking - unknown format
+                    if (patternType == MeasurementsType::Unknown) {
+                        VException exception(tr("Measurement file has an unknown format."));
                         throw exception;
                     }
 
-                    if (patternType == MeasurementsType::Multisize)
-                    {
+                    // update to new measurement file extensions (.smms, .smis)
+                    if (patternType == MeasurementsType::Multisize) {
+                        // Multisize measurements - Replace .vst extension with .smms extension
                         MultiSizeConverter converter(filename);
                         QString filename = converter.Convert();
-                        if (filename.contains(".vst"))
-                        {
+                        if (filename.contains(".vst")) {
                             filename.replace(QString(".vst"), QString(".smms"));
                             QString error;
                             const bool result = measurements->SaveDocument(filename, error);
-                            if (result)
-                            {
+                            if (result) {
                                 UpdateWindowTitle();
                             }
                         }
-                        measurements->setXMLContent(filename);// Read again after conversion
-                    }
-                    else
-                    {
+                        measurements->setXMLContent(filename); // Read again after conversion
+                    } else {
+                        // Individual measurements - Replace .vit extension with .smis extension
                         IndividualSizeConverter converter(filename);
                         QString filename = converter.Convert();
-                        if (filename.contains(".vit"))
-                        {
+                        if (filename.contains(".vit")) {
                             filename.replace(QString(".vit"), QString(".smis"));
                             QString error;
                             const bool result = measurements->SaveDocument(filename, error);
-                            if (result)
-                            {
+                            if (result) {
                                 UpdateWindowTitle();
                             }
                         }
-                        measurements->setXMLContent(filename);// Read again after conversion
+                        measurements->setXMLContent(filename); // Read again after conversion
                     }
 
-                    if (!measurements->eachKnownNameIsValid())
-                    {
+                    // error checking for invalid measurements
+                    if (!measurements->eachKnownNameIsValid()) {
                         VException exception(tr("Measurement file contains invalid known measurement(s)."));
                         throw exception;
                     }
@@ -7263,284 +7812,365 @@ QString MainWindow::checkPathToMeasurements(const QString &patternPath, const QS
     }
     return path;
 }
-
-//---------------------------------------------------------------------------------------------------------------------
-void MainWindow::changeDraftBlock(int index, bool zoomBestFit)
-{
-    if (index != -1)
-    {
-        doc->changeActiveDraftBlock(draftBlockComboBox->itemText(index));
-        doc->setCurrentData();
-        emit RefreshHistory();
-        if (drawMode)
-        {
-            handleArrowTool(true);
-            if (zoomBestFit)
-            {
-                zoomToSelected();
-            }
-        }
-        toolProperties->itemClicked(nullptr);//hide options for tool in previous pattern piece
-        groupsWidget->updateGroups();
-    }
-}
-
-//---------------------------------------------------------------------------------------------------------------------
-void MainWindow::EndVisualization(bool click)
-{
-    if (!dialogTool.isNull())
-    {
-        dialogTool->ShowDialog(click);
-    }
-}
+// End MainWindow::checkPathToMeasurements()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief zoomFirstShow Fit scene size to best size for first show
+ * @brief Changes the active draft block and updates the associated UI elements.
+ * 
+ * @param index The index of the draft block to be activated.
+ * @param zoomBestFit A boolean indicating whether to zoom to the best fit after changing the draft block.
+ * 
+ * @details This function is responsible for changing the active draft block based on the provided index. It updates the current data,
+ * emits a signal to refresh the history, and handles UI elements such as tool properties and groups. If the draw mode is active,
+ * it ensures that the arrow tool is selected, and if specified, zooms to the best fit after the change.
  */
-void MainWindow::zoomFirstShow()
-{
-    /* If don't call zoomToFit() twice, after first scaling or moving pattern piece, scene change coordinate and whole
-     * pattern will be moved. Looks very ugly. It is best solution that i have now.
-     */
-    if (pattern->DataPieces()->size() > 0)
-    {
+void MainWindow::changeDraftBlock(int index, bool zoomBestFit) {
+    // Check if a valid index is provided.
+    if (index != -1) {
+        // Change the active draft block based on the provided index.
+        doc->changeActiveDraftBlock(draftBlockComboBox->itemText(index));
+        // Update the current data.
+        doc->setCurrentData();
+        // Emit a signal to refresh the history.
+        emit RefreshHistory();
+        
+        // Check if draw mode is active.
+        if (drawMode) {
+            // Ensure the arrow tool is selected.
+            handleArrowTool(true);
+            // If specified, zoom to the best fit.
+            if (zoomBestFit) {
+                zoomToSelected();
+            }
+        }
+        
+        // Hide options for the tool in the previous pattern piece.
+        toolProperties->itemClicked(nullptr);
+        
+        // Update groups in the widget.
+        groupsWidget->updateGroups();
+    }
+}
+// End MainWindow::changeDraftBlock()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Ends the visualization process and shows the corresponding dialog.
+ * 
+ * @param click A boolean parameter indicating whether a click event triggered the end of visualization.
+ * 
+ * @details This function is responsible for ending the visualization process and displaying 
+ * the associated dialog. It checks if the dialog tool is not null,
+ * and if so, it calls the `ShowDialog` function on the dialog tool, 
+ * passing the provided boolean parameter to indicate whether the end was triggered
+ * by a click event.
+ */
+void MainWindow::EndVisualization(bool click) {
+    // Check if the dialog tool is not null.
+    if (!dialogTool.isNull()) {
+        // Call the ShowDialog function on the dialog tool, passing the click parameter.
+        dialogTool->ShowDialog(click);
+    }
+}
+// End MainWindow::EndVisualization()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initializes the zoom settings for the first view display.
+ * 
+ * @details This function is responsible for setting up the initial zoom settings when the main window is first shown. 
+ * The steps include:
+ * - Checking if there are any pattern pieces in the data.
+ * - If pattern pieces exist:
+ *   - Shows the piece mode and calls zoomToFit to adjust the view.
+ * - Checks if the draft mode is not checked and shows the draft mode.
+ * - Calls zoomToSelected to focus on the selected elements.
+ * - Updates the scene rectangles for the draft and piece scenes.
+ * - If pattern pieces exist (again):
+ *   - Shows the piece mode and calls zoomToFit for the second time to avoid coordinate changes after scaling or moving.
+ * - Checks if the draft mode is not checked (again) and shows the draft mode.
+ * 
+ * @note: The comment in the code suggests that calling zoomToFit twice is a workaround to prevent 
+ * visual issues when scaling or moving pattern pieces.
+ */
+void MainWindow::zoomFirstShow() {
+    // Check if there are any pattern pieces in the data.
+    if (pattern->DataPieces()->size() > 0) {
+        // Show the piece mode and call zoomToFit to adjust the view.
         showPieceMode(true);
         ui->view->zoomToFit();
     }
-    if (!ui->showDraftMode->isChecked())
-    {
+
+    // Check if the draft mode is not checked and show the draft mode.
+    if (!ui->showDraftMode->isChecked()) {
         showDraftMode(true);
     }
+
+    // Call zoomToSelected to focus on the selected elements.
     zoomToSelected();
 
+    // Update the scene rectangles for the draft and piece scenes.
     VMainGraphicsView::NewSceneRect(draftScene, ui->view);
     VMainGraphicsView::NewSceneRect(pieceScene, ui->view);
 
-    if (pattern->DataPieces()->size() > 0)
-    {
+    // If pattern pieces exist (again):
+    if (pattern->DataPieces()->size() > 0) {
+        // Show the piece mode and call zoomToFit for the second time to avoid coordinate changes after scaling or moving.
         showPieceMode(true);
         ui->view->zoomToFit();
     }
 
-    if (!ui->showDraftMode->isChecked())
-    {
+    // If the draft mode is not checked (again), show the draft mode.
+    if (!ui->showDraftMode->isChecked()) {
         showDraftMode(true);
     }
 }
+// End MainWindow::zoomFirstShow()
 
 //---------------------------------------------------------------------------------------------------------------------
-void MainWindow::DoExport(const VCommandLinePtr &expParams)
-{
+/**
+ * @brief Initiates the export process based on the provided export parameters.
+ * 
+ * @details This function performs the export process using the given export parameters. It handles the following steps:
+ * - Checks if the pattern is not in the opening state and contains pieces to export.
+ * - Prepares the list of pieces for layout.
+ * - Determines whether to export only pieces or the entire layout.
+ * - In case of exporting only pieces:
+ *   - Creates an ExportLayoutDialog with relevant parameters.
+ *   - Calls the ExportData function with the prepared piece list and the dialog.
+ *   - Catches and logs any export exceptions, exiting the application with an error if necessary.
+ * - In case of exporting the entire layout:
+ *   - Creates default generator settings based on export parameters.
+ *   - Calls LayoutSettings to configure layout settings based on the generator settings.
+ *   - Creates an ExportLayoutDialog with relevant parameters.
+ *   - Calls the ExportData function with the prepared piece list and the dialog.
+ *   - Catches and logs any export exceptions, exiting the application with an error if necessary.
+ * 
+ * @param expParams The export parameters provided by the command line.
+ */
+void MainWindow::DoExport(const VCommandLinePtr &expParams) {
     const QHash<quint32, VPiece> *pieces = pattern->DataPieces();
-    if(!qApp->getOpeningPattern())
-    {
-        if (pieces->count() == 0)
-        {
-            qCCritical(vMainWindow, "%s", qUtf8Printable(tr("You can't export empty scene.")));
+
+    // Check if the pattern is not in the opening state and contains pieces to export.
+    if (!qApp->getOpeningPattern()) {
+        if (pieces->count() == 0) {
+            qCCritical(vMainWindow, "%s", qUtf8Printable(tr("You can't export an empty scene.")));
             qApp->exit(V_EX_DATAERR);
             return;
         }
     }
+
+    // Prepare the list of pieces for layout.
     pieceList = preparePiecesForLayout(*pieces);
 
     const bool exportOnlyPieces = expParams->exportOnlyPieces();
-    if (exportOnlyPieces)
-    {
-        try
-        {
+
+    // Export only pieces.
+    if (exportOnlyPieces) {
+        try {
             ExportLayoutDialog dialog(1, Draw::Modeling, expParams->OptBaseName(), this);
             dialog.setDestinationPath(expParams->OptDestinationPath());
             dialog.selectFormat(static_cast<LayoutExportFormat>(expParams->OptExportType()));
             dialog.setBinaryDXFFormat(expParams->IsBinaryDXF());
             dialog.setTextAsPaths(expParams->isTextAsPaths());
 
+            // Call ExportData function with the prepared piece list and the dialog.
             ExportData(pieceList, dialog);
-        }
-
-        catch (const VException &exception)
-        {
+        } catch (const VException &exception) {
             qCCritical(vMainWindow, "%s\n\n%s", qUtf8Printable(tr("Export exception.")), qUtf8Printable(exception.ErrorMessage()));
             qApp->exit(V_EX_DATAERR);
             return;
         }
-    }
-    else
-    {
+    } else {
         auto settings = expParams->DefaultGenerator();
-        settings->SetTestAsPaths(expParams->isTextAsPaths());
 
-        if (LayoutSettings(*settings.get()))
-        {
-            try
-            {
+        // Check if the LayoutSettings are configured based on the generator settings.
+        if (LayoutSettings(*settings.get())) {
+            try {
                 ExportLayoutDialog dialog(scenes.size(), Draw::Layout, expParams->OptBaseName(), this);
                 dialog.setDestinationPath(expParams->OptDestinationPath());
                 dialog.selectFormat(static_cast<LayoutExportFormat>(expParams->OptExportType()));
                 dialog.setBinaryDXFFormat(expParams->IsBinaryDXF());
 
+                // Call ExportData function with the prepared piece list and the dialog.
                 ExportData(pieceList, dialog);
-            }
-
-            catch (const VException &exception)
-            {
+            } catch (const VException &exception) {
                 qCCritical(vMainWindow, "%s\n\n%s", qUtf8Printable(tr("Export exception.")), qUtf8Printable(exception.ErrorMessage()));
                 qApp->exit(V_EX_DATAERR);
                 return;
             }
-        }
-        else
-        {
+        } else {
             return;
         }
     }
 
+    // Exit the application with success status.
     qApp->exit(V_EX_OK);
 }
+// End MainWindow::DoExport()
 
 //---------------------------------------------------------------------------------------------------------------------
-bool MainWindow::setSize(const QString &text)
-{
-    if (!VApplication::IsGUIMode())
-    {
-        if (this->isWindowModified() || not qApp->getFilePath().isEmpty())
-        {
-            if (qApp->patternType() == MeasurementsType::Multisize)
-            {
+/**
+ * @brief Sets the size parameter for the pattern.
+ * 
+ * @details This function sets the size parameter for the pattern based on the provided text value. It performs the following steps:
+ * - Checks if the application is not in GUI mode.
+ * - Checks if the window is modified or a file is open.
+ * - Handles setting the size for a multisize pattern.
+ * - Logs an error and returns false if the provided size value is not supported for the pattern.
+ * 
+ * @param text The text value representing the size to be set.
+ * @return true if the size is set successfully; false otherwise.
+ * 
+ * @note This method does nothing in GUI mode and logs a warning.
+ */
+bool MainWindow::setSize(const QString &text) {
+    // Check if the application is not in GUI mode.
+    if (!VApplication::IsGUIMode()) {
+        // Check if the window is modified or a file is open.
+        if (this->isWindowModified() || not qApp->getFilePath().isEmpty()) {
+            // Check if the pattern type is Multisize.
+            if (qApp->patternType() == MeasurementsType::Multisize) {
+                // Convert the size to the pattern unit and find the corresponding index in the gradation sizes dropdown.
                 const int size = static_cast<int>(UnitConvertor(text.toInt(), Unit::Cm, *pattern->GetPatternUnit()));
                 const qint32 index = gradationSizes->findText(QString().setNum(size));
-                if (index != -1)
-                {
+
+                // Set the current index of the gradation sizes dropdown.
+                if (index != -1) {
                     gradationSizes->setCurrentIndex(index);
-                }
-                else
-                {
+                } else {
                     qCCritical(vMainWindow, "%s",
-                              qUtf8Printable(tr("Not supported size value '%1' for this pattern file.").arg(text)));
+                                qUtf8Printable(tr("Not supported size value '%1' for this pattern file.").arg(text)));
                     return false;
                 }
-            }
-            else
-            {
+            } else {
                 qCCritical(vMainWindow, "%s",
-                          qUtf8Printable(tr("Couldn't set size. Need a file with multisize measurements.")));
+                            qUtf8Printable(tr("Couldn't set size. Need a file with multisize measurements.")));
                 return false;
             }
-        }
-        else
-        {
+        } else {
             qCCritical(vMainWindow, "%s", qUtf8Printable(tr("Couldn't set size. File wasn't opened.")));
             return false;
         }
-    }
-    else
-    {
+    } else {
+        // Log a warning for GUI mode and return false.
         qCWarning(vMainWindow, "%s", qUtf8Printable(tr("The method %1 does nothing in GUI mode").arg(Q_FUNC_INFO)));
         return false;
     }
     return true;
 }
+// End MainWindow::setSize()
 
 //---------------------------------------------------------------------------------------------------------------------
-bool MainWindow::setHeight(const QString &text)
-{
-    if (!VApplication::IsGUIMode())
-    {
-        if (this->isWindowModified() || not qApp->getFilePath().isEmpty())
-        {
-            if (qApp->patternType() == MeasurementsType::Multisize)
-            {
+/**
+ * @brief Sets the height parameter for the pattern.
+ * 
+ * @details This function sets the height parameter for the pattern based on the provided text value. It performs the following steps:
+ * - Checks if the application is not in GUI mode.
+ * - Checks if the window is modified or a file is open.
+ * - Handles setting the height for a multisize pattern.
+ * - Logs an error and returns false if the provided height value is not supported for the pattern.
+ * 
+ * @param text The text value representing the height to be set.
+ * @return true if the height is set successfully; false otherwise.
+ * 
+ * @note This method does nothing in GUI mode and logs a warning.
+ */
+bool MainWindow::setHeight(const QString &text) {
+    // Check if the application is not in GUI mode.
+    if (!VApplication::IsGUIMode()) {
+        // Check if the window is modified or a file is open.
+        if (this->isWindowModified() || not qApp->getFilePath().isEmpty()) {
+            // Check if the pattern type is Multisize.
+            if (qApp->patternType() == MeasurementsType::Multisize) {
+                // Convert the height to the pattern unit and find the corresponding index in the gradation heights dropdown.
                 const int height = static_cast<int>(UnitConvertor(text.toInt(), Unit::Cm, *pattern->GetPatternUnit()));
                 const qint32 index = gradationHeights->findText(QString().setNum(height));
-                if (index != -1)
-                {
+
+                // Set the current index of the gradation heights dropdown.
+                if (index != -1) {
                     gradationHeights->setCurrentIndex(index);
-                }
-                else
-                {
+                } else {
                     qCCritical(vMainWindow, "%s",
-                              qUtf8Printable(tr("Not supported height value '%1' for this pattern file.").arg(text)));
+                                qUtf8Printable(tr("Not supported height value '%1' for this pattern file.").arg(text)));
                     return false;
                 }
-            }
-            else
-            {
-                qCCritical(vMainWindow, "%s",
-                          qUtf8Printable(tr("Couldn't set height. Need a file with multisize measurements.")));
-                return false;
-            }
-        }
-        else
-        {
-            qCCritical(vMainWindow, "%s", qUtf8Printable(tr("Couldn't set height. File wasn't opened.")));
+            } else {
+                qCCritical(vMainWindow, "%s", qUtf8Printable(tr("Couldn't set height. File wasn't opened.")));
             return false;
         }
-    }
-    else
-    {
+    } else {
+        // Log a warning for GUI mode and return false.
         qCWarning(vMainWindow, "%s", qUtf8Printable(tr("The method %1 does nothing in GUI mode").arg(Q_FUNC_INFO)));
         return false;
     }
     return true;
 }
+// End MainWindow::setHeight()
 
 //---------------------------------------------------------------------------------------------------------------------
-void MainWindow::ProcessCMD()
-{
+/**
+ * @brief Processes command line arguments and performs corresponding actions.
+ * 
+ * @details This function processes command line arguments provided to the application and performs actions such as loading
+ * patterns, setting parameters, exporting, and handling errors. It is designed to be called when the application is
+ * launched in command line mode.
+ * 
+ * @see VCommandLinePtr, qApp->CommandLine(), ReopenFilesAfterCrash(), LoadPattern(), setSize(), setHeight(), DoExport()
+ */
+void MainWindow::ProcessCMD() {
+    // Retrieve command line arguments.
     const VCommandLinePtr cmd = qApp->CommandLine();
     auto args = cmd->OptInputFileNames();
 
+    // Check if no scaling is enabled.
     isNoScaling = cmd->IsNoScalingEnabled();
 
-    if (VApplication::IsGUIMode())
-    {
+    // Process command line arguments in GUI mode.
+    if (VApplication::IsGUIMode()) {
         ReopenFilesAfterCrash(args);
-    }
-    else
-    {
-        if (args.size() != 1)
-        {
+    } else {
+        // In console mode, check if only one input file is provided.
+        if (args.size() != 1) {
             qCritical() << tr("Please, provide one input file.");
             qApp->exit(V_EX_NOINPUT);
             return;
         }
     }
 
-    for (int i=0, sz = args.size(); i < sz; ++i)
-    {
+    // Iterate through input files.
+    for (int i = 0, sz = args.size(); i < sz; ++i) {
+        // Load pattern and associated measurement file.
         const bool loaded = LoadPattern(args.at(static_cast<int>(i)), cmd->OptMeasurePath());
 
-        if (!loaded && not VApplication::IsGUIMode())
-        {
-            return; // process only one input file
+        // If not loaded and not in GUI mode, return after processing one input file.
+        if (!loaded && not VApplication::IsGUIMode()) {
+            return;
         }
 
         bool hSetted = true;
         bool sSetted = true;
-        if (loaded && (cmd->IsTestModeEnabled() || cmd->IsExportEnabled()))
-        {
-            if (cmd->IsSetGradationSize())
-            {
+
+        // In test mode or export mode, set gradation size and height if specified in the command line.
+        if (loaded && (cmd->IsTestModeEnabled() || cmd->IsExportEnabled())) {
+            if (cmd->IsSetGradationSize()) {
                 sSetted = setSize(cmd->OptGradationSize());
             }
 
-            if (cmd->IsSetGradationHeight())
-            {
+            if (cmd->IsSetGradationHeight()) {
                 hSetted = setHeight(cmd->OptGradationHeight());
             }
         }
 
-        if (!cmd->IsTestModeEnabled())
-        {
-            if (cmd->IsExportEnabled())
-            {
-                if (loaded && hSetted && sSetted)
-                {
+        // If not in test mode, check if export is enabled.
+        if (!cmd->IsTestModeEnabled()) {
+            if (cmd->IsExportEnabled()) {
+                // Export pattern if loaded and gradation size and height are set.
+                if (loaded && hSetted && sSetted) {
                     DoExport(cmd);
-                    return; // process only one input file
-                }
-                else
-                {
+                    return; // Process only one input file
+                } else {
                     qApp->exit(V_EX_DATAERR);
                     return;
                 }
@@ -7549,38 +8179,63 @@ void MainWindow::ProcessCMD()
         }
     }
 
-    if (!VApplication::IsGUIMode())
-    {
-        qApp->exit(V_EX_OK);// close program after processing in console mode
+    // In console mode, exit the application after processing.
+    if (!VApplication::IsGUIMode()) {
+        qApp->exit(V_EX_OK);
     }
 }
+// End MainWindow::ProcessCMD()
 
 //---------------------------------------------------------------------------------------------------------------------
-QString MainWindow::GetPatternFileName()
-{
+/**
+ * @brief Retrieves and constructs the pattern file name portion of the window title.
+ * 
+ * @details This function constructs the pattern file name portion of the window title. If the application's file path is empty,
+ * it sets the default name to "untitled.sm2d". Otherwise, it uses the application's file path as the file name.
+ * An asterisk (*) is appended to the name to indicate that the pattern file has unsaved changes.
+ * 
+ * @return QString The pattern file name portion of the window title.
+ * 
+ * @see qApp->getFilePath()
+ */
+QString MainWindow::GetPatternFileName() {
     QString shownName = tr("untitled.sm2d");
-    if(!qApp->getFilePath().isEmpty())
-    {
+
+    // Check if the application's file path is not empty.
+    if (!qApp->getFilePath().isEmpty()) {
         shownName = qApp->getFilePath();
     }
+
+    // Append an asterisk (*) to indicate unsaved changes.
     shownName += QLatin1String("[*]");
     return shownName;
 }
+// End MainWindow::GetPatternFileName()
 
 //---------------------------------------------------------------------------------------------------------------------
-QString MainWindow::GetMeasurementFileName()
-{
-    if(doc->MPath().isEmpty())
-    {
+/**
+ * @brief Retrieves and constructs the measurement file name portion of the window title.
+ * 
+ * @details This function retrieves the measurement file name and constructs a formatted string to represent it in the window title.
+ * If the measurement file path is empty, an empty string is returned. Otherwise, the measurement file name is enclosed in square brackets.
+ * If the measurement file has unsaved changes, an asterisk (*) is appended to the name to indicate its modified status.
+ * 
+ * @return QString The measurement file name portion of the window title.
+ * 
+ * @see doc, AbsoluteMPath(), strippedName(), mChanges, qApp->getFilePath(), doc->MPath()
+ */
+QString MainWindow::GetMeasurementFileName() {
+    // Check if the measurement file path is empty.
+    if (doc->MPath().isEmpty()) {
         return "";
-    }
-    else
-    {
+    } else {
         QString shownName(" - [");
+
+        // Construct the measurement file name using AbsoluteMPath and strippedName.
         shownName += strippedName(AbsoluteMPath(qApp->getFilePath(), doc->MPath()));
 
-        if(mChanges)
-        {
+        // Append an asterisk (*) if the measurement file has unsaved changes.
+        if (mChanges) {
             shownName += QLatin1String("*");
         }
 
@@ -7588,49 +8243,64 @@ QString MainWindow::GetMeasurementFileName()
         return shownName;
     }
 }
+// End MainWindow::GetMeasurementFileName()
 
 //---------------------------------------------------------------------------------------------------------------------
-void MainWindow::UpdateWindowTitle()
-{
+/**
+ * @brief Updates the main window title and icon based on the current pattern and measurement file information.
+ * 
+ * @details This function updates the title of the main window, including the application name, pattern file name, measurement file name,
+ * and an indication of read-only status. It also sets the window icon based on the file status and modification state.
+ * The title includes the application name, pattern file name, and measurement file name. If the pattern is read-only or the
+ * file is not writable, it appends " - read only" to the title. The window path is set to the current file path.
+ * On macOS, the window icon is updated based on the file's modification state.
+ * 
+ * @see patternReadOnly, setWindowTitle(), setWindowFilePath(), setWindowIcon(), GetPatternFileName(), GetMeasurementFileName(), darkenPixmap()
+ */
+void MainWindow::UpdateWindowTitle() {
     bool isFileWritable = true;
-    if (!qApp->getFilePath().isEmpty())
-    {
+
+    // Check if the current file path is not empty.
+    if (!qApp->getFilePath().isEmpty()) {
 #ifdef Q_OS_WIN32
-        qt_ntfs_permission_lookup++; // turn checking on
+        // For Windows, temporarily turn on NTFS permission checking.
+        qt_ntfs_permission_lookup++; 
 #endif /*Q_OS_WIN32*/
+
+        // Check if the file is writable using QFileInfo.
         isFileWritable = QFileInfo(qApp->getFilePath()).isWritable();
+
 #ifdef Q_OS_WIN32
-        qt_ntfs_permission_lookup--; // turn it off again
+        // Turn off NTFS permission checking after use.
+        qt_ntfs_permission_lookup--; 
 #endif /*Q_OS_WIN32*/
     }
 
-    if (!patternReadOnly && isFileWritable)
-    {
+    // Construct the window title based on pattern, measurement, and read-only status.
+    if (!patternReadOnly && isFileWritable) {
         setWindowTitle(VER_INTERNALNAME_STR + QString(" - ") + GetPatternFileName() + GetMeasurementFileName());
-    }
-    else
-    {
+    } else {
         setWindowTitle(VER_INTERNALNAME_STR + QString(" - ") + GetPatternFileName() +
-                       GetMeasurementFileName() + QString(" - ") + tr("read only"));
+                        GetMeasurementFileName() + QString(" - ") + tr("read only"));
     }
+
+    // Set the window path to the current file path.
     setWindowFilePath(qApp->getFilePath());
 
 #if defined(Q_OS_MAC)
+    // On macOS, set the window icon based on the file's modification state.
     static QIcon fileIcon = QIcon(QCoreApplication::applicationDirPath() +
-                                  QLatin1String("/../Resources/Seamly2D.icns"));
+                                    QLatin1String("/../Resources/Seamly2D.icns"));
     QIcon icon;
-    if (!qApp->getFilePath().isEmpty())
-    {
-        if (!isWindowModified())
-        {
-            icon = fileIcon;
-        }
-        else
-        {
-            static QIcon darkIcon;
 
-            if (darkIcon.isNull())
-            {
+    // Check if the current file path is not empty.
+    if (!qApp->getFilePath().isEmpty()) {
+        if (!isWindowModified()) {
+            icon = fileIcon;
+        } else {
+            // Darken the icon for modified files.
+            static QIcon darkIcon;
+            if (darkIcon.isNull()) {
                 darkIcon = QIcon(darkenPixmap(fileIcon.pixmap(16, 16)));
             }
             icon = darkIcon;
@@ -7640,21 +8310,50 @@ void MainWindow::UpdateWindowTitle()
 #endif //defined(Q_OS_MAC)
 }
 
-void MainWindow::upDateScenes()
-{
-    if (draftScene)
-    {
+// End MainWindow::UpdateWindowTitle()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Updates the scenes in the main window.
+ * 
+ * @details This function updates the draft and piece scenes in the main window. If the draft scene (draftScene) and the
+ * piece scene (pieceScene) are not null, it calls the update() function for each scene to refresh their content.
+ * 
+ * @note: The update() function is typically used to redraw the scene based on any changes in the underlying data.
+ * 
+ * @see draftScene, pieceScene, QGraphicsScene::update()
+ */
+void MainWindow::upDateScenes() {
+    // Update the draft scene if it exists.
+    if (draftScene) {
         draftScene->update();
     }
 
-    if (pieceScene)
-    {
+    // Update the piece scene if it exists.
+    if (pieceScene) {
         pieceScene->update();
     }
 }
+// End MainWindow::upDateScenes()
 
-void MainWindow::updateViewToolbar()
-{
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Updates the state of view-related toolbar actions.
+ * 
+ * @details This function updates the state of various view-related actions in the main window's toolbar based on the
+ * current application settings. It sets the checked state for actions such as wireframe view, display of control
+ * points, axis origin, grainlines, seam allowances, and labels, reflecting the user's preferences.
+ * 
+ * @note: The checked state of each action is determined by querying the corresponding setting in the application.
+ * 
+ * @see ui->toggleWireframe_Action, ui->toggleControlPoints_Action, ui->toggleAxisOrigin_Action,
+ *      ui->toggleGrainLines_Action, ui->toggleSeamAllowances_Action, ui->toggleLabels_Action,
+ *      qApp->Settings(), qApp->Settings()->isWireframe(), qApp->Settings()->getShowControlPoints(),
+ *      qApp->Settings()->getShowAxisOrigin(), qApp->Settings()->showGrainlines(),
+ *      qApp->Settings()->showSeamAllowances(), qApp->Settings()->showLabels()
+ */
+void MainWindow::updateViewToolbar() {
+    // Update the checked state of each action based on the corresponding application settings.
     ui->toggleWireframe_Action->setChecked(qApp->Settings()->isWireframe());
     ui->toggleControlPoints_Action->setChecked(qApp->Settings()->getShowControlPoints());
     ui->toggleAxisOrigin_Action->setChecked(qApp->Settings()->getShowAxisOrigin());
@@ -7662,46 +8361,83 @@ void MainWindow::updateViewToolbar()
     ui->toggleSeamAllowances_Action->setChecked(qApp->Settings()->showSeamAllowances());
     ui->toggleLabels_Action->setChecked(qApp->Settings()->showLabels());
 }
-
-void MainWindow::resetPanShortcuts()
-{
-    QList<QKeySequence> zoomPanShortcuts;
-    zoomPanShortcuts = ui->zoomPan_Action->shortcuts();
-    zoomPanShortcuts.removeAll(QKeySequence(Qt::Key_Space));
-    if (!qApp->Seamly2DSettings()->isPanActiveSpaceKey())
-    {
-        zoomPanShortcuts.append(QKeySequence(Qt::Key_Space));
-    }
-    ui->zoomPan_Action->setShortcuts(zoomPanShortcuts);
-}
+// End MainWindow::updateViewToolbar()
 
 //---------------------------------------------------------------------------------------------------------------------
-bool MainWindow::IgnoreLocking(int error, const QString &path)
-{
+/**
+ * @brief Resets pan shortcuts for the Zoom and Pan action.
+ * 
+ * @details This function modifies the shortcuts associated with the Zoom and Pan action in the main window.
+ * It removes the Space key shortcut if panning with the Space key is not enabled in the application settings,
+ * and adds it back if it is enabled. This function is typically called to update the shortcuts based on the
+ * current application settings.
+ * 
+ * @note: The Zoom and Pan action may have multiple shortcuts associated with it, and this function modifies
+ * the list of shortcuts accordingly.
+ * 
+ * @see QKeySequence, ui->zoomPan_Action, qApp->Seamly2DSettings()->isPanActiveSpaceKey()
+ */
+void MainWindow::resetPanShortcuts() {
+    // Retrieve the current shortcuts associated with the Zoom and Pan action.
+    QList<QKeySequence> zoomPanShortcuts = ui->zoomPan_Action->shortcuts();
+
+    // Remove the Space key shortcut if panning with the Space key is not enabled in the application settings.
+    zoomPanShortcuts.removeAll(QKeySequence(Qt::Key_Space));
+
+    // Add back the Space key shortcut if panning with the Space key is enabled in the application settings.
+    if (!qApp->Seamly2DSettings()->isPanActiveSpaceKey()) {
+        zoomPanShortcuts.append(QKeySequence(Qt::Key_Space));
+    }
+
+    // Set the modified shortcuts back to the Zoom and Pan action.
+    ui->zoomPan_Action->setShortcuts(zoomPanShortcuts);
+}
+// End MainWindow::resetPanShortcuts()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles locking errors and prompts the user for action.
+ * 
+ * @param error The type of locking error.
+ * @param path The path of the file being locked.
+ * @return true If the user chooses to ignore the locking error.
+ * @return false If the user chooses to abort the operation.
+ * 
+ * @details This function is responsible for handling different types of locking errors that may occur when attempting
+ * to lock a file. Depending on the error type, it displays a relevant warning or question dialog to the user,
+ * allowing them to decide whether to ignore the locking error and continue or to abort the operation. The function
+ * returns true if the user chooses to ignore the locking error and false if they choose to abort.
+ * 
+ * @param error The type of locking error (e.g., QLockFile::LockFailedError, QLockFile::PermissionError).
+ * @param path The path of the file being locked.
+ * @return true If the user chooses to ignore the locking error.
+ * @return false If the user chooses to abort the operation.
+ */
+bool MainWindow::IgnoreLocking(int error, const QString &path) {
     QMessageBox::StandardButton answer = QMessageBox::Abort;
-    if (VApplication::IsGUIMode())
-    {
-        switch(error)
-        {
+
+    // Display different dialogs based on the locking error type.
+    if (VApplication::IsGUIMode()) {
+        switch(error) {
             case QLockFile::LockFailedError:
                 answer = QMessageBox::warning(this, tr("Locking file"),
-                                               tr("This file already opened in another window. Ignore if you want "
-                                                  "to continue (not recommended, can cause a data corruption)."),
-                                               QMessageBox::Abort|QMessageBox::Ignore, QMessageBox::Abort);
+                                                tr("This file is already open in another window. Ignore if you want "
+                                                    "to continue (not recommended, can cause data corruption)."),
+                                                QMessageBox::Abort | QMessageBox::Ignore, QMessageBox::Abort);
                 break;
             case QLockFile::PermissionError:
                 answer = QMessageBox::question(this, tr("Locking file"),
-                                               tr("The lock file could not be created, for lack of permissions. "
-                                                  "Ignore if you want to continue (not recommended, can cause "
-                                                  "a data corruption)."),
-                                               QMessageBox::Abort|QMessageBox::Ignore, QMessageBox::Abort);
+                                                tr("The lock file could not be created due to a lack of permissions. "
+                                                    "Ignore if you want to continue (not recommended, can cause "
+                                                    "data corruption)."),
+                                                QMessageBox::Abort | QMessageBox::Ignore, QMessageBox::Abort);
                 break;
             case QLockFile::UnknownError:
                 answer = QMessageBox::question(this, tr("Locking file"),
-                                               tr("Unknown error happened, for instance a full partition prevented "
-                                                  "writing out the lock file. Ignore if you want to continue (not "
-                                                  "recommended, can cause a data corruption)."),
-                                               QMessageBox::Abort|QMessageBox::Ignore, QMessageBox::Abort);
+                                                tr("An unknown error occurred, for instance, a full partition prevented "
+                                                    "writing out the lock file. Ignore if you want to continue (not "
+                                                    "recommended, can cause data corruption)."),
+                                                QMessageBox::Abort | QMessageBox::Ignore, QMessageBox::Abort);
                 break;
             default:
                 answer = QMessageBox::Abort;
@@ -7709,315 +8445,460 @@ bool MainWindow::IgnoreLocking(int error, const QString &path)
         }
     }
 
-    if (answer == QMessageBox::Abort)
-    {
+    // Handle the user's response to the locking error.
+    if (answer == QMessageBox::Abort) {
         qCDebug(vMainWindow, "Failed to lock %s", qUtf8Printable(path));
-        qCDebug(vMainWindow, "Error type: %d", error);
+        qCDebug(vMainWindow, "Error type: %d");
         Clear();
-        if (!VApplication::IsGUIMode())
-        {
-            switch(error)
-            {
+
+        // If not in GUI mode, log error details and exit the application.
+        if (!VApplication::IsGUIMode()) {
+            switch(error) {
                 case QLockFile::LockFailedError:
                     qCCritical(vMainWindow, "%s",
-                               qUtf8Printable(tr("This file already opened in another window.")));
+                                qUtf8Printable(tr("This file is already open in another window.")));
                     break;
                 case QLockFile::PermissionError:
                     qCCritical(vMainWindow, "%s",
-                               qUtf8Printable(tr("The lock file could not be created, for lack of permissions.")));
+                                qUtf8Printable(tr("The lock file could not be created, for a lack of permissions.")));
                     break;
                 case QLockFile::UnknownError:
                     qCCritical(vMainWindow, "%s",
-                               qUtf8Printable(tr("Unknown error happened, for instance a full partition prevented "
-                                                 "writing out the lock file.")));
+                                qUtf8Printable(tr("An unknown error occurred, for instance, a full partition prevented "
+                                                    "writing out the lock file.")));
                     break;
                 default:
                     break;
             }
-
             qApp->exit(V_EX_NOINPUT);
         }
         return false;
     }
+
     return true;
 }
 
+// End MainWindow::IgnoreLocking()
+
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief draftPointNamesList gets the list of points in draft mode.
+ * @brief Retrieves a sorted and deduplicated list of names of draft points in the current pattern.
+ * 
+ * @return QStringList A QStringList containing names of draft points in the current pattern.
+ * 
+ * @details This function iterates through the draft objects in the current pattern, specifically looking for
+ * objects of type 'Point' (GOType::Point). It collects the names of these points into a QStringList,
+ * sorts the list, removes any duplicate entries, and then returns the final sorted and deduplicated
+ * list of point names.
  */
-QStringList MainWindow::draftPointNamesList()
-{
+QStringList MainWindow::draftPointNamesList() {
     QStringList pointNames;
+
+    // Iterate through draft objects in the current pattern.
     for (QHash<quint32, QSharedPointer<VGObject>>::const_iterator item = pattern->DataGObjects()->begin();
-         item != pattern->DataGObjects()->end();
-         ++item)
-    {
+            item != pattern->DataGObjects()->end();
+            ++item) {
+        // Check if the object is of type 'Point' and not already in the list.
         if (item.value()->getType() == GOType::Point && !pointNames.contains(item.value()->name()))
             pointNames << item.value()->name();
     }
+
+    // Sort the list of point names and remove any duplicate entries.
     pointNames.sort();
     pointNames.removeDuplicates();
+
+    // Return the final sorted and deduplicated list of point names.
     return pointNames;
 }
+// End MainWindow::draftPointNamesList()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief updateZoomToPointComboBox updates the list of points included in the toolbar combobox.
+ * @brief Updates the zoom-to-point combo box with a new list of point names.
+ * 
+ * @param namesList A QStringList containing names of points to be displayed in the combo box.
+ * 
+ * @details This function updates the zoom-to-point combo box by first blocking signals to prevent
+ * unintended actions triggered by the UI update. It then clears the existing items in the
+ * combo box and adds new items from the provided QStringList. Finally, it unblocks signals
+ * to allow normal UI interaction.
  */
-void MainWindow::updateZoomToPointComboBox(QStringList namesList)
-{
-    m_zoomToPointComboBox->blockSignals(true); // prevent this UI update from zooming to the first point
+void MainWindow::updateZoomToPointComboBox(QStringList namesList) {
+    // Prevent unintended actions triggered by UI update.
+    m_zoomToPointComboBox->blockSignals(true);
+    
+    // Clear existing items in the combo box and add new items from the QStringList.
     m_zoomToPointComboBox->clear();
     m_zoomToPointComboBox->addItems(namesList);
+    
+    // Unblock signals to allow normal UI interaction.
     m_zoomToPointComboBox->blockSignals(false);
 }
+// End MainWindow::updateZoomToPointComboBox()
 
 //---------------------------------------------------------------------------------------------------------------------
-void MainWindow::ToolSelectPoint() const
-{
-    // Only true for rubber band selection
+/**
+ * @brief Configures the environment for selecting points on the canvas.
+ * 
+ * @details This function sets up the UI environment for selecting points by disabling the
+ * selection of labels, lines, arcs, splines, etc., while enabling point selection.
+ * It also adjusts the hovering behavior to highlight points and disables rubber band selection.
+ */
+void MainWindow::ToolSelectPoint() const {
+    // Disable selection for various elements.
     emit EnableLabelSelection(false);
-    emit EnablePointSelection(false);
-    emit EnableLineSelection(false);
-    emit EnableArcSelection(false);
-    emit EnableElArcSelection(false);
-    emit EnableSplineSelection(false);
-    emit EnableSplinePathSelection(false);
-
-    // Hovering
-    emit EnableLabelHover(true);
-    emit EnablePointHover(true);
-    emit EnableLineHover(false);
-    emit EnableArcHover(false);
-    emit EnableElArcHover(false);
-    emit EnableSplineHover(false);
-    emit EnableSplinePathHover(false);
-
-    ui->view->allowRubberBand(false);
-}
-
-//---------------------------------------------------------------------------------------------------------------------
-void MainWindow::ToolSelectPointByRelease() const
-{
-    ToolSelectPoint();
-    emit ItemsSelection(SelectionType::ByMouseRelease);
-}
-
-//---------------------------------------------------------------------------------------------------------------------
-void MainWindow::ToolSelectPointByPress() const
-{
-    ToolSelectPoint();
-    emit ItemsSelection(SelectionType::ByMousePress);
-}
-
-//---------------------------------------------------------------------------------------------------------------------
-void MainWindow::ToolSelectSpline() const
-{
-    // Only true for rubber band selection
-    emit EnableLabelSelection(false);
-    emit EnablePointSelection(false);
-    emit EnableLineSelection(false);
-    emit EnableArcSelection(false);
-    emit EnableElArcSelection(false);
-    emit EnableSplineSelection(false);
-    emit EnableSplinePathSelection(false);
-
-    // Hovering
-    emit EnableLabelHover(false);
-    emit EnablePointHover(false);
-    emit EnableLineHover(false);
-    emit EnableArcHover(false);
-    emit EnableElArcHover(false);
-    emit EnableSplineHover(true);
-    emit EnableSplinePathHover(false);
-
-    emit ItemsSelection(SelectionType::ByMouseRelease);
-
-    ui->view->allowRubberBand(false);
-}
-
-//---------------------------------------------------------------------------------------------------------------------
-void MainWindow::ToolSelectSplinePath() const
-{
-    // Only true for rubber band selection
-    emit EnableLabelSelection(false);
-    emit EnablePointSelection(false);
-    emit EnableLineSelection(false);
-    emit EnableArcSelection(false);
-    emit EnableElArcSelection(false);
-    emit EnableSplineSelection(false);
-    emit EnableSplinePathSelection(false);
-
-    // Hovering
-    emit EnableLabelHover(false);
-    emit EnablePointHover(false);
-    emit EnableLineHover(false);
-    emit EnableArcHover(false);
-    emit EnableElArcHover(false);
-    emit EnableSplineHover(false);
-    emit EnableSplinePathHover(true);
-
-    emit ItemsSelection(SelectionType::ByMouseRelease);
-
-    ui->view->allowRubberBand(false);
-}
-
-//---------------------------------------------------------------------------------------------------------------------
-void MainWindow::ToolSelectArc() const
-{
-    // Only true for rubber band selection
-    emit EnableLabelSelection(false);
-    emit EnablePointSelection(false);
-    emit EnableLineSelection(false);
-    emit EnableArcSelection(false);
-    emit EnableElArcSelection(false);
-    emit EnableSplineSelection(false);
-    emit EnableSplinePathSelection(false);
-
-    // Hovering
-    emit EnableLabelHover(false);
-    emit EnablePointHover(false);
-    emit EnableLineHover(false);
-    emit EnableArcHover(true);
-    emit EnableElArcHover(false);
-    emit EnableSplineHover(false);
-    emit EnableSplinePathHover(false);
-
-    emit ItemsSelection(SelectionType::ByMouseRelease);
-
-    ui->view->allowRubberBand(false);
-}
-
-//---------------------------------------------------------------------------------------------------------------------
-void MainWindow::ToolSelectPointArc() const
-{
-    // Only true for rubber band selection
-    emit EnableLabelSelection(false);
-    emit EnablePointSelection(false);
-    emit EnableLineSelection(false);
-    emit EnableArcSelection(false);
-    emit EnableElArcSelection(false);
-    emit EnableSplineSelection(false);
-    emit EnableSplinePathSelection(false);
-
-    // Hovering
-    emit EnableLabelHover(true);
-    emit EnablePointHover(true);
-    emit EnableLineHover(false);
-    emit EnableArcHover(true);
-    emit EnableElArcHover(false);
-    emit EnableSplineHover(false);
-    emit EnableSplinePathHover(false);
-
-    emit ItemsSelection(SelectionType::ByMouseRelease);
-
-    ui->view->allowRubberBand(false);
-}
-
-//---------------------------------------------------------------------------------------------------------------------
-void MainWindow::ToolSelectCurve() const
-{
-    // Only true for rubber band selection
-    emit EnableLabelSelection(false);
-    emit EnablePointSelection(false);
-    emit EnableLineSelection(false);
-    emit EnableArcSelection(false);
-    emit EnableElArcSelection(false);
-    emit EnableSplineSelection(false);
-    emit EnableSplinePathSelection(false);
-
-    // Hovering
-    emit EnableLabelHover(false);
-    emit EnablePointHover(false);
-    emit EnableLineHover(false);
-    emit EnableArcHover(true);
-    emit EnableElArcHover(true);
-    emit EnableSplineHover(true);
-    emit EnableSplinePathHover(true);
-
-    emit ItemsSelection(SelectionType::ByMouseRelease);
-
-    ui->view->allowRubberBand(false);
-}
-
-//---------------------------------------------------------------------------------------------------------------------
-void MainWindow::selectAllDraftObjectsTool() const
-{
-    // Only true for rubber band selection
-    emit EnableLabelSelection(false);
-    emit EnablePointSelection(false);
-    emit EnableLineSelection(false);
-    emit EnableArcSelection(false);
-    emit EnableElArcSelection(false);
-    emit EnableSplineSelection(false);
-    emit EnableSplinePathSelection(false);
-
-    // Hovering
-    emit EnableLabelHover(true);
-    emit EnablePointHover(true);
-    emit EnableLineHover(false);
-    emit EnableArcHover(true);
-    emit EnableElArcHover(true);
-    emit EnableSplineHover(true);
-    emit EnableSplinePathHover(true);
-
-    emit ItemsSelection(SelectionType::ByMouseRelease);
-
-    ui->view->allowRubberBand(false);
-}
-
-//---------------------------------------------------------------------------------------------------------------------
-void MainWindow::ToolSelectOperationObjects() const
-{
-    // Only true for rubber band selection
-    emit EnableLabelSelection(true);
     emit EnablePointSelection(true);
     emit EnableLineSelection(false);
+    emit EnableArcSelection(false);
+    emit EnableElArcSelection(false);
+    emit EnableSplineSelection(false);
+    emit EnableSplinePathSelection(false);
+
+    // Enable hovering for points and disable hovering for other elements.
+    emit EnableLabelHover(false);
+    emit EnablePointHover(true);
+    emit EnableLineHover(false);
+    emit EnableArcHover(false);
+    emit EnableElArcHover(false);
+    emit EnableSplineHover(false);
+    emit EnableSplinePathHover(false);
+
+    // Disable rubber band selection.
+    ui->view->allowRubberBand(false);
+}
+// End MainWindow::ToolSelectPoint()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Configures the environment for selecting points on mouse release.
+ * 
+ * @details This function sets up the UI environment for selecting points by calling
+ * ToolSelectPoint() to configure point selection settings. Additionally, it emits
+ * a signal to perform item selection based on the mouse release event.
+ */
+void MainWindow::ToolSelectPointByRelease() const {
+    // Configure the environment for point selection.
+    ToolSelectPoint();
+    
+    // Emit signal to perform item selection on mouse release.
+    emit ItemsSelection(SelectionType::ByMouseRelease);
+}
+// End MainWindow::ToolSelectPointByRelease()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initiates the tool for selecting points on the canvas by pressing the mouse.
+ * 
+ * @details This function configures the environment for selecting points by calling the general
+ * point selection tool and specifying the selection type as "ByMousePress" for immediate
+ * selection upon mouse press.
+ */
+void MainWindow::ToolSelectPointByPress() const {
+    // Initiate the general point selection tool.
+    ToolSelectPoint();
+
+    // Specify the selection type as "ByMousePress" for immediate selection upon mouse press.
+    emit ItemsSelection(SelectionType::ByMousePress);
+}
+// End MainWindow::ToolSelectPointByPress()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initiates the tool for selecting spline curves.
+ * 
+ * @details This function configures the environment for selecting spline curves by disabling
+ * other individual object types, enabling hovering for relevant types, and specifying
+ * the selection type as "ByMouseRelease" for a more controlled selection behavior. It also
+ * sets up the view to disallow rubber band selection.
+ */
+void MainWindow::ToolSelectSpline() const {
+    // Disable selection for individual object types.
+    emit EnableLabelSelection(false);
+    emit EnablePointSelection(false);
+    emit EnableLineSelection(false);
+    emit EnableArcSelection(false);
+    emit EnableElArcSelection(false);
+    emit EnableSplineSelection(false);
+    emit EnableSplinePathSelection(false);
+
+    // Enable hovering for relevant object types.
+    emit EnableLabelHover(false);
+    emit EnablePointHover(false);
+    emit EnableLineHover(false);
+    emit EnableArcHover(false);
+    emit EnableElArcHover(false);
+    emit EnableSplineHover(true);
+    emit EnableSplinePathHover(false);
+
+    // Specify the selection type as "ByMouseRelease" for controlled selection behavior.
+    emit ItemsSelection(SelectionType::ByMouseRelease);
+
+    // Disallow rubber band selection in the view.
+    ui->view->allowRubberBand(false);
+}
+// End MainWindow::ToolSelectSpline()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initiates the tool for selecting spline paths.
+ * 
+ * @details This function configures the environment for selecting spline paths by disabling
+ * other individual object types, enabling hovering for relevant types, and specifying
+ * the selection type as "ByMouseRelease" for a more controlled selection behavior. It also
+ * sets up the view to disallow rubber band selection.
+ */
+void MainWindow::ToolSelectSplinePath() const {
+    // Disable selection for individual object types.
+    emit EnableLabelSelection(false);
+    emit EnablePointSelection(false);
+    emit EnableLineSelection(false);
+    emit EnableArcSelection(false);
+    emit EnableElArcSelection(false);
+    emit EnableSplineSelection(false);
+    emit EnableSplinePathSelection(false);
+
+    // Enable hovering for relevant object types.
+    emit EnableLabelHover(false);
+    emit EnablePointHover(false);
+    emit EnableLineHover(false);
+    emit EnableArcHover(false);
+    emit EnableElArcHover(false);
+    emit EnableSplineHover(false);
+    emit EnableSplinePathHover(true);
+
+    // Specify the selection type as "ByMouseRelease" for controlled selection behavior.
+    emit ItemsSelection(SelectionType::ByMouseRelease);
+
+    // Disallow rubber band selection in the view.
+    ui->view->allowRubberBand(false);
+}
+// End MainWindow::ToolSelectSplinePath()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initiates the tool for selecting arcs.
+ * 
+ * @details This function configures the environment for selecting arcs by disabling
+ * other individual object types, enabling hovering for relevant types, and specifying
+ * the selection type as "ByMouseRelease" for a more controlled selection behavior. It also
+ * sets up the view to disallow rubber band selection.
+ */
+void MainWindow::ToolSelectArc() const {
+    // Disable selection for individual object types.
+    emit EnableLabelSelection(false);
+    emit EnablePointSelection(false);
+    emit EnableLineSelection(false);
+    emit EnableArcSelection(false);
+    emit EnableElArcSelection(false);
+    emit EnableSplineSelection(false);
+    emit EnableSplinePathSelection(false);
+
+    // Enable hovering for relevant object types.
+    emit EnableLabelHover(false);
+    emit EnablePointHover(false);
+    emit EnableLineHover(false);
+    emit EnableArcHover(true);
+    emit EnableElArcHover(false);
+    emit EnableSplineHover(false);
+    emit EnableSplinePathHover(false);
+
+    // Specify the selection type as "ByMouseRelease" for controlled selection behavior.
+    emit ItemsSelection(SelectionType::ByMouseRelease);
+
+    // Disallow rubber band selection in the view.
+    ui->view->allowRubberBand(false);
+}
+// End MainWindow::ToolSelectArc()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initiates the tool for selecting a point on an arc.
+ * 
+ * @details This function configures the environment for selecting a point on an arc by disabling
+ * other individual object types, enabling hovering for relevant types, and specifying
+ * the selection type as "ByMouseRelease" for a more controlled selection behavior. It also
+ * sets up the view to disallow rubber band selection.
+ */
+void MainWindow::ToolSelectPointArc() const {
+    // Disable selection for individual object types.
+    emit EnableLabelSelection(false);
+    emit EnablePointSelection(false);
+    emit EnableLineSelection(false);
+    emit EnableArcSelection(false);
+    emit EnableElArcSelection(false);
+    emit EnableSplineSelection(false);
+    emit EnableSplinePathSelection(false);
+
+    // Enable hovering for relevant object types.
+    emit EnableLabelHover(true);
+    emit EnablePointHover(true);
+    emit EnableLineHover(false);
+    emit EnableArcHover(true);
+    emit EnableElArcHover(false);
+    emit EnableSplineHover(false);
+    emit EnableSplinePathHover(false);
+
+    // Specify the selection type as "ByMouseRelease" for controlled selection behavior.
+    emit ItemsSelection(SelectionType::ByMouseRelease);
+
+    // Disallow rubber band selection in the view.
+    ui->view->allowRubberBand(false);
+}
+// End MainWindow::ToolSelectPointArc()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initiates the tool for selecting curve objects.
+ * 
+ * @details This function configures the environment for selecting curve objects by disabling
+ * other individual object types and enabling hovering for curves. It also sets up the
+ * view to disallow rubber band selection and specifies the selection type as "ByMouseRelease"
+ * for a more controlled selection behavior.
+ */
+void MainWindow::ToolSelectCurve() const {
+    // Disable selection for individual object types.
+    emit EnableLabelSelection(false);
+    emit EnablePointSelection(false);
+    emit EnableLineSelection(false);
+    emit EnableArcSelection(false);
+    emit EnableElArcSelection(false);
+    emit EnableSplineSelection(false);
+    emit EnableSplinePathSelection(false);
+
+    // Disable hovering for non-curve object types.
+    emit EnableLabelHover(false);
+    emit EnablePointHover(false);
+    emit EnableLineHover(false);
+
+    // Enable hovering for curve object types.
+    emit EnableArcHover(true);
+    emit EnableElArcHover(true);
+    emit EnableSplineHover(true);
+    emit EnableSplinePathHover(true);
+
+    // Specify the selection type as "ByMouseRelease" for controlled selection behavior.
+    emit ItemsSelection(SelectionType::ByMouseRelease);
+
+    // Disallow rubber band selection in the view.
+    ui->view->allowRubberBand(false);
+}
+// End void MainWindow::ToolSelectCurve()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initiates the tool for selecting all draft objects.
+ * 
+ * @details This function configures the environment for selecting all draft objects by disabling
+ * individual object types and enabling hovering for different types. It also sets up the
+ * view to disallow rubber band selection and specifies the selection type as "ByMouseRelease"
+ * for a more controlled selection behavior.
+ */
+void MainWindow::selectAllDraftObjectsTool() const {
+    // Disable selection for individual object types.
+    emit EnableLabelSelection(false);
+    emit EnablePointSelection(false);
+    emit EnableLineSelection(false);
+    emit EnableArcSelection(false);
+    emit EnableElArcSelection(false);
+    emit EnableSplineSelection(false);
+    emit EnableSplinePathSelection(false);
+
+    // Enable hovering for various draft objects.
+    emit EnableLabelHover(true);
+    emit EnablePointHover(true);
+    emit EnableLineHover(false);  // Not allowing line hovering by default.
+    emit EnableArcHover(true);
+    emit EnableElArcHover(true);
+    emit EnableSplineHover(true);
+    emit EnableSplinePathHover(true);
+
+    // Specify the selection type as "ByMouseRelease" for controlled selection behavior.
+    emit ItemsSelection(SelectionType::ByMouseRelease);
+
+    // Disallow rubber band selection in the view.
+    ui->view->allowRubberBand(false);
+}
+// End MainWindow::selectAllDraftObjectsTool()
+
+//---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initiates the tool for selecting operation objects.
+ * 
+ * @details This function configures the environment for selecting various operation objects,
+ * including enabling or disabling selection and hovering for different types of objects.
+ * It also sets up the view to allow rubber band selection and specifies the selection
+ * type as "ByMouseRelease" for a more controlled selection behavior.
+ */
+void MainWindow::ToolSelectOperationObjects() const {
+    // Enable selection for various operation objects.
+    emit EnableLabelSelection(true);
+    emit EnablePointSelection(true);
+    emit EnableLineSelection(false);  // Not allowing line selection by default.
     emit EnableArcSelection(true);
     emit EnableElArcSelection(true);
     emit EnableSplineSelection(true);
     emit EnableSplinePathSelection(true);
 
-    // Hovering
+    // Enable hovering for various operation objects.
     emit EnableLabelHover(true);
     emit EnablePointHover(true);
-    emit EnableLineHover(false);
+    emit EnableLineHover(false);  // Not allowing line hovering by default.
     emit EnableArcHover(true);
     emit EnableElArcHover(true);
     emit EnableSplineHover(true);
     emit EnableSplinePathHover(true);
 
+    // Specify the selection type as "ByMouseRelease" for controlled selection behavior.
     emit ItemsSelection(SelectionType::ByMouseRelease);
 
+    // Allow rubber band selection in the view.
     ui->view->allowRubberBand(true);
 }
+// End MainWindow::ToolSelectOperationObjects()
 
 //---------------------------------------------------------------------------------------------------------------------
-void MainWindow::ToolSelectGroupObjects() const
-{
+/**
+ * @brief Initiates the tool for selecting group objects.
+ * 
+ * @details This function sets up the environment for selecting group objects, including
+ * configuring the rubber band selection and enabling hovering for improved user interaction.
+ */
+void MainWindow::ToolSelectGroupObjects() const {
+    // Prepare for selecting group objects by selecting operation objects.
     ToolSelectOperationObjects();
-    // Only true for rubber band selection
+
+    // Enable line selection, typically used for rubber band selection.
     emit EnableLineSelection(true);
 
-    // Hovering
+    // Enable hovering for lines to enhance user interaction.
     emit EnableLineHover(true);
 }
+// End MainWindow::ToolSelectGroupObjects()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Initiates the piece selection tool.
+ * 
+ * @details This function configures the environment for selecting pattern pieces.
+ */
 void MainWindow::selectPieceTool() const
 {
-    // Only true for rubber band selection
+    // Disable node label and point selection during piece selection.
     emit EnableNodeLabelSelection(false);
     emit EnableNodePointSelection(false);
-    emit enablePieceSelection(true); // Disable when done with pattern piece visualization.
+    
+    // Enable piece selection (disable when done with pattern piece visualization).
+    emit enablePieceSelection(true);
 
-    // Hovering
+    // Enable hovering for node labels, node points, and pieces.
     emit EnableNodeLabelHover(true);
     emit EnableNodePointHover(true);
     emit enablePieceHover(true);
 
+    // Set the selection type to be triggered by mouse release.
     emit ItemsSelection(SelectionType::ByMouseRelease);
 
+    // Disable rubber band selection in the view.
     ui->view->allowRubberBand(false);
 }
+// End MainWindow::selectPieceTool()
