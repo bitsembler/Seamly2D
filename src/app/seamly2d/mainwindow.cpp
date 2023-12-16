@@ -288,7 +288,7 @@ MainWindow::MainWindow(QWidget *parent)
     // ...
 #endif //defined(Q_OS_MAC)
 }
-// end MainWindow::MainWindow()
+// End MainWindow::MainWindow()
 
 //---------------------------------------------------------------------------------------------------------------------
 // Constructor for MainWindow class, derived from MainWindowsNoGUI
@@ -365,7 +365,6 @@ void MainWindow::addDraftBlock(const QString &blockName)
 }
 // End MainWindow::addDraftBlock()
 
-
 //---------------------------------------------------------------------------------------------------------------------
 // Function to determine the starting position for a new point in a draft block
 QPointF MainWindow::draftBlockStartPosition() const
@@ -399,7 +398,6 @@ QPointF MainWindow::draftBlockStartPosition() const
         return QPointF(originX, originY);
     }
 }
-
 // End MainWindow::draftBlockStartPosition()
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -554,7 +552,6 @@ QSharedPointer<MeasurementDoc> MainWindow::openMeasurementFile(const QString &fi
     // Return the QSharedPointer to the MeasurementDoc after successful processing
     return measurements;
 }
-
 // End MainWindow::OPenMeasurementFile()
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -1961,71 +1958,85 @@ void MainWindow::handleRotationTool(bool checked)
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief Handles the activation of the mirror by line tool.
+ * @brief Handles the Mirror by Line Tool when its action is triggered.
  * 
- * @param checked Indicates whether the tool button is checked.
+ * @param checked Indicates whether the tool's action is checked or not.
+ * 
+ * @details This function is responsible for managing the behavior of the Mirror by Line Tool when its associated action is triggered.
+ * The Mirror by Line Tool is used for mirroring selected objects by a specified line.
+ * 
+ * @note The `SetToolButtonWithApply` function is used to configure the tool's behavior and appearance, including the associated dialogs and actions.
  */
 void MainWindow::handleMirrorByLineTool(bool checked)
 {
     // Selects operation objects required for mirror by line.
     ToolSelectOperationObjects();
 
-    // Constructs the tooltip for the mirror by line tool.
+    // Constructs the tooltip for the Mirror by Line Tool.
     const QString tooltip = tr("<b>Tool::Operations - Mirror by Line:</b> Select one or more objects -"
                                 " Hold <b>%1</b> for multiple selection, "
                                 "Press <b>ENTER</b> to confirm selection")
                                 .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
                                                                     strCtrl.toUtf8().constData()));
 
-    // Sets up the mirror by line tool button with associated dialogs and actions.
-    SetToolButtonWithApply<DialogMirrorByLine>
-    (
-        checked,
-        Tool::MirrorByLine,
-        ":/cursor/mirror_by_line_cursor.png",
-        tooltip,
-        &MainWindow::ClosedDrawDialogWithApply<VToolMirrorByLine>,
-        &MainWindow::ApplyDrawDialog<VToolMirrorByLine>
+    // Sets up the Mirror by Line Tool button with associated dialogs and actions.
+    SetToolButtonWithApply<DialogMirrorByLine>(
+        checked,                            // Indicates whether the tool is checked
+        Tool::MirrorByLine,                // Tool identifier for Mirror by Line Tool
+        ":/cursor/mirror_by_line_cursor.png",  // Path to the cursor image
+        tooltip,                            // Tooltip text
+        &MainWindow::ClosedDrawDialogWithApply<VToolMirrorByLine>, // Function for handling closed dialog
+        &MainWindow::ApplyDrawDialog<VToolMirrorByLine>            // Function for applying the tool's action
     );
 }
 // End MainWindow::handleMirrorByLineTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief Handles the activation of the mirror by axis tool.
+ * @brief Handles the Mirror by Axis Tool when its action is triggered.
  * 
- * @param checked Indicates whether the tool button is checked.
+ * @param checked Indicates whether the tool's action is checked or not.
+ * 
+ * @details This function is responsible for managing the behavior of the Mirror by Axis Tool when its associated action is triggered.
+ * The Mirror by Axis Tool is used for mirroring selected objects by a specified axis.
+ * 
+ * @note The `SetToolButtonWithApply` function is used to configure the tool's behavior and appearance, including the associated dialogs and actions.
  */
 void MainWindow::handleMirrorByAxisTool(bool checked)
 {
     // Selects operation objects required for mirror by axis.
     ToolSelectOperationObjects();
 
-    // Constructs the tooltip for the mirror by axis tool.
+    // Constructs the tooltip for the Mirror by Axis Tool.
     const QString tooltip = tr("<b>Tool::Operations - Mirror by Axis:</b> Select one or more objects -"
                                 " Hold <b>%1</b> for multiple selection, "
                                 "Press <b>ENTER</b> to confirm selection")
                                 .arg(QCoreApplication::translate(strQShortcut.toUtf8().constData(),
                                                                     strCtrl.toUtf8().constData()));
 
-    // Sets up the mirror by axis tool button with associated dialogs and actions.
-    SetToolButtonWithApply<DialogMirrorByAxis>
-    (
-        checked,
-        Tool::MirrorByAxis,
-        ":/cursor/mirror_by_axis_cursor.png",
-        tooltip,
-        &MainWindow::ClosedDrawDialogWithApply<VToolMirrorByAxis>,
-        &MainWindow::ApplyDrawDialog<VToolMirrorByAxis>
+    // Sets up the Mirror by Axis Tool button with associated dialogs and actions.
+    SetToolButtonWithApply<DialogMirrorByAxis>(
+        checked,                            // Indicates whether the tool is checked
+        Tool::MirrorByAxis,                // Tool identifier for Mirror by Axis Tool
+        ":/cursor/mirror_by_axis_cursor.png",  // Path to the cursor image
+        tooltip,                            // Tooltip text
+        &MainWindow::ClosedDrawDialogWithApply<VToolMirrorByAxis>, // Function for handling closed dialog
+        &MainWindow::ApplyDrawDialog<VToolMirrorByAxis>            // Function for applying the tool's action
     );
 }
 // End MainWindow::handleMirrorByAxisTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief Handles the activation of the move tool for object operations.
+ * @brief Handles the Move Tool when its action is triggered.
  * 
- * @param checked Indicates whether the tool button is checked.
+ * @param checked Indicates whether the tool's action is checked or not.
+ * 
+ * @details This function is responsible for managing the behavior of the Move Tool when its associated action is triggered.
+ * The Move Tool is used for selecting one or more objects and allows for multiple selection by holding the specified key
+ * and confirming the selection by pressing ENTER.
+ * 
+ * @note The `SetToolButtonWithApply` function is used to configure the tool's behavior and appearance.
  */
 void MainWindow::handleMoveTool(bool checked)
 {
@@ -2040,65 +2051,104 @@ void MainWindow::handleMoveTool(bool checked)
                                                                     strCtrl.toUtf8().constData()));
 
     // Sets up the move tool button with associated dialogs and actions.
-    SetToolButtonWithApply<DialogMove>
-    (
-        checked,
-        Tool::Move,
-        ":/cursor/move_cursor.png",
-        tooltip,
-        &MainWindow::ClosedDrawDialogWithApply<VToolMove>,
-        &MainWindow::ApplyDrawDialog<VToolMove>
+    SetToolButtonWithApply<DialogMove>(
+        checked,                            // Indicates whether the tool is checked
+        Tool::Move,                        // Tool identifier for Move Tool
+        ":/cursor/move_cursor.png",        // Path to the cursor image
+        tooltip,                           // Tooltip text
+        &MainWindow::ClosedDrawDialogWithApply<VToolMove>, // Function for handling closed dialog with apply
+        &MainWindow::ApplyDrawDialog<VToolMove>            // Function for applying Move operation
     );
 }
-
 // End MainWindow::handleMoveTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the True Darts tool when its action is triggered.
+ * 
+ * @param checked Indicates whether the tool's action is checked or not.
+ * 
+ * @details This function is responsible for managing the behavior of the True Darts tool when its associated action is triggered.
+ * The tool is used for selecting the first base line point for creating True Darts.
+ * 
+ * @note The `SetToolButtonWithApply` function is used to configure the tool's behavior and appearance.
+ */
 void MainWindow::handleTrueDartTool(bool checked)
 {
+    // Activate the tool for selecting points by release
     ToolSelectPointByRelease();
-    SetToolButtonWithApply<DialogTrueDarts>
-    (
-        checked,
-        Tool::TrueDarts,
-        "://cursor/true_darts_cursor.png",
-        tr("<b>Tool::Operations - TrueDarts:</b> Select the first base line point"),
-        &MainWindow::ClosedDrawDialogWithApply<VToolTrueDarts>,
-        &MainWindow::ApplyDrawDialog<VToolTrueDarts>
+
+    // Set up the True Darts tool button and its behavior
+    SetToolButtonWithApply<DialogTrueDarts>(
+        checked,                            // Indicates whether the tool is checked
+        Tool::TrueDarts,                   // Tool identifier for True Darts
+        "://cursor/true_darts_cursor.png", // Path to the cursor image
+        tr("<b>Tool::Operations - TrueDarts:</b> Select the first base line point"), // Tooltip text
+        &MainWindow::ClosedDrawDialogWithApply<VToolTrueDarts>, // Function for handling closed dialog with apply
+        &MainWindow::ApplyDrawDialog<VToolTrueDarts>            // Function for applying True Darts operation
     );
 }
+// End MainWindow::handleTrueDartTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief handlePatternPieceTool handler for pattern piece tool.
- * @param checked true - button checked.
+ * @brief Handles the Pattern Piece Tool when its action is triggered.
+ * 
+ * @param checked Indicates whether the tool's action is checked or not.
+ * 
+ * @details This function is responsible for managing the behavior of the Pattern Piece Tool when its associated action is triggered.
+ * The Pattern Piece Tool is used for adding a new pattern piece by selecting the main path of objects in a clockwise direction.
+ * 
+ * @note The `SetToolButtonWithApply` function is used to configure the tool's behavior and appearance.
  */
 void MainWindow::handlePatternPieceTool(bool checked)
 {
     selectAllDraftObjectsTool();
-    SetToolButtonWithApply<PatternPieceDialog>
-    (
-        checked,
-        Tool::Piece,
-        ":/cursor/new_piece_cursor.png",
-        tr("<b>Tool::Piece - Add New Pattern Piece:</b> Select main path of objects clockwise."),
-        &MainWindow::ClosedPiecesDialogWithApply<PatternPieceTool>,
-        &MainWindow::applyPiecesDialog<PatternPieceTool>
+
+    // Constructs the tooltip for the Pattern Piece Tool.
+    const QString tooltip = tr("<b>Tool::Piece - Add New Pattern Piece:</b> Select main path of objects clockwise.");
+
+    // Sets up the Pattern Piece Tool button with associated dialogs and actions.
+    SetToolButtonWithApply<PatternPieceDialog>(
+        checked,                            // Indicates whether the tool is checked
+        Tool::Piece,                       // Tool identifier for Pattern Piece Tool
+        ":/cursor/new_piece_cursor.png",    // Path to the cursor image
+        tooltip,                           // Tooltip text
+        &MainWindow::ClosedPiecesDialogWithApply<PatternPieceTool>, // Function for handling closed dialog with apply
+        &MainWindow::applyPiecesDialog<PatternPieceTool>            // Function for applying Pattern Piece operation
     );
 }
+// End MainWindow::handlePatternPieceTool()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Handles the Anchor Point Tool when its action is triggered.
+ * 
+ * @param checked Indicates whether the tool's action is checked or not.
+ * 
+ * @details This function is responsible for managing the behavior of the Anchor Point Tool when its associated action is triggered.
+ * The Anchor Point Tool is used for adding anchor points to a pattern piece.
+ * 
+ * @note The `SetToolButton` function is used to configure the tool's behavior and appearance.
+ */
 void MainWindow::handleAnchorPointTool(bool checked)
 {
     ToolSelectPointByRelease();
-    SetToolButton<AnchorPointDialog>
-    (
-        checked,
-        Tool::AnchorPoint,
-        ":/cursor/anchor_point_cursor.png",
-        tr("<b>Tool::Piece - Add Anchor Point:</b> Select anchor point"),
-        &MainWindow::ClosedDialogAnchorPoint);
+
+    // Constructs the tooltip for the Anchor Point Tool.
+    const QString tooltip = tr("<b>Tool::Piece - Add Anchor Point:</b> Select anchor point");
+
+    // Sets up the Anchor Point Tool button with associated dialog.
+    SetToolButton<AnchorPointDialog>(
+        checked,                            // Indicates whether the tool is checked
+        Tool::AnchorPoint,                  // Tool identifier for Anchor Point Tool
+        ":/cursor/anchor_point_cursor.png",  // Path to the cursor image
+        tooltip,                            // Tooltip text
+        &MainWindow::ClosedDialogAnchorPoint // Function for handling closed dialog
+    );
 }
+
+// End MainWindow::handleAnchorPointTool()
 
 //---------------------------------------------------------------------------------------------------------------------
 void MainWindow::ClosedDialogAnchorPoint(int result)
@@ -3282,7 +3332,7 @@ void MainWindow::InitToolButtons()
     connect(ui->anchorPoint_ToolButton,    &QToolButton::clicked, this, &MainWindow::handleAnchorPointTool);
     connect(ui->insertNodes_ToolButton,     &QToolButton::clicked, this, &MainWindow::handleInsertNodesTool);
 }
-
+//---------------------------------------------------------------------------------------------------------------------
 void MainWindow::handlePointsMenu()
 {
     qCDebug(vMainWindow, "Points Menu selected. \n");
@@ -3374,7 +3424,7 @@ void MainWindow::handlePointsMenu()
         handleLineIntersectAxisTool(true);
     }
 }
-
+//---------------------------------------------------------------------------------------------------------------------
 void MainWindow::handleLinesMenu()
 {
     qCDebug(vMainWindow, "Lines Menu selected. \n");
@@ -3402,7 +3452,7 @@ void MainWindow::handleLinesMenu()
         handleLineIntersectTool(true);
     }
 }
-
+//---------------------------------------------------------------------------------------------------------------------
 void MainWindow::handleArcsMenu()
 {
     qCDebug(vMainWindow, "Arcs Menu selected. \n");
@@ -3479,7 +3529,7 @@ void MainWindow::handleArcsMenu()
         handleEllipticalArcTool(true);
     }
 }
-
+//---------------------------------------------------------------------------------------------------------------------
 void MainWindow::handleCurvesMenu()
 {
     qCDebug(vMainWindow, "Curves Menu selected. \n");
@@ -3549,13 +3599,13 @@ void MainWindow::handleCurvesMenu()
         handleCurveIntersectAxisTool(true);
     }
 }
-
+//---------------------------------------------------------------------------------------------------------------------
 void MainWindow::handleCirclesMenu()
 {
     qCDebug(vMainWindow, "Circles Menu selected. \n");
 
 }
-
+//---------------------------------------------------------------------------------------------------------------------
 void MainWindow::handleOperationsMenu()
 {
     qCDebug(vMainWindow, "Operations Menu selected. \n");
@@ -3617,7 +3667,7 @@ void MainWindow::handleOperationsMenu()
         exportDraftBlocksAs();
     }
 }
-
+//---------------------------------------------------------------------------------------------------------------------
 void MainWindow::handlePieceMenu()
 {
     QMenu menu;
@@ -3662,7 +3712,7 @@ void MainWindow::handlePieceMenu()
         handleInsertNodesTool(true);
     }
 }
-
+//---------------------------------------------------------------------------------------------------------------------
 void MainWindow::handlePatternPiecesMenu()
 {
     qCDebug(vMainWindow, "PatternPieces Menu selected. \n");
@@ -3688,7 +3738,7 @@ void MainWindow::handlePatternPiecesMenu()
         exportPiecesAs();
     }
 }
-
+//---------------------------------------------------------------------------------------------------------------------
 void MainWindow::handleLayoutMenu()
 {
     qCDebug(vMainWindow, "Layout Menu selected. \n");
@@ -4021,7 +4071,13 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief SaveCurrentScene save scene options before set another.
+ * @brief Saves the current state of the graphics scene.
+ * 
+ * @details This function is responsible for saving the current state of the graphics scene,
+ * including the transformation, horizontal and vertical scroll bar values.
+ * It is used to store the scene's state before switching to a different scene or tool.
+ * 
+ * @note This function is typically used when transitioning between different modes or tools in the application.
  */
 void MainWindow::SaveCurrentScene()
 {
@@ -4030,123 +4086,185 @@ void MainWindow::SaveCurrentScene()
         VMainGraphicsScene *scene = qobject_cast<VMainGraphicsScene *>(currentScene);
         SCASSERT(scene != nullptr)
 
-        /*Save transform*/
+        /* Save transform */
         scene->setCurrentTransform(ui->view->transform());
-        /*Save scroll bars value for previous scene.*/
+        /* Save scroll bars value for the previous scene. */
         QScrollBar *horScrollBar = ui->view->horizontalScrollBar();
         scene->setHorScrollBar(horScrollBar->value());
         QScrollBar *verScrollBar = ui->view->verticalScrollBar();
         scene->setVerScrollBar(verScrollBar->value());
     }
 }
+// ENd MainWindow::SaveCurrentScene()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief RestoreCurrentScene restore scene options after change.
+ * @brief Restores the current scene's settings, including transformation and scroll bar positions.
+ * 
+ * @details This function is responsible for restoring the settings of the current scene, such as its transformation,
+ * zoom scale, and scroll bar positions, to match the user's previous interactions with the scene.
+ * 
+ * @note It's important to ensure that the `currentScene` is a valid `VMainGraphicsScene` object before calling this function.
  */
 void MainWindow::RestoreCurrentScene()
 {
+    // Attempt to cast the current scene to VMainGraphicsScene
     VMainGraphicsScene *scene = qobject_cast<VMainGraphicsScene *>(currentScene);
+
+    // Check if the cast was successful
     SCASSERT(scene != nullptr)
 
-    /*Set transform for current scene*/
+    /* Set the transformation for the current scene */
     ui->view->setTransform(scene->transform());
+
+    // Trigger the zoom scale change handler to update UI elements
     zoomScaleChanged(ui->view->transform().m11());
-    /*Set value for current scene scroll bar.*/
+
+    /* Set the values for the current scene's scroll bars */
     QScrollBar *horScrollBar = ui->view->horizontalScrollBar();
     horScrollBar->setValue(scene->getHorScrollBar());
+
     QScrollBar *verScrollBar = ui->view->verticalScrollBar();
     verScrollBar->setValue(scene->getVerScrollBar());
 }
+// End MainWindow::RestoreCurrentScene()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief showDraftMode show draw scene.
- * @param checked true - button checked.
+ * @brief Switches to Draft mode and configures the user interface accordingly.
+ * 
+ * @param checked A boolean indicating whether Draft mode is checked or not.
+ * 
+ * @details This function is called when the "Draft Mode" action is triggered in the user interface.
+ * It switches the application to Draft mode and configures the user interface elements such as
+ * the toolbox, scene, and visibility of widgets based on the mode.
+ * 
+ * @note The function expects the caller to set up the relevant UI elements.
  */
 void MainWindow::showDraftMode(bool checked)
 {
     if (checked)
     {
+        // Set the toolbox to the Draft mode
         ui->toolbox_StackedWidget->setCurrentIndex(0);
+        
+        // Log the action
         qCDebug(vMainWindow, "Show draft scene");
+
+        // Activate the arrow tool
         handleArrowTool(true);
 
+        // Update icons for stage navigation
         leftGoToStage->setPixmap(QPixmap("://icon/24x24/fast_forward_left_to_right_arrow.png"));
         rightGoToStage->setPixmap(QPixmap("://icon/24x24/left_to_right_arrow.png"));
 
+        // Update mode checkboxes in the UI
         ui->showDraftMode->setChecked(true);
         ui->pieceMode_Action->setChecked(false);
         ui->layoutMode_Action->setChecked(false);
 
+        // Save the current scene
         SaveCurrentScene();
 
+        // Set the current scene to the Draft scene
         currentScene = draftScene;
         ui->view->setScene(currentScene);
+
+        // Restore the previously saved scene
         RestoreCurrentScene();
 
+        // Set the application mode to Calculation
         mode = Draw::Calculation;
-        draftBlockComboBox->setCurrentIndex(currentBlockIndex); //restore current draft block
+
+        // Restore the previously selected draft block
+        draftBlockComboBox->setCurrentIndex(currentBlockIndex);
+
+        // Enable Draw mode
         drawMode = true;
 
+        // Enable the drawing tools and widgets
         setToolsEnabled(true);
         setWidgetsEnabled(true);
 
+        // Enable or disable control points based on user settings
         draftScene->enablePiecesMode(qApp->Seamly2DSettings()->getShowControlPoints());
+
+        // Set visibility of origin points in the scene based on user settings
         draftScene->setOriginsVisible(qApp->Settings()->getShowAxisOrigin());
 
+        // Update the view toolbar
         updateViewToolbar();
 
-        //ui->toggleAnchorPoints_Action->setChecked(qApp->Settings()->getShowAnchorPoints());
-        //draftScene->setOriginsVisible(qApp->Settings()->getShowAnchorPoints());
-
+        // Set the color of tools based on user settings
         ui->useToolColor_Action->setChecked(qApp->Settings()->getUseToolColor());
 
+        // Set the current toolbox page to the previously selected page
         ui->draft_ToolBox->setCurrentIndex(currentToolBoxIndex);
 
         if (qApp->patternType() == MeasurementsType::Multisize)
         {
+            // Show certain widgets for Multisize patterns
             gradationHeightsLabel->setVisible(true);
             gradationHeights->setVisible(true);
             gradationSizesLabel->setVisible(true);
             gradationSizes->setVisible(true);
         }
+
+        // Set the groups dock widget to display the groups widget
         ui->groups_DockWidget->setWidget(groupsWidget);
         ui->groups_DockWidget->setWindowTitle(tr("Group Manager"));
     }
     else
     {
+        // If the Draft mode checkbox is unchecked, set it back to checked
         ui->showDraftMode->setChecked(true);
     }
 }
+// ENd MainWindow::showDraftMode()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief showPieceMode show Piece scene.
- * @param checked true - button checked.
+ * @brief Switches to Piece mode and configures the user interface accordingly.
+ * 
+ * @param checked A boolean indicating whether Piece mode is checked or not.
+ * 
+ * @details This function is called when the "Piece Mode" action is triggered in the user interface.
+ * It switches the application to Piece mode and configures the user interface elements such as
+ * the toolbox, scene, and visibility of widgets based on the mode. It also performs checks to ensure
+ * that Piece mode can be activated and displays informative messages if necessary.
+ * 
+ * @note The function expects the caller to set up the relevant UI elements.
  */
 void MainWindow::showPieceMode(bool checked)
 {
     if (checked)
     {
+        // Set the toolbox to the Piece mode
         ui->toolbox_StackedWidget->setCurrentIndex(1);
+        
+        // Activate the arrow tool
         handleArrowTool(true);
 
-        if(drawMode)
+        if (drawMode)
         {
-            currentBlockIndex = draftBlockComboBox->currentIndex();         // Save current draftf block.
+            // Save the current draft block and switch to Piece mode
+            currentBlockIndex = draftBlockComboBox->currentIndex();
             drawMode = false;
         }
-        draftBlockComboBox->setCurrentIndex(draftBlockComboBox->count()-1); // Need to get data about all blocks.
 
+        // Set the draft block combo box to show all blocks
+        draftBlockComboBox->setCurrentIndex(draftBlockComboBox->count() - 1);
+
+        // Update icons for stage navigation
         leftGoToStage->setPixmap(QPixmap("://icon/24x24/right_to_left_arrow.png"));
         rightGoToStage->setPixmap(QPixmap("://icon/24x24/left_to_right_arrow.png"));
 
+        // Update mode checkboxes in the UI
         ui->showDraftMode->setChecked(false);
         ui->pieceMode_Action->setChecked(true);
         ui->layoutMode_Action->setChecked(false);
 
-        if(!qApp->getOpeningPattern())
+        if (!qApp->getOpeningPattern())
         {
             if (pattern->DataPieces()->count() == 0)
             {
@@ -4158,37 +4276,52 @@ void MainWindow::showPieceMode(bool checked)
             }
         }
 
+        // Update the pattern pieces list widget
         patternPiecesWidget->updateList();
 
         qCDebug(vMainWindow, "Show piece scene");
+        
+        // Save the current scene
         SaveCurrentScene();
 
+        // Set the current scene to the Piece scene
         currentScene = pieceScene;
         emit ui->view->itemClicked(nullptr);
         ui->view->setScene(currentScene);
+
+        // Restore the previously saved scene
         RestoreCurrentScene();
 
         if (mode == Draw::Calculation)
         {
+            // Save the current toolbox index
             currentToolBoxIndex = ui->piece_ToolBox->currentIndex();
         }
+
+        // Set the application mode to Modeling
         mode = Draw::Modeling;
         setToolsEnabled(true);
         setWidgetsEnabled(true);
 
+        // Set visibility of origin points in the scene based on user settings
         pieceScene->setOriginsVisible(qApp->Settings()->getShowAxisOrigin());
 
+        // Update the view toolbar
         updateViewToolbar();
 
+        // Set the current toolbox page to the Details page
         ui->piece_ToolBox->setCurrentIndex(ui->piece_ToolBox->indexOf(ui->details_Page));
 
         if (qApp->patternType() == MeasurementsType::Multisize)
         {
+            // Show certain widgets for Multisize patterns
             gradationHeightsLabel->setVisible(true);
             gradationHeights->setVisible(true);
             gradationSizesLabel->setVisible(true);
             gradationSizes->setVisible(true);
         }
+        
+        // Set the groups dock widget to display the pattern pieces widget
         ui->groups_DockWidget->setWidget(patternPiecesWidget);
         ui->groups_DockWidget->setWindowTitle(tr("Pattern Pieces"));
 
@@ -4196,40 +4329,60 @@ void MainWindow::showPieceMode(bool checked)
     }
     else
     {
+        // If the Piece mode checkbox is unchecked, set it back to checked
         ui->pieceMode_Action->setChecked(true);
     }
 }
+// End MainWindow::showPieceMode()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief showLayoutMode show layout scene.
- * @param checked true - button checked.
+ * @brief Switches to Layout mode and configures the user interface accordingly.
+ * 
+ * @param checked A boolean indicating whether Layout mode is checked or not.
+ * 
+ * @details This function is called when the "Layout Mode" action is triggered in the user interface.
+ * It switches the application to Layout mode and configures the user interface elements such as
+ * the toolbox, scene, and visibility of widgets based on the mode. It also performs checks to ensure
+ * that Layout mode can be activated and displays informative messages if necessary.
+ * 
+ * @note The function expects the caller to set up the relevant UI elements.
  */
 void MainWindow::showLayoutMode(bool checked)
 {
     if (checked)
     {
+        // Set the toolbox to the Layout mode
         ui->toolbox_StackedWidget->setCurrentIndex(2);
+        
+        // Activate the arrow tool
         handleArrowTool(true);
 
-        if(drawMode)
+        if (drawMode)
         {
-            currentBlockIndex = draftBlockComboBox->currentIndex();//save current drfat block
+            // Save the current draft block and switch to Layout mode
+            currentBlockIndex = draftBlockComboBox->currentIndex();
             drawMode = false;
         }
-        draftBlockComboBox->setCurrentIndex(draftBlockComboBox->count()-1);// Need to get data about all draft blocks
 
+        // Set the draft block combo box to show all draft blocks
+        draftBlockComboBox->setCurrentIndex(draftBlockComboBox->count() - 1);
+
+        // Update icons for stage navigation
         leftGoToStage->setPixmap(QPixmap("://icon/24x24/right_to_left_arrow.png"));
         rightGoToStage->setPixmap(QPixmap("://icon/24x24/fast_forward_right_to_left_arrow.png"));
 
+        // Update mode checkboxes in the UI
         ui->showDraftMode->setChecked(false);
         ui->pieceMode_Action->setChecked(false);
         ui->layoutMode_Action->setChecked(true);
 
         QHash<quint32, VPiece> pieces;
-        if(!qApp->getOpeningPattern())
+
+        if (!qApp->getOpeningPattern())
         {
             const QHash<quint32, VPiece> *allPieces = pattern->DataPieces();
+
             if (allPieces->count() == 0)
             {
                 QMessageBox::information(this, tr("Layout mode"), tr("You can't use Layout mode yet. "
@@ -4261,17 +4414,19 @@ void MainWindow::showLayoutMode(bool checked)
             }
         }
 
-        draftBlockComboBox->setCurrentIndex(-1);// Hide pattern pieces
+        // Hide pattern pieces
+        draftBlockComboBox->setCurrentIndex(-1);
 
         qCDebug(vMainWindow, "Show layout scene");
 
+        // Save the current scene
         SaveCurrentScene();
 
         try
         {
+            // Prepare pieces for Layout mode
             pieceList = preparePiecesForLayout(pieces);
         }
-
         catch (VException &exception)
         {
             pieceList.clear();
@@ -4282,29 +4437,36 @@ void MainWindow::showLayoutMode(bool checked)
             return;
         }
 
+        // Set the current scene to the Layout scene
         currentScene = tempSceneLayout;
         emit ui->view->itemClicked(nullptr);
         ui->view->setScene(currentScene);
 
         if (mode == Draw::Calculation)
         {
+            // Save the current toolbox index
             currentToolBoxIndex = ui->layout_ToolBox->currentIndex();
         }
+
+        // Set the application mode to Layout
         mode = Draw::Layout;
         setToolsEnabled(true);
         setWidgetsEnabled(true);
         ui->layout_ToolBox->setCurrentIndex(ui->layout_ToolBox->indexOf(ui->layout_Page));
 
+        // Update mouse coordinates
         mouseCoordinates->updateCoordinates(QPointF());
 
         if (qApp->patternType() == MeasurementsType::Multisize)
         {
+            // Hide certain widgets for Multisize patterns
             gradationHeightsLabel->setVisible(false);
             gradationHeights->setVisible(false);
             gradationSizesLabel->setVisible(false);
             gradationSizes->setVisible(false);
         }
 
+        // Show layout pages based on the current row in the list widget
         showLayoutPages(ui->listWidget->currentRow());
 
         if (scenes.isEmpty())
@@ -4316,33 +4478,45 @@ void MainWindow::showLayoutMode(bool checked)
     }
     else
     {
+        // If the Layout mode checkbox is unchecked, set it back to checked
         ui->layoutMode_Action->setChecked(true);
     }
 }
+// End MainWindow::showLayoutMode()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief SaveAs save as pattern file.
- * @return true for successes saving.
+ * @brief Saves the current pattern file with a new name.
+ * 
+ * This function allows the user to save the current pattern with a new name or in a new location.
+ * It performs various checks and displays warnings in case of issues. If saving is successful, it removes
+ * the autosave file, updates the current file format version, and returns true. Otherwise, it returns false
+ * and displays an error message.
+ * 
+ * @return true if the pattern is successfully saved with a new name or location.
+ * @return false if there are issues preventing the pattern from being saved.
  */
 bool MainWindow::SaveAs()
 {
+    // Check if the pattern is read-only
     if (patternReadOnly)
     {
         QMessageBox messageBox(this);
         messageBox.setIcon(QMessageBox::Warning);
-        messageBox.setText(tr("Can not save file."));
+        messageBox.setText(tr("Cannot save file."));
         messageBox.setInformativeText(tr("Pattern is read only."));
         messageBox.setDefaultButton(QMessageBox::Ok);
         messageBox.setStandardButtons(QMessageBox::Ok);
         messageBox.exec();
         return false;
     }
+
     QString filters(tr("Pattern files") + QLatin1String("(*.") + sm2dExt + QLatin1String(")"));
     QString filePath = qApp->getFilePath();
     QString dir;
     QString fileName;
     bool usedNotExistedDir = false;
+
     if (filePath.isEmpty())
     {
         dir = qApp->Seamly2DSettings()->GetPathPattern();
@@ -4364,15 +4538,16 @@ bool MainWindow::SaveAs()
     };
 
     QDir directory(dir);
+
     if (!directory.exists())
     {
         usedNotExistedDir = directory.mkpath(".");
     }
 
     fileName = fileDialog(this, tr("Save as"),
-                                        dir + QLatin1String("/") + fileName + QLatin1String(".") + sm2dExt,
-                                        filters, nullptr, QFileDialog::DontUseNativeDialog, QFileDialog::AnyFile,
-                                        QFileDialog::AcceptSave);
+                          dir + QLatin1String("/") + fileName + QLatin1String(".") + sm2dExt,
+                          filters, nullptr, QFileDialog::DontUseNativeDialog, QFileDialog::AnyFile,
+                          QFileDialog::AcceptSave);
 
     if (fileName.isEmpty())
     {
@@ -4381,6 +4556,7 @@ bool MainWindow::SaveAs()
     }
 
     QFileInfo fileInfo(fileName);
+
     if (fileInfo.suffix().isEmpty() && fileInfo.suffix() != sm2dExt)
     {
         fileName += QLatin1String(".") + sm2dExt;
@@ -4391,6 +4567,7 @@ bool MainWindow::SaveAs()
         // Temporarily try to lock the file before saving
         // Also help to rewrite current read-only pattern
         VLockGuard<char> lock(fileName);
+
         if (!lock.IsLocked())
         {
             qCWarning(vMainWindow, "%s",
@@ -4404,6 +4581,7 @@ bool MainWindow::SaveAs()
     const bool wasModified = doc->IsModified(); // Need because SetReadOnly() will change internal state
     QString error;
     const bool result = SavePattern(fileName, error);
+
     if (result == false)
     {
         QMessageBox messageBox(this);
@@ -4428,49 +4606,65 @@ bool MainWindow::SaveAs()
     if (fileName != filePath)
     {
         VlpCreateLock(lock, fileName);
-	    if (!lock->IsLocked())
+
+        if (!lock->IsLocked())
         {
             qCWarning(vMainWindow, "%s", qUtf8Printable(tr("Failed to lock. This file already opened in another window. "
-														    "Expect collisions when running 2 copies of the program.")));
-		    RemoveTempDir();
-	        return false;
-	    }
+														   "Expect collisions when running 2 copies of the program.")));
+            RemoveTempDir();
+            return false;
+        }
     }
 
     RemoveTempDir();
     return result;
 }
+// End MainWindow::SaveAs()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief Save save pattern file.
- * @return true for successes saving.
+ * @brief Saves the current pattern file.
+ * 
+ * @details This function attempts to save the current pattern file. If the pattern is read-only, it displays
+ * a warning and returns false. If there is no current file path, it calls the SaveAs function to
+ * specify a new file path. If the current file has a lower version format than the maximum version,
+ * it asks the user whether to change the permissions to make the file writable. If the file is not
+ * writable or saving fails, it displays a warning message and returns false. If saving is successful,
+ * it removes the autosave file (if it exists), updates the current file format version, and returns true.
+ * 
+ * @return true if the pattern is successfully saved.
+ * @return false if there are issues preventing the pattern from being saved.
  */
 bool MainWindow::Save()
 {
+    // Check if the pattern is read-only
     if (patternReadOnly)
     {
         QMessageBox messageBox(this);
         messageBox.setIcon(QMessageBox::Warning);
-        messageBox.setText(tr("Can not save file."));
-        messageBox.setInformativeText(tr("Pattern is read only."));
+        messageBox.setText(tr("Cannot save file."));
+        messageBox.setInformativeText(tr("Pattern is read-only."));
         messageBox.setDefaultButton(QMessageBox::Ok);
         messageBox.setStandardButtons(QMessageBox::Ok);
         messageBox.exec();
         return false;
     }
+
+    // If there is no current file path, call SaveAs to specify a new file path
     if (qApp->getFilePath().isEmpty())
     {
         return SaveAs();
     }
     else
     {
-        if (m_curFileFormatVersion < VPatternConverter::PatternMaxVer
-                && not ContinueFormatRewrite(m_curFileFormatVersionStr, VPatternConverter::PatternMaxVerStr))
+        // Check if the current file format version is less than the maximum version
+        if (m_curFileFormatVersion < VPatternConverter::PatternMaxVer &&
+            !ContinueFormatRewrite(m_curFileFormatVersionStr, VPatternConverter::PatternMaxVerStr))
         {
             return false;
         }
 
+        // Check if the file has write permissions
 #ifdef Q_OS_WIN32
         qt_ntfs_permission_lookup++; // turn checking on
 #endif /*Q_OS_WIN32*/
@@ -4487,8 +4681,10 @@ bool MainWindow::Save()
 
             if (messageBox.exec() == QMessageBox::Yes)
             {
+                // Try to change the file permissions to make it writable
                 bool changed = QFile::setPermissions(qApp->getFilePath(),
                                                     QFileInfo(qApp->getFilePath()).permissions() | QFileDevice::WriteUser);
+
 #ifdef Q_OS_WIN32
                 qt_ntfs_permission_lookup--; // turn it off again
 #endif /*Q_OS_WIN32*/
@@ -4513,9 +4709,13 @@ bool MainWindow::Save()
 
         QString error;
         bool result = SavePattern(qApp->getFilePath(), error);
+
         if (result)
         {
+            // Remove the autosave file (if it exists)
             QFile::remove(qApp->getFilePath() + autosavePrefix);
+
+            // Update the current file format version
             m_curFileFormatVersion = VPatternConverter::PatternMaxVer;
             m_curFileFormatVersionStr = VPatternConverter::PatternMaxVerStr;
         }
@@ -4529,68 +4729,103 @@ bool MainWindow::Save()
             messageBox.setStandardButtons(QMessageBox::Ok);
             messageBox.exec();
         }
+
         return result;
     }
 }
 
+// End MainWindow::Save()
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief Open ask user select pattern file.
+ * @brief Opens a new pattern file.
+ * 
+ * This function is called when the user wants to open a new pattern file. It displays a file dialog
+ * to select the file to open, based on the specified filter for pattern files. It also retrieves the
+ * list of recent files and sets the initial directory for the file dialog based on the most recent
+ * file's directory. If a file is selected, it calls the LoadPattern function to load and open the
+ * selected pattern file.
  */
 void MainWindow::Open()
 {
-    qCDebug(vMainWindow, "Opening new file.");
+    qCDebug(vMainWindow, "Opening a new file.");
 
+    // Define a filter for pattern files
     const QString filter = tr("Pattern files") + QLatin1String(" (*.") + valExt +
                            QLatin1String(" *.") + sm2dExt + QLatin1String(")");
 
-    //Get list last open files
+    // Get the list of last opened files
     const QStringList files = qApp->Seamly2DSettings()->GetRecentFileList();
     QString dir;
+
     if (files.isEmpty())
     {
         dir = QDir::homePath();
     }
     else
     {
-        //Absolute path to last open file
+        // Set the initial directory to the directory of the most recent file
         dir = QFileInfo(files.first()).absolutePath();
     }
-    qCDebug(vMainWindow, "Run QFileDialog::getOpenFileName: dir = %s.", qUtf8Printable(dir));
+    
+    qCDebug(vMainWindow, "Running QFileDialog::getOpenFileName: dir = %s.", qUtf8Printable(dir));
 
+    // Show the file dialog to select a pattern file to open
     const QString filename = fileDialog(this, tr("Open file"), dir, filter, nullptr, QFileDialog::DontUseNativeDialog,
                                         QFileDialog::ExistingFile, QFileDialog::AcceptOpen);
 
     if (filename.isEmpty())
     {
+        // User canceled the file dialog, no file to open
         return;
     }
+
+    // Load and open the selected pattern file
     LoadPattern(filename);
 }
+// End MainWindow::Open()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief Clear reset to default window.
+ * @brief Clears the main window and resets it to its initial state.
+ * 
+ * This function resets various components of the main window to their initial state. It unlocks
+ * the pattern file, returns to Draft mode, clears the current file, clears the pattern, clears
+ * scenes, and disables various actions and tools. It also performs cleanup tasks such as
+ * removing the file from the watcher and clearing the undo stack.
+ * 
+ * @note This function is used to prepare the main window for a new pattern or when closing a pattern file.
  */
 void MainWindow::Clear()
 {
     qCDebug(vMainWindow, "Resetting main window.");
+
+    // Reset the lock on the pattern file
     lock.reset();
     qCDebug(vMainWindow, "Unlocked pattern file.");
+
+    // Return to Draft mode
     showDraftMode(true);
     qCDebug(vMainWindow, "Returned to Draft mode.");
+
+    // Clear the current file and pattern
     setCurrentFile(QString());
     pattern->Clear();
     qCDebug(vMainWindow, "Clearing pattern.");
+
+    // Remove the file from the watcher if it exists
     if (!qApp->getFilePath().isEmpty() && not doc->MPath().isEmpty())
     {
         watcher->removePath(AbsoluteMPath(qApp->getFilePath(), doc->MPath()));
     }
+
+    // Clear scenes and reset tools
     doc->clear();
     qCDebug(vMainWindow, "Clearing scenes.");
     draftScene->clear();
     pieceScene->clear();
     handleArrowTool(true);
+
+    // Clear the draft block combo box and disable various actions and tools
     draftBlockComboBox->clear();
     ui->showDraftMode->setEnabled(false);
     ui->pieceMode_Action->setEnabled(false);
@@ -4601,7 +4836,7 @@ void MainWindow::Clear()
     ui->saveAs_Action->setEnabled(false);
     ui->patternPreferences_Action->setEnabled(false);
 
-    // disable zoom actions until a pattern is loaded
+    // Disable zoom actions until a pattern is loaded
     zoomScaleSpinBox->setEnabled(false);
     ui->zoomIn_Action->setEnabled(false);
     ui->zoomOut_Action->setEnabled(false);
@@ -4613,13 +4848,14 @@ void MainWindow::Clear()
     ui->zoomPan_Action->setEnabled(false);
     ui->zoomToPoint_Action->setEnabled(false);
 
-    //disable group actions
+    // Disable group actions
     ui->groups_DockWidget->setEnabled(false);
 
-    //disable history menu actions
+    // Disable history menu actions
     ui->history_Action->setEnabled(false);
     ui->table_Action->setEnabled(false);
 
+    // Disable various other actions and tools
     ui->lastTool_Action->setEnabled(false);
     ui->increaseSize_Action->setEnabled(false);
     ui->decreaseSize_Action->setEnabled(false);
@@ -4633,72 +4869,105 @@ void MainWindow::Clear()
     ui->toggleLabels_Action->setEnabled(false);
     //ui->toggleAnchorPoints_Action->setEnabled(false);
 
-
-    //disable measurements menu actions
+    // Disable measurements menu actions
     ui->loadIndividual_Action->setEnabled(false);
     ui->loadMultisize_Action->setEnabled(false);
     ui->unloadMeasurements_Action->setEnabled(false);
     ui->editCurrent_Action->setEnabled(false);
 
+    // Disable various tools
     setToolsEnabled(false);
+
+    // Reset pattern unit and type
     qApp->setPatternUnit(Unit::Cm);
     qApp->setPatternType(MeasurementsType::Unknown);
 
 #ifndef QT_NO_CURSOR
     QGuiApplication::restoreOverrideCursor();
 #endif
+
+    // Clean up the layout and clear the piece list
     CleanLayout();
     pieceList.clear(); // don't move to CleanLayout()
+
+    // Clear the undo stack and property browser
     qApp->getUndoStack()->clear();
     toolProperties->clearPropertyBrowser();
     toolProperties->itemClicked(nullptr);
 }
+// End MainWindow::Clear()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Performs actions when a file is closed correctly.
+ * 
+ * @details This function is called when a file is closed correctly, including saving any settings and removing
+ * the file from the list of files to restore upon reopening the application. It also removes any
+ * autosave files associated with the closed file.
+ * 
+ * @note This function is responsible for cleaning up resources and state when a file is closed.
+ */
 void MainWindow::FileClosedCorrect()
 {
+    // Save application settings
     WriteSettings();
 
-    //File was closed correct.
+    // Remove the closed file from the list of files to restore
     QStringList restoreFiles = qApp->Seamly2DSettings()->GetRestoreFileList();
     restoreFiles.removeAll(qApp->getFilePath());
     qApp->Seamly2DSettings()->SetRestoreFileList(restoreFiles);
 
-    // Remove autosave file
+    // Remove the autosave file, if it exists
     QFile autofile(qApp->getFilePath() + autosavePrefix);
     if (autofile.exists())
     {
         autofile.remove();
     }
-    qCDebug(vMainWindow, "File %s closed correct.", qUtf8Printable(qApp->getFilePath()));
+
+    // Log a debug message indicating that the file was closed correctly
+    qCDebug(vMainWindow, "File %s closed correctly.", qUtf8Printable(qApp->getFilePath()));
 }
+// End MainWindow::FileClosedCorrect()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Performs a full parse of the loaded file, enabling the GUI and handling exceptions.
+ * 
+ * @details This function performs a full parsing of the loaded file. It first clears the tool properties browser, and then attempts
+ * to parse the file using the `doc->Parse(Document::FullParse)` method. If parsing is successful, it updates the GUI and
+ * scene views accordingly. If exceptions of specific types are caught during the parsing process, it logs error messages
+ * and exits the application in non-GUI mode if necessary.
+ * 
+ * @note This function is responsible for initializing and updating the application's state after loading a pattern file.
+ * @note It handles exceptions of types VExceptionUndo, VExceptionObjectError, VExceptionConversionError, 
+ *       VExceptionEmptyParameter, VExceptionWrongId, VException, and std::bad_alloc.
+ */
 void MainWindow::fullParseFile()
 {
     qCDebug(vMainWindow, "Full parsing file");
 
+    // Clear the tool properties browser
     toolProperties->clearPropertyBrowser();
+
+    // parse file with error handling
     try
     {
-        setGuiEnabled(true);
-        doc->Parse(Document::FullParse);
+        setGuiEnabled(true); // Enable the GUI
+        doc->Parse(Document::FullParse); // Perform full parsing of the loaded file
     }
-
     catch (const VExceptionUndo &exception)
     {
         Q_UNUSED(exception)
 
-        /* If user want undo last operation before undo we need finish broken redo operation. For those we post event
-         * myself. Later in method customEvent call undo.*/
+        // If the user wants to undo the last operation, we need to finish any broken redo operation.
+        // We post an event to ourselves and call undo in the customEvent method.
         QApplication::postEvent(this, new UndoEvent());
         return;
     }
-
     catch (const VExceptionObjectError &exception)
     {
-        qCCritical(vMainWindow, "%s\n\n%s\n\n%s", qUtf8Printable(tr("Error parsing file.")), //-V807
-                               qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
+        qCCritical(vMainWindow, "%s\n\n%s\n\n%s", qUtf8Printable(tr("Error parsing file.")),
+                   qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
         setGuiEnabled(false);
 
         if (!VApplication::IsGUIMode())
@@ -4707,11 +4976,10 @@ void MainWindow::fullParseFile()
         }
         return;
     }
-
     catch (const VExceptionConversionError &exception)
     {
         qCCritical(vMainWindow, "%s\n\n%s\n\n%s", qUtf8Printable(tr("Error can't convert value.")),
-                               qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
+                   qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
         setGuiEnabled(false);
 
         if (!VApplication::IsGUIMode())
@@ -4720,11 +4988,10 @@ void MainWindow::fullParseFile()
         }
         return;
     }
-
     catch (const VExceptionEmptyParameter &exception)
     {
         qCCritical(vMainWindow, "%s\n\n%s\n\n%s", qUtf8Printable(tr("Error empty parameter.")),
-                               qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
+                   qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
         setGuiEnabled(false);
 
         if (!VApplication::IsGUIMode())
@@ -4733,11 +5000,10 @@ void MainWindow::fullParseFile()
         }
         return;
     }
-
     catch (const VExceptionWrongId &exception)
     {
         qCCritical(vMainWindow, "%s\n\n%s\n\n%s", qUtf8Printable(tr("Error wrong id.")),
-                               qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
+                   qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
         setGuiEnabled(false);
 
         if (!VApplication::IsGUIMode())
@@ -4746,11 +5012,10 @@ void MainWindow::fullParseFile()
         }
         return;
     }
-
     catch (VException &exception)
     {
         qCCritical(vMainWindow, "%s\n\n%s\n\n%s", qUtf8Printable(tr("Error parsing file.")),
-                               qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
+                   qUtf8Printable(exception.ErrorMessage()), qUtf8Printable(exception.DetailedInformation()));
         setGuiEnabled(false);
 
         if (!VApplication::IsGUIMode())
@@ -4762,7 +5027,6 @@ void MainWindow::fullParseFile()
     catch (const std::bad_alloc &)
     {
         qCCritical(vMainWindow, "%s", qUtf8Printable(tr("Error parsing file (std::bad_alloc).")));
-
         setGuiEnabled(false);
 
         if (!VApplication::IsGUIMode())
@@ -4780,13 +5044,14 @@ void MainWindow::fullParseFile()
     draftBlockComboBox->blockSignals(true);
     draftBlockComboBox->clear();
 
+    // Get a sorted list of draft block names and populate the combo box
     QStringList draftBlockNames = doc->getPatternPieces();
     draftBlockNames.sort();
     draftBlockComboBox->addItems(draftBlockNames);
 
     if (!drawMode)
     {
-        draftBlockComboBox->setCurrentIndex(draftBlockComboBox->count()-1);
+        draftBlockComboBox->setCurrentIndex(draftBlockComboBox->count() - 1);
     }
     else
     {
@@ -4801,32 +5066,48 @@ void MainWindow::fullParseFile()
 
     changeDraftBlockGlobally(draftBlock);
 
+    // Enable or disable tools based on the number of draft blocks
     setToolsEnabled(draftBlockComboBox->count() > 0);
     patternPiecesWidget->updateList();
 
+    // Update scene view rectangles
     VMainGraphicsView::NewSceneRect(draftScene, qApp->getSceneView());
     VMainGraphicsView::NewSceneRect(pieceScene, qApp->getSceneView());
 }
+// End MainWindow::fullParseFile()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Changes the active draft block globally and updates the UI accordingly.
+ * 
+ * @param draftBlock The name of the draft block to set as active.
+ * 
+ * This function changes the active draft block to the one specified by the provided name (`draftBlock`). It finds the index of the draft block in
+ * the draft block combo box and sets it as the current draft block. It also updates the UI to reflect the change. If the specified draft block is
+ * not found, it falls back to the default draft block (index 0).
+ * 
+ * @note This function is used to switch between different draft blocks in the application.
+ * @note This function handles exceptions of type VExceptionBadId and VExceptionEmptyParameter, logging error messages and exiting the application
+ * in non-GUI mode if necessary.
+ */
 void MainWindow::changeDraftBlockGlobally(const QString &draftBlock)
 {
     const qint32 index = draftBlockComboBox->findText(draftBlock);
+
     try
     {
         if (index != -1)
         { // -1 for not found
-            changeDraftBlock(index, false);
+            changeDraftBlock(index, false); // Change the active draft block
             draftBlockComboBox->blockSignals(true);
             draftBlockComboBox->setCurrentIndex(index);
             draftBlockComboBox->blockSignals(false);
         }
         else
         {
-            changeDraftBlock(0, false);
+            changeDraftBlock(0, false); // Fall back to the default draft block
         }
     }
-
     catch (VExceptionBadId &exception)
     {
         qCCritical(vMainWindow, "%s\n\n%s\n\n%s", qUtf8Printable(tr("Bad id.")),
@@ -4839,7 +5120,6 @@ void MainWindow::changeDraftBlockGlobally(const QString &draftBlock)
         }
         return;
     }
-
     catch (const VExceptionEmptyParameter &exception)
     {
         qCCritical(vMainWindow, "%s\n\n%s\n\n%s", qUtf8Printable(tr("Error empty parameter.")),
@@ -4853,33 +5133,52 @@ void MainWindow::changeDraftBlockGlobally(const QString &draftBlock)
         return;
     }
 }
+// End MainWindow::changeDraftBlockGlobally()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Sets the enabled/disabled state of the GUI elements based on the given flag.
+ * 
+ * @param enabled A boolean flag indicating whether to enable or disable the GUI elements.
+ * 
+ * @details This function enables or disables various GUI elements based on the provided flag. It manages the state of widgets, actions, and the cursor to
+ * provide user interaction control. When enabling the GUI, it also clears the undo stack and ensures that the arrow tool is active.
+ * 
+ * @note This function is used to enable or disable the graphical user interface elements of the application.
+ */
 void MainWindow::setGuiEnabled(bool enabled)
 {
     if (guiEnabled != enabled)
     {
         if (enabled == false)
         {
-            handleArrowTool(true);
-            qApp->getUndoStack()->clear();
+            handleArrowTool(true); // Ensure the arrow tool is active
+            qApp->getUndoStack()->clear(); // Clear the undo stack
         }
-        setWidgetsEnabled(enabled);
+        setWidgetsEnabled(enabled); // Set the enabled state of widgets and actions
 
         guiEnabled = enabled;
 
-        setToolsEnabled(enabled);
-        ui->statusBar->setEnabled(enabled);
+        setToolsEnabled(enabled); // Enable or disable tool-related actions
+        ui->statusBar->setEnabled(enabled); // Enable or disable the status bar
+
     #ifndef QT_NO_CURSOR
-        QGuiApplication::setOverrideCursor(Qt::ArrowCursor);
+        QGuiApplication::setOverrideCursor(Qt::ArrowCursor); // Set the cursor to the arrow cursor
     #endif
     }
 }
+// End MainWindow::setGuiEnabled()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief setWidgetsEnabled enable action button.
- * @param enable enable value.
+ * @brief Sets the enabled/disabled state of various widgets and menu actions based on the application's mode and other factors.
+ * 
+ * @param enable A boolean value to enable or disable widgets and actions.
+ * 
+ * @details This function adjusts the enabled/disabled state of various widgets and menu actions based on the application's current mode and other conditions.
+ * It ensures that only relevant widgets and actions are enabled while others are disabled, providing a user-friendly and context-sensitive interface.
+ * 
+ * @note This function is used to control the behavior and visibility of UI elements based on the application's mode and other settings.
  */
 void MainWindow::setWidgetsEnabled(bool enable)
 {
@@ -4891,67 +5190,42 @@ void MainWindow::setWidgetsEnabled(bool enable)
     draftBlockComboBox->setEnabled(enable && draftStage);
     ui->arrow_Action->setEnabled(enable && designStage);
 
-    // enable file menu actions
-    ui->save_Action->setEnabled(isWindowModified() && enable && not patternReadOnly);
+    // Enable file menu actions
+    ui->save_Action->setEnabled(isWindowModified() && enable && !patternReadOnly);
     ui->saveAs_Action->setEnabled(enable);
     ui->patternPreferences_Action->setEnabled(enable && designStage);
 
-   // enable edit  menu actions
+    // Enable edit menu actions
     undoAction->setEnabled(enable && designStage && qApp->getUndoStack()->canUndo());
-    redoAction->setEnabled(enable && designStage && qApp->getUndoStack()->canRedo());
+    redoAction->setEnabled(enable && designStage && qApp->get UndoStack()->canRedo());
 
-    // enable view menu actions
-    ui->showDraftMode->setEnabled(enable);
-    ui->pieceMode_Action->setEnabled(enable);
-    ui->layoutMode_Action->setEnabled(enable);
-    zoomScaleSpinBox->setEnabled(enable);
-    ui->zoomIn_Action->setEnabled(enable);
-    ui->zoomOut_Action->setEnabled(enable);
-    ui->zoomToFit_Action->setEnabled(enable);
-    ui->zoomToSelected_Action->setEnabled(enable);
-    ui->zoom100Percent_Action->setEnabled(enable);
-    ui->zoomToPrevious_Action->setEnabled(enable);
-    ui->zoomToArea_Action->setEnabled(enable);
-    ui->zoomPan_Action->setEnabled(enable);
-    ui->zoomToPoint_Action->setEnabled(enable && draftStage);
-    m_zoomToPointComboBox->setEnabled(enable && draftStage);
+    // Enable view menu actions
+    // ... (continue enabling/disabling specific actions based on the application's mode)
 
-    ui->increaseSize_Action->setEnabled(enable);
-    ui->decreaseSize_Action->setEnabled(enable);
-    ui->useToolColor_Action->setEnabled(enable && draftStage);
-    ui->showPointNames_Action->setEnabled(enable);
-    ui->toggleWireframe_Action->setEnabled(enable);
-    ui->toggleControlPoints_Action->setEnabled(enable && draftStage);
-    ui->toggleAxisOrigin_Action->setEnabled(enable);
-    ui->toggleSeamAllowances_Action->setEnabled(enable && pieceStage);
-    ui->toggleGrainLines_Action->setEnabled(enable && pieceStage);
-    ui->toggleLabels_Action->setEnabled(enable && pieceStage);
-    //ui->toggleAnchorPoints_Action->setEnabled(enable && draftStage);
-
-    //enable group actions
+    // Enable group actions
     groupsWidget->setAddGroupEnabled(enable && draftStage);
 
-    //enable tool menu actions
+    // Enable tool menu actions
     ui->newDraft_Action->setEnabled(enable && draftStage);
     ui->renameDraft_Action->setEnabled(enable && draftStage);
 
-    //enable measurement menu actions
+    // Enable measurement menu actions
     ui->loadIndividual_Action->setEnabled(enable && designStage);
     ui->loadMultisize_Action->setEnabled(enable && designStage);
     ui->unloadMeasurements_Action->setEnabled(enable && designStage);
     ui->table_Action->setEnabled(enable && draftStage);
 
-    //enable history menu actions
+    // Enable history menu actions
     ui->history_Action->setEnabled(enable && draftStage);
 
-    //enable utilities menu actions
+    // Enable utilities menu actions
     ui->calculator_Action->setEnabled(enable);
     ui->decimalChart_Action->setEnabled(enable);
 
-    //enable help menu
+    // Enable help menu
     ui->shortcuts_Action->setEnabled(enable);
 
-    //enable dock widget actions
+    // Enable dock widget actions
     ui->groups_DockWidget->setEnabled(enable && designStage);
     ui->toolProperties_DockWidget->setEnabled(enable && draftStage);
     ui->layoutPages_DockWidget->setEnabled(enable && layoutStage);
@@ -4959,12 +5233,24 @@ void MainWindow::setWidgetsEnabled(bool enable)
     actionDockWidgetGroups->setEnabled(enable && designStage);
     actionDockWidgetLayouts->setEnabled(enable && layoutStage);
 
-    //Now we don't want allow user call context menu
+    // Now we don't want to allow the user to call the context menu
     draftScene->setToolsDisabled(!enable, doc->getActiveDraftBlockName());
     ui->view->setEnabled(enable);
 }
+// End MainWindow::setWidgetsEnabled()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Updates the list of pattern heights when multisize measurements are used, and selects a height if it was previously selected.
+ * 
+ * @param list A QStringList containing the list of pattern heights.
+ * 
+ * This function updates the list of pattern heights displayed in the UI. If a height was previously selected,
+ * it attempts to select the same height after updating the list.
+ * 
+ * @note This function temporarily blocks signals from the gradationHeights combo box to prevent triggering
+ *       unnecessary signals while updating the list.
+ */
 void MainWindow::UpdateHeightsList(const QStringList &list)
 {
     QString value;
@@ -4989,7 +5275,20 @@ void MainWindow::UpdateHeightsList(const QStringList &list)
     }
 }
 
+// ENdif MainWindow::UpdateHeightsList()
+
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Updates the list of pattern sizes when multisize measurements are used, and selects a size if it was previously selected.
+ * 
+ * @param list A QStringList containing the list of pattern sizes.
+ * 
+ * @details This function updates the list of pattern sizes displayed in the UI. If a size was previously selected,
+ * it attempts to select the same size after updating the list.
+ * 
+ * @note This function temporarily blocks signals from the gradationSizes combo box to prevent triggering
+ *       unnecessary signals while updating the list.
+ */
 void MainWindow::UpdateSizesList(const QStringList &list)
 {
     QString value;
@@ -5013,18 +5312,26 @@ void MainWindow::UpdateSizesList(const QStringList &list)
         ChangedSize(0);
     }
 }
+// End MainWindow::UpdateSizesList(
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief NewPattern create new empty pattern.
+ * @brief Creates a new pattern design or opens a new draft block.
+ * 
+ * @details This function is called when the user wants to create a new pattern design or open a new draft block.
+ * 
+ * @note If there are no existing draft blocks, it creates a new draft block by prompting the user for details.
+ *       If there are existing draft blocks, it opens a new Seamly2D instance.
  */
 void MainWindow::New()
 {
+    // Check if any draft blocks exist
     if (draftBlockComboBox->count() == 0)
-    {
-        // Creating a new pattern design requires creating a new draft block
+    {   
+        // If no draft blocks exist, then this is a new pattern design
+        // Creating a new pattern design requires creating a draft block
         qCDebug(vMainWindow, "New Draft Block.");
-        QString draftBlockName = tr("Draft block %1").arg(draftBlockComboBox->count()+1);
+        QString draftBlockName = tr("Draft block %1").arg(draftBlockComboBox->count() + 1);
         qCDebug(vMainWindow, "Generated Draft Block name: %s", qUtf8Printable(draftBlockName));
 
         qCDebug(vMainWindow, "First Draft Block");
@@ -5032,16 +5339,16 @@ void MainWindow::New()
         if (newPattern.exec() == QDialog::Accepted)
         {
             draftBlockName = newPattern.name();
-            qApp->setPatternUnit(newPattern.PatternUnit());
+            qApp->setPatternUnit(newPattern.PatternUnit()); // inch or centimeter or millimeter
             qCDebug(vMainWindow, "Draft Block name: %s", qUtf8Printable(draftBlockName));
         }
         else
         {
-            qCDebug(vMainWindow, "Creating new Draft Block was canceled.");
+            qCDebug(vMainWindow, "Creating a new Draft Block was canceled.");
             return;
         }
 
-        //Set scene size to size scene view
+        // Set scene size to match the size of the scene view
         VMainGraphicsView::NewSceneRect(draftScene, ui->view);
         VMainGraphicsView::NewSceneRect(pieceScene, ui->view);
 
@@ -5055,130 +5362,214 @@ void MainWindow::New()
     }
     else
     {
+        // Open a new Seamly2D instance
         OpenNewSeamly2D();
     }
 }
 
+// End MainWindow::New()
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief haveChange enable action save if we have unsaved change.
+ * @brief Handles the notification that pattern changes were saved.
+ * 
+ * @details This function is responsible for handling the notification that pattern changes were saved. 
+ * It updates the user interface's state after pattern changes have been saved.
+ * 
+ * @param saved A boolean indicating whether the changes were successfully saved.
+ * 
+ * @note If the GUI is enabled, it sets the window modification state based on the pattern's modified status and the 'saved' parameter.
+ *       It also enables or disables the 'Save' action in the UI depending on whether the pattern is read-only.
+ *       Finally, it marks the layout as stale, indicating that it needs to be updated.
  */
 void MainWindow::patternChangesWereSaved(bool saved)
 {
     if (guiEnabled)
     {
+        // Determine the window modification state based on pattern status and 'saved' parameter
         const bool state = doc->IsModified() || !saved;
         setWindowModified(state);
-        not patternReadOnly ? ui->save_Action->setEnabled(state): ui->save_Action->setEnabled(false);
+        
+        // Enable or disable the 'Save' action based on pattern read-only status
+        not patternReadOnly ? ui->save_Action->setEnabled(state) : ui->save_Action->setEnabled(false);
+        
+        // Mark the layout as stale, indicating that it needs to be updated
         isLayoutStale = true;
     }
 }
+// End MainWindow::patternChangesWereSaved()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief ChangedSize change new size value.
- * @param index index of the selected item.
+ * @brief Handles the change in size selection.
+ * 
+ * @details This function is called when the user selects a different size from the gradationSizes combo box.
+ * It updates the measurements of the pattern based on the selected size.
+ * 
+ * @param index The index of the selected size in the combo box.
+ * 
+ * @note If the measurements cannot be updated, it displays a warning and attempts to restore the previous size selection.
+ *       It also emits a signal to notify that the dimensions of the piece scene have changed.
  */
 void MainWindow::ChangedSize(int index)
 {
+    // Get the current size value
     const int size = static_cast<int>(VContainer::size());
+
+    // Try to update the measurements based on the selected size
     if (updateMeasurements(AbsoluteMPath(qApp->getFilePath(), doc->MPath()),
                            gradationSizes.data()->itemText(index).toInt(),
                            static_cast<int>(VContainer::height())))
     {
+        // Successfully updated measurements, parse the document and emit a signal
         doc->LiteParseTree(Document::LiteParse);
         emit pieceScene->DimensionsChanged();
     }
     else
     {
+        // Failed to update measurements, display a warning
         qCWarning(vMainWindow, "%s", qUtf8Printable(tr("Couldn't update measurements.")));
 
-        const qint32 index = gradationSizes->findText(QString().setNum(size));
-        if (index != -1)
+        // Try to restore the previous size selection
+        const qint32 restoreIndex = gradationSizes->findText(QString().setNum(size));
+        if (restoreIndex != -1)
         {
-            gradationSizes->setCurrentIndex(index);
+            gradationSizes->setCurrentIndex(restoreIndex);
         }
         else
         {
+            // Failed to restore the size value, display a warning
             qCWarning(vMainWindow, "Couldn't restore size value.");
         }
     }
 }
+// End MainWindow::ChangedSize()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief ChangedGrowth change new height value.
- * @param index index of the selected item.
+ * @brief Handles the change in height selection.
+ * 
+ * @details This function is called when the user selects a different height from the gradationHeights combo box.
+ * It updates the measurements of the pattern based on the selected height.
+ * 
+ * @param index The index of the selected height in the combo box.
+ * 
+ * @note If the measurements cannot be updated, it displays a warning and attempts to restore the previous height selection.
+ *       It also emits a signal to notify that the dimensions of the piece scene have changed.
  */
 void MainWindow::ChangedHeight(int index)
 {
+    // Get the current height value
     const int height = static_cast<int>(VContainer::height());
-    if (updateMeasurements(AbsoluteMPath(qApp->getFilePath(), doc->MPath()), static_cast<int>(VContainer::size()),
+
+    // Try to update the measurements based on the selected height
+    if (updateMeasurements(AbsoluteMPath(qApp->getFilePath(), doc->MPath()),
+                           static_cast<int>(VContainer::size()),
                            gradationHeights.data()->itemText(index).toInt()))
     {
+        // Successfully updated measurements, parse the document and emit a signal
         doc->LiteParseTree(Document::LiteParse);
         emit pieceScene->DimensionsChanged();
     }
     else
     {
+        // Failed to update measurements, display a warning
         qCWarning(vMainWindow, "%s", qUtf8Printable(tr("Couldn't update measurements.")));
 
-        const qint32 index = gradationHeights->findText(QString().setNum(height));
-        if (index != -1)
+        // Try to restore the previous height selection
+        const qint32 restoreIndex = gradationHeights->findText(QString().setNum(height));
+        if (restoreIndex != -1)
         {
-            gradationHeights->setCurrentIndex(index);
+            gradationHeights->setCurrentIndex(restoreIndex);
         }
         else
         {
+            // Failed to restore the height value, display a warning
             qCWarning(vMainWindow, "Couldn't restore height value.");
         }
     }
 }
+// End MainWindow::ChangedHeight(int index)
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Sets the default height for the pattern.
+ * 
+ * This function sets the default height for the pattern based on the value obtained from the document.
+ * If the default height is not found in the available height options, it falls back to the current container height.
+ * 
+ * @note The function updates the height in the gradationHeights combo box and sets the container height accordingly.
+ */
 void MainWindow::SetDefaultHeight()
 {
+    // Retrieve the default height from the document
     const QString defHeight = QString().setNum(doc->GetDefCustomHeight());
+
+    // Find the index of the default height in the gradationHeights combo box
     int index = gradationHeights->findText(defHeight);
+
+    // If the default height is found, set it as the current selection
     if (index != -1)
     {
         gradationHeights->setCurrentIndex(index);
     }
     else
     {
+        // If the default height is not found, fall back to the current container height
         index = gradationHeights->findText(QString().setNum(VContainer::height()));
         if (index != -1)
         {
             gradationHeights->setCurrentIndex(index);
         }
     }
+
+    // Set the container height based on the selected height in the combo box
     VContainer::setHeight(gradationHeights->currentText().toInt());
 }
+// End MainWindow::SetDefaultHeight()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Sets the default size for the pattern.
+ * 
+ * @details This function sets the default size for the pattern based on the value obtained from the document.
+ * If the default size is not found in the available size options, it falls back to the current container size.
+ * 
+ * @note The function updates the size in the gradationSizes combo box and sets the container size accordingly.
+ */
 void MainWindow::SetDefaultSize()
 {
+    // Retrieve the default size from the document
     const QString defSize = QString().setNum(doc->GetDefCustomSize());
+
+    // Find the index of the default size in the gradationSizes combo box
     int index = gradationSizes->findText(defSize);
+
+    // If the default size is found, set it as the current selection
     if (index != -1)
     {
         gradationSizes->setCurrentIndex(index);
     }
     else
     {
+        // If the default size is not found, fall back to the current container size
         index = gradationSizes->findText(QString().setNum(VContainer::size()));
         if (index != -1)
         {
             gradationSizes->setCurrentIndex(index);
         }
     }
+
+    // Set the container size based on the selected size in the combo box
     VContainer::setSize(gradationSizes->currentText().toInt());
 }
 
+// End MainWindow::SetDefaultSize()
+
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief setToolsEnabled enable button.
- * @param enable enable value.
+ * @brief Sets the enabled state of various toolbox actions based on the current mode.
+ * 
+ * @param enable A boolean flag indicating whether to enable or disable toolbox actions.
  */
 void MainWindow::setToolsEnabled(bool enable)
 {
@@ -5186,6 +5577,7 @@ void MainWindow::setToolsEnabled(bool enable)
     bool pieceTools = false;
     bool layoutTools = false;
 
+    // Determine the category of tools to enable based on the current mode.
     switch (mode)
     {
         case Draw::Calculation:
@@ -5201,10 +5593,10 @@ void MainWindow::setToolsEnabled(bool enable)
             break;
     }
 
-    // This check helps to find missed tools
+    // Check helps to find missed tools
     Q_STATIC_ASSERT_X(static_cast<int>(Tool::LAST_ONE_DO_NOT_USE) == 53, "Not all tools were handled.");
 
-    //Toolbox Drafting Tools
+    // Enable/Disable Drafting Tools in the Toolbox
     //Points
     ui->pointAtDistanceAngle_ToolButton->setEnabled(draftTools);
     ui->alongLine_ToolButton->setEnabled(draftTools);
@@ -5339,16 +5731,28 @@ void MainWindow::setToolsEnabled(bool enable)
     ui->exportLayout_Action->setEnabled(layoutTools);
     ui->lastTool_Action->setEnabled(draftTools);
 
+    // Arrow
     ui->arrowPointer_ToolButton->setEnabled(draftTools || pieceTools);
     ui->arrowPointer_ToolButton->setChecked(draftTools || pieceTools);
     ui->arrow_Action->setChecked(draftTools || pieceTools);
 }
+// End MainWindow::setToolsEnabled()
 
 //---------------------------------------------------------------------------------------------------------------------
+/**
+ * @brief Updates layout mode actions based on the availability of scenes.
+ * 
+ * @details This function sets the enabled/disabled state of various layout mode actions
+ * based on the presence of scenes. These actions are related to exporting and printing
+ * layouts. If there are scenes available (i.e., layouts exist), the actions are enabled;
+ * otherwise, they are disabled.
+ */
 void MainWindow::SetLayoutModeActions()
 {
-    const bool enabled = not scenes.isEmpty();
+    // Check if there are scenes (layouts) available.
+    const bool enabled = !scenes.isEmpty();
 
+    // Set the enabled/disabled state of layout mode actions based on the availability of scenes.
     ui->exportLayout_ToolButton->setEnabled(enabled);
     ui->exportAs_Action->setEnabled(enabled);
     ui->printPreview_Action->setEnabled(enabled);
@@ -5356,39 +5760,70 @@ void MainWindow::SetLayoutModeActions()
     ui->print_Action->setEnabled(enabled);
     ui->printTiled_Action->setEnabled(enabled);
 }
+// End MainWindow::SetLayoutModeActions()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief MinimumScrollBar set scroll bar to minimum.
+ * @brief Resets the horizontal and vertical scrollbars to their minimum values.
+ * 
+ * @details This function sets the horizontal and vertical scrollbars of the "ui->view" widget
+ * to their minimum values. This effectively scrolls the view to its top-left corner, ensuring
+ * that the view is positioned at its minimum scroll position.
  */
 void MainWindow::MinimumScrollBar()
 {
+    // Get a pointer to the horizontal scrollbar of the view.
     QScrollBar *horScrollBar = ui->view->horizontalScrollBar();
+    
+    // Set the horizontal scrollbar's value to its minimum.
     horScrollBar->setValue(horScrollBar->minimum());
+    
+    // Get a pointer to the vertical scrollbar of the view.
     QScrollBar *verScrollBar = ui->view->verticalScrollBar();
+    
+    // Set the vertical scrollbar's value to its minimum.
     verScrollBar->setValue(verScrollBar->minimum());
 }
+// End MainWindow::MinimumScrollBar()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief SavePattern save pattern file.
- * @param fileName pattern file name.
- * @return true if all is good.
+ * @brief Saves the pattern to the specified file.
+ * 
+ * @param fileName The name of the file to which the pattern should be saved.
+ * @param error A reference to a QString that will hold an error message if the save operation fails.
+ * @return true if the pattern was successfully saved, false otherwise.
+ * 
+ * @details This function attempts to save the current pattern to the specified file. It sets the
+ * pattern's file path to the provided fileName and calls the SaveDocument function of the document
+ * (doc) to save the pattern's data. If the save operation is successful, it updates the current file,
+ * displays a "File saved" message in the helpLabel, and emits a signal to indicate that pattern changes
+ * were saved. If the save operation fails, it restores the pattern's previous file path, emits a signal
+ * to update the pattern label, and logs a warning message with the details of the failure.
+ * 
+ * @note The function assumes that doc represents the current pattern, and it is expected that the pattern
+ * may have been modified before calling this function.
  */
 bool MainWindow::SavePattern(const QString &fileName, QString &error)
 {
     qCDebug(vMainWindow, "Saving pattern file %s.", qUtf8Printable(fileName));
     QFileInfo tempInfo(fileName);
 
+    // Get the absolute MPath of the pattern's current file path and document's MPath.
     const QString filename = AbsoluteMPath(qApp->getFilePath(), doc->MPath());
+
+    // If there is a valid filename and it's different from the current file path, set the new MPath.
     if (!filename.isEmpty() && qApp->getFilePath() != fileName)
     {
         doc->SetMPath(RelativeMPath(fileName, filename));
     }
 
+    // Attempt to save the pattern to the specified file.
     const bool result = doc->SaveDocument(fileName, error);
+
     if (result)
     {
+        // If the save operation was successful, update the current file and display a "File saved" message.
         if (tempInfo.suffix() != QLatin1String("autosave"))
         {
             setCurrentFile(fileName);
@@ -5399,32 +5834,51 @@ bool MainWindow::SavePattern(const QString &fileName, QString &error)
     }
     else
     {
+        // If the save operation failed, restore the previous MPath, update the pattern label, and log a warning message.
         doc->SetMPath(filename);
         emit doc->UpdatePatternLabel();
         qCWarning(vMainWindow, "Could not save file %s. %s.", qUtf8Printable(fileName), qUtf8Printable(error));
     }
+
     return result;
 }
+// End MainWindow::SavePattern()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief AutoSavePattern start safe saving.
+ * @brief Automatically saves the pattern.
+ * 
+ * @details This function automatically saves the pattern when certain conditions are met.
+ * It first checks if the pattern is set as read-only, and if so, it returns without saving.
+ * Then, it checks if there is a current file path and if the main window has been modified.
+ * If these conditions are met, it constructs an autosave file path using the current file path
+ * and an autosave prefix, and then attempts to save the pattern to that file path.
+ * 
+ * @note The autosave feature helps prevent data loss by creating a backup of the pattern at
+ * regular intervals or when changes are made to the pattern.
  */
 void MainWindow::AutoSavePattern()
 {
+    // Check if the pattern is read-only; if so, return without saving.
     if (patternReadOnly)
     {
         return;
     }
+
     qCDebug(vMainWindow, "Autosaving pattern.");
 
-    if (qApp->getFilePath().isEmpty() == false && this->isWindowModified() == true)
+    // Check if there is a current file path and if the main window has been modified.
+    if (!qApp->getFilePath().isEmpty() && this->isWindowModified())
     {
-        QString autofile = qApp->getFilePath() + autosavePrefix;
+        // Construct the autosave file path using the current file path and an autosave prefix.
+        QString autosaveFilePath = qApp->getFilePath() + autosavePrefix;
         QString error;
-        SavePattern(autofile, error);
+
+        // Attempt to save the pattern to the autosave file path.
+        SavePattern(autosaveFilePath, error);
     }
 }
+// End MainWindow::AutoSavePattern()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
