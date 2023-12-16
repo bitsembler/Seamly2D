@@ -457,7 +457,10 @@ void MainWindow::InitScenes()
     connect(ui->view, &VMainGraphicsView::signalZoomScaleChanged, this, &MainWindow::zoomScaleChanged);
 
     // Set the size policy for the graphics view
-    QSizePolicy policy(QSizePolicy::Expanding, Q
+    QSizePolicy policy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    policy.setHorizontalStretch(12);
+    ui->view->setSizePolicy(policy);
+    qApp->setSceneView(ui->view);
 }
 // End MainWindow::InitScenes()
 
@@ -737,18 +740,19 @@ void MainWindow::checkRequiredMeasurements(const MeasurementDoc *measurements)
 // End MainWindow::checkRequiredMeasurements() 
 
 //---------------------------------------------------------------------------------------------------------------------
-/**
- * @brief Template function to set a tool button in the UI based on the provided parameters and show dialog.
- * @param checked true if tool button checked.
- * @param t tool type.
- * @param cursor path tool cursor icon.
- * @param toolTip first tooltipe.
- * @param closeDialogSlot function what handle after close dialog.
- */
+
 template <typename Dialog, typename Func>
 void MainWindow::SetToolButton(bool checked, Tool t, const QString &cursor, const QString &toolTip,
                                 Func closeDialogSlot)
 {
+     /**
+     * '@brief Template function to set a tool button in the UI based on the provided parameters and show dialog.
+     * '@param checked true if tool button checked.
+     * '@param t tool type.
+     * '@param cursor path tool cursor icon.
+     * '@param toolTip first tooltipe.
+     * '@param closeDialogSlot function what handle after close dialog.
+     */
     if (checked)
     {
         // If the tool is checked, cancel any existing tool, disable item movement, and set the current tool
@@ -820,21 +824,21 @@ void MainWindow::SetToolButton(bool checked, Tool t, const QString &cursor, cons
 // End MainWindow::SetToolButton()
 
 //---------------------------------------------------------------------------------------------------------------------
-/**
- * @brief Template function to set a tool button with apply functionality in the UI based on the provided parameters.
- * 
- * @param checked 
- * @param t 
- * @param cursor 
- * @param toolTip 
- * @param closeDialogSlot 
- * @param applyDialogSlot 
- * @return template <typename Dialog, typename Func, typename Func2> 
- */
 template <typename Dialog, typename Func, typename Func2>
 void MainWindow::SetToolButtonWithApply(bool checked, Tool t, const QString &cursor, const QString &toolTip,
                                         Func closeDialogSlot, Func2 applyDialogSlot)
 {
+     /**
+     * @ brief Template function to set a tool button with apply functionality in the UI based on the provided parameters.
+     *
+     * @ param checked
+     * @ param t
+     * @ param cursor
+     * @ param toolTip
+     * @ param closeDialogSlot
+     * @ param applyDialogSlot
+     * @ return template <typename Dialog, typename Func, typename Func2>
+     */
     // Sets a tool button in the UI and shows a dialog with additional functionality for applying changes
 
     if (checked)
@@ -857,13 +861,14 @@ void MainWindow::SetToolButtonWithApply(bool checked, Tool t, const QString &cur
 // EndMainWindow::SetToolButtonWithApply()
 
 //---------------------------------------------------------------------------------------------------------------------
-/**
- * @brief Template function to handle the closure of a dialog associated with a drawing tool
- * @param result result working dialog.
- */
+
 template <typename DrawTool>
 void MainWindow::ClosedDialog(int result)
 {
+    /**
+     * @ brief Template function to handle the closure of a dialog associated with a drawing tool
+     * @ param result result working dialog.
+     */
     /* Handle the closure of a dialog associated with a drawing tool, 
     creating a new QGraphicsItem based on the specified drawing tool 
     and updating the view accordingly.
@@ -892,13 +897,14 @@ void MainWindow::ClosedDialog(int result)
 // End MainWindow::ClosedDialog()
 
 //---------------------------------------------------------------------------------------------------------------------
-/**
- * @brief Template function to handle the closure of a dialog associated with a drawing tool, with an apply functionality.
- * @param result result working dialog.
- */
+
 template <typename DrawTool>
 void MainWindow::ClosedDialogWithApply(int result, VMainGraphicsScene *scene)
 {
+    /**
+     * @ brief Template function to handle the closure of a dialog associated with a drawing tool, with an apply functionality.
+     * @ param result result working dialog.
+     */
 
     /* Handle the closure of a dialog associated with a drawing tool, 
         applying changes if accepted and performing necessary cleanup.
@@ -947,15 +953,16 @@ void MainWindow::ClosedDialogWithApply(int result, VMainGraphicsScene *scene)
 // End MainWindow::ClosedDialogWithApply()
 
 //---------------------------------------------------------------------------------------------------------------------
-/**
- * @brief Template function to apply changes from a dialog associated with a drawing tool.
- * 
- * @param scene 
- * @return template <typename DrawTool> 
- */
+
 template <typename DrawTool>
 void MainWindow::ApplyDialog(VMainGraphicsScene *scene)
 {
+    /**
+    * @ brief Template function to apply changes from a dialog associated with a drawing tool.
+    *
+    * @ param scene
+    * @ return template <typename DrawTool>
+    */
     /* Apply changes from a dialog associated with a drawing tool, 
         either by creating a new associated tool or updating an existing one.
     */
@@ -983,15 +990,16 @@ void MainWindow::ApplyDialog(VMainGraphicsScene *scene)
 // End MainWindow::ApplyDialog()
 
 //---------------------------------------------------------------------------------------------------------------------
-/**
- * @brief Template function to handle the closure of a drawing dialog with apply functionality.
- * 
- * @param result 
- * @return template <typename DrawTool> 
- */
+
 template <typename DrawTool>
 void MainWindow::ClosedDrawDialogWithApply(int result)
 {
+    /**
+     * @ brief Template function to handle the closure of a drawing dialog with apply functionality.
+     *
+     * @ param result
+     * @ return template <typename DrawTool>
+     */
     /* Simple wrapper that calls another template function (ClosedDialogWithApply) with 
         the specified DrawTool template parameter and the result of the dialog closure. 
         The draftScene is passed as the graphics scene to the underlying function.
@@ -1004,14 +1012,15 @@ void MainWindow::ClosedDrawDialogWithApply(int result)
 // End MainWindow::ClosedDrawDialogWithApply()
 
 //---------------------------------------------------------------------------------------------------------------------
-/**
- * @brief Template function to apply changes from a drawing dialog associated with a specified DrawTool.
- * 
- * @return template <typename DrawTool> 
- */
+
 template <typename DrawTool>
 void MainWindow::ApplyDrawDialog()
 {
+    /**
+     * @ brief Template function to apply changes from a drawing dialog associated with a specified DrawTool.
+     *
+     * @ return template <typename DrawTool>
+     */
     /* Simple wrapper that calls another template function (ApplyDialog) with 
         the specified DrawTool template parameter, applying changes from a drawing dialog 
         associated with the provided DrawTool. The draftScene is passed as the graphics 
@@ -1025,15 +1034,16 @@ void MainWindow::ApplyDrawDialog()
 // End MainWindow::ApplyDrawDialog()
 
 //---------------------------------------------------------------------------------------------------------------------
-/**
- * @brief Template function to handle the closure of a dialog associated with drawing pieces, with apply functionality.
- * 
- * @param result 
- * @return template <typename DrawTool> 
- */
+
 template <typename DrawTool>
 void MainWindow::ClosedPiecesDialogWithApply(int result)
 {
+    /**
+     * @ brief Template function to handle the closure of a dialog associated with drawing pieces, with apply functionality.
+     *
+     * @ param result
+     * @ return template <typename DrawTool>
+     */
     /* Wrapper that calls another template function (ClosedDialogWithApply) with 
         the specified DrawTool template parameter and the result of the dialog closure. 
         The pieceScene is passed as the graphics scene to the underlying function. 
@@ -1059,14 +1069,15 @@ void MainWindow::ClosedPiecesDialogWithApply(int result)
 // End MainWindow::ClosedPiecesDialogWithApply()
 
 //---------------------------------------------------------------------------------------------------------------------
-/**
- * @brief Template function to apply changes from a dialog associated with drawing pieces using a specified DrawTool.
- * 
- * @return template <typename DrawTool> 
- */
+
 template <typename DrawTool>
 void MainWindow::applyPiecesDialog()
 {
+    /**
+     * @ brief Template function to apply changes from a dialog associated with drawing pieces using a specified DrawTool.
+     *
+     * @ return template <typename DrawTool>
+     */
     /* Simple wrapper that calls another template function (ApplyDialog) 
         with the specified DrawTool template parameter, 
         applying changes from a dialog associated with drawing pieces. 
