@@ -151,10 +151,6 @@ jobs:
           echo "APPLE_SIGN_IDENTITY=${{ secrets.apple_sign_identity }}" >> $GITHUB_ENV
 
           mkdir -p ~/private_keys/
-          echo '${{ secrets.apple_notarize_key_content }}' > ~/private_keys/AuthKey_${{ secrets.apple_notarize_key_id }}.p8
-          echo "APPLE_NOTARIZE_KEY=~/private_keys/AuthKey_${{ secrets.apple_notarize_key_id }}.p8" >> $GITHUB_ENV
-          echo "APPLE_NOTARIZE_KEY_ID=${{ secrets.apple_notarize_key_id }}" >> $GITHUB_ENV
-          echo "APPLE_NOTARIZE_ISSUER_ID=${{ secrets.apple_notarize_issuer_id }}" >> $GITHUB_ENV
 
       - name: make Seamly2D for macos
         env:
