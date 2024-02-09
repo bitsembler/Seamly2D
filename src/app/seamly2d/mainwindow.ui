@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Seamly2D</string>
+   <string>Mfd-2-Pattern</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../../libs/vmisc/share/resources/icon.qrc">
@@ -3500,10 +3500,10 @@
      <normaloff>:/icon/logos/seamly_logo_32.png</normaloff>:/icon/logos/seamly_logo_32.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;About Seamly2D</string>
+    <string>&amp;About Mfd-2-ME</string>
    </property>
    <property name="toolTip">
-    <string>About Seamly2D</string>
+    <string>About Mfd-2-ME</string>
    </property>
    <property name="menuRole">
     <enum>QAction::AboutRole</enum>
@@ -3885,10 +3885,10 @@
      <normaloff>:/icon/logos/seamlyme_logo_32.png</normaloff>:/icon/logos/seamlyme_logo_32.png</iconset>
    </property>
    <property name="text">
-    <string>Open SeamlyMe</string>
+    <string>Open Mfd-2-ME</string>
    </property>
    <property name="toolTip">
-    <string>Open SeamlyMe measurements app (Ctrl+M)</string>
+    <string>Open Mfd-2-ME measurements app (Ctrl+M)</string>
    </property>
    <property name="shortcut">
     <string notr="true">Ctrl+M</string>
