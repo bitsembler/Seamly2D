@@ -160,7 +160,7 @@ jobs:
           if [ -n "$APPLE_SIGN_IDENTITY" ] ; then
             qmake Seamly2D.pro -config release CONFIG+=noTests CONFIG+=macSign
           else
-            qmake Seamly2D.pro -config release CONFIG+=noTests CONFIG+=macSign
+            qmake Seamly2D.pro -config release CONFIG+=noTests
           fi
           make -j$(sysctl -n hw.logicalcpu)
 
