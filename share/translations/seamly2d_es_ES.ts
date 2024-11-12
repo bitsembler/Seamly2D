@@ -9842,6 +9842,14 @@ actualización:</translation>
         <source>Hide Seam Line</source>
         <translation>Ocultar línea de costura</translation>
     </message>
+    <message>
+        <source>Arrow length:</source>
+        <translation>Longitud de flecha</translation>
+    </message>
+    <message>
+        <source> px</source>
+        <translation type="unfinished"> px</translation>
+    </message>
 </context>
 <context>
     <name>QCoreApplication</name>
