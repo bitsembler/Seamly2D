@@ -9844,11 +9844,11 @@ actualización:</translation>
     </message>
     <message>
         <source>Arrow length:</source>
-        <translation>Longitud de flecha</translation>
+        <translation>Longitud de flecha:</translation>
     </message>
     <message>
         <source> px</source>
-        <translation type="unfinished"> px</translation>
+        <translation> px</translation>
     </message>
 </context>
 <context>
