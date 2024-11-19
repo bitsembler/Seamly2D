@@ -11971,10 +11971,6 @@ load in SeamlyME as usual.
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;¿Desea unir los detalles?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>Retain original pieces</source>
-        <translation>Conservar las piezas originales</translation>
-    </message>
-    <message>
         <source>Select the first point</source>
         <translation>Seleccione primer punto</translation>
     </message>

@@ -11886,10 +11886,6 @@ load in SeamlyME as usual.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Retain original pieces</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Select the first point</source>
         <translation type="unfinished"></translation>
     </message>
