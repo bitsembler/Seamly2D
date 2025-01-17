@@ -1,53 +1,52 @@
-/***************************************************************************
- *                                                                         *
- *   Copyright (C) 2017  Seamly, LLC                                       *
- *                                                                         *
- *   https://github.com/fashionfreedom/seamly2d                            *
- *                                                                         *
- ***************************************************************************
- **
- **  Seamly2D is free software: you can redistribute it and/or modify
- **  it under the terms of the GNU General Public License as published by
- **  the Free Software Foundation, either version 3 of the License, or
- **  (at your option) any later version.
- **
- **  Seamly2D is distributed in the hope that it will be useful,
- **  but WITHOUT ANY WARRANTY; without even the implied warranty of
- **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- **  GNU General Public License for more details.
- **
- **  You should have received a copy of the GNU General Public License
- **  along with Seamly2D.  If not, see <http://www.gnu.org/licenses/>.
- **
- **************************************************************************
+//-----------------------------------------------------------------------------
+//  @file   dialogalongline.cpp
+//  @author Douglas S Caskey
+//  @date   30 Apr, 2023
+//
+//  @copyright
+//  Copyright (C) 2017 - 2024 Seamly, LLC
+//  https://github.com/fashionfreedom/seamly2d
+//
+//  @brief
+//  Seamly2D is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  Seamly2D is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with Seamly2D. If not, see <http://www.gnu.org/licenses/>.
+//-----------------------------------------------------------------------------
 
- ************************************************************************
- **
- **  @file   dialogalongline.cpp
- **  @author Roman Telezhynskyi <dismine(at)gmail.com>
- **  @date   November 15, 2013
- **
- **  @brief
- **  @copyright
- **  This source code is part of the Valentine project, a pattern making
- **  program, whose allow create and modeling patterns of clothing.
- **  Copyright (C) 2013-2015 Seamly2D project
- **  <https://github.com/fashionfreedom/seamly2d> All Rights Reserved.
- **
- **  Seamly2D is free software: you can redistribute it and/or modify
- **  it under the terms of the GNU General Public License as published by
- **  the Free Software Foundation, either version 3 of the License, or
- **  (at your option) any later version.
- **
- **  Seamly2D is distributed in the hope that it will be useful,
- **  but WITHOUT ANY WARRANTY; without even the implied warranty of
- **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- **  GNU General Public License for more details.
- **
- **  You should have received a copy of the GNU General Public License
- **  along with Seamly2D.  If not, see <http://www.gnu.org/licenses/>.
- **
- *************************************************************************/
+//-----------------------------------------------------------------------------
+//  @file   dialogalongline.cpp
+//  @author Roman Telezhynskyi <dismine(at)gmail.com>
+//  @date   November 15, 2013
+//
+//  @copyright
+//  Copyright (C) 2013 Valentina project.
+//  This source code is part of the Valentina project, a pattern making
+//  program, whose allow create and modeling patterns of clothing.
+//  <https://bitbucket.org/dismine/valentina> All Rights Reserved.
+//
+//  Valentina is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published
+//  by the Free Software Foundation, either version 3 of the License,
+//  or (at your option) any later version.
+//
+//  Valentina is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with Valentina.  If not, see <http://www.gnu.org/licenses/>.
+//-----------------------------------------------------------------------------
+
 
 #include "dialogalongline.h"
 
@@ -85,12 +84,18 @@
  * @param parent parent widget
  */
 DialogAlongLine::DialogAlongLine(const VContainer *data, const quint32 &toolId, QWidget *parent)
-    : DialogTool(data, toolId, parent), ui(new Ui::DialogAlongLine),
-      formula(QString()), formulaBaseHeight(0), buildMidpoint(false)
+    : DialogTool(data, toolId, parent)
+    , ui(new Ui::DialogAlongLine)
+    , formula(QString())
+    , formulaBaseHeight(0)
+    , buildMidpoint(false)
 {
     ui->setupUi(this);
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     setWindowIcon(QIcon(":/toolicon/32x32/along_line.png"));
+
+    // Set the position that the dialog opens based on user preference.
+    setDialogPosition();
 
     ui->lineEditNamePoint->setClearButtonEnabled(true);
 
@@ -105,8 +110,8 @@ DialogAlongLine::DialogAlongLine(const VContainer *data, const quint32 &toolId, 
     flagFormula = false;
     DialogTool::CheckState();
 
-    FillComboBoxPoints(ui->comboBoxFirstPoint);
-    FillComboBoxPoints(ui->comboBoxSecondPoint);
+    fillComboBoxPoints(ui->comboBoxFirstPoint);
+    fillComboBoxPoints(ui->comboBoxSecondPoint);
 
     int index = ui->lineColor_ComboBox->findData(qApp->getCurrentDocument()->getDefaultLineColor());
     if (index != -1)
@@ -135,9 +140,13 @@ DialogAlongLine::DialogAlongLine(const VContainer *data, const quint32 &toolId, 
 
     vis = new VisToolAlongLine(data);
 
-    // Call after initialization vis!!!!
-    setLineType(LineTypeNone);//By default don't show line
-    setLineWeight("0.35");
+    // Call after visual initialized.
+    // If true current pen overides the default tool pen
+    if(!qApp->Settings()->useCurrentPen())
+    {
+        setLineType(LineTypeNone);  //By default don't show line
+        setLineWeight("0.35");
+    }
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -169,7 +178,7 @@ void DialogAlongLine::PointChanged()
 //---------------------------------------------------------------------------------------------------------------------
 void DialogAlongLine::FXLength()
 {
-    EditFormulaDialog *dialog = new EditFormulaDialog(data, toolId, this);
+    EditFormulaDialog *dialog = new EditFormulaDialog(data, toolId, ToolDialog, this);
     dialog->setWindowTitle(tr("Edit length"));
     dialog->SetFormula(GetFormula());
     dialog->setPostfix(UnitsToStr(qApp->patternUnit(), true));
@@ -200,7 +209,7 @@ DialogAlongLine::~DialogAlongLine()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief ChoosedObject gets id and type of selected object. Save right data and ignore wrong.
+ * @brief ChosenObject gets id and type of selected object. Save right data and ignore wrong.
  * @param id id of point or detail
  * @param type type of object
  */
@@ -335,7 +344,7 @@ void DialogAlongLine::SetFirstPointId(const quint32 &value)
  */
 void DialogAlongLine::SetFormula(const QString &value)
 {
-    formula = qApp->TrVars()->FormulaToUser(value, qApp->Settings()->GetOsSeparator());
+    formula = qApp->translateVariables()->FormulaToUser(value, qApp->Settings()->getOsSeparator());
     // increase height if needed.
     if (formula.length() > 80)
     {
@@ -422,7 +431,7 @@ void DialogAlongLine::SetPointName(const QString &value)
  */
 QString DialogAlongLine::GetFormula() const
 {
-    return qApp->TrVars()->TryFormulaFromUser(formula, qApp->Settings()->GetOsSeparator());
+    return qApp->translateVariables()->TryFormulaFromUser(formula, qApp->Settings()->getOsSeparator());
 }
 
 //---------------------------------------------------------------------------------------------------------------------

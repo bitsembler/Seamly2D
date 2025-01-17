@@ -46,7 +46,7 @@
 
 #include "layoutsettings_dialog.h"
 #include "ui_layoutsettings_dialog.h"
-#include "../core/vapplication.h"
+#include "../core/application_2d.h"
 #include "../ifc/xml/vdomdocument.h"
 #include "../vmisc/vsettings.h"
 #include "../vmisc/vmath.h"
@@ -70,7 +70,7 @@ LayoutSettingsDialog::LayoutSettingsDialog(VLayoutGenerator *generator, QWidget 
     ui->setupUi(this);
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 
-    qApp->Seamly2DSettings()->GetOsSeparator() ? setLocale(QLocale()) : setLocale(QLocale::c());
+    qApp->Seamly2DSettings()->getOsSeparator() ? setLocale(QLocale()) : setLocale(QLocale::c());
 
     //moved from ReadSettings - well...it seems it can be done once only (i.e. constructor) because Init funcs dont
     //even cleanse lists before adding
@@ -172,13 +172,13 @@ void LayoutSettingsDialog::SetShift(qreal value)
 }
 
 //---------------------------------------------------------------------------------------------------------------------
-qreal LayoutSettingsDialog::GetLayoutWidth() const
+qreal LayoutSettingsDialog::getLayoutGap() const
 {
     return UnitConvertor(ui->doubleSpinBoxLayoutWidth->value(), oldLayoutUnit, Unit::Px);
 }
 
 //---------------------------------------------------------------------------------------------------------------------
-void LayoutSettingsDialog::SetLayoutWidth(qreal value)
+void LayoutSettingsDialog::setLayoutGap(qreal value)
 {
     ui->doubleSpinBoxLayoutWidth->setValue(UnitConvertor(value, Unit::Px, LayoutUnit()));
 }
@@ -310,13 +310,13 @@ void LayoutSettingsDialog::SetUnitePages(bool save)
 }
 
 //---------------------------------------------------------------------------------------------------------------------
-bool LayoutSettingsDialog::IsStripOptimization() const
+bool LayoutSettingsDialog::useStripOptimization() const
 {
     return ui->groupBoxStrips->isChecked();
 }
 
 //---------------------------------------------------------------------------------------------------------------------
-void LayoutSettingsDialog::SetStripOptimization(bool save)
+void LayoutSettingsDialog::setStripOptimization(bool save)
 {
     ui->groupBoxStrips->setChecked(save);
 }
@@ -578,8 +578,8 @@ void LayoutSettingsDialog::Swap(bool checked)
 void LayoutSettingsDialog::DialogAccepted()
 {
     SCASSERT(generator != nullptr)
-    generator->SetLayoutWidth(GetLayoutWidth());
-    generator->SetCaseType(GetGroup());
+    generator->setLayoutGap(getLayoutGap());
+    generator->setCaseType(GetGroup());
     generator->SetPaperHeight(GetPaperHeight());
     generator->SetPaperWidth(GetPaperWidth());
     generator->SetShift(static_cast<quint32>(qFloor(GetShift())));
@@ -588,9 +588,9 @@ void LayoutSettingsDialog::DialogAccepted()
     generator->SetAutoCrop(GetAutoCrop());
     generator->SetSaveLength(IsSaveLength());
     generator->SetUnitePages(IsUnitePages());
-    generator->SetStripOptimization(IsStripOptimization());
+    generator->setStripOptimization(useStripOptimization());
     generator->SetMultiplier(GetMultiplier());
-    generator->SetTestAsPaths(isTextAsPaths());
+    generator->setTextAsPaths(isTextAsPaths());
 
     if (IsIgnoreAllFields())
     {
@@ -671,7 +671,7 @@ void LayoutSettingsDialog::RestoreDefaults()
     InitPrinter();
     ui->comboBoxPrinter->blockSignals(false);
 
-    SetLayoutWidth(VSettings::GetDefLayoutWidth());
+    setLayoutGap(VSettings::getDefLayoutGap());
     SetShift(VSettings::GetDefLayoutShift());
     SetGroup(VSettings::GetDefLayoutGroup());
     SetRotate(VSettings::GetDefLayoutRotate());
@@ -734,8 +734,8 @@ void LayoutSettingsDialog::InitPaperUnits()
     ui->comboBoxPaperSizeUnit->addItem(tr("Pixels"), QVariant(UnitsToStr(Unit::Px)));
 
     // set default unit
-    oldPaperUnit = StrToUnits(qApp->Seamly2DSettings()->GetUnit());
-    const qint32 indexUnit = ui->comboBoxPaperSizeUnit->findData(qApp->Seamly2DSettings()->GetUnit());
+    oldPaperUnit = StrToUnits(qApp->Seamly2DSettings()->getUnit());
+    const qint32 indexUnit = ui->comboBoxPaperSizeUnit->findData(qApp->Seamly2DSettings()->getUnit());
     if (indexUnit != -1)
     {
         ui->comboBoxPaperSizeUnit->setCurrentIndex(indexUnit);
@@ -750,8 +750,8 @@ void LayoutSettingsDialog::InitLayoutUnits()
     ui->comboBoxLayoutUnit->addItem(tr("Inches"), QVariant(UnitsToStr(Unit::Inch)));
 
     // set default unit
-    oldLayoutUnit = StrToUnits(qApp->Seamly2DSettings()->GetUnit());
-    const qint32 indexUnit = ui->comboBoxLayoutUnit->findData(qApp->Seamly2DSettings()->GetUnit());
+    oldLayoutUnit = StrToUnits(qApp->Seamly2DSettings()->getUnit());
+    const qint32 indexUnit = ui->comboBoxLayoutUnit->findData(qApp->Seamly2DSettings()->getUnit());
     if (indexUnit != -1)
     {
         ui->comboBoxLayoutUnit->setCurrentIndex(indexUnit);
@@ -955,7 +955,7 @@ void LayoutSettingsDialog::MinimumLayoutSize()
 void LayoutSettingsDialog::ReadSettings()
 {
     const VSettings *settings = qApp->Seamly2DSettings();
-    SetLayoutWidth(settings->GetLayoutWidth());
+    setLayoutGap(settings->getLayoutGap());
     SetShift(settings->GetLayoutShift());
 
     const qreal width = UnitConvertor(settings->GetLayoutPaperWidth(), Unit::Px, LayoutUnit());
@@ -969,7 +969,7 @@ void LayoutSettingsDialog::ReadSettings()
     SetUnitePages(settings->GetLayoutUnitePages());
     SetFields(settings->GetFields(GetDefPrinterFields()));
     SetIgnoreAllFields(settings->GetIgnoreAllFields());
-    SetStripOptimization(settings->GetStripOptimization());
+    setStripOptimization(settings->useStripOptimization());
     SetMultiplier(settings->GetMultiplier());
     setTextAsPaths(settings->GetTextAsPaths());
 
@@ -983,7 +983,7 @@ void LayoutSettingsDialog::ReadSettings()
 void LayoutSettingsDialog::WriteSettings() const
 {
     VSettings *settings = qApp->Seamly2DSettings();
-    settings->SetLayoutWidth(GetLayoutWidth());
+    settings->setLayoutGap(getLayoutGap());
     settings->SetLayoutGroup(GetGroup());
     settings->SetLayoutPaperHeight(GetPaperHeight());
     settings->SetLayoutPaperWidth(GetPaperWidth());
@@ -995,7 +995,7 @@ void LayoutSettingsDialog::WriteSettings() const
     settings->SetLayoutUnitePages(IsUnitePages());
     settings->SetFields(GetFields());
     settings->SetIgnoreAllFields(IsIgnoreAllFields());
-    settings->SetStripOptimization(IsStripOptimization());
+    settings->setStripOptimization(useStripOptimization());
     settings->SetMultiplier(GetMultiplier());
     settings->setTextAsPaths(isTextAsPaths());
 }
@@ -1020,5 +1020,5 @@ void LayoutSettingsDialog::SetAdditionalOptions(bool value)
     SetAutoCrop(value);
     SetSaveLength(value);
     SetUnitePages(value);
-    SetStripOptimization(value);
+    setStripOptimization(value);
 }

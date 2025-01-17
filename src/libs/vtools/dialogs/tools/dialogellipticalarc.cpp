@@ -1,47 +1,51 @@
-/******************************************************************************
- *   @file   dialogellipticalarc.cpp
- **  @author Douglas S Caskey
- **  @date   21 Mar, 2023
- **
- **  @brief
- **  @copyright
- **  This source code is part of the Seamly2D project, a pattern making
- **  program to create and model patterns of clothing.
- **  Copyright (C) 2017-2023 Seamly2D project
- **  <https://github.com/fashionfreedom/seamly2d> All Rights Reserved.
- **
- **  Seamly2D is free software: you can redistribute it and/or modify
- **  You should have received a copy of the GNU General Public License
- **  along with Seamly2D.  If not, see <http://www.gnu.org/licenses/>.
- **
- *****************************************************************************/
-/************************************************************************
- **
- **  @file   dialogellipticalarc.cpp
- **  @author Valentina Zhuravska <zhuravska19(at)gmail.com>
- **  @date   15 9, 2016
- **
- **  @brief
- **  @copyright
- **  This source code is part of the Valentine project, a pattern making
- **  program, whose allow create and modeling patterns of clothing.
- **  Copyright (C) 2016 Seamly2D project
- **  <https://github.com/fashionfreedom/seamly2d> All Rights Reserved.
- **
- **  Seamly2D is free software: you can redistribute it and/or modify
- **  it under the terms of the GNU General Public License as published by
- **  the Free Software Foundation, either version 3 of the License, or
- **  (at your option) any later version.
- **
- **  Seamly2D is distributed in the hope that it will be useful,
- **  but WITHOUT ANY WARRANTY; without even the implied warranty of
- **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- **  GNU General Public License for more details.
- **
- **  You should have received a copy of the GNU General Public License
- **  along with Seamly2D.  If not, see <http://www.gnu.org/licenses/>.
- **
- *************************************************************************/
+//-----------------------------------------------------------------------------
+//  @file   dialogellipticalarc.cpp
+//  @author Douglas S Caskey
+//  @date   14 Aug, 2023
+//
+//  @copyright
+//  Copyright (C) 2017 - 2024 Seamly, LLC
+//  https://github.com/fashionfreedom/seamly2d
+//
+//  @brief
+//  Seamly2D is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  Seamly2D is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with Seamly2D. If not, see <http://www.gnu.org/licenses/>.
+//-----------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+//  @file   dialogellipticalarc.cpp
+//  @author Valentina Zhuravska <zhuravska19(at)gmail.com>
+//  @date   15 Sep, 2013
+//
+//  @copyright
+//  Copyright (C) 2013 Valentina project.
+//  This source code is part of the Valentina project, a pattern making
+//  program, whose allow create and modeling patterns of clothing.
+//  <https://bitbucket.org/dismine/valentina> All Rights Reserved.
+//
+//  Valentina is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published
+//  by the Free Software Foundation, either version 3 of the License,
+//  or (at your option) any later version.
+//
+//  Valentina is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with Valentina.  If not, see <http://www.gnu.org/licenses/>.
+//-----------------------------------------------------------------------------
 
 #include "dialogellipticalarc.h"
 
@@ -105,6 +109,9 @@ DialogEllipticalArc::DialogEllipticalArc(const VContainer *data, const quint32 &
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     setWindowIcon(QIcon(":/toolicon/32x32/el_arc.png"));
 
+    // Set the position that the dialog opens based on user preference.
+    setDialogPosition();
+
     m_Id  = data->getId() + 1;
 
     this->formulaBaseHeightRadius1 = ui->plainTextEditRadius1->height();
@@ -136,7 +143,7 @@ DialogEllipticalArc::DialogEllipticalArc(const VContainer *data, const quint32 &
 
     initializeOkCancelApply(ui);
 
-    FillComboBoxPoints(ui->centerPoint_ComboBox);
+    fillComboBoxPoints(ui->centerPoint_ComboBox);
 
     int index = ui->lineType_ComboBox->findData(LineTypeNone);
     if (index != -1)
@@ -205,7 +212,7 @@ VEllipticalArc DialogEllipticalArc::getArc() const
 void DialogEllipticalArc::setArc(const VEllipticalArc &arc)
 {
     m_arc = arc;
-    ui->name_LineEdit->setText(qApp->TrVars()->VarToUser(m_arc.name()));
+    ui->name_LineEdit->setText(qApp->translateVariables()->VarToUser(m_arc.name()));
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -236,7 +243,7 @@ void DialogEllipticalArc::SetCenter(const quint32 &value)
  */
 QString DialogEllipticalArc::GetRadius1() const
 {
-    return qApp->TrVars()->TryFormulaFromUser(radius1, qApp->Settings()->GetOsSeparator());
+    return qApp->translateVariables()->TryFormulaFromUser(radius1, qApp->Settings()->getOsSeparator());
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -246,7 +253,7 @@ QString DialogEllipticalArc::GetRadius1() const
  */
 void DialogEllipticalArc::SetRadius1(const QString &value)
 {
-    radius1 = qApp->TrVars()->FormulaToUser(value, qApp->Settings()->GetOsSeparator());
+    radius1 = qApp->translateVariables()->FormulaToUser(value, qApp->Settings()->getOsSeparator());
     // increase height if needed.
     if (radius1.length() > 80)
     {
@@ -268,7 +275,7 @@ void DialogEllipticalArc::SetRadius1(const QString &value)
  */
 QString DialogEllipticalArc::GetRadius2() const
 {
-    return qApp->TrVars()->TryFormulaFromUser(radius2, qApp->Settings()->GetOsSeparator());
+    return qApp->translateVariables()->TryFormulaFromUser(radius2, qApp->Settings()->getOsSeparator());
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -278,7 +285,7 @@ QString DialogEllipticalArc::GetRadius2() const
  */
 void DialogEllipticalArc::SetRadius2(const QString &value)
 {
-    radius2 = qApp->TrVars()->FormulaToUser(value, qApp->Settings()->GetOsSeparator());
+    radius2 = qApp->translateVariables()->FormulaToUser(value, qApp->Settings()->getOsSeparator());
     // increase height if needed.
     if (radius2.length() > 80)
     {
@@ -300,7 +307,7 @@ void DialogEllipticalArc::SetRadius2(const QString &value)
  */
 QString DialogEllipticalArc::GetF1() const
 {
-    return qApp->TrVars()->TryFormulaFromUser(f1, qApp->Settings()->GetOsSeparator());
+    return qApp->translateVariables()->TryFormulaFromUser(f1, qApp->Settings()->getOsSeparator());
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -310,7 +317,7 @@ QString DialogEllipticalArc::GetF1() const
  */
 void DialogEllipticalArc::SetF1(const QString &value)
 {
-    f1 = qApp->TrVars()->FormulaToUser(value, qApp->Settings()->GetOsSeparator());
+    f1 = qApp->translateVariables()->FormulaToUser(value, qApp->Settings()->getOsSeparator());
     // increase height if needed.
     if (f1.length() > 80)
     {
@@ -332,7 +339,7 @@ void DialogEllipticalArc::SetF1(const QString &value)
  */
 QString DialogEllipticalArc::GetF2() const
 {
-    return qApp->TrVars()->TryFormulaFromUser(f2, qApp->Settings()->GetOsSeparator());
+    return qApp->translateVariables()->TryFormulaFromUser(f2, qApp->Settings()->getOsSeparator());
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -342,7 +349,7 @@ QString DialogEllipticalArc::GetF2() const
  */
 void DialogEllipticalArc::SetF2(const QString &value)
 {
-    f2 = qApp->TrVars()->FormulaToUser(value, qApp->Settings()->GetOsSeparator());
+    f2 = qApp->translateVariables()->FormulaToUser(value, qApp->Settings()->getOsSeparator());
     // increase height if needed.
     if (f2.length() > 80)
     {
@@ -364,7 +371,7 @@ void DialogEllipticalArc::SetF2(const QString &value)
  */
 QString DialogEllipticalArc::GetRotationAngle() const
 {
-    return qApp->TrVars()->TryFormulaFromUser(rotationAngle, qApp->Settings()->GetOsSeparator());
+    return qApp->translateVariables()->TryFormulaFromUser(rotationAngle, qApp->Settings()->getOsSeparator());
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -374,7 +381,7 @@ QString DialogEllipticalArc::GetRotationAngle() const
  */
 void DialogEllipticalArc::SetRotationAngle(const QString &value)
 {
-    rotationAngle = qApp->TrVars()->FormulaToUser(value, qApp->Settings()->GetOsSeparator());
+    rotationAngle = qApp->translateVariables()->FormulaToUser(value, qApp->Settings()->getOsSeparator());
     // increase height if needed.
     if (rotationAngle.length() > 80)
     {
@@ -520,7 +527,7 @@ void DialogEllipticalArc::CheckAngles()
 //---------------------------------------------------------------------------------------------------------------------
 void DialogEllipticalArc::FXRadius1()
 {
-    EditFormulaDialog *dialog = new EditFormulaDialog(data, toolId, this);
+    EditFormulaDialog *dialog = new EditFormulaDialog(data, toolId, ToolDialog, this);
     dialog->setWindowTitle(tr("Edit radius1"));
     dialog->SetFormula(GetRadius1());
     dialog->setPostfix(UnitsToStr(qApp->patternUnit(), true));
@@ -534,7 +541,7 @@ void DialogEllipticalArc::FXRadius1()
 //---------------------------------------------------------------------------------------------------------------------
 void DialogEllipticalArc::FXRadius2()
 {
-    EditFormulaDialog *dialog = new EditFormulaDialog(data, toolId, this);
+    EditFormulaDialog *dialog = new EditFormulaDialog(data, toolId, ToolDialog, this);
     dialog->setWindowTitle(tr("Edit radius2"));
     dialog->SetFormula(GetRadius2());
     dialog->setPostfix(UnitsToStr(qApp->patternUnit(), true));
@@ -548,7 +555,7 @@ void DialogEllipticalArc::FXRadius2()
 //---------------------------------------------------------------------------------------------------------------------
 void DialogEllipticalArc::FXF1()
 {
-    EditFormulaDialog *dialog = new EditFormulaDialog(data, toolId, this);
+    EditFormulaDialog *dialog = new EditFormulaDialog(data, toolId, ToolDialog, this);
     dialog->setWindowTitle(tr("Edit first angle"));
     dialog->SetFormula(GetF1());
     dialog->setPostfix(degreeSymbol);
@@ -562,7 +569,7 @@ void DialogEllipticalArc::FXF1()
 //---------------------------------------------------------------------------------------------------------------------
 void DialogEllipticalArc::FXF2()
 {
-    EditFormulaDialog *dialog = new EditFormulaDialog(data, toolId, this);
+    EditFormulaDialog *dialog = new EditFormulaDialog(data, toolId, ToolDialog, this);
     dialog->setWindowTitle(tr("Edit second angle"));
     dialog->SetFormula(GetF2());
     dialog->setPostfix(degreeSymbol);
@@ -576,7 +583,7 @@ void DialogEllipticalArc::FXF2()
 //---------------------------------------------------------------------------------------------------------------------
 void DialogEllipticalArc::FXRotationAngle()
 {
-    EditFormulaDialog *dialog = new EditFormulaDialog(data, toolId, this);
+    EditFormulaDialog *dialog = new EditFormulaDialog(data, toolId, ToolDialog, this);
     dialog->setWindowTitle(tr("Edit rotation angle"));
     dialog->SetFormula(GetRotationAngle());
     dialog->setPostfix(degreeSymbol);
@@ -696,7 +703,7 @@ void DialogEllipticalArc::DeployRotationAngleTextEdit()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief ChoosedObject gets id and type of selected object. Save right data and ignore wrong.
+ * @brief ChosenObject gets id and type of selected object. Save right data and ignore wrong.
  * @param id id of point or detail
  * @param type type of object
  */
@@ -728,7 +735,7 @@ void DialogEllipticalArc::pointNameChanged()
     if (getCurrentObjectId(ui->centerPoint_ComboBox) == m_arc.GetCenter().id())
     {
         newDuplicate = -1;
-        ui->name_LineEdit->setText(qApp->TrVars()->VarToUser(m_arc.name()));
+        ui->name_LineEdit->setText(qApp->translateVariables()->VarToUser(m_arc.name()));
     }
     else
     {
@@ -744,7 +751,7 @@ void DialogEllipticalArc::pointNameChanged()
             newDuplicate = static_cast<qint32>(DNumber(arc.name()));
             arc.SetDuplicate(static_cast<quint32>(newDuplicate));
         }
-        ui->name_LineEdit->setText(qApp->TrVars()->VarToUser(arc.name() + "_" + QString().setNum(m_Id)));
+        ui->name_LineEdit->setText(qApp->translateVariables()->VarToUser(arc.name() + "_" + QString().setNum(m_Id)));
     }
 
     ChangeColor(ui->name_Label, color);

@@ -123,9 +123,9 @@ const QString PatternPieceTool::AttrBottomAnchorPoint    = QStringLiteral("botto
 PatternPieceTool *PatternPieceTool::Create(QSharedPointer<DialogTool> dialog, VMainGraphicsScene *scene,
                                                VAbstractPattern *doc, VContainer *data)
 {
-    SCASSERT(not dialog.isNull());
+    SCASSERT(!dialog.isNull());
     QSharedPointer<PatternPieceDialog> dialogTool = dialog.objectCast<PatternPieceDialog>();
-    SCASSERT(not dialogTool.isNull())
+    SCASSERT(!dialogTool.isNull())
     VPiece piece = dialogTool->GetPiece();
     QString width = piece.getSeamAllowanceWidthFormula();
     qApp->getUndoStack()->beginMacro("add pattern piece");
@@ -148,7 +148,7 @@ PatternPieceTool *PatternPieceTool::Create(quint32 id, VPiece newPiece, QString 
 {
     if (typeCreation == Source::FromGui || typeCreation == Source::FromTool)
     {
-        data->AddVariable(currentSeamAllowance, new VIncrement(data, currentSeamAllowance, 0, newPiece.GetSAWidth(),
+        data->AddVariable(currentSeamAllowance, new CustomVariable(data, currentSeamAllowance, 0, newPiece.GetSAWidth(),
                                                                width, true, tr("Current seam allowance")));
         id = data->AddPiece(newPiece);
     }
@@ -157,7 +157,7 @@ PatternPieceTool *PatternPieceTool::Create(quint32 id, VPiece newPiece, QString 
         const qreal calcWidth = CheckFormula(id, width, data);
         newPiece.setSeamAllowanceWidthFormula(width, calcWidth);
 
-        data->AddVariable(currentSeamAllowance, new VIncrement(data, currentSeamAllowance, 0, calcWidth,
+        data->AddVariable(currentSeamAllowance, new CustomVariable(data, currentSeamAllowance, 0, calcWidth,
                                                                width, true, tr("Current seam allowance")));
 
         data->UpdatePiece(id, newPiece);
@@ -445,9 +445,9 @@ void PatternPieceTool::AddGrainline(VAbstractPattern *doc, QDomElement &domEleme
     doc->SetAttribute(domData, VAbstractPattern::AttrVisible,  data.IsVisible());
     doc->SetAttribute(domData, AttrMx,                         data.GetPos().x());
     doc->SetAttribute(domData, AttrMy,                         data.GetPos().y());
-    doc->SetAttribute(domData, AttrLength,                     data.GetLength());
-    doc->SetAttribute(domData, VAbstractPattern::AttrRotation, data.GetRotation());
-    doc->SetAttribute(domData, VAbstractPattern::AttrArrows,   int(data.GetArrowType()));
+    doc->SetAttribute(domData, AttrLength,                     data.getLength());
+    doc->SetAttribute(domData, VAbstractPattern::AttrRotation, data.getRotation());
+    doc->SetAttribute(domData, VAbstractPattern::AttrArrows,   int(data.getArrowType()));
 
     if (data.centerAnchorPoint() > NULL_ID)
     {
@@ -573,14 +573,14 @@ void PatternPieceTool::ResetChildren(QGraphicsItem *pItem)
     {
         if (piece.GetPatternPieceData().IsVisible())
         {
-            m_dataLabel->Reset();
+            m_dataLabel->reset();
         }
     }
     if (pVGI != m_patternInfo)
     {
         if (piece.GetPatternInfo().IsVisible())
         {
-            m_patternInfo->Reset();
+            m_patternInfo->reset();
         }
     }
     VGrainlineItem *pGLI = qgraphicsitem_cast<VGrainlineItem*>(pItem);
@@ -588,7 +588,7 @@ void PatternPieceTool::ResetChildren(QGraphicsItem *pItem)
     {
         if (piece.GetGrainlineGeometry().IsVisible())
         {
-            m_grainLine->Reset();
+            m_grainLine->reset();
         }
     }
 
@@ -702,9 +702,9 @@ void PatternPieceTool::UpdateGrainline()
             return;
         }
 
-        m_grainLine->SetMoveType(type);
-        m_grainLine->UpdateGeometry(pos, dRotation, ToPixel(dLength, *VDataTool::data.GetPatternUnit()),
-                                    data.GetArrowType());
+        m_grainLine->setMoveType(type);
+        m_grainLine->updateGeometry(pos, dRotation, ToPixel(dLength, *VDataTool::data.GetPatternUnit()),
+                                    data.getArrowType());
         m_grainLine->show();
     }
     else
@@ -853,7 +853,7 @@ void PatternPieceTool::SaveResizeGrainline(qreal dLength)
 
     dLength = FromPixel(dLength, *VDataTool::data.GetPatternUnit());
     newPiece.GetGrainlineGeometry().SetPos(m_grainLine->pos());
-    newPiece.GetGrainlineGeometry().SetLength(QString().setNum(dLength));
+    newPiece.GetGrainlineGeometry().setLength(QString().setNum(dLength));
     SavePieceOptions *resizeCommand = new SavePieceOptions(oldPiece, newPiece, doc, m_id);
     resizeCommand->setText(tr("resize grainline"));
     connect(resizeCommand, &SavePieceOptions::NeedLiteParsing, doc, &VAbstractPattern::LiteParseTree);
@@ -866,7 +866,7 @@ void PatternPieceTool::SaveRotateGrainline(qreal dRot, const QPointF &ptPos)
     VPiece oldPiece = VAbstractTool::data.GetPiece(m_id);
     VPiece newPiece = oldPiece;
 
-    newPiece.GetGrainlineGeometry().SetRotation(QString().setNum(qRadiansToDegrees(dRot)));
+    newPiece.GetGrainlineGeometry().setRotation(QString().setNum(qRadiansToDegrees(dRot)));
     newPiece.GetGrainlineGeometry().SetPos(ptPos);
     SavePieceOptions *rotateCommand = new SavePieceOptions(oldPiece, newPiece, doc, m_id);
     rotateCommand->setText(tr("rotate grainline"));
@@ -911,26 +911,30 @@ void PatternPieceTool::paint(QPainter *painter, const QStyleOptionGraphicsItem *
             lineWeight = ToPixel(qApp->Settings()->getDefaultCutLineweight(), Unit::Mm);
         }
 
-        m_seamLine->setPen(QPen(color, scaleWidth(lineWeight, sceneScale(scene())),
+        this->setPen(QPen(color, scaleWidth(lineWeight, sceneScale(scene())),
                                 lineTypeToPenStyle(lineType), Qt::RoundCap, Qt::RoundJoin));
 
         QBrush brush = QBrush(QColor(piece.getColor()));
         brush.setStyle(static_cast<Qt::BrushStyle>(fills().indexOf(QRegExp(piece.getFill()))));
         brush.setTransform(brush.transform().scale(150.0, 150.0));
         brush.setTransform(painter->combinedTransform().inverted());
-        m_seamLine->setBrush(brush);
         this->setBrush(brush);
     }
 
+    //set allowance brush
+    m_allowanceFill->setPen(Qt::NoPen);
+
     //set notches pen
-    color = QColor(qApp->Settings()->getDefaultNotchColor());
+    color      = QColor(qApp->Settings()->getDefaultNotchColor());
+    lineWeight = ToPixel(qApp->Settings()->getDefaultCutLineweight(), Unit::Mm);
+
     m_notches->setPen(QPen(color, scaleWidth(lineWeight, sceneScale(scene())),
                            Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
 
 
-    if ((m_dataLabel->IsIdle() == false
-            || m_patternInfo->IsIdle() == false
-            || m_grainLine->IsIdle() == false) && not isSelected())
+    if ((m_dataLabel->isIdle() == false
+            || m_patternInfo->isIdle() == false
+            || m_grainLine->isIdle() == false) && not isSelected())
     {
         setSelected(true);
     }
@@ -959,7 +963,7 @@ QPainterPath PatternPieceTool::shape() const
     }
     else
     {
-        return ItemShapeFromPath(m_mainPath + m_cutPath, pen());
+        return itemShapeFromPath(m_mainPath + m_cutPath, pen());
     }
 }
 
@@ -1039,32 +1043,20 @@ QVariant PatternPieceTool::itemChange(QGraphicsItem::GraphicsItemChange change, 
             qApp->getUndoStack()->push(cmd);
 
             const QList<QGraphicsView *> viewList = scene()->views();
-            if (not viewList.isEmpty())
+            if (!viewList.isEmpty())
             {
                 if (VMainGraphicsView *view = qobject_cast<VMainGraphicsView *>(viewList.at(0)))
                 {
                     const qreal scale = sceneScale(scene());
-                    const int xmargin = 50;
-                    const int ymargin = 50;
-
                     const QRectF viewRect = VMainGraphicsView::SceneVisibleArea(view);
                     const QRectF itemRect = mapToScene(boundingRect()|childrenBoundingRect()).boundingRect();
 
-                    // If item's rect is bigger than view's rect ensureVisible works very unstable.
-                    if (itemRect.height() + 2*ymargin < viewRect.height() &&
-                        itemRect.width() + 2*xmargin < viewRect.width())
-                    {
-                        view->ensureVisible(itemRect, xmargin, ymargin);
-                    }
-                    else
-                    {
-                        // Ensure visible only small rect around a cursor
-                        VMainGraphicsScene *currentScene = qobject_cast<VMainGraphicsScene *>(scene());
-                        SCASSERT(currentScene);
-                        const QPointF cursorPosition = currentScene->getScenePos();
-                        view->ensureVisible(QRectF(cursorPosition.x()-5/scale, cursorPosition.y()-5/scale,
-                                                   10/scale, 10/scale));
-                    }
+                    // Ensure visible only small rect around a cursor
+                    VMainGraphicsScene *currentScene = qobject_cast<VMainGraphicsScene *>(scene());
+                    SCASSERT(currentScene);
+                    const QPointF cursorPosition = currentScene->getScenePos();
+                    view->ensureVisible(QRectF(cursorPosition.x()-5/scale, cursorPosition.y()-5/scale,
+                                               10/scale, 10/scale));
                 }
             }
 
@@ -1103,7 +1095,7 @@ void PatternPieceTool::mousePressEvent(QGraphicsSceneMouseEvent *event)
     QGraphicsPathItem::mousePressEvent(event);
 
     // Somehow clicking on notselectable object do not clean previous selections.
-    if (not (flags() & ItemIsSelectable) && scene())
+    if (!(flags() & ItemIsSelectable) && scene())
     {
         scene()->clearSelection();
     }
@@ -1366,6 +1358,10 @@ void PatternPieceTool::keyReleaseEvent(QKeyEvent *event)
 
         case Qt::Key_S:
             {
+                if (event->modifiers() & Qt::ControlModifier)
+                {
+                    break;
+                }
                 toggleSeamAllowance(!piece.IsSeamAllowance());
                 break;
             }
@@ -1422,9 +1418,9 @@ void PatternPieceTool::keyReleaseEvent(QKeyEvent *event)
 //---------------------------------------------------------------------------------------------------------------------
 void PatternPieceTool::SetDialog()
 {
-    SCASSERT(not m_dialog.isNull());
+    SCASSERT(!m_dialog.isNull());
     QSharedPointer<PatternPieceDialog> dialogTool = m_dialog.objectCast<PatternPieceDialog>();
-    SCASSERT(not dialogTool.isNull())
+    SCASSERT(!dialogTool.isNull())
     dialogTool->SetPiece(VAbstractTool::data.GetPiece(m_id));
     dialogTool->enableApply(true);
 }
@@ -1441,7 +1437,7 @@ PatternPieceTool::PatternPieceTool(VAbstractPattern *doc, VContainer *data, cons
     , m_pieceScene(scene)
     , m_blockName(blockName)
     , m_cutLine(new NonScalingFillPathItem(this))
-    , m_seamLine(new NonScalingFillPathItem(this))
+    , m_allowanceFill(new NonScalingFillPathItem(this))
     , m_dataLabel(new VTextGraphicsItem(this))
     , m_patternInfo(new VTextGraphicsItem(this))
     , m_grainLine(new VGrainlineItem(this))
@@ -1477,7 +1473,7 @@ PatternPieceTool::PatternPieceTool(VAbstractPattern *doc, VContainer *data, cons
     connect(m_grainLine, &VGrainlineItem::itemRotated, this, &PatternPieceTool::SaveRotateGrainline);
 
     connect(doc, &VAbstractPattern::UpdatePatternLabel, this, &PatternPieceTool::UpdatePatternLabel);
-    connect(doc, &VAbstractPattern::CheckLayout,        this, &PatternPieceTool::updatePieceDetails);
+    connect(doc, &VAbstractPattern::patternParsed,        this, &PatternPieceTool::updatePieceDetails);
 
     connect(m_pieceScene, &VMainGraphicsScene::DimensionsChanged, this, &PatternPieceTool::updatePieceDetails);
     connect(m_pieceScene, &VMainGraphicsScene::LanguageChanged,   this, &PatternPieceTool::retranslateUi);
@@ -1498,7 +1494,7 @@ void PatternPieceTool::UpdateExcludeState()
             SCASSERT(tool != nullptr);
 
             tool->SetExluded(node.isExcluded());
-            tool->setVisible(not node.isExcluded());//Hide excluded point
+            tool->setVisible(!node.isExcluded());//Hide excluded point
         }
     }
 }
@@ -1516,15 +1512,13 @@ void PatternPieceTool::RefreshGeometry()
     if (!piece.isHideSeamLine() || !piece.IsSeamAllowance() || piece.IsSeamAllowanceBuiltIn())
     {
         m_mainPath = QPainterPath();
-        m_seamLine->setPath(m_mainPath);
-        m_cutLine->setBrush(QBrush(QColor(qApp->Settings()->getDefaultCutColor()), Qt::Dense7Pattern));
+        m_allowanceFill->setBrush(QBrush(QColor(qApp->Settings()->getDefaultCutColor()), Qt::Dense7Pattern));
     }
     else
     {
         m_mainPath = path; // need for returning a bounding rect when main path is not visible
         path = QPainterPath();
-        m_seamLine->setPath(QPainterPath());
-        m_cutLine->setBrush(QBrush(Qt::NoBrush)); // Disable if the main path was hidden
+        m_allowanceFill->setBrush(QBrush(Qt::NoBrush)); // Disable if the main path was hidden
     }
 
     this->setPath(path);
@@ -1536,27 +1530,28 @@ void PatternPieceTool::RefreshGeometry()
         seamAllowancePoints = piece.SeamAllowancePoints(this->getData());
     }
 
-    m_notches->setPath(piece.getNotchesPath(this->getData(), seamAllowancePoints));
-
     if (piece.IsSeamAllowance() && !piece.IsSeamAllowanceBuiltIn() && qApp->Settings()->showSeamAllowances())
     {
-        path.addPath(piece.SeamAllowancePath(seamAllowancePoints));
-        path.setFillRule(Qt::OddEvenFill);
-        m_cutPath = path;
+        m_cutPath = piece.SeamAllowancePath(seamAllowancePoints);
         m_cutLine->setPath(m_cutPath);
+
+        QPainterPath allowancePath = path;
+        allowancePath.addPath(m_cutPath);
+        allowancePath.setFillRule(Qt::OddEvenFill);
+        m_allowanceFill->setPath(allowancePath);
+
         if (piece.isHideSeamLine())
         {
-            m_seamLine->setPath(QPainterPath());
-        }
-        else
-        {
-            m_seamLine->setPath(m_mainPath);
+            this->setPath(QPainterPath());
         }
     }
     else
     {
         m_cutLine->setPath(QPainterPath());
+        m_allowanceFill->setPath(QPainterPath());
     }
+
+    m_notches->setPath(piece.getNotchesPath(this->getData(), seamAllowancePoints));
 
     m_pieceRect = path.boundingRect();
     this->setPos(piece.GetMx(), piece.GetMy());
@@ -1566,7 +1561,7 @@ void PatternPieceTool::RefreshGeometry()
 //---------------------------------------------------------------------------------------------------------------------
 void PatternPieceTool::SaveDialogChange()
 {
-    SCASSERT(not m_dialog.isNull());
+    SCASSERT(!m_dialog.isNull());
     PatternPieceDialog *dialogTool = qobject_cast<PatternPieceDialog*>(m_dialog.data());
     SCASSERT(dialogTool != nullptr);
     const VPiece newPiece = dialogTool->GetPiece();
@@ -1586,7 +1581,7 @@ VPieceItem::MoveTypes PatternPieceTool::FindLabelGeometry(const VPatternLabelDat
     VPieceItem::MoveTypes restrictions = VPieceItem::AllModifications;
     try
     {
-        if (not qmu::QmuTokenParser::IsSingle(labelData.GetRotation()))
+        if (!qmu::QmuTokenParser::IsSingle(labelData.GetRotation()))
         {
             restrictions &= ~ VPieceItem::IsRotatable;
         }
@@ -1642,7 +1637,7 @@ VPieceItem::MoveTypes PatternPieceTool::FindLabelGeometry(const VPatternLabelDat
         labelHeight = cal2.EvalFormula(VAbstractTool::data.DataVariables(), labelData.GetLabelHeight());
         qDebug() << " Label height: " << labelHeight;
         qDebug() << " Label height is single: " << heightIsSingle;
-        if (not widthIsSingle || not heightIsSingle)
+        if (!widthIsSingle || not heightIsSingle)
         {
             restrictions &= ~ VPieceItem::IsResizable;
         }
@@ -1699,7 +1694,7 @@ VPieceItem::MoveTypes PatternPieceTool::FindGrainlineGeometry(const VGrainlineDa
             length = FromPixel(grainline.length(), *VDataTool::data.GetPatternUnit());
             rotationAngle = grainline.angle();
 
-            if (not VFuzzyComparePossibleNulls(rotationAngle, 0))
+            if (!VFuzzyComparePossibleNulls(rotationAngle, 0))
             {
                 grainline.setAngle(0);
             }
@@ -1717,21 +1712,21 @@ VPieceItem::MoveTypes PatternPieceTool::FindGrainlineGeometry(const VGrainlineDa
     VPieceItem::MoveTypes restrictions = VPieceItem::AllModifications;
     try
     {
-        if (not qmu::QmuTokenParser::IsSingle(data.GetRotation()))
+        if (!qmu::QmuTokenParser::IsSingle(data.getRotation()))
         {
             restrictions &= ~ VPieceItem::IsRotatable;
         }
 
         Calculator cal1;
-        rotationAngle = cal1.EvalFormula(VAbstractTool::data.DataVariables(), data.GetRotation());
+        rotationAngle = cal1.EvalFormula(VAbstractTool::data.DataVariables(), data.getRotation());
 
-        if (not qmu::QmuTokenParser::IsSingle(data.GetLength()))
+        if (!qmu::QmuTokenParser::IsSingle(data.getLength()))
         {
             restrictions &= ~ VPieceItem::IsResizable;
         }
 
         Calculator cal2;
-        length = cal2.EvalFormula(VAbstractTool::data.DataVariables(), data.GetLength());
+        length = cal2.EvalFormula(VAbstractTool::data.DataVariables(), data.getLength());
     }
     catch(qmu::QmuParserError &error)
     {
@@ -1799,7 +1794,7 @@ void PatternPieceTool::initializeNode(const VPieceNode &node, VMainGraphicsScene
             tool->setParentItem(parent);
             tool->SetParentType(ParentType::Item);
             tool->SetExluded(node.isExcluded());
-            tool->setVisible(not node.isExcluded());//Hide excluded point
+            tool->setVisible(!node.isExcluded());//Hide excluded point
             doc->IncrementReferens(node.GetId());
             break;
         }
@@ -1932,7 +1927,7 @@ bool PatternPieceTool::PrepareLabelData(const VPatternLabelData &labelData, VTex
         labelItem->hide();
         return false;
     }
-    labelItem->SetMoveType(type);
+    labelItem->setMoveType(type);
 
     QFont fnt = qApp->Settings()->getLabelFont();
     {
@@ -1973,7 +1968,7 @@ void PatternPieceTool::UpdateLabelItem(VTextGraphicsItem *labelItem, QPointF pos
 
     labelItem->setPos(pos);
     labelItem->setRotation(-labelAngle);// expects clockwise direction
-    labelItem->Update();
+    labelItem->updateItem();
     labelItem->getTextLines() > 0 ? labelItem->show() : labelItem->hide();
 }
 

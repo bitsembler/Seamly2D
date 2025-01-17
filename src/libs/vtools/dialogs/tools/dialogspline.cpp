@@ -1,53 +1,51 @@
-/***************************************************************************
- *                                                                         *
- *   Copyright (C) 2017  Seamly, LLC                                       *
- *                                                                         *
- *   https://github.com/fashionfreedom/seamly2d                             *
- *                                                                         *
- ***************************************************************************
- **
- **  Seamly2D is free software: you can redistribute it and/or modify
- **  it under the terms of the GNU General Public License as published by
- **  the Free Software Foundation, either version 3 of the License, or
- **  (at your option) any later version.
- **
- **  Seamly2D is distributed in the hope that it will be useful,
- **  but WITHOUT ANY WARRANTY; without even the implied warranty of
- **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- **  GNU General Public License for more details.
- **
- **  You should have received a copy of the GNU General Public License
- **  along with Seamly2D.  If not, see <http://www.gnu.org/licenses/>.
- **
- **************************************************************************
+//-----------------------------------------------------------------------------
+//  @file   dialogspline.cpp
+//  @author Douglas S Caskey
+//  @date   14 Aug, 2024
+//
+//  @copyright
+//  Copyright (C) 2017 - 2024 Seamly, LLC
+//  https://github.com/fashionfreedom/seamly2d
+//
+//  @brief
+//  Seamly2D is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  Seamly2D is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with Seamly2D. If not, see <http://www.gnu.org/licenses/>.
+//-----------------------------------------------------------------------------
 
- ************************************************************************
- **
- **  @file   dialogspline.cpp
- **  @author Roman Telezhynskyi <dismine(at)gmail.com>
- **  @date   November 15, 2013
- **
- **  @brief
- **  @copyright
- **  This source code is part of the Valentine project, a pattern making
- **  program, whose allow create and modeling patterns of clothing.
- **  Copyright (C) 2013-2015 Seamly2D project
- **  <https://github.com/fashionfreedom/seamly2d> All Rights Reserved.
- **
- **  Seamly2D is free software: you can redistribute it and/or modify
- **  it under the terms of the GNU General Public License as published by
- **  the Free Software Foundation, either version 3 of the License, or
- **  (at your option) any later version.
- **
- **  Seamly2D is distributed in the hope that it will be useful,
- **  but WITHOUT ANY WARRANTY; without even the implied warranty of
- **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- **  GNU General Public License for more details.
- **
- **  You should have received a copy of the GNU General Public License
- **  along with Seamly2D.  If not, see <http://www.gnu.org/licenses/>.
- **
- *************************************************************************/
+//-----------------------------------------------------------------------------
+//  @file   dialogspline.cpp
+//  @author Roman Telezhynskyi <dismine(at)gmail.com>
+//  @date   15 Nov, 2013
+//
+//  @copyright
+//  Copyright (C) 2013 Valentina project.
+//  This source code is part of the Valentina project, a pattern making
+//  program, whose allow create and modeling patterns of clothing.
+//  <https://bitbucket.org/dismine/valentina> All Rights Reserved.
+//
+//  Valentina is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published
+//  by the Free Software Foundation, either version 3 of the License,
+//  or (at your option) any later version.
+//
+//  Valentina is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with Valentina.  If not, see <http://www.gnu.org/licenses/>.
+//-----------------------------------------------------------------------------
 
 #include "dialogspline.h"
 
@@ -108,6 +106,9 @@ DialogSpline::DialogSpline(const VContainer *data, const quint32 &toolId, QWidge
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     setWindowIcon(QIcon(":/toolicon/32x32/spline.png"));
 
+    // Set the position that the dialog opens based on user preference.
+    setDialogPosition();
+
     plainTextEditFormula = ui->plainTextEditAngle1F;
 
     formulaBaseHeightAngle1 = ui->plainTextEditAngle1F->height();
@@ -127,8 +128,8 @@ DialogSpline::DialogSpline(const VContainer *data, const quint32 &toolId, QWidge
 
     initializeOkCancelApply(ui);
 
-    FillComboBoxPoints(ui->comboBoxP1);
-    FillComboBoxPoints(ui->comboBoxP4);
+    fillComboBoxPoints(ui->comboBoxP1);
+    fillComboBoxPoints(ui->comboBoxP4);
 
     int index = ui->lineType_ComboBox->findData(LineTypeNone);
     if (index != -1)
@@ -192,7 +193,7 @@ DialogSpline::~DialogSpline()
 
 //---------------------------------------------------------------------------------------------------------------------
 /**
- * @brief ChoosedObject gets id and type of selected object. Save right data and ignore wrong.
+ * @brief ChosenObject gets id and type of selected object. Save right data and ignore wrong.
  * @param id id of point or detail
  * @param type type of object
  */
@@ -329,15 +330,15 @@ void DialogSpline::Length2Changed()
 //---------------------------------------------------------------------------------------------------------------------
 void DialogSpline::FXAngle1()
 {
-    auto dialog = new EditFormulaDialog(data, toolId, this);
+    auto dialog = new EditFormulaDialog(data, toolId, ToolDialog, this);
     dialog->setWindowTitle(tr("Edit first control point angle"));
-    QString angle1F = qApp->TrVars()->TryFormulaFromUser(ui->plainTextEditAngle1F->toPlainText(),
-                                                         qApp->Settings()->GetOsSeparator());
+    QString angle1F = qApp->translateVariables()->TryFormulaFromUser(ui->plainTextEditAngle1F->toPlainText(),
+                                                         qApp->Settings()->getOsSeparator());
     dialog->SetFormula(angle1F);
     dialog->setPostfix(degreeSymbol);
     if (dialog->exec() == QDialog::Accepted)
     {
-        angle1F = qApp->TrVars()->FormulaToUser(dialog->GetFormula(), qApp->Settings()->GetOsSeparator());
+        angle1F = qApp->translateVariables()->FormulaToUser(dialog->GetFormula(), qApp->Settings()->getOsSeparator());
         // increase height if needed.
         if (angle1F.length() > 80)
         {
@@ -352,15 +353,15 @@ void DialogSpline::FXAngle1()
 //---------------------------------------------------------------------------------------------------------------------
 void DialogSpline::FXAngle2()
 {
-    auto dialog = new EditFormulaDialog(data, toolId, this);
+    auto dialog = new EditFormulaDialog(data, toolId, ToolDialog, this);
     dialog->setWindowTitle(tr("Edit second control point angle"));
-    QString angle2F = qApp->TrVars()->TryFormulaFromUser(ui->plainTextEditAngle2F->toPlainText(),
-                                                         qApp->Settings()->GetOsSeparator());
+    QString angle2F = qApp->translateVariables()->TryFormulaFromUser(ui->plainTextEditAngle2F->toPlainText(),
+                                                         qApp->Settings()->getOsSeparator());
     dialog->SetFormula(angle2F);
     dialog->setPostfix(degreeSymbol);
     if (dialog->exec() == QDialog::Accepted)
     {
-        angle2F = qApp->TrVars()->FormulaToUser(dialog->GetFormula(), qApp->Settings()->GetOsSeparator());
+        angle2F = qApp->translateVariables()->FormulaToUser(dialog->GetFormula(), qApp->Settings()->getOsSeparator());
         // increase height if needed.
         if (angle2F.length() > 80)
         {
@@ -375,15 +376,15 @@ void DialogSpline::FXAngle2()
 //---------------------------------------------------------------------------------------------------------------------
 void DialogSpline::FXLength1()
 {
-    auto dialog = new EditFormulaDialog(data, toolId, this);
+    auto dialog = new EditFormulaDialog(data, toolId, ToolDialog, this);
     dialog->setWindowTitle(tr("Edit first control point length"));
-    QString length1F = qApp->TrVars()->TryFormulaFromUser(ui->plainTextEditLength1F->toPlainText(),
-                                                          qApp->Settings()->GetOsSeparator());
+    QString length1F = qApp->translateVariables()->TryFormulaFromUser(ui->plainTextEditLength1F->toPlainText(),
+                                                          qApp->Settings()->getOsSeparator());
     dialog->SetFormula(length1F);
     dialog->setPostfix(UnitsToStr(qApp->patternUnit(), true));
     if (dialog->exec() == QDialog::Accepted)
     {
-        length1F = qApp->TrVars()->FormulaToUser(dialog->GetFormula(), qApp->Settings()->GetOsSeparator());
+        length1F = qApp->translateVariables()->FormulaToUser(dialog->GetFormula(), qApp->Settings()->getOsSeparator());
         // increase height if needed.
         if (length1F.length() > 80)
         {
@@ -398,15 +399,15 @@ void DialogSpline::FXLength1()
 //---------------------------------------------------------------------------------------------------------------------
 void DialogSpline::FXLength2()
 {
-    auto dialog = new EditFormulaDialog(data, toolId, this);
+    auto dialog = new EditFormulaDialog(data, toolId, ToolDialog, this);
     dialog->setWindowTitle(tr("Edit second control point length"));
-    QString length2F = qApp->TrVars()->TryFormulaFromUser(ui->plainTextEditLength2F->toPlainText(),
-                                                          qApp->Settings()->GetOsSeparator());
+    QString length2F = qApp->translateVariables()->TryFormulaFromUser(ui->plainTextEditLength2F->toPlainText(),
+                                                          qApp->Settings()->getOsSeparator());
     dialog->SetFormula(length2F);
     dialog->setPostfix(UnitsToStr(qApp->patternUnit(), true));
     if (dialog->exec() == QDialog::Accepted)
     {
-        length2F = qApp->TrVars()->FormulaToUser(dialog->GetFormula(), qApp->Settings()->GetOsSeparator());
+        length2F = qApp->translateVariables()->FormulaToUser(dialog->GetFormula(), qApp->Settings()->getOsSeparator());
         // increase height if needed.
         if (length2F.length() > 80)
         {
@@ -504,12 +505,12 @@ VSpline DialogSpline::CurrentSpline() const
     const qreal length1 = Visualization::FindLength(length1F, vars);
     const qreal length2 = Visualization::FindLength(length2F, vars);
 
-    const bool separator = qApp->Settings()->GetOsSeparator();
+    const bool separator = qApp->Settings()->getOsSeparator();
 
-    angle1F = qApp->TrVars()->TryFormulaFromUser(angle1F, separator);
-    angle2F = qApp->TrVars()->TryFormulaFromUser(angle2F, separator);
-    length1F = qApp->TrVars()->TryFormulaFromUser(length1F, separator);
-    length2F = qApp->TrVars()->TryFormulaFromUser(length2F, separator);
+    angle1F = qApp->translateVariables()->TryFormulaFromUser(angle1F, separator);
+    angle2F = qApp->translateVariables()->TryFormulaFromUser(angle2F, separator);
+    length1F = qApp->translateVariables()->TryFormulaFromUser(length1F, separator);
+    length2F = qApp->translateVariables()->TryFormulaFromUser(length2F, separator);
 
     VSpline spline(*GetP1(), *GetP4(), angle1, angle1F, angle2, angle2F, length1, length1F,  length2, length2F);
 
@@ -540,7 +541,7 @@ void DialogSpline::PointNameChanged()
             getCurrentObjectId(ui->comboBoxP4) == spl.GetP4().id())
         {
             newDuplicate = -1;
-            ui->lineEditSplineName->setText(qApp->TrVars()->VarToUser(spl.name()));
+            ui->lineEditSplineName->setText(qApp->translateVariables()->VarToUser(spl.name()));
         }
         else
         {
@@ -552,7 +553,7 @@ void DialogSpline::PointNameChanged()
                 newDuplicate = static_cast<qint32>(DNumber(spline.name()));
                 spline.SetDuplicate(static_cast<quint32>(newDuplicate));
             }
-            ui->lineEditSplineName->setText(qApp->TrVars()->VarToUser(spline.name()));
+            ui->lineEditSplineName->setText(qApp->translateVariables()->VarToUser(spline.name()));
         }
     }
     ChangeColor(ui->labelName, color);
@@ -571,24 +572,24 @@ void DialogSpline::ShowDialog(bool click)
 
         spl = VSpline(*GetP1(), path->GetP2(), path->GetP3(), *GetP4());
 
-        const QString angle1F = qApp->TrVars()->FormulaToUser(spl.GetStartAngleFormula(),
-                                                              qApp->Settings()->GetOsSeparator());
-        const QString angle2F = qApp->TrVars()->FormulaToUser(spl.GetEndAngleFormula(),
-                                                              qApp->Settings()->GetOsSeparator());
+        const QString angle1F = qApp->translateVariables()->FormulaToUser(spl.GetStartAngleFormula(),
+                                                              qApp->Settings()->getOsSeparator());
+        const QString angle2F = qApp->translateVariables()->FormulaToUser(spl.GetEndAngleFormula(),
+                                                              qApp->Settings()->getOsSeparator());
 
         ui->plainTextEditAngle1F->setPlainText(angle1F);
         ui->plainTextEditAngle2F->setPlainText(angle2F);
-        ui->plainTextEditLength1F->setPlainText(qApp->TrVars()->FormulaToUser(spl.GetC1LengthFormula(),
-                                                                              qApp->Settings()->GetOsSeparator()));
-        ui->plainTextEditLength2F->setPlainText(qApp->TrVars()->FormulaToUser(spl.GetC2LengthFormula(),
-                                                                              qApp->Settings()->GetOsSeparator()));
+        ui->plainTextEditLength1F->setPlainText(qApp->translateVariables()->FormulaToUser(spl.GetC1LengthFormula(),
+                                                                              qApp->Settings()->getOsSeparator()));
+        ui->plainTextEditLength2F->setPlainText(qApp->translateVariables()->FormulaToUser(spl.GetC2LengthFormula(),
+                                                                              qApp->Settings()->getOsSeparator()));
 
         if (not data->IsUnique(spl.name()))
         {
             spl.SetDuplicate(DNumber(spl.name()));
         }
 
-        ui->lineEditSplineName->setText(qApp->TrVars()->VarToUser(spl.name()));
+        ui->lineEditSplineName->setText(qApp->translateVariables()->VarToUser(spl.name()));
 
         DialogAccepted();
     }
@@ -599,7 +600,7 @@ void DialogSpline::CheckState()
 {
     SCASSERT(ok_Button != nullptr)
     ok_Button->setEnabled(flagAngle1 && flagAngle2 && flagLength1 && flagLength2 && flagError);
-    // In case dialog hasn't apply button
+    // In case dialog does not have an apply button
     if (apply_Button != nullptr)
     {
         apply_Button->setEnabled(ok_Button->isEnabled());
@@ -626,22 +627,22 @@ void DialogSpline::SetSpline(const VSpline &spline)
     setCurrentPointId(ui->comboBoxP1, spl.GetP1().id());
     setCurrentPointId(ui->comboBoxP4, spl.GetP4().id());
 
-    const QString angle1F = qApp->TrVars()->FormulaToUser(spl.GetStartAngleFormula(),
-                                                          qApp->Settings()->GetOsSeparator());
-    const QString angle2F = qApp->TrVars()->FormulaToUser(spl.GetEndAngleFormula(),
-                                                          qApp->Settings()->GetOsSeparator());
+    const QString angle1F = qApp->translateVariables()->FormulaToUser(spl.GetStartAngleFormula(),
+                                                          qApp->Settings()->getOsSeparator());
+    const QString angle2F = qApp->translateVariables()->FormulaToUser(spl.GetEndAngleFormula(),
+                                                          qApp->Settings()->getOsSeparator());
 
     ui->plainTextEditAngle1F->setPlainText(angle1F);
     ui->plainTextEditAngle2F->setPlainText(angle2F);
 
-    const QString length1F = qApp->TrVars()->FormulaToUser(spl.GetC1LengthFormula(),
-                                                           qApp->Settings()->GetOsSeparator());
-    const QString length2F = qApp->TrVars()->FormulaToUser(spl.GetC2LengthFormula(),
-                                                           qApp->Settings()->GetOsSeparator());
+    const QString length1F = qApp->translateVariables()->FormulaToUser(spl.GetC1LengthFormula(),
+                                                           qApp->Settings()->getOsSeparator());
+    const QString length2F = qApp->translateVariables()->FormulaToUser(spl.GetC2LengthFormula(),
+                                                           qApp->Settings()->getOsSeparator());
 
     ui->plainTextEditLength1F->setPlainText(length1F);
     ui->plainTextEditLength2F->setPlainText(length2F);
-    ui->lineEditSplineName->setText(qApp->TrVars()->VarToUser(spl.name()));
+    ui->lineEditSplineName->setText(qApp->translateVariables()->VarToUser(spl.name()));
 
     auto path = qobject_cast<VisToolSpline *>(vis);
     SCASSERT(path != nullptr)
