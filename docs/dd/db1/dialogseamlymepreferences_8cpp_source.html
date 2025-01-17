@@ -158,7 +158,7 @@ $(document).ready(function(){initNavTree('dd/db1/dialogseamlymepreferences_8cpp_
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d74/dialogseamlymepreferences_8h.html">dialogseamlymepreferences.h</a>&quot;</span></div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#include &quot;ui_dialogseamlymepreferences.h&quot;</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#include &quot;../application_me.h&quot;</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#include &quot;../mapplication.h&quot;</span></div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d22/seamlymepreferencesconfigurationpage_8h.html">configpages/seamlymepreferencesconfigurationpage.h</a>&quot;</span></div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/d60/seamlymepreferencespathpage_8h.html">configpages/seamlymepreferencespathpage.h</a>&quot;</span></div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
@@ -182,7 +182,7 @@ $(document).ready(function(){initNavTree('dd/db1/dialogseamlymepreferences_8cpp_
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment">//Limit dialog height to 80% of screen size</span></div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    setMaximumHeight(qRound(QGuiApplication::primaryScreen()-&gt;availableGeometry().height() * .8));</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_define" href="../../d7/d61/application__2d_8h.html#af3bf03a2bf98820de7ae03bef13c7d07">qApp</a>-&gt;Settings()-&gt;getOsSeparator() ? setLocale(QLocale()) : setLocale(QLocale::c());</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_define" href="../../d9/d02/vapplication_8h.html#af3bf03a2bf98820de7ae03bef13c7d07">qApp</a>-&gt;Settings()-&gt;GetOsSeparator() ? setLocale(QLocale()) : setLocale(QLocale::c());</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    QPushButton *ok_Button = <a class="code hl_variable" href="../../d5/d8a/classDialogSeamlyMePreferences.html#a2b4dbc62852b18f4ca2406f62ac548a6">ui</a>-&gt;buttonBox-&gt;button(QDialogButtonBox::Ok);</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_define" href="../../d4/da4/def_8h.html#a0f58c1b57bda3c300da3e175201e543c">SCASSERT</a>(ok_Button != <span class="keyword">nullptr</span>)</div>
@@ -238,7 +238,7 @@ $(document).ready(function(){initNavTree('dd/db1/dialogseamlymepreferences_8cpp_
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    setMinimumSize(size());</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    QSize sz = <a class="code hl_define" href="../../d7/d61/application__2d_8h.html#af3bf03a2bf98820de7ae03bef13c7d07">qApp</a>-&gt;Settings()-&gt;getPreferenceDialogSize();</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    QSize sz = <a class="code hl_define" href="../../d9/d02/vapplication_8h.html#af3bf03a2bf98820de7ae03bef13c7d07">qApp</a>-&gt;Settings()-&gt;getPreferenceDialogSize();</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">if</span> (sz.isEmpty() == <span class="keyword">false</span>)</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    {</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        resize(sz);</div>
@@ -258,7 +258,7 @@ $(document).ready(function(){initNavTree('dd/db1/dialogseamlymepreferences_8cpp_
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="comment">// dialog creating, which would</span></div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d5/d8a/classDialogSeamlyMePreferences.html#ad96fbeff6e12a174da831ebb6f2f99f3">m_isInitialized</a>)</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    {</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <a class="code hl_define" href="../../d7/d61/application__2d_8h.html#af3bf03a2bf98820de7ae03bef13c7d07">qApp</a>-&gt;Settings()-&gt;setPreferenceDialogSize(size());</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <a class="code hl_define" href="../../d9/d02/vapplication_8h.html#af3bf03a2bf98820de7ae03bef13c7d07">qApp</a>-&gt;Settings()-&gt;setPreferenceDialogSize(size());</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    }</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>}</div>
 </div>
@@ -270,7 +270,7 @@ $(document).ready(function(){initNavTree('dd/db1/dialogseamlymepreferences_8cpp_
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <a class="code hl_variable" href="../../d5/d8a/classDialogSeamlyMePreferences.html#aef07b99a1fe2abbc555d9b6079f5ca3d">m_configurationPage</a>-&gt;<a class="code hl_function" href="../../df/de0/classSeamlyMePreferencesConfigurationPage.html#a9765a46b9f29db1f44fba8c9025c05ba">Apply</a>();</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <a class="code hl_variable" href="../../d5/d8a/classDialogSeamlyMePreferences.html#a2a5bca6450d1d500627e5ede49a4f4f3">m_pathPage</a>-&gt;<a class="code hl_function" href="../../d7/d92/classSeamlyMePreferencesPathPage.html#af4e210f5a4b69ff29aaa8ad0fbf448d9">Apply</a>();</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <a class="code hl_define" href="../../d7/d61/application__2d_8h.html#af3bf03a2bf98820de7ae03bef13c7d07">qApp</a>-&gt;seamlyMeSettings()-&gt;getOsSeparator() ? setLocale(QLocale()) : setLocale(QLocale::c());</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <a class="code hl_define" href="../../d9/d02/vapplication_8h.html#af3bf03a2bf98820de7ae03bef13c7d07">qApp</a>-&gt;SeamlyMeSettings()-&gt;GetOsSeparator() ? setLocale(QLocale()) : setLocale(QLocale::c());</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    emit <a class="code hl_signal" href="../../d5/d8a/classDialogSeamlyMePreferences.html#a2631d3e66baae37ac38e14f558754f97">updateProperties</a>();</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    setResult(QDialog::Accepted);</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>}</div>
@@ -297,7 +297,6 @@ $(document).ready(function(){initNavTree('dd/db1/dialogseamlymepreferences_8cpp_
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <a class="code hl_variable" href="../../d5/d8a/classDialogSeamlyMePreferences.html#a2b4dbc62852b18f4ca2406f62ac548a6">ui</a>-&gt;pagesWidget-&gt;setCurrentIndex(rowIndex);</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>}</div>
 </div>
-<div class="ttc" id="aapplication__2d_8h_html_af3bf03a2bf98820de7ae03bef13c7d07"><div class="ttname"><a href="../../d7/d61/application__2d_8h.html#af3bf03a2bf98820de7ae03bef13c7d07">qApp</a></div><div class="ttdeci">#define qApp</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d61/application__2d_8h_source.html#l00068">application_2d.h:68</a></div></div>
 <div class="ttc" id="aclassDialogSeamlyMePreferences_html"><div class="ttname"><a href="../../d5/d8a/classDialogSeamlyMePreferences.html">DialogSeamlyMePreferences</a></div><div class="ttdef"><b>Definition</b> <a href="../../d0/d74/dialogseamlymepreferences_8h_source.html#l00070">dialogseamlymepreferences.h:71</a></div></div>
 <div class="ttc" id="aclassDialogSeamlyMePreferences_html_a2631d3e66baae37ac38e14f558754f97"><div class="ttname"><a href="../../d5/d8a/classDialogSeamlyMePreferences.html#a2631d3e66baae37ac38e14f558754f97">DialogSeamlyMePreferences::updateProperties</a></div><div class="ttdeci">void updateProperties()</div></div>
 <div class="ttc" id="aclassDialogSeamlyMePreferences_html_a2827cf5935c9b69dc80973c3dc74e776"><div class="ttname"><a href="../../d5/d8a/classDialogSeamlyMePreferences.html#a2827cf5935c9b69dc80973c3dc74e776">DialogSeamlyMePreferences::Apply</a></div><div class="ttdeci">void Apply()</div><div class="ttdef"><b>Definition</b> <a href="../../dd/db1/dialogseamlymepreferences_8cpp_source.html#l00154">dialogseamlymepreferences.cpp:154</a></div></div>
@@ -316,11 +315,12 @@ $(document).ready(function(){initNavTree('dd/db1/dialogseamlymepreferences_8cpp_
 <div class="ttc" id="aclassSeamlyMePreferencesConfigurationPage_html_a9765a46b9f29db1f44fba8c9025c05ba"><div class="ttname"><a href="../../df/de0/classSeamlyMePreferencesConfigurationPage.html#a9765a46b9f29db1f44fba8c9025c05ba">SeamlyMePreferencesConfigurationPage::Apply</a></div><div class="ttdeci">void Apply()</div><div class="ttdef"><b>Definition</b> <a href="../../d9/d23/seamlymepreferencesconfigurationpage_8cpp_source.html#l00162">seamlymepreferencesconfigurationpage.cpp:162</a></div></div>
 <div class="ttc" id="aclassSeamlyMePreferencesPathPage_html"><div class="ttname"><a href="../../d7/d92/classSeamlyMePreferencesPathPage.html">SeamlyMePreferencesPathPage</a></div><div class="ttdef"><b>Definition</b> <a href="../../d2/d60/seamlymepreferencespathpage_8h_source.html#l00066">seamlymepreferencespathpage.h:67</a></div></div>
 <div class="ttc" id="aclassSeamlyMePreferencesPathPage_html_af4e210f5a4b69ff29aaa8ad0fbf448d9"><div class="ttname"><a href="../../d7/d92/classSeamlyMePreferencesPathPage.html#af4e210f5a4b69ff29aaa8ad0fbf448d9">SeamlyMePreferencesPathPage::Apply</a></div><div class="ttdeci">void Apply()</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dcc/seamlymepreferencespathpage_8cpp_source.html#l00094">seamlymepreferencespathpage.cpp:94</a></div></div>
-<div class="ttc" id="adef_8h_html_a0f58c1b57bda3c300da3e175201e543c"><div class="ttname"><a href="../../d4/da4/def_8h.html#a0f58c1b57bda3c300da3e175201e543c">SCASSERT</a></div><div class="ttdeci">#define SCASSERT(cond)</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da4/def_8h_source.html#l00421">def.h:421</a></div></div>
+<div class="ttc" id="adef_8h_html_a0f58c1b57bda3c300da3e175201e543c"><div class="ttname"><a href="../../d4/da4/def_8h.html#a0f58c1b57bda3c300da3e175201e543c">SCASSERT</a></div><div class="ttdeci">#define SCASSERT(cond)</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da4/def_8h_source.html#l00337">def.h:337</a></div></div>
 <div class="ttc" id="adialogseamlymepreferences_8h_html"><div class="ttname"><a href="../../d0/d74/dialogseamlymepreferences_8h.html">dialogseamlymepreferences.h</a></div></div>
-<div class="ttc" id="anamespaceUi_html"><div class="ttname"><a href="../../db/d3c/namespaceUi.html">Ui</a></div><div class="ttdef"><b>Definition</b> <a href="../../de/da1/about2d__dialog_8h_source.html#l00059">about2d_dialog.h:60</a></div></div>
+<div class="ttc" id="anamespaceUi_html"><div class="ttname"><a href="../../db/d3c/namespaceUi.html">Ui</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/d73/calculator__dialog_8h_source.html#l00037">calculator_dialog.h:38</a></div></div>
 <div class="ttc" id="aseamlymepreferencesconfigurationpage_8h_html"><div class="ttname"><a href="../../df/d22/seamlymepreferencesconfigurationpage_8h.html">seamlymepreferencesconfigurationpage.h</a></div></div>
 <div class="ttc" id="aseamlymepreferencespathpage_8h_html"><div class="ttname"><a href="../../d2/d60/seamlymepreferencespathpage_8h.html">seamlymepreferencespathpage.h</a></div></div>
+<div class="ttc" id="avapplication_8h_html_af3bf03a2bf98820de7ae03bef13c7d07"><div class="ttname"><a href="../../d9/d02/vapplication_8h.html#af3bf03a2bf98820de7ae03bef13c7d07">qApp</a></div><div class="ttdeci">#define qApp</div><div class="ttdef"><b>Definition</b> <a href="../../d9/d02/vapplication_8h_source.html#l00067">vapplication.h:67</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

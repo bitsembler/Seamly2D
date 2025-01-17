@@ -1,20 +1,20 @@
 <map id="VSimplePoint" name="VSimplePoint">
-<area shape="rect" id="Node000001" title=" " alt="" coords="272,1373,489,1919"/>
-<area shape="rect" id="Node000002" href="$dc/de5/classVAbstractSimple.html" title=" " alt="" coords="501,769,658,955"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="555,969,452,1374,447,1373,550,968"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="577,5,643,71"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="611,85,587,745,586,769,581,769,582,745,606,85"/>
-<area shape="rect" id="Node000006" href="$de/dbc/classVGraphicsSimpleTextItem.html" title="The VGraphicsSimpleTextItem class pointer label." alt="" coords="355,120,572,745"/>
-<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="596,84,575,142,570,140,591,82"/>
-<area shape="rect" id="Node000004" href="$dc/d3b/classVScenePoint.html" title=" " alt="" coords="183,979,365,1324"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="317,1337,324,1372,319,1374,311,1338"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="175,400,330,465"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="257,479,272,978,266,979,251,479"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="384,746,326,963,321,962,378,745"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="369,5,552,71"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="464,84,464,120,459,120,458,84"/>
-<area shape="rect" id="Node000008" href="$dd/da2/classVScaledLine.html" title=" " alt="" coords="5,340,151,525"/>
-<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="80,525,84,617,94,726,115,841,129,899,147,954,176,1015,172,1017,142,956,124,900,109,843,89,726,78,617,75,526"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="9,5,147,71"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="81,84,81,340,75,340,75,84"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="263,1373,481,1919"/>
+<area shape="rect" id="Node000002" href="$dc/de5/classVAbstractSimple.html" title=" " alt="" coords="492,769,649,955"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="547,969,444,1374,438,1373,541,968"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="568,5,635,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="603,85,579,745,578,769,572,769,573,745,597,85"/>
+<area shape="rect" id="Node000006" href="$de/dbc/classVGraphicsSimpleTextItem.html" title="The VGraphicsSimpleTextItem class pointer label." alt="" coords="346,120,563,745"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="587,84,566,142,561,140,582,82"/>
+<area shape="rect" id="Node000004" href="$dc/d3b/classVScenePoint.html" title=" " alt="" coords="174,979,357,1324"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="308,1337,316,1372,310,1374,303,1338"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="167,400,321,465"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="248,479,263,978,258,979,243,479"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="375,746,317,963,312,962,370,745"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="361,5,543,71"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="455,84,455,120,450,120,450,84"/>
+<area shape="rect" id="Node000008" href="$dd/da2/classVScaledLine.html" title=" " alt="" coords="7,340,142,525"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="75,525,78,617,88,726,107,841,121,899,138,954,168,1016,163,1018,134,956,116,900,101,843,82,726,73,617,70,525"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="5,5,144,71"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="77,84,77,340,72,340,72,84"/>
 </map>

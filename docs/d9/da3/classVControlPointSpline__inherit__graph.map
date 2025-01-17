@@ -1,5 +1,5 @@
 <map id="VControlPointSpline" name="VControlPointSpline">
-<area shape="rect" id="Node000001" title=" " alt="" coords="24,492,203,917"/>
+<area shape="rect" id="Node000001" title="The VControlPointSpline class control spline point." alt="" coords="24,492,203,917"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,249,72,314"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="49,327,78,491,73,492,44,328"/>
 <area shape="rect" id="Node000003" href="$d3/db3/classSceneRect.html" title=" " alt="" coords="97,119,279,444"/>

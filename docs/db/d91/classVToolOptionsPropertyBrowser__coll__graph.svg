@@ -46,7 +46,7 @@
   </g>
 </defs>
 <script type="application/ecmascript">
-var viewWidth = 739;
+var viewWidth = 751;
 var viewHeight = 1842;
 var sectionId = 'dynsection-1';
 </script>
@@ -58,49 +58,49 @@ var sectionId = 'dynsection-1';
 <g id="Node000001" class="node">
 <title>Node1</title>
 <g id="a_Node000001"><a xlink:title=" ">
-<polygon fill="#999999" stroke="transparent" points="379,-304 205,-304 205,0 379,0 379,-304"/>
-<text text-anchor="start" x="219.5" y="-292" font-family="Helvetica,sans-Serif" font-size="10.00">VToolOptionsPropertyBrowser</text>
-<text text-anchor="start" x="209" y="-277" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="222" y="-277" font-family="Helvetica,sans-Serif" font-size="10.00">currentItem</text>
-<text text-anchor="start" x="209" y="-262" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="222" y="-262" font-family="Helvetica,sans-Serif" font-size="10.00">m_centerPointStr</text>
-<text text-anchor="start" x="209" y="-247" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="222" y="-247" font-family="Helvetica,sans-Serif" font-size="10.00">VToolOptionsPropertyBrowser()</text>
-<text text-anchor="start" x="209" y="-232" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="222" y="-232" font-family="Helvetica,sans-Serif" font-size="10.00">clearPropertyBrowser()</text>
-<text text-anchor="start" x="209" y="-217" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="222" y="-217" font-family="Helvetica,sans-Serif" font-size="10.00">itemClicked()</text>
-<text text-anchor="start" x="209" y="-202" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="222" y="-202" font-family="Helvetica,sans-Serif" font-size="10.00">updateOptions()</text>
-<text text-anchor="start" x="209" y="-187" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="222" y="-187" font-family="Helvetica,sans-Serif" font-size="10.00">refreshOptions()</text>
-<text text-anchor="start" x="211.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="222" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">addProperty()</text>
-<text text-anchor="start" x="211.5" y="-157" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="222" y="-157" font-family="Helvetica,sans-Serif" font-size="10.00">showItemOptions()</text>
-<text text-anchor="start" x="211.5" y="-142" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="222" y="-142" font-family="Helvetica,sans-Serif" font-size="10.00">getObjectList()</text>
-<text text-anchor="start" x="211.5" y="-127" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="222" y="-127" font-family="Helvetica,sans-Serif" font-size="10.00">setPointName()</text>
-<text text-anchor="start" x="211.5" y="-112" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="222" y="-112" font-family="Helvetica,sans-Serif" font-size="10.00">setPointName1()</text>
-<text text-anchor="start" x="211.5" y="-97" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="222" y="-97" font-family="Helvetica,sans-Serif" font-size="10.00">setPointName2()</text>
-<text text-anchor="start" x="211.5" y="-82" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="222" y="-82" font-family="Helvetica,sans-Serif" font-size="10.00">setOperationSuffix()</text>
-<text text-anchor="start" x="211.5" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="222" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">getCrossPoint()</text>
-<text text-anchor="start" x="211.5" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="222" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">setCirclesCrossPoint()</text>
-<text text-anchor="start" x="211.5" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="222" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00">setCurveVCrossPoint()</text>
-<text text-anchor="start" x="222" y="-22" font-family="Helvetica,sans-Serif" font-size="10.00">and 124 more...</text>
-<text text-anchor="start" x="211.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="222" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">userChangedData()</text>
-<polygon fill="#666666" stroke="#666666" points="205,-287 205,-287 379,-287 379,-287 205,-287"/>
-<polygon fill="#666666" stroke="#666666" points="205,-257 205,-257 220,-257 220,-257 205,-257"/>
-<polygon fill="#666666" stroke="#666666" points="220,-257 220,-257 379,-257 379,-257 220,-257"/>
-<polygon fill="none" stroke="#666666" points="205,0 205,-304 379,-304 379,0 205,0"/>
+<polygon fill="#999999" stroke="transparent" points="391,-304 217,-304 217,0 391,0 391,-304"/>
+<text text-anchor="start" x="231.5" y="-292" font-family="Helvetica,sans-Serif" font-size="10.00">VToolOptionsPropertyBrowser</text>
+<text text-anchor="start" x="221" y="-277" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="234" y="-277" font-family="Helvetica,sans-Serif" font-size="10.00">currentItem</text>
+<text text-anchor="start" x="221" y="-262" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="234" y="-262" font-family="Helvetica,sans-Serif" font-size="10.00">m_centerPointStr</text>
+<text text-anchor="start" x="221" y="-247" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="234" y="-247" font-family="Helvetica,sans-Serif" font-size="10.00">VToolOptionsPropertyBrowser()</text>
+<text text-anchor="start" x="221" y="-232" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="234" y="-232" font-family="Helvetica,sans-Serif" font-size="10.00">clearPropertyBrowser()</text>
+<text text-anchor="start" x="221" y="-217" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="234" y="-217" font-family="Helvetica,sans-Serif" font-size="10.00">itemClicked()</text>
+<text text-anchor="start" x="221" y="-202" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="234" y="-202" font-family="Helvetica,sans-Serif" font-size="10.00">updateOptions()</text>
+<text text-anchor="start" x="221" y="-187" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="234" y="-187" font-family="Helvetica,sans-Serif" font-size="10.00">refreshOptions()</text>
+<text text-anchor="start" x="223.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="234" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">addProperty()</text>
+<text text-anchor="start" x="223.5" y="-157" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="234" y="-157" font-family="Helvetica,sans-Serif" font-size="10.00">showItemOptions()</text>
+<text text-anchor="start" x="223.5" y="-142" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="234" y="-142" font-family="Helvetica,sans-Serif" font-size="10.00">getObjectList()</text>
+<text text-anchor="start" x="223.5" y="-127" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="234" y="-127" font-family="Helvetica,sans-Serif" font-size="10.00">setPointName()</text>
+<text text-anchor="start" x="223.5" y="-112" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="234" y="-112" font-family="Helvetica,sans-Serif" font-size="10.00">setPointName1()</text>
+<text text-anchor="start" x="223.5" y="-97" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="234" y="-97" font-family="Helvetica,sans-Serif" font-size="10.00">setPointName2()</text>
+<text text-anchor="start" x="223.5" y="-82" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="234" y="-82" font-family="Helvetica,sans-Serif" font-size="10.00">setOperationSuffix()</text>
+<text text-anchor="start" x="223.5" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="234" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">getCrossPoint()</text>
+<text text-anchor="start" x="223.5" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="234" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">setCirclesCrossPoint()</text>
+<text text-anchor="start" x="223.5" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="234" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00">setCurveVCrossPoint()</text>
+<text text-anchor="start" x="234" y="-22" font-family="Helvetica,sans-Serif" font-size="10.00">and 123 more...</text>
+<text text-anchor="start" x="223.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="234" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">userChangedData()</text>
+<polygon fill="#666666" stroke="#666666" points="217,-287 217,-287 391,-287 391,-287 217,-287"/>
+<polygon fill="#666666" stroke="#666666" points="217,-257 217,-257 232,-257 232,-257 217,-257"/>
+<polygon fill="#666666" stroke="#666666" points="232,-257 232,-257 391,-257 391,-257 232,-257"/>
+<polygon fill="none" stroke="#666666" points="217,0 217,-304 391,-304 391,0 217,0"/>
 </a>
 </g>
 </g>
@@ -122,92 +122,92 @@ var sectionId = 'dynsection-1';
 <g id="edge1_Node000001_Node000002" class="edge">
 <title>Node2&#45;&gt;Node1</title>
 <g id="a_edge1_Node000001_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M21.55,-595.56C17.55,-540.64 16.24,-430.41 59,-351 92.35,-289.07 153.59,-238.21 204.92,-203.54"/>
-<polygon fill="none" stroke="#63b8ff" points="18.08,-596.1 22.37,-605.79 25.06,-595.54 18.08,-596.1"/>
+<path fill="none" stroke="#63b8ff" d="M21.32,-595.44C17.01,-540.34 15.26,-429.87 59,-351 95.07,-285.95 161.96,-234.14 216.74,-199.85"/>
+<polygon fill="none" stroke="#63b8ff" points="17.86,-596.04 22.21,-605.7 24.83,-595.43 17.86,-596.04"/>
 </a>
 </g>
 </g>
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="../../d2/d83/classVContainer.html" target="_top" xlink:title="Manages a collection of geometric objects, pieces, paths, and variables.">
-<polygon fill="white" stroke="transparent" points="230,-910 68,-910 68,-351 230,-351 230,-910"/>
-<text text-anchor="start" x="121.5" y="-897.5" font-family="Helvetica,sans-Serif" font-size="10.00">VContainer</text>
-<text text-anchor="start" x="74.5" y="-882.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="85" y="-882.5" font-family="Helvetica,sans-Serif" font-size="10.00">d</text>
-<text text-anchor="start" x="74.5" y="-867.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="85" y="-867.5" font-family="Helvetica,sans-Serif" font-size="10.00">_id</text>
-<text text-anchor="start" x="74.5" y="-852.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="85" y="-852.5" font-family="Helvetica,sans-Serif" font-size="10.00">_size</text>
-<text text-anchor="start" x="74.5" y="-837.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="85" y="-837.5" font-family="Helvetica,sans-Serif" font-size="10.00">_height</text>
-<text text-anchor="start" x="74.5" y="-822.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="85" y="-822.5" font-family="Helvetica,sans-Serif" font-size="10.00">uniqueNames</text>
-<text text-anchor="start" x="72" y="-807.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-807.5" font-family="Helvetica,sans-Serif" font-size="10.00">VContainer()</text>
-<text text-anchor="start" x="72" y="-792.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-792.5" font-family="Helvetica,sans-Serif" font-size="10.00">VContainer()</text>
-<text text-anchor="start" x="72" y="-777.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-777.5" font-family="Helvetica,sans-Serif" font-size="10.00">~VContainer()</text>
-<text text-anchor="start" x="72" y="-762.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-762.5" font-family="Helvetica,sans-Serif" font-size="10.00">operator=()</text>
-<text text-anchor="start" x="72" y="-747.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-747.5" font-family="Helvetica,sans-Serif" font-size="10.00">Swap()</text>
-<text text-anchor="start" x="72" y="-732.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-732.5" font-family="Helvetica,sans-Serif" font-size="10.00">GeometricObject()</text>
-<text text-anchor="start" x="72" y="-717.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-717.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetGObject()</text>
-<text text-anchor="start" x="72" y="-702.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-702.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetPiece()</text>
-<text text-anchor="start" x="72" y="-687.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-687.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetPiecePath()</text>
-<text text-anchor="start" x="72" y="-672.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-672.5" font-family="Helvetica,sans-Serif" font-size="10.00">getVariable()</text>
-<text text-anchor="start" x="85" y="-657.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 34 more...</text>
-<text text-anchor="start" x="72" y="-642.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-642.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetFakeGObject()</text>
-<text text-anchor="start" x="72" y="-627.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-627.5" font-family="Helvetica,sans-Serif" font-size="10.00">getId()</text>
-<text text-anchor="start" x="72" y="-612.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-612.5" font-family="Helvetica,sans-Serif" font-size="10.00">getNextId()</text>
-<text text-anchor="start" x="72" y="-597.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-597.5" font-family="Helvetica,sans-Serif" font-size="10.00">UpdateId()</text>
-<text text-anchor="start" x="72" y="-582.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-582.5" font-family="Helvetica,sans-Serif" font-size="10.00">ClearUniqueNames()</text>
-<text text-anchor="start" x="72" y="-567.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-567.5" font-family="Helvetica,sans-Serif" font-size="10.00">clearUniqueVariableNames()</text>
-<text text-anchor="start" x="72" y="-552.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-552.5" font-family="Helvetica,sans-Serif" font-size="10.00">setSize()</text>
-<text text-anchor="start" x="72" y="-537.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-537.5" font-family="Helvetica,sans-Serif" font-size="10.00">setHeight()</text>
-<text text-anchor="start" x="72" y="-522.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-522.5" font-family="Helvetica,sans-Serif" font-size="10.00">size()</text>
-<text text-anchor="start" x="72" y="-507.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-507.5" font-family="Helvetica,sans-Serif" font-size="10.00">rsize()</text>
-<text text-anchor="start" x="72" y="-492.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-492.5" font-family="Helvetica,sans-Serif" font-size="10.00">height()</text>
-<text text-anchor="start" x="72" y="-477.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-477.5" font-family="Helvetica,sans-Serif" font-size="10.00">rheight()</text>
-<text text-anchor="start" x="72" y="-462.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-462.5" font-family="Helvetica,sans-Serif" font-size="10.00">IsUnique()</text>
-<text text-anchor="start" x="72" y="-447.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-447.5" font-family="Helvetica,sans-Serif" font-size="10.00">AllUniqueNames()</text>
-<text text-anchor="start" x="74.5" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="85" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">AddCurve()</text>
-<text text-anchor="start" x="74.5" y="-417.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="85" y="-417.5" font-family="Helvetica,sans-Serif" font-size="10.00">qHash()</text>
-<text text-anchor="start" x="74.5" y="-402.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="85" y="-402.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetObject()</text>
-<text text-anchor="start" x="74.5" y="-387.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="85" y="-387.5" font-family="Helvetica,sans-Serif" font-size="10.00">UpdateObject()</text>
-<text text-anchor="start" x="74.5" y="-372.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="85" y="-372.5" font-family="Helvetica,sans-Serif" font-size="10.00">DataVar()</text>
-<text text-anchor="start" x="74.5" y="-357.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="85" y="-357.5" font-family="Helvetica,sans-Serif" font-size="10.00">AddObject()</text>
-<polygon fill="#666666" stroke="#666666" points="68,-892.5 68,-892.5 230,-892.5 230,-892.5 68,-892.5"/>
-<polygon fill="#666666" stroke="#666666" points="68,-817.5 68,-817.5 83,-817.5 83,-817.5 68,-817.5"/>
-<polygon fill="#666666" stroke="#666666" points="83,-817.5 83,-817.5 230,-817.5 230,-817.5 83,-817.5"/>
-<polygon fill="none" stroke="#666666" points="68,-351 68,-910 230,-910 230,-351 68,-351"/>
+<g id="a_Node000003"><a xlink:href="../../d2/d83/classVContainer.html" target="_top" xlink:title="The VContainer class container of all variables.">
+<polygon fill="white" stroke="transparent" points="241.5,-910 68.5,-910 68.5,-351 241.5,-351 241.5,-910"/>
+<text text-anchor="start" x="128" y="-897.5" font-family="Helvetica,sans-Serif" font-size="10.00">VContainer</text>
+<text text-anchor="start" x="75.5" y="-882.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="86" y="-882.5" font-family="Helvetica,sans-Serif" font-size="10.00">d</text>
+<text text-anchor="start" x="75.5" y="-867.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="86" y="-867.5" font-family="Helvetica,sans-Serif" font-size="10.00">_id</text>
+<text text-anchor="start" x="75.5" y="-852.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="86" y="-852.5" font-family="Helvetica,sans-Serif" font-size="10.00">_size</text>
+<text text-anchor="start" x="75.5" y="-837.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="86" y="-837.5" font-family="Helvetica,sans-Serif" font-size="10.00">_height</text>
+<text text-anchor="start" x="75.5" y="-822.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="86" y="-822.5" font-family="Helvetica,sans-Serif" font-size="10.00">uniqueNames</text>
+<text text-anchor="start" x="73" y="-807.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-807.5" font-family="Helvetica,sans-Serif" font-size="10.00">VContainer()</text>
+<text text-anchor="start" x="73" y="-792.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-792.5" font-family="Helvetica,sans-Serif" font-size="10.00">VContainer()</text>
+<text text-anchor="start" x="73" y="-777.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-777.5" font-family="Helvetica,sans-Serif" font-size="10.00">~VContainer()</text>
+<text text-anchor="start" x="73" y="-762.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-762.5" font-family="Helvetica,sans-Serif" font-size="10.00">operator=()</text>
+<text text-anchor="start" x="73" y="-747.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-747.5" font-family="Helvetica,sans-Serif" font-size="10.00">Swap()</text>
+<text text-anchor="start" x="73" y="-732.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-732.5" font-family="Helvetica,sans-Serif" font-size="10.00">GeometricObject()</text>
+<text text-anchor="start" x="73" y="-717.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-717.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetGObject()</text>
+<text text-anchor="start" x="73" y="-702.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-702.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetPiece()</text>
+<text text-anchor="start" x="73" y="-687.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-687.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetPiecePath()</text>
+<text text-anchor="start" x="73" y="-672.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-672.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetVariable()</text>
+<text text-anchor="start" x="86" y="-657.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 34 more...</text>
+<text text-anchor="start" x="73" y="-642.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-642.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetFakeGObject()</text>
+<text text-anchor="start" x="73" y="-627.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-627.5" font-family="Helvetica,sans-Serif" font-size="10.00">getId()</text>
+<text text-anchor="start" x="73" y="-612.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-612.5" font-family="Helvetica,sans-Serif" font-size="10.00">getNextId()</text>
+<text text-anchor="start" x="73" y="-597.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-597.5" font-family="Helvetica,sans-Serif" font-size="10.00">UpdateId()</text>
+<text text-anchor="start" x="73" y="-582.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-582.5" font-family="Helvetica,sans-Serif" font-size="10.00">ClearUniqueNames()</text>
+<text text-anchor="start" x="73" y="-567.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-567.5" font-family="Helvetica,sans-Serif" font-size="10.00">ClearUniqueIncrementNames()</text>
+<text text-anchor="start" x="73" y="-552.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-552.5" font-family="Helvetica,sans-Serif" font-size="10.00">setSize()</text>
+<text text-anchor="start" x="73" y="-537.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-537.5" font-family="Helvetica,sans-Serif" font-size="10.00">setHeight()</text>
+<text text-anchor="start" x="73" y="-522.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-522.5" font-family="Helvetica,sans-Serif" font-size="10.00">size()</text>
+<text text-anchor="start" x="73" y="-507.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-507.5" font-family="Helvetica,sans-Serif" font-size="10.00">rsize()</text>
+<text text-anchor="start" x="73" y="-492.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-492.5" font-family="Helvetica,sans-Serif" font-size="10.00">height()</text>
+<text text-anchor="start" x="73" y="-477.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-477.5" font-family="Helvetica,sans-Serif" font-size="10.00">rheight()</text>
+<text text-anchor="start" x="73" y="-462.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-462.5" font-family="Helvetica,sans-Serif" font-size="10.00">IsUnique()</text>
+<text text-anchor="start" x="73" y="-447.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="86" y="-447.5" font-family="Helvetica,sans-Serif" font-size="10.00">AllUniqueNames()</text>
+<text text-anchor="start" x="75.5" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="86" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">AddCurve()</text>
+<text text-anchor="start" x="75.5" y="-417.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="86" y="-417.5" font-family="Helvetica,sans-Serif" font-size="10.00">qHash()</text>
+<text text-anchor="start" x="75.5" y="-402.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="86" y="-402.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetObject()</text>
+<text text-anchor="start" x="75.5" y="-387.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="86" y="-387.5" font-family="Helvetica,sans-Serif" font-size="10.00">UpdateObject()</text>
+<text text-anchor="start" x="75.5" y="-372.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="86" y="-372.5" font-family="Helvetica,sans-Serif" font-size="10.00">DataVar()</text>
+<text text-anchor="start" x="75.5" y="-357.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="86" y="-357.5" font-family="Helvetica,sans-Serif" font-size="10.00">AddObject()</text>
+<polygon fill="#666666" stroke="#666666" points="69,-892.5 69,-892.5 242,-892.5 242,-892.5 69,-892.5"/>
+<polygon fill="#666666" stroke="#666666" points="69,-817.5 69,-817.5 84,-817.5 84,-817.5 69,-817.5"/>
+<polygon fill="#666666" stroke="#666666" points="84,-817.5 84,-817.5 242,-817.5 242,-817.5 84,-817.5"/>
+<polygon fill="none" stroke="#666666" points="68.5,-351 68.5,-910 241.5,-910 241.5,-351 68.5,-351"/>
 </a>
 </g>
 </g>
@@ -215,49 +215,49 @@ var sectionId = 'dynsection-1';
 <g id="edge2_Node000001_Node000003" class="edge">
 <title>Node3&#45;&gt;Node1</title>
 <g id="a_edge2_Node000001_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M185.84,-350.94C188.67,-341.11 191.72,-331.43 195,-322 196.58,-317.46 198.28,-312.9 200.09,-308.34"/>
-<polygon fill="none" stroke="#63b8ff" points="200.2,-308.09 198.8,-301.02 204.8,-297.01 206.19,-304.08 200.2,-308.09"/>
+<path fill="none" stroke="#63b8ff" d="M197.49,-350.93C200.46,-341.1 203.62,-331.43 207,-322 208.62,-317.47 210.37,-312.93 212.21,-308.38"/>
+<polygon fill="none" stroke="#63b8ff" points="212.31,-308.13 210.97,-301.04 216.99,-297.07 218.34,-304.16 212.31,-308.13"/>
 </a>
 </g>
-<text text-anchor="middle" x="219.5" y="-325" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #m_data</text>
+<text text-anchor="middle" x="231.5" y="-325" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #m_data</text>
 </g>
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
 <g id="a_Node000004"><a xlink:href="../../d5/d47/classVPE_1_1VPropertyModel.html" target="_top" xlink:title="This is the base model for managing all the properties and passing them to the view.">
-<polygon fill="white" stroke="transparent" points="436,-752.5 286,-752.5 286,-508.5 436,-508.5 436,-752.5"/>
-<text text-anchor="start" x="309.5" y="-740.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertyModel</text>
-<text text-anchor="start" x="359" y="-725.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="290" y="-710.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="303" y="-710.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyModel()</text>
-<text text-anchor="start" x="290" y="-695.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="303" y="-695.5" font-family="Helvetica,sans-Serif" font-size="10.00">~VPropertyModel()</text>
-<text text-anchor="start" x="290" y="-680.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="303" y="-680.5" font-family="Helvetica,sans-Serif" font-size="10.00">addProperty()</text>
-<text text-anchor="start" x="290" y="-665.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="303" y="-665.5" font-family="Helvetica,sans-Serif" font-size="10.00">createProperty()</text>
-<text text-anchor="start" x="290" y="-650.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="303" y="-650.5" font-family="Helvetica,sans-Serif" font-size="10.00">getProperty()</text>
-<text text-anchor="start" x="290" y="-635.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="303" y="-635.5" font-family="Helvetica,sans-Serif" font-size="10.00">flags()</text>
-<text text-anchor="start" x="290" y="-620.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="303" y="-620.5" font-family="Helvetica,sans-Serif" font-size="10.00">setData()</text>
-<text text-anchor="start" x="290" y="-605.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="303" y="-605.5" font-family="Helvetica,sans-Serif" font-size="10.00">index()</text>
-<text text-anchor="start" x="290" y="-590.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="303" y="-590.5" font-family="Helvetica,sans-Serif" font-size="10.00">parent()</text>
-<text text-anchor="start" x="290" y="-575.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="303" y="-575.5" font-family="Helvetica,sans-Serif" font-size="10.00">data()</text>
-<text text-anchor="start" x="303" y="-560.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 11 more...</text>
-<text text-anchor="start" x="290" y="-545.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="303" y="-545.5" font-family="Helvetica,sans-Serif" font-size="10.00">onDataChangedByModel()</text>
-<text text-anchor="start" x="290" y="-530.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="303" y="-530.5" font-family="Helvetica,sans-Serif" font-size="10.00">getIndexFromProperty()</text>
-<text text-anchor="start" x="290" y="-515.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="303" y="-515.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyModel()</text>
-<polygon fill="#666666" stroke="#666666" points="286,-735.5 286,-735.5 436,-735.5 436,-735.5 286,-735.5"/>
-<polygon fill="#666666" stroke="#666666" points="286,-720.5 286,-720.5 436,-720.5 436,-720.5 286,-720.5"/>
-<polygon fill="none" stroke="#666666" points="286,-508.5 286,-752.5 436,-752.5 436,-508.5 286,-508.5"/>
+<polygon fill="white" stroke="transparent" points="448,-752.5 298,-752.5 298,-508.5 448,-508.5 448,-752.5"/>
+<text text-anchor="start" x="321.5" y="-740.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertyModel</text>
+<text text-anchor="start" x="371" y="-725.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="302" y="-710.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="315" y="-710.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyModel()</text>
+<text text-anchor="start" x="302" y="-695.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="315" y="-695.5" font-family="Helvetica,sans-Serif" font-size="10.00">~VPropertyModel()</text>
+<text text-anchor="start" x="302" y="-680.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="315" y="-680.5" font-family="Helvetica,sans-Serif" font-size="10.00">addProperty()</text>
+<text text-anchor="start" x="302" y="-665.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="315" y="-665.5" font-family="Helvetica,sans-Serif" font-size="10.00">createProperty()</text>
+<text text-anchor="start" x="302" y="-650.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="315" y="-650.5" font-family="Helvetica,sans-Serif" font-size="10.00">getProperty()</text>
+<text text-anchor="start" x="302" y="-635.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="315" y="-635.5" font-family="Helvetica,sans-Serif" font-size="10.00">flags()</text>
+<text text-anchor="start" x="302" y="-620.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="315" y="-620.5" font-family="Helvetica,sans-Serif" font-size="10.00">setData()</text>
+<text text-anchor="start" x="302" y="-605.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="315" y="-605.5" font-family="Helvetica,sans-Serif" font-size="10.00">index()</text>
+<text text-anchor="start" x="302" y="-590.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="315" y="-590.5" font-family="Helvetica,sans-Serif" font-size="10.00">parent()</text>
+<text text-anchor="start" x="302" y="-575.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="315" y="-575.5" font-family="Helvetica,sans-Serif" font-size="10.00">data()</text>
+<text text-anchor="start" x="315" y="-560.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 11 more...</text>
+<text text-anchor="start" x="302" y="-545.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="315" y="-545.5" font-family="Helvetica,sans-Serif" font-size="10.00">onDataChangedByModel()</text>
+<text text-anchor="start" x="302" y="-530.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="315" y="-530.5" font-family="Helvetica,sans-Serif" font-size="10.00">getIndexFromProperty()</text>
+<text text-anchor="start" x="302" y="-515.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="315" y="-515.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyModel()</text>
+<polygon fill="#666666" stroke="#666666" points="298,-735.5 298,-735.5 448,-735.5 448,-735.5 298,-735.5"/>
+<polygon fill="#666666" stroke="#666666" points="298,-720.5 298,-720.5 448,-720.5 448,-720.5 298,-720.5"/>
+<polygon fill="none" stroke="#666666" points="298,-508.5 298,-752.5 448,-752.5 448,-508.5 298,-508.5"/>
 </a>
 </g>
 </g>
@@ -265,23 +265,23 @@ var sectionId = 'dynsection-1';
 <g id="edge3_Node000001_Node000004" class="edge">
 <title>Node4&#45;&gt;Node1</title>
 <g id="a_edge3_Node000001_Node000004"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M343.45,-508.33C335.01,-450.05 324.77,-379.33 315.66,-316.37"/>
-<polygon fill="none" stroke="#63b8ff" points="315.63,-316.18 310.81,-310.81 313.91,-304.3 318.73,-309.67 315.63,-316.18"/>
+<path fill="none" stroke="#63b8ff" d="M355.45,-508.33C347.01,-450.05 336.77,-379.33 327.66,-316.37"/>
+<polygon fill="none" stroke="#63b8ff" points="327.63,-316.18 322.81,-310.81 325.91,-304.3 330.73,-309.67 327.63,-316.18"/>
 </a>
 </g>
-<text text-anchor="middle" x="359.5" y="-325" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #propertyModel</text>
+<text text-anchor="middle" x="371.5" y="-325" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #propertyModel</text>
 </g>
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
 <g id="a_Node000005"><a xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="397.5,-1291.5 286.5,-1291.5 286.5,-1242.5 397.5,-1242.5 397.5,-1291.5"/>
-<text text-anchor="start" x="292" y="-1279" font-family="Helvetica,sans-Serif" font-size="10.00">QAbstractItemModel</text>
-<text text-anchor="start" x="340.5" y="-1264" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="340.5" y="-1249" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#666666" stroke="#666666" points="287,-1274 287,-1274 398,-1274 398,-1274 287,-1274"/>
-<polygon fill="#666666" stroke="#666666" points="287,-1259 287,-1259 398,-1259 398,-1259 287,-1259"/>
-<polygon fill="none" stroke="#666666" points="286.5,-1242.5 286.5,-1291.5 397.5,-1291.5 397.5,-1242.5 286.5,-1242.5"/>
+<polygon fill="white" stroke="transparent" points="409.5,-1291.5 298.5,-1291.5 298.5,-1242.5 409.5,-1242.5 409.5,-1291.5"/>
+<text text-anchor="start" x="304" y="-1279" font-family="Helvetica,sans-Serif" font-size="10.00">QAbstractItemModel</text>
+<text text-anchor="start" x="352.5" y="-1264" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="352.5" y="-1249" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="#666666" stroke="#666666" points="299,-1274 299,-1274 410,-1274 410,-1274 299,-1274"/>
+<polygon fill="#666666" stroke="#666666" points="299,-1259 299,-1259 410,-1259 410,-1259 299,-1259"/>
+<polygon fill="none" stroke="#666666" points="298.5,-1242.5 298.5,-1291.5 409.5,-1291.5 409.5,-1242.5 298.5,-1242.5"/>
 </a>
 </g>
 </g>
@@ -289,8 +289,8 @@ var sectionId = 'dynsection-1';
 <g id="edge4_Node000004_Node000005" class="edge">
 <title>Node5&#45;&gt;Node4</title>
 <g id="a_edge4_Node000004_Node000005"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M343.01,-1232.26C345.66,-1143.66 352.93,-901 357.37,-752.6"/>
-<polygon fill="none" stroke="#63b8ff" points="339.51,-1232.18 342.71,-1242.28 346.51,-1232.39 339.51,-1232.18"/>
+<path fill="none" stroke="#63b8ff" d="M355.01,-1232.26C357.66,-1143.66 364.93,-901 369.37,-752.6"/>
+<polygon fill="none" stroke="#63b8ff" points="351.51,-1232.18 354.71,-1242.28 358.51,-1232.39 351.51,-1232.18"/>
 </a>
 </g>
 </g>
@@ -298,18 +298,18 @@ var sectionId = 'dynsection-1';
 <g id="Node000006" class="node">
 <title>Node6</title>
 <g id="a_Node000006"><a xlink:href="../../d5/d45/classVPE_1_1VPropertyModelPrivate.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="564,-1299 416,-1299 416,-1235 564,-1235 564,-1299"/>
-<text text-anchor="start" x="421" y="-1287" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertyModelPrivate</text>
-<text text-anchor="start" x="421.5" y="-1272" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="436" y="-1272" font-family="Helvetica,sans-Serif" font-size="10.00">HeadlineProperty</text>
-<text text-anchor="start" x="421.5" y="-1257" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="436" y="-1257" font-family="Helvetica,sans-Serif" font-size="10.00">HeadlineValue</text>
-<text text-anchor="start" x="421.5" y="-1242" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="436" y="-1242" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyModelPrivate()</text>
-<polygon fill="#666666" stroke="#666666" points="416,-1282 416,-1282 564,-1282 564,-1282 416,-1282"/>
-<polygon fill="#666666" stroke="#666666" points="416,-1252 416,-1252 434,-1252 434,-1252 416,-1252"/>
-<polygon fill="#666666" stroke="#666666" points="434,-1252 434,-1252 564,-1252 564,-1252 434,-1252"/>
-<polygon fill="none" stroke="#666666" points="416,-1235 416,-1299 564,-1299 564,-1235 416,-1235"/>
+<polygon fill="white" stroke="transparent" points="576,-1299 428,-1299 428,-1235 576,-1235 576,-1299"/>
+<text text-anchor="start" x="433" y="-1287" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertyModelPrivate</text>
+<text text-anchor="start" x="433.5" y="-1272" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="448" y="-1272" font-family="Helvetica,sans-Serif" font-size="10.00">HeadlineProperty</text>
+<text text-anchor="start" x="433.5" y="-1257" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="448" y="-1257" font-family="Helvetica,sans-Serif" font-size="10.00">HeadlineValue</text>
+<text text-anchor="start" x="433.5" y="-1242" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="448" y="-1242" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyModelPrivate()</text>
+<polygon fill="#666666" stroke="#666666" points="428,-1282 428,-1282 576,-1282 576,-1282 428,-1282"/>
+<polygon fill="#666666" stroke="#666666" points="428,-1252 428,-1252 446,-1252 446,-1252 428,-1252"/>
+<polygon fill="#666666" stroke="#666666" points="446,-1252 446,-1252 576,-1252 576,-1252 446,-1252"/>
+<polygon fill="none" stroke="#666666" points="428,-1235 428,-1299 576,-1299 576,-1235 428,-1235"/>
 </a>
 </g>
 </g>
@@ -317,49 +317,49 @@ var sectionId = 'dynsection-1';
 <g id="edge5_Node000004_Node000006" class="edge">
 <title>Node6&#45;&gt;Node4</title>
 <g id="a_edge5_Node000004_Node000006"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M451.44,-1234.81C446.6,-1229.34 442.22,-1223.35 439,-1217 366.79,-1074.47 353.59,-888.54 354.31,-764.85"/>
-<polygon fill="none" stroke="#63b8ff" points="354.31,-764.7 350.37,-758.66 354.43,-752.7 358.37,-758.74 354.31,-764.7"/>
+<path fill="none" stroke="#63b8ff" d="M463.44,-1234.81C458.6,-1229.34 454.22,-1223.35 451,-1217 378.79,-1074.47 365.59,-888.54 366.31,-764.85"/>
+<polygon fill="none" stroke="#63b8ff" points="366.31,-764.7 362.37,-758.66 366.43,-752.7 370.37,-758.74 366.31,-764.7"/>
 </a>
 </g>
-<text text-anchor="middle" x="457.5" y="-1070" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #d_ptr</text>
+<text text-anchor="middle" x="469.5" y="-1070" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #d_ptr</text>
 </g>
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
 <g id="a_Node000007"><a xlink:href="../../d9/d51/classVPE_1_1VPropertySet.html" target="_top" xlink:title="VPropertySet is a simple class for managing a set of properties. If you don&#39;t need all the Model&#45;func...">
-<polygon fill="white" stroke="transparent" points="471,-1590 323,-1590 323,-1346 471,-1346 471,-1590"/>
-<text text-anchor="start" x="352.5" y="-1578" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertySet</text>
-<text text-anchor="start" x="395" y="-1563" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="327" y="-1548" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="340" y="-1548" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertySet()</text>
-<text text-anchor="start" x="327" y="-1533" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="340" y="-1533" font-family="Helvetica,sans-Serif" font-size="10.00">~VPropertySet()</text>
-<text text-anchor="start" x="327" y="-1518" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="340" y="-1518" font-family="Helvetica,sans-Serif" font-size="10.00">addProperty()</text>
-<text text-anchor="start" x="327" y="-1503" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="340" y="-1503" font-family="Helvetica,sans-Serif" font-size="10.00">addProperty()</text>
-<text text-anchor="start" x="327" y="-1488" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="340" y="-1488" font-family="Helvetica,sans-Serif" font-size="10.00">hasProperty()</text>
-<text text-anchor="start" x="327" y="-1473" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="340" y="-1473" font-family="Helvetica,sans-Serif" font-size="10.00">getProperty()</text>
-<text text-anchor="start" x="327" y="-1458" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="340" y="-1458" font-family="Helvetica,sans-Serif" font-size="10.00">takeProperty()</text>
-<text text-anchor="start" x="327" y="-1443" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="340" y="-1443" font-family="Helvetica,sans-Serif" font-size="10.00">removeProperty()</text>
-<text text-anchor="start" x="327" y="-1428" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="340" y="-1428" font-family="Helvetica,sans-Serif" font-size="10.00">removeProperty()</text>
-<text text-anchor="start" x="327" y="-1413" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="340" y="-1413" font-family="Helvetica,sans-Serif" font-size="10.00">count()</text>
-<text text-anchor="start" x="340" y="-1398" font-family="Helvetica,sans-Serif" font-size="10.00">and 7 more...</text>
-<text text-anchor="start" x="327" y="-1383" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="340" y="-1383" font-family="Helvetica,sans-Serif" font-size="10.00">hasProperty()</text>
-<text text-anchor="start" x="327" y="-1368" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="340" y="-1368" font-family="Helvetica,sans-Serif" font-size="10.00">cloneProperty()</text>
-<text text-anchor="start" x="327" y="-1353" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="340" y="-1353" font-family="Helvetica,sans-Serif" font-size="10.00">removePropertyFromSet()</text>
-<polygon fill="#666666" stroke="#666666" points="323,-1573 323,-1573 471,-1573 471,-1573 323,-1573"/>
-<polygon fill="#666666" stroke="#666666" points="323,-1558 323,-1558 471,-1558 471,-1558 323,-1558"/>
-<polygon fill="none" stroke="#666666" points="323,-1346 323,-1590 471,-1590 471,-1346 323,-1346"/>
+<polygon fill="white" stroke="transparent" points="483,-1590 335,-1590 335,-1346 483,-1346 483,-1590"/>
+<text text-anchor="start" x="364.5" y="-1578" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertySet</text>
+<text text-anchor="start" x="407" y="-1563" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="339" y="-1548" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="352" y="-1548" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertySet()</text>
+<text text-anchor="start" x="339" y="-1533" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="352" y="-1533" font-family="Helvetica,sans-Serif" font-size="10.00">~VPropertySet()</text>
+<text text-anchor="start" x="339" y="-1518" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="352" y="-1518" font-family="Helvetica,sans-Serif" font-size="10.00">addProperty()</text>
+<text text-anchor="start" x="339" y="-1503" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="352" y="-1503" font-family="Helvetica,sans-Serif" font-size="10.00">addProperty()</text>
+<text text-anchor="start" x="339" y="-1488" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="352" y="-1488" font-family="Helvetica,sans-Serif" font-size="10.00">hasProperty()</text>
+<text text-anchor="start" x="339" y="-1473" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="352" y="-1473" font-family="Helvetica,sans-Serif" font-size="10.00">getProperty()</text>
+<text text-anchor="start" x="339" y="-1458" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="352" y="-1458" font-family="Helvetica,sans-Serif" font-size="10.00">takeProperty()</text>
+<text text-anchor="start" x="339" y="-1443" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="352" y="-1443" font-family="Helvetica,sans-Serif" font-size="10.00">removeProperty()</text>
+<text text-anchor="start" x="339" y="-1428" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="352" y="-1428" font-family="Helvetica,sans-Serif" font-size="10.00">removeProperty()</text>
+<text text-anchor="start" x="339" y="-1413" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="352" y="-1413" font-family="Helvetica,sans-Serif" font-size="10.00">count()</text>
+<text text-anchor="start" x="352" y="-1398" font-family="Helvetica,sans-Serif" font-size="10.00">and 7 more...</text>
+<text text-anchor="start" x="339" y="-1383" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="352" y="-1383" font-family="Helvetica,sans-Serif" font-size="10.00">hasProperty()</text>
+<text text-anchor="start" x="339" y="-1368" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="352" y="-1368" font-family="Helvetica,sans-Serif" font-size="10.00">cloneProperty()</text>
+<text text-anchor="start" x="339" y="-1353" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="352" y="-1353" font-family="Helvetica,sans-Serif" font-size="10.00">removePropertyFromSet()</text>
+<polygon fill="#666666" stroke="#666666" points="335,-1573 335,-1573 483,-1573 483,-1573 335,-1573"/>
+<polygon fill="#666666" stroke="#666666" points="335,-1558 335,-1558 483,-1558 483,-1558 335,-1558"/>
+<polygon fill="none" stroke="#666666" points="335,-1346 335,-1590 483,-1590 483,-1346 335,-1346"/>
 </a>
 </g>
 </g>
@@ -367,24 +367,24 @@ var sectionId = 'dynsection-1';
 <g id="edge6_Node000006_Node000007" class="edge">
 <title>Node7&#45;&gt;Node6</title>
 <g id="a_edge6_Node000006_Node000007"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M453.64,-1345.79C459.55,-1333.16 465.22,-1321.01 470.26,-1310.23"/>
-<polygon fill="none" stroke="#63b8ff" points="470.38,-1309.98 469.3,-1302.85 475.46,-1299.11 476.55,-1306.23 470.38,-1309.98"/>
+<path fill="none" stroke="#63b8ff" d="M465.64,-1345.79C471.55,-1333.16 477.22,-1321.01 482.26,-1310.23"/>
+<polygon fill="none" stroke="#63b8ff" points="482.38,-1309.98 481.3,-1302.85 487.46,-1299.11 488.55,-1306.23 482.38,-1309.98"/>
 </a>
 </g>
-<text text-anchor="middle" x="495.5" y="-1320" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> +Properties</text>
+<text text-anchor="middle" x="507.5" y="-1320" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> +Properties</text>
 </g>
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
 <g id="a_Node000008"><a xlink:href="../../d7/d5d/classVPE_1_1VPropertySetPrivate.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="449,-1706.5 315,-1706.5 315,-1657.5 449,-1657.5 449,-1706.5"/>
-<text text-anchor="start" x="320" y="-1694" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertySetPrivate</text>
-<text text-anchor="start" x="380" y="-1679" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="320.5" y="-1664" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="335" y="-1664" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertySetPrivate()</text>
-<polygon fill="#666666" stroke="#666666" points="315,-1689 315,-1689 449,-1689 449,-1689 315,-1689"/>
-<polygon fill="#666666" stroke="#666666" points="315,-1674 315,-1674 449,-1674 449,-1674 315,-1674"/>
-<polygon fill="none" stroke="#666666" points="315,-1657.5 315,-1706.5 449,-1706.5 449,-1657.5 315,-1657.5"/>
+<polygon fill="white" stroke="transparent" points="461,-1706.5 327,-1706.5 327,-1657.5 461,-1657.5 461,-1706.5"/>
+<text text-anchor="start" x="332" y="-1694" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertySetPrivate</text>
+<text text-anchor="start" x="392" y="-1679" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="332.5" y="-1664" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="347" y="-1664" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertySetPrivate()</text>
+<polygon fill="#666666" stroke="#666666" points="327,-1689 327,-1689 461,-1689 461,-1689 327,-1689"/>
+<polygon fill="#666666" stroke="#666666" points="327,-1674 327,-1674 461,-1674 461,-1674 327,-1674"/>
+<polygon fill="none" stroke="#666666" points="327,-1657.5 327,-1706.5 461,-1706.5 461,-1657.5 327,-1657.5"/>
 </a>
 </g>
 </g>
@@ -392,24 +392,24 @@ var sectionId = 'dynsection-1';
 <g id="edge7_Node000007_Node000008" class="edge">
 <title>Node8&#45;&gt;Node7</title>
 <g id="a_edge7_Node000007_Node000008"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M383.69,-1657.09C384.7,-1642.81 386.07,-1623.42 387.56,-1602.48"/>
-<polygon fill="none" stroke="#63b8ff" points="387.57,-1602.33 384,-1596.06 388.41,-1590.36 391.98,-1596.63 387.57,-1602.33"/>
+<path fill="none" stroke="#63b8ff" d="M395.69,-1657.09C396.7,-1642.81 398.07,-1623.42 399.56,-1602.48"/>
+<polygon fill="none" stroke="#63b8ff" points="399.57,-1602.33 396,-1596.06 400.41,-1590.36 403.98,-1596.63 399.57,-1602.33"/>
 </a>
 </g>
-<text text-anchor="middle" x="404.5" y="-1611" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #d_ptr</text>
+<text text-anchor="middle" x="416.5" y="-1611" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #d_ptr</text>
 </g>
 <!-- Node9 -->
 <g id="Node000009" class="node">
 <title>Node9</title>
 <g id="a_Node000009"><a xlink:href="../../d0/d4c/classQMap.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="352.5,-1834 241.5,-1834 241.5,-1774 352.5,-1774 352.5,-1834"/>
-<text text-anchor="start" x="247" y="-1822" font-family="Helvetica,sans-Serif" font-size="10.00">QMap&lt; QString, VPE</text>
-<text text-anchor="start" x="260.5" y="-1811" font-family="Helvetica,sans-Serif" font-size="10.00">::VProperty * &gt;</text>
-<text text-anchor="start" x="295.5" y="-1796" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="295.5" y="-1781" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#666666" stroke="#666666" points="242,-1806 242,-1806 353,-1806 353,-1806 242,-1806"/>
-<polygon fill="#666666" stroke="#666666" points="242,-1791 242,-1791 353,-1791 353,-1791 242,-1791"/>
-<polygon fill="none" stroke="#666666" points="241.5,-1774 241.5,-1834 352.5,-1834 352.5,-1774 241.5,-1774"/>
+<polygon fill="white" stroke="transparent" points="364.5,-1834 253.5,-1834 253.5,-1774 364.5,-1774 364.5,-1834"/>
+<text text-anchor="start" x="259" y="-1822" font-family="Helvetica,sans-Serif" font-size="10.00">QMap&lt; QString, VPE</text>
+<text text-anchor="start" x="272.5" y="-1811" font-family="Helvetica,sans-Serif" font-size="10.00">::VProperty * &gt;</text>
+<text text-anchor="start" x="307.5" y="-1796" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="307.5" y="-1781" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="#666666" stroke="#666666" points="254,-1806 254,-1806 365,-1806 365,-1806 254,-1806"/>
+<polygon fill="#666666" stroke="#666666" points="254,-1791 254,-1791 365,-1791 365,-1791 254,-1791"/>
+<polygon fill="none" stroke="#666666" points="253.5,-1774 253.5,-1834 364.5,-1834 364.5,-1774 253.5,-1774"/>
 </a>
 </g>
 </g>
@@ -417,33 +417,33 @@ var sectionId = 'dynsection-1';
 <g id="edge17_Node000001_Node000009" class="edge">
 <title>Node9&#45;&gt;Node1</title>
 <g id="a_edge17_Node000001_Node000009"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M281.81,-1773.77C270.86,-1749.99 258,-1715.2 258,-1683 258,-1683 258,-1683 258,-629.5 258,-525.13 266.22,-408.22 274.57,-316.32"/>
-<polygon fill="none" stroke="#63b8ff" points="274.6,-316.05 271.16,-309.7 275.7,-304.1 279.13,-310.44 274.6,-316.05"/>
+<path fill="none" stroke="#63b8ff" d="M293.81,-1773.77C282.86,-1749.99 270,-1715.2 270,-1683 270,-1683 270,-1683 270,-629.5 270,-525.13 278.22,-408.22 286.57,-316.32"/>
+<polygon fill="none" stroke="#63b8ff" points="286.6,-316.05 283.16,-309.7 287.7,-304.1 291.13,-310.44 286.6,-316.05"/>
 </a>
 </g>
-<text text-anchor="middle" x="294.5" y="-1320" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #idToProperty</text>
+<text text-anchor="middle" x="306.5" y="-1320" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #idToProperty</text>
 </g>
 <!-- Node9&#45;&gt;Node8 -->
 <g id="edge8_Node000008_Node000009" class="edge">
 <title>Node9&#45;&gt;Node8</title>
 <g id="a_edge8_Node000008_Node000009"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M317.58,-1773.95C329.87,-1756.59 345.54,-1734.47 358.35,-1716.39"/>
-<polygon fill="none" stroke="#63b8ff" points="358.38,-1716.34 358.59,-1709.14 365.32,-1706.55 365.11,-1713.76 358.38,-1716.34"/>
+<path fill="none" stroke="#63b8ff" d="M329.58,-1773.95C341.87,-1756.59 357.54,-1734.47 370.35,-1716.39"/>
+<polygon fill="none" stroke="#63b8ff" points="370.38,-1716.34 370.59,-1709.14 377.32,-1706.55 377.11,-1713.76 370.38,-1716.34"/>
 </a>
 </g>
-<text text-anchor="middle" x="367.5" y="-1748" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> +Properties</text>
+<text text-anchor="middle" x="379.5" y="-1748" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> +Properties</text>
 </g>
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
 <g id="a_Node000010"><a xlink:href="../../d1/d4a/classQList.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="529.5,-1828.5 390.5,-1828.5 390.5,-1779.5 529.5,-1779.5 529.5,-1828.5"/>
-<text text-anchor="start" x="396" y="-1816" font-family="Helvetica,sans-Serif" font-size="10.00">QList&lt; VPE::VProperty * &gt;</text>
-<text text-anchor="start" x="458.5" y="-1801" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="458.5" y="-1786" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#666666" stroke="#666666" points="391,-1811 391,-1811 530,-1811 530,-1811 391,-1811"/>
-<polygon fill="#666666" stroke="#666666" points="391,-1796 391,-1796 530,-1796 530,-1796 391,-1796"/>
-<polygon fill="none" stroke="#666666" points="390.5,-1779.5 390.5,-1828.5 529.5,-1828.5 529.5,-1779.5 390.5,-1779.5"/>
+<polygon fill="white" stroke="transparent" points="541.5,-1828.5 402.5,-1828.5 402.5,-1779.5 541.5,-1779.5 541.5,-1828.5"/>
+<text text-anchor="start" x="408" y="-1816" font-family="Helvetica,sans-Serif" font-size="10.00">QList&lt; VPE::VProperty * &gt;</text>
+<text text-anchor="start" x="470.5" y="-1801" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="470.5" y="-1786" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="#666666" stroke="#666666" points="403,-1811 403,-1811 542,-1811 542,-1811 403,-1811"/>
+<polygon fill="#666666" stroke="#666666" points="403,-1796 403,-1796 542,-1796 542,-1796 403,-1796"/>
+<polygon fill="none" stroke="#666666" points="402.5,-1779.5 402.5,-1828.5 541.5,-1828.5 541.5,-1779.5 402.5,-1779.5"/>
 </a>
 </g>
 </g>
@@ -451,31 +451,31 @@ var sectionId = 'dynsection-1';
 <g id="edge9_Node000008_Node000010" class="edge">
 <title>Node10&#45;&gt;Node8</title>
 <g id="a_edge9_Node000008_Node000010"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M444.59,-1779.29C433,-1761.46 416.95,-1736.78 404.01,-1716.86"/>
-<polygon fill="none" stroke="#63b8ff" points="403.92,-1716.72 397.29,-1713.87 397.38,-1706.66 404,-1709.51 403.92,-1716.72"/>
+<path fill="none" stroke="#63b8ff" d="M456.59,-1779.29C445,-1761.46 428.95,-1736.78 416.01,-1716.86"/>
+<polygon fill="none" stroke="#63b8ff" points="415.92,-1716.72 409.29,-1713.87 409.38,-1706.66 416,-1709.51 415.92,-1716.72"/>
 </a>
 </g>
-<text text-anchor="middle" x="469" y="-1748" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> +RootProperties</text>
+<text text-anchor="middle" x="481" y="-1748" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> +RootProperties</text>
 </g>
 <!-- Node14 -->
 <g id="Node000014" class="node">
 <title>Node14</title>
 <g id="a_Node000014"><a xlink:href="../../d9/d51/classVPE_1_1VPropertyFormWidgetPrivate.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="730.5,-1727 551.5,-1727 551.5,-1637 730.5,-1637 730.5,-1727"/>
-<text text-anchor="start" x="575" y="-1715" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertyFormWidget</text>
-<text text-anchor="start" x="624" y="-1704" font-family="Helvetica,sans-Serif" font-size="10.00">Private</text>
-<text text-anchor="start" x="556" y="-1689" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="569" y="-1689" font-family="Helvetica,sans-Serif" font-size="10.00">UpdateEditors</text>
-<text text-anchor="start" x="556" y="-1674" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="569" y="-1674" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormWidgetPrivate()</text>
-<text text-anchor="start" x="556" y="-1659" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="569" y="-1659" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormWidgetPrivate()</text>
-<text text-anchor="start" x="556" y="-1644" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="569" y="-1644" font-family="Helvetica,sans-Serif" font-size="10.00">~VPropertyFormWidgetPrivate()</text>
-<polygon fill="#666666" stroke="#666666" points="552,-1699 552,-1699 731,-1699 731,-1699 552,-1699"/>
-<polygon fill="#666666" stroke="#666666" points="552,-1684 552,-1684 567,-1684 567,-1684 552,-1684"/>
-<polygon fill="#666666" stroke="#666666" points="567,-1684 567,-1684 731,-1684 731,-1684 567,-1684"/>
-<polygon fill="none" stroke="#666666" points="551.5,-1637 551.5,-1727 730.5,-1727 730.5,-1637 551.5,-1637"/>
+<polygon fill="white" stroke="transparent" points="742.5,-1727 563.5,-1727 563.5,-1637 742.5,-1637 742.5,-1727"/>
+<text text-anchor="start" x="587" y="-1715" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertyFormWidget</text>
+<text text-anchor="start" x="636" y="-1704" font-family="Helvetica,sans-Serif" font-size="10.00">Private</text>
+<text text-anchor="start" x="568" y="-1689" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="581" y="-1689" font-family="Helvetica,sans-Serif" font-size="10.00">UpdateEditors</text>
+<text text-anchor="start" x="568" y="-1674" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="581" y="-1674" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormWidgetPrivate()</text>
+<text text-anchor="start" x="568" y="-1659" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="581" y="-1659" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormWidgetPrivate()</text>
+<text text-anchor="start" x="568" y="-1644" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="581" y="-1644" font-family="Helvetica,sans-Serif" font-size="10.00">~VPropertyFormWidgetPrivate()</text>
+<polygon fill="#666666" stroke="#666666" points="564,-1699 564,-1699 743,-1699 743,-1699 564,-1699"/>
+<polygon fill="#666666" stroke="#666666" points="564,-1684 564,-1684 579,-1684 579,-1684 564,-1684"/>
+<polygon fill="#666666" stroke="#666666" points="579,-1684 579,-1684 743,-1684 743,-1684 579,-1684"/>
+<polygon fill="none" stroke="#666666" points="563.5,-1637 563.5,-1727 742.5,-1727 742.5,-1637 563.5,-1637"/>
 </a>
 </g>
 </g>
@@ -483,56 +483,56 @@ var sectionId = 'dynsection-1';
 <g id="edge14_Node000014_Node000010" class="edge">
 <title>Node10&#45;&gt;Node14</title>
 <g id="a_edge14_Node000014_Node000010"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M495.76,-1779.29C515.41,-1766.26 540.58,-1749.58 564.43,-1733.77"/>
-<polygon fill="none" stroke="#63b8ff" points="564.54,-1733.69 567.33,-1727.04 574.55,-1727.06 571.76,-1733.71 564.54,-1733.69"/>
+<path fill="none" stroke="#63b8ff" d="M507.76,-1779.29C527.41,-1766.26 552.58,-1749.58 576.43,-1733.77"/>
+<polygon fill="none" stroke="#63b8ff" points="576.54,-1733.69 579.33,-1727.04 586.55,-1727.06 583.76,-1733.71 576.54,-1733.69"/>
 </a>
 </g>
-<text text-anchor="middle" x="575.5" y="-1748" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> +Properties</text>
+<text text-anchor="middle" x="587.5" y="-1748" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> +Properties</text>
 </g>
 <!-- Node11 -->
 <g id="Node000011" class="node">
 <title>Node11</title>
 <g id="a_Node000011"><a xlink:href="../../d1/db8/classVPE_1_1VPropertyFormView.html" target="_top" xlink:title="This class populates a form layout with the properties in a model.">
-<polygon fill="white" stroke="transparent" points="653,-1217 485,-1217 485,-928 653,-928 653,-1217"/>
-<text text-anchor="start" x="508" y="-1204.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertyFormView</text>
-<text text-anchor="start" x="567" y="-1189.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="489" y="-1174.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="502" y="-1174.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormView()</text>
-<text text-anchor="start" x="489" y="-1159.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="502" y="-1159.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormView()</text>
-<text text-anchor="start" x="489" y="-1144.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="502" y="-1144.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormView()</text>
-<text text-anchor="start" x="489" y="-1129.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="502" y="-1129.5" font-family="Helvetica,sans-Serif" font-size="10.00">~VPropertyFormView()</text>
-<text text-anchor="start" x="489" y="-1114.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="502" y="-1114.5" font-family="Helvetica,sans-Serif" font-size="10.00">build()</text>
-<text text-anchor="start" x="489" y="-1099.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="502" y="-1099.5" font-family="Helvetica,sans-Serif" font-size="10.00">setModel()</text>
-<text text-anchor="start" x="489" y="-1084.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="502" y="-1084.5" font-family="Helvetica,sans-Serif" font-size="10.00">setPropertySet()</text>
-<text text-anchor="start" x="489" y="-1069.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="502" y="-1069.5" font-family="Helvetica,sans-Serif" font-size="10.00">rowsRemoved()</text>
-<text text-anchor="start" x="489" y="-1054.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="502" y="-1054.5" font-family="Helvetica,sans-Serif" font-size="10.00">rowsInserted()</text>
-<text text-anchor="start" x="489" y="-1039.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="502" y="-1039.5" font-family="Helvetica,sans-Serif" font-size="10.00">modelReset()</text>
-<text text-anchor="start" x="489" y="-1024.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="502" y="-1024.5" font-family="Helvetica,sans-Serif" font-size="10.00">showEvent()</text>
-<text text-anchor="start" x="489" y="-1009.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="502" y="-1009.5" font-family="Helvetica,sans-Serif" font-size="10.00">updatePropertyList()</text>
-<text text-anchor="start" x="489" y="-994.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="502" y="-994.5" font-family="Helvetica,sans-Serif" font-size="10.00">removeModelAndSet()</text>
-<text text-anchor="start" x="489" y="-979.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="502" y="-979.5" font-family="Helvetica,sans-Serif" font-size="10.00">connectPropertyFormWidget()</text>
-<text text-anchor="start" x="491.5" y="-964.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="502" y="-964.5" font-family="Helvetica,sans-Serif" font-size="10.00">modelDestroyed()</text>
-<text text-anchor="start" x="491.5" y="-949.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="502" y="-949.5" font-family="Helvetica,sans-Serif" font-size="10.00">dataChanged()</text>
-<text text-anchor="start" x="491.5" y="-934.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="502" y="-934.5" font-family="Helvetica,sans-Serif" font-size="10.00">dataSubmitted()</text>
-<polygon fill="#666666" stroke="#666666" points="485,-1199.5 485,-1199.5 653,-1199.5 653,-1199.5 485,-1199.5"/>
-<polygon fill="#666666" stroke="#666666" points="485,-1184.5 485,-1184.5 653,-1184.5 653,-1184.5 485,-1184.5"/>
-<polygon fill="none" stroke="#666666" points="485,-928 485,-1217 653,-1217 653,-928 485,-928"/>
+<polygon fill="white" stroke="transparent" points="665,-1217 497,-1217 497,-928 665,-928 665,-1217"/>
+<text text-anchor="start" x="520" y="-1204.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertyFormView</text>
+<text text-anchor="start" x="579" y="-1189.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="501" y="-1174.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="514" y="-1174.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormView()</text>
+<text text-anchor="start" x="501" y="-1159.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="514" y="-1159.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormView()</text>
+<text text-anchor="start" x="501" y="-1144.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="514" y="-1144.5" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormView()</text>
+<text text-anchor="start" x="501" y="-1129.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="514" y="-1129.5" font-family="Helvetica,sans-Serif" font-size="10.00">~VPropertyFormView()</text>
+<text text-anchor="start" x="501" y="-1114.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="514" y="-1114.5" font-family="Helvetica,sans-Serif" font-size="10.00">build()</text>
+<text text-anchor="start" x="501" y="-1099.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="514" y="-1099.5" font-family="Helvetica,sans-Serif" font-size="10.00">setModel()</text>
+<text text-anchor="start" x="501" y="-1084.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="514" y="-1084.5" font-family="Helvetica,sans-Serif" font-size="10.00">setPropertySet()</text>
+<text text-anchor="start" x="501" y="-1069.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="514" y="-1069.5" font-family="Helvetica,sans-Serif" font-size="10.00">rowsRemoved()</text>
+<text text-anchor="start" x="501" y="-1054.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="514" y="-1054.5" font-family="Helvetica,sans-Serif" font-size="10.00">rowsInserted()</text>
+<text text-anchor="start" x="501" y="-1039.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="514" y="-1039.5" font-family="Helvetica,sans-Serif" font-size="10.00">modelReset()</text>
+<text text-anchor="start" x="501" y="-1024.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="514" y="-1024.5" font-family="Helvetica,sans-Serif" font-size="10.00">showEvent()</text>
+<text text-anchor="start" x="501" y="-1009.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="514" y="-1009.5" font-family="Helvetica,sans-Serif" font-size="10.00">updatePropertyList()</text>
+<text text-anchor="start" x="501" y="-994.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="514" y="-994.5" font-family="Helvetica,sans-Serif" font-size="10.00">removeModelAndSet()</text>
+<text text-anchor="start" x="501" y="-979.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="514" y="-979.5" font-family="Helvetica,sans-Serif" font-size="10.00">connectPropertyFormWidget()</text>
+<text text-anchor="start" x="503.5" y="-964.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="514" y="-964.5" font-family="Helvetica,sans-Serif" font-size="10.00">modelDestroyed()</text>
+<text text-anchor="start" x="503.5" y="-949.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="514" y="-949.5" font-family="Helvetica,sans-Serif" font-size="10.00">dataChanged()</text>
+<text text-anchor="start" x="503.5" y="-934.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="514" y="-934.5" font-family="Helvetica,sans-Serif" font-size="10.00">dataSubmitted()</text>
+<polygon fill="#666666" stroke="#666666" points="497,-1199.5 497,-1199.5 665,-1199.5 665,-1199.5 497,-1199.5"/>
+<polygon fill="#666666" stroke="#666666" points="497,-1184.5 497,-1184.5 665,-1184.5 665,-1184.5 497,-1184.5"/>
+<polygon fill="none" stroke="#666666" points="497,-928 497,-1217 665,-1217 665,-928 497,-928"/>
 </a>
 </g>
 </g>
@@ -540,50 +540,50 @@ var sectionId = 'dynsection-1';
 <g id="edge10_Node000001_Node000011" class="edge">
 <title>Node11&#45;&gt;Node1</title>
 <g id="a_edge10_Node000001_Node000011"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M487.83,-927.95C485.68,-921.96 483.72,-915.97 482,-910 413.16,-670.72 533.18,-583.85 445,-351 431.67,-315.81 409.85,-281.76 386.8,-252.11"/>
-<polygon fill="none" stroke="#63b8ff" points="386.74,-252.04 379.88,-249.83 379.28,-242.65 386.15,-244.86 386.74,-252.04"/>
+<path fill="none" stroke="#63b8ff" d="M499.83,-927.95C497.68,-921.96 495.72,-915.97 494,-910 425.16,-670.72 545.18,-583.85 457,-351 443.67,-315.81 421.85,-281.76 398.8,-252.11"/>
+<polygon fill="none" stroke="#63b8ff" points="398.74,-252.04 391.88,-249.83 391.28,-242.65 398.15,-244.86 398.74,-252.04"/>
 </a>
 </g>
-<text text-anchor="middle" x="511.5" y="-628" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #formView</text>
+<text text-anchor="middle" x="523.5" y="-628" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #formView</text>
 </g>
 <!-- Node12 -->
 <g id="Node000012" class="node">
 <title>Node12</title>
 <g id="a_Node000012"><a xlink:href="../../d1/d51/classVPE_1_1VPropertyFormWidget.html" target="_top" xlink:title="Class that displays the sub properties of a property using a form layout.">
-<polygon fill="white" stroke="transparent" points="679.5,-1590 504.5,-1590 504.5,-1346 679.5,-1346 679.5,-1590"/>
-<text text-anchor="start" x="526" y="-1578" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertyFormWidget</text>
-<text text-anchor="start" x="590.5" y="-1563" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="509" y="-1548" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="522" y="-1548" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormWidget()</text>
-<text text-anchor="start" x="509" y="-1533" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="522" y="-1533" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormWidget()</text>
-<text text-anchor="start" x="509" y="-1518" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="522" y="-1518" font-family="Helvetica,sans-Serif" font-size="10.00">~VPropertyFormWidget()</text>
-<text text-anchor="start" x="509" y="-1503" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="522" y="-1503" font-family="Helvetica,sans-Serif" font-size="10.00">getChildPropertyFormWidgets()</text>
-<text text-anchor="start" x="509" y="-1488" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="522" y="-1488" font-family="Helvetica,sans-Serif" font-size="10.00">build()</text>
-<text text-anchor="start" x="509" y="-1473" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="522" y="-1473" font-family="Helvetica,sans-Serif" font-size="10.00">buildEditor()</text>
-<text text-anchor="start" x="509" y="-1458" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="522" y="-1458" font-family="Helvetica,sans-Serif" font-size="10.00">commitData()</text>
-<text text-anchor="start" x="509" y="-1443" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="522" y="-1443" font-family="Helvetica,sans-Serif" font-size="10.00">loadData()</text>
-<text text-anchor="start" x="509" y="-1428" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="522" y="-1428" font-family="Helvetica,sans-Serif" font-size="10.00">commitData()</text>
-<text text-anchor="start" x="509" y="-1413" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="522" y="-1413" font-family="Helvetica,sans-Serif" font-size="10.00">loadData()</text>
-<text text-anchor="start" x="509" y="-1398" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="522" y="-1398" font-family="Helvetica,sans-Serif" font-size="10.00">setCommitBehaviour()</text>
-<text text-anchor="start" x="509" y="-1383" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="522" y="-1383" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormWidget()</text>
-<text text-anchor="start" x="509" y="-1368" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="522" y="-1368" font-family="Helvetica,sans-Serif" font-size="10.00">eventFilter()</text>
-<text text-anchor="start" x="509" y="-1353" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="522" y="-1353" font-family="Helvetica,sans-Serif" font-size="10.00">commitData()</text>
-<polygon fill="#666666" stroke="#666666" points="505,-1573 505,-1573 680,-1573 680,-1573 505,-1573"/>
-<polygon fill="#666666" stroke="#666666" points="505,-1558 505,-1558 680,-1558 680,-1558 505,-1558"/>
-<polygon fill="none" stroke="#666666" points="504.5,-1346 504.5,-1590 679.5,-1590 679.5,-1346 504.5,-1346"/>
+<polygon fill="white" stroke="transparent" points="691.5,-1590 516.5,-1590 516.5,-1346 691.5,-1346 691.5,-1590"/>
+<text text-anchor="start" x="538" y="-1578" font-family="Helvetica,sans-Serif" font-size="10.00">VPE::VPropertyFormWidget</text>
+<text text-anchor="start" x="602.5" y="-1563" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="521" y="-1548" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="534" y="-1548" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormWidget()</text>
+<text text-anchor="start" x="521" y="-1533" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="534" y="-1533" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormWidget()</text>
+<text text-anchor="start" x="521" y="-1518" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="534" y="-1518" font-family="Helvetica,sans-Serif" font-size="10.00">~VPropertyFormWidget()</text>
+<text text-anchor="start" x="521" y="-1503" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="534" y="-1503" font-family="Helvetica,sans-Serif" font-size="10.00">getChildPropertyFormWidgets()</text>
+<text text-anchor="start" x="521" y="-1488" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="534" y="-1488" font-family="Helvetica,sans-Serif" font-size="10.00">build()</text>
+<text text-anchor="start" x="521" y="-1473" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="534" y="-1473" font-family="Helvetica,sans-Serif" font-size="10.00">buildEditor()</text>
+<text text-anchor="start" x="521" y="-1458" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="534" y="-1458" font-family="Helvetica,sans-Serif" font-size="10.00">commitData()</text>
+<text text-anchor="start" x="521" y="-1443" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="534" y="-1443" font-family="Helvetica,sans-Serif" font-size="10.00">loadData()</text>
+<text text-anchor="start" x="521" y="-1428" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="534" y="-1428" font-family="Helvetica,sans-Serif" font-size="10.00">commitData()</text>
+<text text-anchor="start" x="521" y="-1413" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="534" y="-1413" font-family="Helvetica,sans-Serif" font-size="10.00">loadData()</text>
+<text text-anchor="start" x="521" y="-1398" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="534" y="-1398" font-family="Helvetica,sans-Serif" font-size="10.00">setCommitBehaviour()</text>
+<text text-anchor="start" x="521" y="-1383" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="534" y="-1383" font-family="Helvetica,sans-Serif" font-size="10.00">VPropertyFormWidget()</text>
+<text text-anchor="start" x="521" y="-1368" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="534" y="-1368" font-family="Helvetica,sans-Serif" font-size="10.00">eventFilter()</text>
+<text text-anchor="start" x="521" y="-1353" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="534" y="-1353" font-family="Helvetica,sans-Serif" font-size="10.00">commitData()</text>
+<polygon fill="#666666" stroke="#666666" points="517,-1573 517,-1573 692,-1573 692,-1573 517,-1573"/>
+<polygon fill="#666666" stroke="#666666" points="517,-1558 517,-1558 692,-1558 692,-1558 517,-1558"/>
+<polygon fill="none" stroke="#666666" points="516.5,-1346 516.5,-1590 691.5,-1590 691.5,-1346 516.5,-1346"/>
 </a>
 </g>
 </g>
@@ -591,8 +591,8 @@ var sectionId = 'dynsection-1';
 <g id="edge11_Node000011_Node000012" class="edge">
 <title>Node12&#45;&gt;Node11</title>
 <g id="a_edge11_Node000011_Node000012"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M584.34,-1335.86C582.11,-1297.72 579.66,-1255.86 577.39,-1217"/>
-<polygon fill="none" stroke="#63b8ff" points="580.85,-1336.22 584.93,-1345.99 587.84,-1335.81 580.85,-1336.22"/>
+<path fill="none" stroke="#63b8ff" d="M596.34,-1335.86C594.11,-1297.72 591.66,-1255.86 589.39,-1217"/>
+<polygon fill="none" stroke="#63b8ff" points="592.85,-1336.22 596.93,-1345.99 599.84,-1335.81 592.85,-1336.22"/>
 </a>
 </g>
 </g>
@@ -600,13 +600,13 @@ var sectionId = 'dynsection-1';
 <g id="Node000013" class="node">
 <title>Node13</title>
 <g id="a_Node000013"><a xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="533,-1706.5 467,-1706.5 467,-1657.5 533,-1657.5 533,-1706.5"/>
-<text text-anchor="start" x="472" y="-1694" font-family="Helvetica,sans-Serif" font-size="10.00">QGroupBox</text>
-<text text-anchor="start" x="498" y="-1679" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="498" y="-1664" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#666666" stroke="#666666" points="467,-1689 467,-1689 533,-1689 533,-1689 467,-1689"/>
-<polygon fill="#666666" stroke="#666666" points="467,-1674 467,-1674 533,-1674 533,-1674 467,-1674"/>
-<polygon fill="none" stroke="#666666" points="467,-1657.5 467,-1706.5 533,-1706.5 533,-1657.5 467,-1657.5"/>
+<polygon fill="white" stroke="transparent" points="545,-1706.5 479,-1706.5 479,-1657.5 545,-1657.5 545,-1706.5"/>
+<text text-anchor="start" x="484" y="-1694" font-family="Helvetica,sans-Serif" font-size="10.00">QGroupBox</text>
+<text text-anchor="start" x="510" y="-1679" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="510" y="-1664" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="#666666" stroke="#666666" points="479,-1689 479,-1689 545,-1689 545,-1689 479,-1689"/>
+<polygon fill="#666666" stroke="#666666" points="479,-1674 479,-1674 545,-1674 545,-1674 479,-1674"/>
+<polygon fill="none" stroke="#666666" points="479,-1657.5 479,-1706.5 545,-1706.5 545,-1657.5 479,-1657.5"/>
 </a>
 </g>
 </g>
@@ -614,8 +614,8 @@ var sectionId = 'dynsection-1';
 <g id="edge12_Node000012_Node000013" class="edge">
 <title>Node13&#45;&gt;Node12</title>
 <g id="a_edge12_Node000012_Node000013"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M514.44,-1647.71C521.39,-1631.72 530.18,-1611.45 539.33,-1590.36"/>
-<polygon fill="none" stroke="#63b8ff" points="511.15,-1646.53 510.37,-1657.09 517.57,-1649.31 511.15,-1646.53"/>
+<path fill="none" stroke="#63b8ff" d="M526.44,-1647.71C533.39,-1631.72 542.18,-1611.45 551.33,-1590.36"/>
+<polygon fill="none" stroke="#63b8ff" points="523.15,-1646.53 522.37,-1657.09 529.57,-1649.31 523.15,-1646.53"/>
 </a>
 </g>
 </g>
@@ -623,24 +623,24 @@ var sectionId = 'dynsection-1';
 <g id="edge13_Node000012_Node000014" class="edge">
 <title>Node14&#45;&gt;Node12</title>
 <g id="a_edge13_Node000012_Node000014"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M630.79,-1636.82C628.34,-1626.24 625.61,-1614.4 622.75,-1602.04"/>
-<polygon fill="none" stroke="#63b8ff" points="622.68,-1601.74 617.43,-1596.8 619.98,-1590.05 625.23,-1594.99 622.68,-1601.74"/>
+<path fill="none" stroke="#63b8ff" d="M642.79,-1636.82C640.34,-1626.24 637.61,-1614.4 634.75,-1602.04"/>
+<polygon fill="none" stroke="#63b8ff" points="634.68,-1601.74 629.43,-1596.8 631.98,-1590.05 637.23,-1594.99 634.68,-1601.74"/>
 </a>
 </g>
-<text text-anchor="middle" x="644.5" y="-1611" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #d_ptr</text>
+<text text-anchor="middle" x="656.5" y="-1611" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #d_ptr</text>
 </g>
 <!-- Node15 -->
 <g id="Node000015" class="node">
 <title>Node15</title>
 <g id="a_Node000015"><a xlink:href="../../d1/d4a/classQList.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="724,-1834 558,-1834 558,-1774 724,-1774 724,-1834"/>
-<text text-anchor="start" x="563" y="-1822" font-family="Helvetica,sans-Serif" font-size="10.00">QList&lt; VPE::VPropertyForm</text>
-<text text-anchor="start" x="563" y="-1811" font-family="Helvetica,sans-Serif" font-size="10.00">WidgetPrivate::SEditorWidget &gt;</text>
-<text text-anchor="start" x="639" y="-1796" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="639" y="-1781" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#666666" stroke="#666666" points="558,-1806 558,-1806 724,-1806 724,-1806 558,-1806"/>
-<polygon fill="#666666" stroke="#666666" points="558,-1791 558,-1791 724,-1791 724,-1791 558,-1791"/>
-<polygon fill="none" stroke="#666666" points="558,-1774 558,-1834 724,-1834 724,-1774 558,-1774"/>
+<polygon fill="white" stroke="transparent" points="736,-1834 570,-1834 570,-1774 736,-1774 736,-1834"/>
+<text text-anchor="start" x="575" y="-1822" font-family="Helvetica,sans-Serif" font-size="10.00">QList&lt; VPE::VPropertyForm</text>
+<text text-anchor="start" x="575" y="-1811" font-family="Helvetica,sans-Serif" font-size="10.00">WidgetPrivate::SEditorWidget &gt;</text>
+<text text-anchor="start" x="651" y="-1796" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="651" y="-1781" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="#666666" stroke="#666666" points="570,-1806 570,-1806 736,-1806 736,-1806 570,-1806"/>
+<polygon fill="#666666" stroke="#666666" points="570,-1791 570,-1791 736,-1791 736,-1791 570,-1791"/>
+<polygon fill="none" stroke="#666666" points="570,-1774 570,-1834 736,-1834 736,-1774 570,-1774"/>
 </a>
 </g>
 </g>
@@ -648,24 +648,24 @@ var sectionId = 'dynsection-1';
 <g id="edge15_Node000014_Node000015" class="edge">
 <title>Node15&#45;&gt;Node14</title>
 <g id="a_edge15_Node000014_Node000015"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M641,-1773.95C641,-1763.55 641,-1751.44 641,-1739.52"/>
-<polygon fill="none" stroke="#63b8ff" points="641,-1739.24 637,-1733.24 641,-1727.24 645,-1733.24 641,-1739.24"/>
+<path fill="none" stroke="#63b8ff" d="M653,-1773.95C653,-1763.55 653,-1751.44 653,-1739.52"/>
+<polygon fill="none" stroke="#63b8ff" points="653,-1739.24 649,-1733.24 653,-1727.24 657,-1733.24 653,-1739.24"/>
 </a>
 </g>
-<text text-anchor="middle" x="681" y="-1748" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> +EditorWidgets</text>
+<text text-anchor="middle" x="693" y="-1748" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> +EditorWidgets</text>
 </g>
 <!-- Node16 -->
 <g id="Node000016" class="node">
 <title>Node16</title>
 <g id="a_Node000016"><a xlink:href="../../d0/d4c/classQMap.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="672.5,-660.5 549.5,-660.5 549.5,-600.5 672.5,-600.5 672.5,-660.5"/>
-<text text-anchor="start" x="555" y="-648.5" font-family="Helvetica,sans-Serif" font-size="10.00">QMap&lt; VPE::VProperty</text>
-<text text-anchor="start" x="580.5" y="-637.5" font-family="Helvetica,sans-Serif" font-size="10.00"> *, QString &gt;</text>
-<text text-anchor="start" x="609.5" y="-622.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="609.5" y="-607.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#666666" stroke="#666666" points="550,-632.5 550,-632.5 673,-632.5 673,-632.5 550,-632.5"/>
-<polygon fill="#666666" stroke="#666666" points="550,-617.5 550,-617.5 673,-617.5 673,-617.5 550,-617.5"/>
-<polygon fill="none" stroke="#666666" points="549.5,-600.5 549.5,-660.5 672.5,-660.5 672.5,-600.5 549.5,-600.5"/>
+<polygon fill="white" stroke="transparent" points="684.5,-660.5 561.5,-660.5 561.5,-600.5 684.5,-600.5 684.5,-660.5"/>
+<text text-anchor="start" x="567" y="-648.5" font-family="Helvetica,sans-Serif" font-size="10.00">QMap&lt; VPE::VProperty</text>
+<text text-anchor="start" x="592.5" y="-637.5" font-family="Helvetica,sans-Serif" font-size="10.00"> *, QString &gt;</text>
+<text text-anchor="start" x="621.5" y="-622.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="621.5" y="-607.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="#666666" stroke="#666666" points="562,-632.5 562,-632.5 685,-632.5 685,-632.5 562,-632.5"/>
+<polygon fill="#666666" stroke="#666666" points="562,-617.5 562,-617.5 685,-617.5 685,-617.5 562,-617.5"/>
+<polygon fill="none" stroke="#666666" points="561.5,-600.5 561.5,-660.5 684.5,-660.5 684.5,-600.5 561.5,-600.5"/>
 </a>
 </g>
 </g>
@@ -673,11 +673,11 @@ var sectionId = 'dynsection-1';
 <g id="edge16_Node000001_Node000016" class="edge">
 <title>Node16&#45;&gt;Node1</title>
 <g id="a_edge16_Node000001_Node000016"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M608.88,-600.27C603.81,-546.78 587.2,-431.24 535,-351 498,-294.12 439.4,-245.68 389.01,-210.95"/>
-<polygon fill="none" stroke="#63b8ff" points="388.98,-210.93 381.77,-210.87 379.05,-204.19 386.26,-204.25 388.98,-210.93"/>
+<path fill="none" stroke="#63b8ff" d="M620.88,-600.27C615.81,-546.78 599.2,-431.24 547,-351 510,-294.12 451.4,-245.68 401.01,-210.95"/>
+<polygon fill="none" stroke="#63b8ff" points="400.98,-210.93 393.77,-210.87 391.05,-204.19 398.26,-204.25 400.98,-210.93"/>
 </a>
 </g>
-<text text-anchor="middle" x="556.5" y="-325" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #propertyToId</text>
+<text text-anchor="middle" x="568.5" y="-325" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> #propertyToId</text>
 </g>
 </g>
 </svg>

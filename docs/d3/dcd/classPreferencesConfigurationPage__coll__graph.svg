@@ -51,13 +51,13 @@
 <text text-anchor="start" x="17" y="-93" font-family="Helvetica,sans-Serif" font-size="10.00">~PreferencesConfiguration</text>
 <text text-anchor="start" x="17" y="-82" font-family="Helvetica,sans-Serif" font-size="10.00">Page()</text>
 <text text-anchor="start" x="4" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="17" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">apply()</text>
+<text text-anchor="start" x="17" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">Apply()</text>
 <text text-anchor="start" x="4" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="17" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">changeEvent()</text>
 <text text-anchor="start" x="6.5" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="17" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00">setPointNameComboBox()</text>
+<text text-anchor="start" x="17" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00">SetLabelComboBox()</text>
 <text text-anchor="start" x="6.5" y="-22" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="17" y="-22" font-family="Helvetica,sans-Serif" font-size="10.00">initUnits()</text>
+<text text-anchor="start" x="17" y="-22" font-family="Helvetica,sans-Serif" font-size="10.00">InitUnits()</text>
 <text text-anchor="start" x="6.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
 <text text-anchor="start" x="17" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">adjustTextColor()</text>
 <polygon fill="#666666" stroke="#666666" points="0,-279 0,-279 180,-279 180,-279 0,-279"/>

@@ -1,28 +1,28 @@
 <map id="src/app/seamlyme/dialogs/configpages/seamlymepreferencespathpage.cpp" name="src/app/seamlyme/dialogs/configpages/seamlymepreferencespathpage.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="541,5,884,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="533,5,876,45"/>
 <area shape="rect" id="Node000002" href="$d2/d60/seamlymepreferencespathpage_8h.html" title=" " alt="" coords="5,93,247,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="572,48,225,94,225,89,572,43"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="291,93,551,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="643,48,477,92,476,87,642,43"/>
-<area shape="rect" id="Node000005" href="$d1/da2/application__me_8h.html" title=" " alt="" coords="575,93,733,119"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="701,47,673,84,669,80,696,44"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="1013,167,1231,192"/>
-<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="726,44,756,82,776,101,798,116,834,130,886,143,1007,162,1006,168,885,148,833,135,795,121,772,105,752,85,722,47"/>
-<area shape="rect" id="Node000012" title=" " alt="" coords="809,93,859,119"/>
-<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="743,43,806,84,803,88,741,48"/>
-<area shape="rect" id="Node000013" title=" " alt="" coords="884,93,981,119"/>
-<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="766,43,888,86,886,91,764,48"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="67,167,145,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="125,120,115,154,110,153,120,118"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="169,167,384,192"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="594,121,352,167,351,161,593,116"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="409,167,518,192"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="624,121,508,164,506,159,622,116"/>
-<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="730,116,1033,162,1032,167,729,121"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="543,167,765,192"/>
-<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="657,119,657,153,651,153,651,119"/>
-<area shape="rect" id="Node000010" href="$d0/d0b/dialogmdatabase_8h.html" title=" " alt="" coords="789,167,988,192"/>
-<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="692,116,838,160,837,165,691,121"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="851,240,926,265"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="891,192,891,226,886,226,886,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="566,48,224,94,223,89,566,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="295,93,555,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="638,48,480,92,478,87,637,43"/>
+<area shape="rect" id="Node000005" href="$df/da4/mapplication_8h.html" title=" " alt="" coords="579,93,721,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="694,47,668,84,664,80,689,44"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1009,167,1227,192"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="718,44,746,82,764,101,786,116,822,130,874,143,997,162,996,168,873,148,821,136,783,121,761,105,742,85,713,47"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="797,93,847,119"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="735,43,795,84,792,88,732,48"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="872,93,969,119"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="757,43,877,86,875,91,755,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="63,167,141,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="125,120,113,154,108,153,120,118"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="165,167,380,192"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="590,121,348,167,347,161,589,116"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="405,167,514,192"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="620,121,504,164,502,159,618,116"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="722,116,1030,162,1029,167,721,121"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="539,167,761,192"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="653,119,653,153,647,153,647,119"/>
+<area shape="rect" id="Node000010" href="$d0/d0b/dialogmdatabase_8h.html" title=" " alt="" coords="785,167,984,192"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="688,116,834,160,833,165,687,121"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="847,240,922,265"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="887,192,887,226,882,226,882,192"/>
 </map>

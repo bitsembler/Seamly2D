@@ -1,27 +1,27 @@
 <map id="VisToolMirrorByAxis" name="VisToolMirrorByAxis">
-<area shape="rect" id="Node000001" title=" " alt="" coords="663,2284,843,2449"/>
-<area shape="rect" id="Node000002" href="$d7/dba/classVisOperation.html" title=" " alt="" coords="564,1976,753,2221"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="709,2233,727,2283,722,2285,704,2235"/>
-<area shape="rect" id="Node000003" href="$de/d0e/classVisLine.html" title=" " alt="" coords="243,1648,365,1913"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="376,1908,379,1911,422,1952,470,1989,565,2048,562,2053,467,1993,419,1956,375,1915,372,1912"/>
-<area shape="rect" id="Node000004" href="$d7/d24/classVisualization.html" title=" " alt="" coords="127,813,281,1599"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="277,1612,284,1647,278,1648,272,1613"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="675,2284,855,2449"/>
+<area shape="rect" id="Node000002" href="$d7/dba/classVisOperation.html" title=" " alt="" coords="576,1976,765,2221"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="721,2233,739,2283,734,2285,716,2235"/>
+<area shape="rect" id="Node000003" href="$de/d0e/classVisLine.html" title=" " alt="" coords="255,1648,377,1913"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="388,1908,391,1911,434,1952,482,1989,577,2048,574,2053,479,1993,431,1956,387,1915,384,1912"/>
+<area shape="rect" id="Node000004" href="$d7/d24/classVisualization.html" title=" " alt="" coords="135,813,289,1599"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="288,1612,295,1647,289,1648,283,1613"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="5,345,72,411"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="45,424,60,570,87,750,130,938,125,940,81,751,54,570,40,425"/>
-<area shape="rect" id="Node000006" href="$d2/d83/classVContainer.html" title="Manages a collection of geometric objects, pieces, paths, and variables." alt="" coords="96,5,312,751"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="207,751,207,796,201,796,201,751"/>
-<area shape="rect" id="Node000007" href="$dd/da2/classVScaledLine.html" title=" " alt="" coords="319,1113,465,1299"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="378,1313,327,1648,322,1647,373,1312"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="336,345,475,411"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="407,424,396,1113,391,1113,402,424"/>
-<area shape="rect" id="Node000009" href="$d5/dc2/classQVector.html" title=" " alt="" coords="389,1748,533,1813"/>
-<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="483,1812,576,1961,572,1963,479,1815"/>
-<area shape="rect" id="Node000010" href="$d5/dc2/classQVector.html" title=" " alt="" coords="558,1748,759,1813"/>
-<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="661,1813,661,1960,656,1960,656,1813"/>
-<area shape="rect" id="Node000011" href="$d5/dc2/classQVector.html" title=" " alt="" coords="784,1748,995,1813"/>
-<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="869,1815,759,1964,755,1961,864,1812"/>
-<area shape="rect" id="Node000012" href="$d8/dbf/classVScaledEllipse.html" title=" " alt="" coords="901,2036,1046,2161"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="924,2163,834,2273,830,2269,920,2160"/>
-<area shape="rect" id="Node000013" title=" " alt="" coords="1019,1748,1173,1813"/>
-<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="1081,1827,1000,2037,995,2035,1076,1825"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="45,424,59,570,71,660,87,750,110,855,138,958,133,960,105,856,81,751,66,661,54,570,39,425"/>
+<area shape="rect" id="Node000006" href="$d2/d83/classVContainer.html" title="The VContainer class container of all variables." alt="" coords="97,5,327,751"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="215,751,215,796,209,796,209,751"/>
+<area shape="rect" id="Node000007" href="$dd/da2/classVScaledLine.html" title=" " alt="" coords="334,1113,469,1299"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="388,1313,338,1648,333,1647,383,1312"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="352,345,491,411"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="423,424,406,1113,401,1113,418,424"/>
+<area shape="rect" id="Node000009" href="$d5/dc2/classQVector.html" title=" " alt="" coords="401,1748,545,1813"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="495,1812,588,1961,584,1963,491,1815"/>
+<area shape="rect" id="Node000010" href="$d5/dc2/classQVector.html" title=" " alt="" coords="570,1748,771,1813"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="673,1813,673,1960,668,1960,668,1813"/>
+<area shape="rect" id="Node000011" href="$d5/dc2/classQVector.html" title=" " alt="" coords="796,1748,1007,1813"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="881,1815,771,1964,767,1961,876,1812"/>
+<area shape="rect" id="Node000012" href="$d8/dbf/classVScaledEllipse.html" title=" " alt="" coords="913,2036,1058,2161"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="936,2163,846,2273,842,2269,932,2160"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1031,1748,1185,1813"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="1093,1827,1012,2037,1007,2035,1088,1825"/>
 </map>

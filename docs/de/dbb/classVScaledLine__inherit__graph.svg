@@ -58,28 +58,28 @@ var sectionId = 'dynsection-0';
 <g id="Node000001" class="node">
 <title>Node1</title>
 <g id="a_Node000001"><a xlink:title=" ">
-<polygon fill="#999999" stroke="transparent" points="1591.5,-1219 1482.5,-1219 1482.5,-1080 1591.5,-1080 1591.5,-1219"/>
+<polygon fill="#999999" stroke="transparent" points="1587.5,-1219 1486.5,-1219 1486.5,-1080 1587.5,-1080 1587.5,-1219"/>
 <text text-anchor="start" x="1507.5" y="-1206.5" font-family="Helvetica,sans-Serif" font-size="10.00">VScaledLine</text>
-<text text-anchor="start" x="1489.5" y="-1191.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="1500" y="-1191.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_defaultWidth</text>
-<text text-anchor="start" x="1487" y="-1176.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="1500" y="-1176.5" font-family="Helvetica,sans-Serif" font-size="10.00">VScaledLine()</text>
-<text text-anchor="start" x="1487" y="-1161.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="1500" y="-1161.5" font-family="Helvetica,sans-Serif" font-size="10.00">VScaledLine()</text>
-<text text-anchor="start" x="1487" y="-1146.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="1500" y="-1146.5" font-family="Helvetica,sans-Serif" font-size="10.00">~VScaledLine()</text>
-<text text-anchor="start" x="1487" y="-1131.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="1500" y="-1131.5" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
-<text text-anchor="start" x="1487" y="-1116.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="1500" y="-1116.5" font-family="Helvetica,sans-Serif" font-size="10.00">paint()</text>
-<text text-anchor="start" x="1487" y="-1101.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="1500" y="-1101.5" font-family="Helvetica,sans-Serif" font-size="10.00">getDefaultWidth()</text>
-<text text-anchor="start" x="1487" y="-1086.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="1500" y="-1086.5" font-family="Helvetica,sans-Serif" font-size="10.00">setDefaultWidth()</text>
-<polygon fill="#666666" stroke="#666666" points="1483,-1201.5 1483,-1201.5 1592,-1201.5 1592,-1201.5 1483,-1201.5"/>
-<polygon fill="#666666" stroke="#666666" points="1483,-1186.5 1483,-1186.5 1498,-1186.5 1498,-1186.5 1483,-1186.5"/>
-<polygon fill="#666666" stroke="#666666" points="1498,-1186.5 1498,-1186.5 1592,-1186.5 1592,-1186.5 1498,-1186.5"/>
-<polygon fill="none" stroke="#666666" points="1482.5,-1080 1482.5,-1219 1591.5,-1219 1591.5,-1080 1482.5,-1080"/>
+<text text-anchor="start" x="1493.5" y="-1191.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="1504" y="-1191.5" font-family="Helvetica,sans-Serif" font-size="10.00">basicWidth</text>
+<text text-anchor="start" x="1491" y="-1176.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="1504" y="-1176.5" font-family="Helvetica,sans-Serif" font-size="10.00">VScaledLine()</text>
+<text text-anchor="start" x="1491" y="-1161.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="1504" y="-1161.5" font-family="Helvetica,sans-Serif" font-size="10.00">VScaledLine()</text>
+<text text-anchor="start" x="1491" y="-1146.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="1504" y="-1146.5" font-family="Helvetica,sans-Serif" font-size="10.00">~VScaledLine()</text>
+<text text-anchor="start" x="1491" y="-1131.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="1504" y="-1131.5" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
+<text text-anchor="start" x="1491" y="-1116.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="1504" y="-1116.5" font-family="Helvetica,sans-Serif" font-size="10.00">paint()</text>
+<text text-anchor="start" x="1491" y="-1101.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="1504" y="-1101.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetBasicWidth()</text>
+<text text-anchor="start" x="1491" y="-1086.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="1504" y="-1086.5" font-family="Helvetica,sans-Serif" font-size="10.00">setBasicWidth()</text>
+<polygon fill="#666666" stroke="#666666" points="1487,-1201.5 1487,-1201.5 1588,-1201.5 1588,-1201.5 1487,-1201.5"/>
+<polygon fill="#666666" stroke="#666666" points="1487,-1186.5 1487,-1186.5 1502,-1186.5 1502,-1186.5 1487,-1186.5"/>
+<polygon fill="#666666" stroke="#666666" points="1502,-1186.5 1502,-1186.5 1588,-1186.5 1588,-1186.5 1502,-1186.5"/>
+<polygon fill="none" stroke="#666666" points="1486.5,-1080 1486.5,-1219 1587.5,-1219 1587.5,-1080 1486.5,-1080"/>
 </a>
 </g>
 </g>

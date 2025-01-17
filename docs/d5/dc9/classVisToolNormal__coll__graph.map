@@ -1,20 +1,20 @@
 <map id="VisToolNormal" name="VisToolNormal">
-<area shape="rect" id="Node000001" title=" " alt="" coords="337,2005,490,2251"/>
-<area shape="rect" id="Node000002" href="$de/d0e/classVisLine.html" title=" " alt="" coords="243,1648,365,1913"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="352,1926,377,2004,372,2006,347,1927"/>
-<area shape="rect" id="Node000003" href="$d7/d24/classVisualization.html" title=" " alt="" coords="127,813,281,1599"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="277,1612,284,1647,278,1648,272,1613"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="343,2005,497,2251"/>
+<area shape="rect" id="Node000002" href="$de/d0e/classVisLine.html" title=" " alt="" coords="249,1648,372,1913"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="359,1926,384,2004,379,2006,354,1927"/>
+<area shape="rect" id="Node000003" href="$d7/d24/classVisualization.html" title=" " alt="" coords="135,813,289,1599"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="284,1612,291,1647,285,1648,279,1613"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="5,345,72,411"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="45,424,60,570,87,750,130,938,125,940,81,751,54,570,40,425"/>
-<area shape="rect" id="Node000005" href="$d2/d83/classVContainer.html" title="Manages a collection of geometric objects, pieces, paths, and variables." alt="" coords="96,5,312,751"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="207,751,207,796,201,796,201,751"/>
-<area shape="rect" id="Node000006" href="$dd/da2/classVScaledLine.html" title=" " alt="" coords="319,1113,465,1299"/>
-<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="397,1299,413,1989,407,1989,391,1299"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="378,1313,327,1648,322,1647,373,1312"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="336,345,475,411"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="407,424,396,1113,391,1113,402,424"/>
-<area shape="rect" id="Node000008" href="$d8/dbf/classVScaledEllipse.html" title=" " alt="" coords="483,1718,629,1843"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="533,1845,472,1991,467,1989,528,1843"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="489,1173,644,1239"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="568,1252,560,1718,554,1718,563,1252"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="45,424,59,570,71,660,87,750,110,855,138,958,133,960,105,856,81,751,66,661,54,570,39,425"/>
+<area shape="rect" id="Node000005" href="$d2/d83/classVContainer.html" title="The VContainer class container of all variables." alt="" coords="97,5,327,751"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="215,751,215,796,209,796,209,751"/>
+<area shape="rect" id="Node000006" href="$dd/da2/classVScaledLine.html" title=" " alt="" coords="334,1113,469,1299"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="406,1299,420,1989,415,1989,401,1299"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="387,1313,334,1648,329,1647,382,1312"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="352,345,491,411"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="423,424,406,1113,401,1113,418,424"/>
+<area shape="rect" id="Node000008" href="$d8/dbf/classVScaledEllipse.html" title=" " alt="" coords="489,1718,634,1843"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="539,1845,478,1991,473,1989,534,1843"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="493,1173,648,1239"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="573,1252,565,1718,560,1718,567,1252"/>
 </map>

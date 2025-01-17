@@ -35,7 +35,7 @@ var searchData=
   ['scenepoint_32',['ScenePoint',['../d4/da4/def_8h.html#a474a10f771dff4181411f5ff47029582a11392118cd8b68ad9454c047ec4caf35',1,'def.h']]],
   ['seamallowance_33',['SeamAllowance',['../d4/da0/pattern__piece__dialog_8h.html#a99e233a1cb0213a420b931b50195e09ea3b79b13e46bc813bb6202ba47c98c064',1,'pattern_piece_dialog.h']]],
   ['secondpoint_34',['secondpoint',['../d0/d89/vabstractpattern_8h.html#af5d8c100715d98b96732eae3baeaaf7bac8dcbd757e675381f3f7b5d2c75de2e8',1,'SecondPoint:&#160;vabstractpattern.h'],['../d8/d94/movedoublelabel_8h.html#ac729adba1aa3854c486794f6bfdd22fdac8dcbd757e675381f3f7b5d2c75de2e8',1,'SecondPoint:&#160;movedoublelabel.h'],['../d7/d92/showdoublepointname_8h.html#a8648ef6cb55555940429d46d1e54ab46ac8dcbd757e675381f3f7b5d2c75de2e8',1,'SecondPoint:&#160;showdoublepointname.h']]],
-  ['server_35',['Server',['../d1/da2/application__me_8h.html#a38acd93203253241a2ac37bd3ff04fdfa9aa1b03934893d7134a660af4204f2a9',1,'application_me.h']]],
+  ['server_35',['Server',['../df/da4/mapplication_8h.html#a38acd93203253241a2ac37bd3ff04fdfa9aa1b03934893d7134a660af4204f2a9',1,'mapplication.h']]],
   ['setpiececolor_36',['SetPieceColor',['../d6/dbe/vundocommand_8h.html#aeb42a5e0c886f3719edb15c410d148e6a1415ace152d3e2c8a0bb8864690337fe',1,'vundocommand.h']]],
   ['sfstart_5fof_5fline_37',['sfSTART_OF_LINE',['../d8/daa/classqmu_1_1QmuParserTokenReader.html#ae8d5a1c2027478b943942506998cfcb6a7e1c787fd801d37d0a651415eccce15c',1,'qmu::QmuParserTokenReader']]],
   ['shoulderpoint_38',['ShoulderPoint',['../d4/da4/def_8h.html#ab8460ab56e3e92e57d3ed3b717492395a4cae4ac6672bad1d9af4148d27e21752',1,'def.h']]],

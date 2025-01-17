@@ -46,7 +46,7 @@
   </g>
 </defs>
 <script type="application/ecmascript">
-var viewWidth = 290;
+var viewWidth = 300;
 var viewHeight = 678;
 var sectionId = 'dynsection-1';
 </script>
@@ -58,16 +58,16 @@ var sectionId = 'dynsection-1';
 <g id="Node000001" class="node">
 <title>Node1</title>
 <g id="a_Node000001"><a xlink:title=" ">
-<polygon fill="#999999" stroke="transparent" points="194.5,-64 56.5,-64 56.5,0 194.5,0 194.5,-64"/>
-<text text-anchor="start" x="71" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">PieceTableWidgetItem</text>
-<text text-anchor="start" x="123.5" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="60.5" y="-22" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="73.5" y="-22" font-family="Helvetica,sans-Serif" font-size="10.00">PieceTableWidgetItem()</text>
-<text text-anchor="start" x="60.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="73.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">operator&lt;()</text>
-<polygon fill="#666666" stroke="#666666" points="56.5,-47 56.5,-47 194.5,-47 194.5,-47 56.5,-47"/>
-<polygon fill="#666666" stroke="#666666" points="56.5,-32 56.5,-32 194.5,-32 194.5,-32 56.5,-32"/>
-<polygon fill="none" stroke="#666666" points="56.5,0 56.5,-64 194.5,-64 194.5,0 56.5,0"/>
+<polygon fill="#999999" stroke="transparent" points="196.5,-64 58.5,-64 58.5,0 196.5,0 196.5,-64"/>
+<text text-anchor="start" x="73" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">PieceTableWidgetItem</text>
+<text text-anchor="start" x="125.5" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="62.5" y="-22" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="75.5" y="-22" font-family="Helvetica,sans-Serif" font-size="10.00">PieceTableWidgetItem()</text>
+<text text-anchor="start" x="62.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="75.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">operator&lt;()</text>
+<polygon fill="#666666" stroke="#666666" points="58.5,-47 58.5,-47 196.5,-47 196.5,-47 58.5,-47"/>
+<polygon fill="#666666" stroke="#666666" points="58.5,-32 58.5,-32 196.5,-32 196.5,-32 58.5,-32"/>
+<polygon fill="none" stroke="#666666" points="58.5,0 58.5,-64 196.5,-64 196.5,0 58.5,0"/>
 </a>
 </g>
 </g>
@@ -89,17 +89,17 @@ var sectionId = 'dynsection-1';
 <g id="edge1_Node000001_Node000002" class="edge">
 <title>Node2&#45;&gt;Node1</title>
 <g id="a_edge1_Node000001_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M57.56,-355.95C72.04,-287.11 104.93,-130.79 118.96,-64.09"/>
-<polygon fill="none" stroke="#63b8ff" points="54.11,-355.33 55.48,-365.83 60.96,-356.77 54.11,-355.33"/>
+<path fill="none" stroke="#63b8ff" d="M57.41,-355.93C68.23,-303.56 89.97,-199.26 109.5,-111 112.92,-95.53 116.87,-78.37 120.19,-64.09"/>
+<polygon fill="none" stroke="#63b8ff" points="53.92,-355.49 55.33,-366 60.78,-356.91 53.92,-355.49"/>
 </a>
 </g>
 </g>
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="../../d2/d83/classVContainer.html" target="_top" xlink:title="Manages a collection of geometric objects, pieces, paths, and variables.">
-<polygon fill="white" stroke="transparent" points="281.5,-670 119.5,-670 119.5,-111 281.5,-111 281.5,-670"/>
-<text text-anchor="start" x="173" y="-657.5" font-family="Helvetica,sans-Serif" font-size="10.00">VContainer</text>
+<g id="a_Node000003"><a xlink:href="../../d2/d83/classVContainer.html" target="_top" xlink:title="The VContainer class container of all variables.">
+<polygon fill="white" stroke="transparent" points="292,-670 119,-670 119,-111 292,-111 292,-670"/>
+<text text-anchor="start" x="178.5" y="-657.5" font-family="Helvetica,sans-Serif" font-size="10.00">VContainer</text>
 <text text-anchor="start" x="126" y="-642.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
 <text text-anchor="start" x="136.5" y="-642.5" font-family="Helvetica,sans-Serif" font-size="10.00">d</text>
 <text text-anchor="start" x="126" y="-627.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
@@ -129,7 +129,7 @@ var sectionId = 'dynsection-1';
 <text text-anchor="start" x="123.5" y="-447.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="136.5" y="-447.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetPiecePath()</text>
 <text text-anchor="start" x="123.5" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="136.5" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">getVariable()</text>
+<text text-anchor="start" x="136.5" y="-432.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetVariable()</text>
 <text text-anchor="start" x="136.5" y="-417.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 34 more...</text>
 <text text-anchor="start" x="123.5" y="-402.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="136.5" y="-402.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetFakeGObject()</text>
@@ -142,7 +142,7 @@ var sectionId = 'dynsection-1';
 <text text-anchor="start" x="123.5" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="136.5" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">ClearUniqueNames()</text>
 <text text-anchor="start" x="123.5" y="-327.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="136.5" y="-327.5" font-family="Helvetica,sans-Serif" font-size="10.00">clearUniqueVariableNames()</text>
+<text text-anchor="start" x="136.5" y="-327.5" font-family="Helvetica,sans-Serif" font-size="10.00">ClearUniqueIncrementNames()</text>
 <text text-anchor="start" x="123.5" y="-312.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="136.5" y="-312.5" font-family="Helvetica,sans-Serif" font-size="10.00">setSize()</text>
 <text text-anchor="start" x="123.5" y="-297.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
@@ -171,10 +171,10 @@ var sectionId = 'dynsection-1';
 <text text-anchor="start" x="136.5" y="-132.5" font-family="Helvetica,sans-Serif" font-size="10.00">DataVar()</text>
 <text text-anchor="start" x="126" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
 <text text-anchor="start" x="136.5" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">AddObject()</text>
-<polygon fill="#666666" stroke="#666666" points="119.5,-652.5 119.5,-652.5 281.5,-652.5 281.5,-652.5 119.5,-652.5"/>
+<polygon fill="#666666" stroke="#666666" points="119.5,-652.5 119.5,-652.5 292.5,-652.5 292.5,-652.5 119.5,-652.5"/>
 <polygon fill="#666666" stroke="#666666" points="119.5,-577.5 119.5,-577.5 134.5,-577.5 134.5,-577.5 119.5,-577.5"/>
-<polygon fill="#666666" stroke="#666666" points="134.5,-577.5 134.5,-577.5 281.5,-577.5 281.5,-577.5 134.5,-577.5"/>
-<polygon fill="none" stroke="#666666" points="119.5,-111 119.5,-670 281.5,-670 281.5,-111 119.5,-111"/>
+<polygon fill="#666666" stroke="#666666" points="134.5,-577.5 134.5,-577.5 292.5,-577.5 292.5,-577.5 134.5,-577.5"/>
+<polygon fill="none" stroke="#666666" points="119,-111 119,-670 292,-670 292,-111 119,-111"/>
 </a>
 </g>
 </g>
@@ -182,11 +182,11 @@ var sectionId = 'dynsection-1';
 <g id="edge2_Node000001_Node000003" class="edge">
 <title>Node3&#45;&gt;Node1</title>
 <g id="a_edge2_Node000001_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M141.87,-110.79C139.19,-98.08 136.73,-86.38 134.57,-76.12"/>
-<polygon fill="none" stroke="#63b8ff" points="134.57,-76.1 129.42,-71.05 132.1,-64.35 137.25,-69.4 134.57,-76.1"/>
+<path fill="none" stroke="#63b8ff" d="M144.52,-110.79C141.74,-98.08 139.18,-86.38 136.93,-76.12"/>
+<polygon fill="none" stroke="#63b8ff" points="136.92,-76.08 131.73,-71.07 134.36,-64.35 139.55,-69.36 136.92,-76.08"/>
 </a>
 </g>
-<text text-anchor="middle" x="160.5" y="-85" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> &#45;m_data</text>
+<text text-anchor="middle" x="163.5" y="-85" font-family="Helvetica,sans-Serif" font-size="10.00" fill="grey"> &#45;m_data</text>
 </g>
 </g>
 </svg>

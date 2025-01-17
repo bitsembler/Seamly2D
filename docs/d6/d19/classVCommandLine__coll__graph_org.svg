@@ -56,7 +56,7 @@
 <text text-anchor="start" x="162.5" y="-21.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
 <text text-anchor="start" x="173" y="-21.5" font-family="Helvetica,sans-Serif" font-size="10.00">Pg2Px()</text>
 <text text-anchor="start" x="162.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="173" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">initOptions()</text>
+<text text-anchor="start" x="173" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">InitOptions()</text>
 <polygon fill="#666666" stroke="#666666" points="156,-331.5 156,-331.5 281,-331.5 281,-331.5 156,-331.5"/>
 <polygon fill="#666666" stroke="#666666" points="156,-301.5 156,-301.5 171,-301.5 171,-301.5 156,-301.5"/>
 <polygon fill="#666666" stroke="#666666" points="171,-301.5 171,-301.5 281,-301.5 281,-301.5 171,-301.5"/>

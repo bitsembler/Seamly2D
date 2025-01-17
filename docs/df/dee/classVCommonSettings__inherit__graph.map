@@ -1,9 +1,9 @@
 <map id="VCommonSettings" name="VCommonSettings">
-<area shape="rect" id="Node000001" title=" " alt="" coords="103,119,333,679"/>
-<area shape="rect" id="Node000003" href="$dd/d44/classVSeamlyMeSettings.html" title=" " alt="" coords="5,907,193,1092"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,693,120,907,115,906,157,692"/>
-<area shape="rect" id="Node000004" href="$d4/d80/classVSettings.html" title=" " alt="" coords="217,727,456,1272"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="279,692,285,726,280,727,273,693"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="103,119,333,639"/>
+<area shape="rect" id="Node000003" href="$dd/d44/classVSeamlyMeSettings.html" title=" " alt="" coords="5,867,193,1052"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,653,121,867,115,866,159,652"/>
+<area shape="rect" id="Node000004" href="$d4/d80/classVSettings.html" title=" " alt="" coords="217,687,456,1232"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="277,652,284,686,278,687,271,653"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="179,5,257,71"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,84,221,118,215,118,215,84"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,85,221,119,215,119,215,85"/>
 </map>

@@ -11,77 +11,77 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
-<polygon fill="#999999" stroke="transparent" points="239.5,-499 70.5,-499 70.5,0 239.5,0 239.5,-499"/>
+<g id="a_Node000001"><a xlink:title="The VToolSplinePath class tool for creation spline path.">
+<polygon fill="#999999" stroke="transparent" points="237.5,-499 72.5,-499 72.5,0 237.5,0 237.5,-499"/>
 <text text-anchor="start" x="116.5" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">VToolSplinePath</text>
-<text text-anchor="start" x="75" y="-471.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-471.5" font-family="Helvetica,sans-Serif" font-size="10.00">ToolType</text>
-<text text-anchor="start" x="75" y="-456.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-456.5" font-family="Helvetica,sans-Serif" font-size="10.00">OldToolType</text>
-<text text-anchor="start" x="77.5" y="-441.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="88" y="-441.5" font-family="Helvetica,sans-Serif" font-size="10.00">oldPosition</text>
-<text text-anchor="start" x="77.5" y="-426.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="88" y="-426.5" font-family="Helvetica,sans-Serif" font-size="10.00">splIndex</text>
-<text text-anchor="start" x="75" y="-411.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-411.5" font-family="Helvetica,sans-Serif" font-size="10.00">~VToolSplinePath()</text>
-<text text-anchor="start" x="75" y="-396.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-396.5" font-family="Helvetica,sans-Serif" font-size="10.00">setDialog()</text>
-<text text-anchor="start" x="75" y="-381.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-381.5" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
-<text text-anchor="start" x="75" y="-366.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-366.5" font-family="Helvetica,sans-Serif" font-size="10.00">getSplinePath()</text>
-<text text-anchor="start" x="75" y="-351.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-351.5" font-family="Helvetica,sans-Serif" font-size="10.00">setSplinePath()</text>
-<text text-anchor="start" x="75" y="-336.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-336.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShowVisualization()</text>
-<text text-anchor="start" x="75" y="-321.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-321.5" font-family="Helvetica,sans-Serif" font-size="10.00">Create()</text>
-<text text-anchor="start" x="75" y="-306.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-306.5" font-family="Helvetica,sans-Serif" font-size="10.00">Create()</text>
-<text text-anchor="start" x="75" y="-291.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-291.5" font-family="Helvetica,sans-Serif" font-size="10.00">Create()</text>
-<text text-anchor="start" x="75" y="-276.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-276.5" font-family="Helvetica,sans-Serif" font-size="10.00">UpdatePathPoints()</text>
-<text text-anchor="start" x="75" y="-261.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-261.5" font-family="Helvetica,sans-Serif" font-size="10.00">controlPointPositionChanged()</text>
-<text text-anchor="start" x="75" y="-246.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="88" y="-246.5" font-family="Helvetica,sans-Serif" font-size="10.00">EnableToolMove()</text>
-<text text-anchor="start" x="75" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="88" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">RemoveReferens()</text>
-<text text-anchor="start" x="75" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="88" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">SaveDialog()</text>
-<text text-anchor="start" x="75" y="-201.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="88" y="-201.5" font-family="Helvetica,sans-Serif" font-size="10.00">SaveOptions()</text>
-<text text-anchor="start" x="75" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="88" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">mousePressEvent()</text>
-<text text-anchor="start" x="75" y="-171.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="88" y="-171.5" font-family="Helvetica,sans-Serif" font-size="10.00">mouseReleaseEvent()</text>
-<text text-anchor="start" x="75" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="88" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">mouseMoveEvent()</text>
-<text text-anchor="start" x="75" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="88" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">hoverEnterEvent()</text>
-<text text-anchor="start" x="75" y="-126.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="88" y="-126.5" font-family="Helvetica,sans-Serif" font-size="10.00">hoverLeaveEvent()</text>
-<text text-anchor="start" x="75" y="-111.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="88" y="-111.5" font-family="Helvetica,sans-Serif" font-size="10.00">SetVisualization()</text>
-<text text-anchor="start" x="75" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="88" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">refreshCtrlPoints()</text>
-<text text-anchor="start" x="75" y="-81.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="88" y="-81.5" font-family="Helvetica,sans-Serif" font-size="10.00">showContextMenu()</text>
-<text text-anchor="start" x="77.5" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="88" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">VToolSplinePath()</text>
-<text text-anchor="start" x="77.5" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="88" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">IsMovable()</text>
-<text text-anchor="start" x="77.5" y="-36.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="88" y="-36.5" font-family="Helvetica,sans-Serif" font-size="10.00">updateControlPoints()</text>
-<text text-anchor="start" x="77.5" y="-21.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="88" y="-21.5" font-family="Helvetica,sans-Serif" font-size="10.00">SetSplinePathAttributes()</text>
-<text text-anchor="start" x="77.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AddPathPoint()</text>
-<polygon fill="#666666" stroke="#666666" points="71,-481.5 71,-481.5 240,-481.5 240,-481.5 71,-481.5"/>
-<polygon fill="#666666" stroke="#666666" points="71,-421.5 71,-421.5 86,-421.5 86,-421.5 71,-421.5"/>
-<polygon fill="#666666" stroke="#666666" points="86,-421.5 86,-421.5 240,-421.5 240,-421.5 86,-421.5"/>
-<polygon fill="none" stroke="#666666" points="70.5,0 70.5,-499 239.5,-499 239.5,0 70.5,0"/>
+<text text-anchor="start" x="77" y="-471.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-471.5" font-family="Helvetica,sans-Serif" font-size="10.00">ToolType</text>
+<text text-anchor="start" x="77" y="-456.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-456.5" font-family="Helvetica,sans-Serif" font-size="10.00">OldToolType</text>
+<text text-anchor="start" x="79.5" y="-441.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="90" y="-441.5" font-family="Helvetica,sans-Serif" font-size="10.00">oldPosition</text>
+<text text-anchor="start" x="79.5" y="-426.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="90" y="-426.5" font-family="Helvetica,sans-Serif" font-size="10.00">splIndex</text>
+<text text-anchor="start" x="77" y="-411.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-411.5" font-family="Helvetica,sans-Serif" font-size="10.00">~VToolSplinePath()</text>
+<text text-anchor="start" x="77" y="-396.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-396.5" font-family="Helvetica,sans-Serif" font-size="10.00">setDialog()</text>
+<text text-anchor="start" x="77" y="-381.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-381.5" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
+<text text-anchor="start" x="77" y="-366.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-366.5" font-family="Helvetica,sans-Serif" font-size="10.00">getSplinePath()</text>
+<text text-anchor="start" x="77" y="-351.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-351.5" font-family="Helvetica,sans-Serif" font-size="10.00">setSplinePath()</text>
+<text text-anchor="start" x="77" y="-336.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-336.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShowVisualization()</text>
+<text text-anchor="start" x="77" y="-321.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-321.5" font-family="Helvetica,sans-Serif" font-size="10.00">Create()</text>
+<text text-anchor="start" x="77" y="-306.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-306.5" font-family="Helvetica,sans-Serif" font-size="10.00">Create()</text>
+<text text-anchor="start" x="77" y="-291.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-291.5" font-family="Helvetica,sans-Serif" font-size="10.00">Create()</text>
+<text text-anchor="start" x="77" y="-276.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-276.5" font-family="Helvetica,sans-Serif" font-size="10.00">UpdatePathPoints()</text>
+<text text-anchor="start" x="77" y="-261.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-261.5" font-family="Helvetica,sans-Serif" font-size="10.00">ControlPointChangePosition()</text>
+<text text-anchor="start" x="77" y="-246.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="90" y="-246.5" font-family="Helvetica,sans-Serif" font-size="10.00">EnableToolMove()</text>
+<text text-anchor="start" x="77" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="90" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">RemoveReferens()</text>
+<text text-anchor="start" x="77" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="90" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">SaveDialog()</text>
+<text text-anchor="start" x="77" y="-201.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="90" y="-201.5" font-family="Helvetica,sans-Serif" font-size="10.00">SaveOptions()</text>
+<text text-anchor="start" x="77" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="90" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">mousePressEvent()</text>
+<text text-anchor="start" x="77" y="-171.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="90" y="-171.5" font-family="Helvetica,sans-Serif" font-size="10.00">mouseReleaseEvent()</text>
+<text text-anchor="start" x="77" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="90" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">mouseMoveEvent()</text>
+<text text-anchor="start" x="77" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="90" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">hoverEnterEvent()</text>
+<text text-anchor="start" x="77" y="-126.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="90" y="-126.5" font-family="Helvetica,sans-Serif" font-size="10.00">hoverLeaveEvent()</text>
+<text text-anchor="start" x="77" y="-111.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="90" y="-111.5" font-family="Helvetica,sans-Serif" font-size="10.00">SetVisualization()</text>
+<text text-anchor="start" x="77" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="90" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">refreshCtrlPoints()</text>
+<text text-anchor="start" x="77" y="-81.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="90" y="-81.5" font-family="Helvetica,sans-Serif" font-size="10.00">showContextMenu()</text>
+<text text-anchor="start" x="79.5" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="90" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">VToolSplinePath()</text>
+<text text-anchor="start" x="79.5" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="90" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">IsMovable()</text>
+<text text-anchor="start" x="79.5" y="-36.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="90" y="-36.5" font-family="Helvetica,sans-Serif" font-size="10.00">UpdateControlPoints()</text>
+<text text-anchor="start" x="79.5" y="-21.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="90" y="-21.5" font-family="Helvetica,sans-Serif" font-size="10.00">SetSplinePathAttributes()</text>
+<text text-anchor="start" x="79.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="90" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AddPathPoint()</text>
+<polygon fill="#666666" stroke="#666666" points="73,-481.5 73,-481.5 238,-481.5 238,-481.5 73,-481.5"/>
+<polygon fill="#666666" stroke="#666666" points="73,-421.5 73,-421.5 88,-421.5 88,-421.5 73,-421.5"/>
+<polygon fill="#666666" stroke="#666666" points="88,-421.5 88,-421.5 238,-421.5 238,-421.5 88,-421.5"/>
+<polygon fill="none" stroke="#666666" points="72.5,0 72.5,-499 237.5,-499 237.5,0 72.5,0"/>
 </a>
 </g>
 </g>
@@ -92,9 +92,9 @@
 <polygon fill="white" stroke="transparent" points="242.5,-1214 67.5,-1214 67.5,-535 242.5,-535 242.5,-1214"/>
 <text text-anchor="start" x="117" y="-1201.5" font-family="Helvetica,sans-Serif" font-size="10.00">VAbstractSpline</text>
 <text text-anchor="start" x="72" y="-1186.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-1186.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_controlPoints</text>
+<text text-anchor="start" x="85" y="-1186.5" font-family="Helvetica,sans-Serif" font-size="10.00">controlPoints</text>
 <text text-anchor="start" x="72" y="-1171.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-1171.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_sceneType</text>
+<text text-anchor="start" x="85" y="-1171.5" font-family="Helvetica,sans-Serif" font-size="10.00">sceneType</text>
 <text text-anchor="start" x="72" y="-1156.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="85" y="-1156.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_isHovered</text>
 <text text-anchor="start" x="72" y="-1141.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
@@ -112,7 +112,7 @@
 <text text-anchor="start" x="72" y="-1051.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="85" y="-1051.5" font-family="Helvetica,sans-Serif" font-size="10.00">getTagName()</text>
 <text text-anchor="start" x="72" y="-1036.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-1036.5" font-family="Helvetica,sans-Serif" font-size="10.00">showHandles()</text>
+<text text-anchor="start" x="85" y="-1036.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShowHandles()</text>
 <text text-anchor="start" x="72" y="-1021.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="85" y="-1021.5" font-family="Helvetica,sans-Serif" font-size="10.00">getLineColor()</text>
 <text text-anchor="start" x="72" y="-1006.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
@@ -142,7 +142,7 @@
 <text text-anchor="start" x="72" y="-826.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="85" y="-826.5" font-family="Helvetica,sans-Serif" font-size="10.00">makeToolTip()</text>
 <text text-anchor="start" x="72" y="-811.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-811.5" font-family="Helvetica,sans-Serif" font-size="10.00">refreshGeometry()</text>
+<text text-anchor="start" x="85" y="-811.5" font-family="Helvetica,sans-Serif" font-size="10.00">RefreshGeometry()</text>
 <text text-anchor="start" x="72" y="-796.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="85" y="-796.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShowTool()</text>
 <text text-anchor="start" x="72" y="-781.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
@@ -166,19 +166,19 @@
 <text text-anchor="start" x="72" y="-646.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="85" y="-646.5" font-family="Helvetica,sans-Serif" font-size="10.00">contextMenuEvent()</text>
 <text text-anchor="start" x="72" y="-631.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-631.5" font-family="Helvetica,sans-Serif" font-size="10.00">correctedSpline()</text>
+<text text-anchor="start" x="85" y="-631.5" font-family="Helvetica,sans-Serif" font-size="10.00">CorrectedSpline()</text>
 <text text-anchor="start" x="72" y="-616.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="85" y="-616.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShowToolVisualization()</text>
 <text text-anchor="start" x="72" y="-601.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-601.5" font-family="Helvetica,sans-Serif" font-size="10.00">initSplineToolConnections()</text>
+<text text-anchor="start" x="85" y="-601.5" font-family="Helvetica,sans-Serif" font-size="10.00">InitSplineToolConnections()</text>
 <text text-anchor="start" x="72" y="-586.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-586.5" font-family="Helvetica,sans-Serif" font-size="10.00">initSplinePathToolConnections()</text>
+<text text-anchor="start" x="85" y="-586.5" font-family="Helvetica,sans-Serif" font-size="10.00">InitSplinePathToolConnections()</text>
 <text text-anchor="start" x="72" y="-571.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-571.5" font-family="Helvetica,sans-Serif" font-size="10.00">initArcToolConnections()</text>
+<text text-anchor="start" x="85" y="-571.5" font-family="Helvetica,sans-Serif" font-size="10.00">InitArcToolConnections()</text>
 <text text-anchor="start" x="72" y="-556.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-556.5" font-family="Helvetica,sans-Serif" font-size="10.00">initElArcToolConnections()</text>
+<text text-anchor="start" x="85" y="-556.5" font-family="Helvetica,sans-Serif" font-size="10.00">InitElArcToolConnections()</text>
 <text text-anchor="start" x="74.5" y="-541.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="85" y="-541.5" font-family="Helvetica,sans-Serif" font-size="10.00">initDefShape()</text>
+<text text-anchor="start" x="85" y="-541.5" font-family="Helvetica,sans-Serif" font-size="10.00">InitDefShape()</text>
 <polygon fill="#666666" stroke="#666666" points="68,-1196.5 68,-1196.5 243,-1196.5 243,-1196.5 68,-1196.5"/>
 <polygon fill="#666666" stroke="#666666" points="68,-1136.5 68,-1136.5 83,-1136.5 83,-1136.5 68,-1136.5"/>
 <polygon fill="#666666" stroke="#666666" points="83,-1136.5 83,-1136.5 243,-1136.5 243,-1136.5 83,-1136.5"/>

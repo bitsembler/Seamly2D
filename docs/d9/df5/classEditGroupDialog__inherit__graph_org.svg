@@ -86,7 +86,7 @@
 <text text-anchor="start" x="17" y="-1112" font-family="Helvetica,sans-Serif" font-size="10.00">spinBoxAngle</text>
 <text text-anchor="start" x="4" y="-1097" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="17" y="-1097" font-family="Helvetica,sans-Serif" font-size="10.00">plainTextEditFormula</text>
-<text text-anchor="start" x="17" y="-1082" font-family="Helvetica,sans-Serif" font-size="10.00">and 12 more...</text>
+<text text-anchor="start" x="17" y="-1082" font-family="Helvetica,sans-Serif" font-size="10.00">and 11 more...</text>
 <text text-anchor="start" x="4" y="-1067" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="17" y="-1067" font-family="Helvetica,sans-Serif" font-size="10.00">DialogTool()</text>
 <text text-anchor="start" x="4" y="-1052" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
@@ -145,7 +145,7 @@
 <text text-anchor="start" x="4" y="-647" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="17" y="-647" font-family="Helvetica,sans-Serif" font-size="10.00">FillComboBoxPiecesList()</text>
 <text text-anchor="start" x="4" y="-632" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="17" y="-632" font-family="Helvetica,sans-Serif" font-size="10.00">fillComboBoxPoints()</text>
+<text text-anchor="start" x="17" y="-632" font-family="Helvetica,sans-Serif" font-size="10.00">FillComboBoxPoints()</text>
 <text text-anchor="start" x="4" y="-617" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="17" y="-617" font-family="Helvetica,sans-Serif" font-size="10.00">FillComboBoxArcs()</text>
 <text text-anchor="start" x="4" y="-602" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
@@ -156,7 +156,7 @@
 <text text-anchor="start" x="17" y="-572" font-family="Helvetica,sans-Serif" font-size="10.00">FillComboBoxCurves()</text>
 <text text-anchor="start" x="4" y="-557" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="17" y="-557" font-family="Helvetica,sans-Serif" font-size="10.00">FillComboBoxTypeLine()</text>
-<text text-anchor="start" x="17" y="-542" font-family="Helvetica,sans-Serif" font-size="10.00">and 35 more...</text>
+<text text-anchor="start" x="17" y="-542" font-family="Helvetica,sans-Serif" font-size="10.00">and 34 more...</text>
 <text text-anchor="start" x="4" y="-527" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="17" y="-527" font-family="Helvetica,sans-Serif" font-size="10.00">FindNotExcludedNodeDown()</text>
 <text text-anchor="start" x="4" y="-512" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>

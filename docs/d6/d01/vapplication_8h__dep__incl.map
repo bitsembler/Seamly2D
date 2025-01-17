@@ -1,0 +1,47 @@
+<map id="src/app/seamly2d/core/vapplication.h" name="src/app/seamly2d/core/vapplication.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="2763,5,2932,45"/>
+<area shape="rect" id="Node000002" href="$d3/dd8/vapplication_8cpp.html" title=" " alt="" coords="5,93,175,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2749,30,2244,33,1503,43,744,63,427,77,188,96,175,98,174,92,187,91,427,72,744,57,1503,37,2244,28,2749,24"/>
+<area shape="rect" id="Node000003" href="$d2/d00/vtooloptionspropertybrowser_8cpp.html" title=" " alt="" coords="199,93,439,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="2749,31,1625,51,948,70,665,82,452,96,440,97,439,92,451,91,665,77,948,65,1625,45,2749,25"/>
+<area shape="rect" id="Node000004" href="$dd/db4/abstractlayout__dialog_8cpp.html" title=" " alt="" coords="463,93,658,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="2749,31,2327,37,1726,50,1117,69,863,82,670,96,659,97,658,92,670,91,862,76,1117,64,1726,44,2326,32,2749,25"/>
+<area shape="rect" id="Node000005" href="$d7/dfa/calculator__dialog_8cpp.html" title=" " alt="" coords="683,93,871,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="2749,31,1824,51,1280,70,1054,82,882,96,871,97,870,92,882,91,1054,77,1280,65,1824,46,2749,25"/>
+<area shape="rect" id="Node000006" href="$d2/d2d/preferencesconfigurationpage_8cpp.html" title=" " alt="" coords="895,93,1224,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="2749,31,2113,50,1679,69,1237,96,1224,97,1224,92,1236,91,1679,64,2113,45,2749,26"/>
+<area shape="rect" id="Node000007" href="$d9/d70/preferencesgraphicsviewpage_8cpp.html" title=" " alt="" coords="1249,93,1579,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="2749,33,2252,55,1924,73,1592,96,1580,97,1579,92,1591,91,1924,68,2252,49,2749,27"/>
+<area shape="rect" id="Node000008" href="$dc/d20/preferencespathpage_8cpp.html" title=" " alt="" coords="1604,93,1877,133"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="2749,34,2371,57,1890,96,1878,97,1877,92,1890,91,2371,52,2748,29"/>
+<area shape="rect" id="Node000009" href="$dc/d63/preferencespatternpage_8cpp.html" title=" " alt="" coords="1902,93,2193,133"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="2749,39,2205,96,2193,97,2193,92,2204,91,2749,34"/>
+<area shape="rect" id="Node000010" href="$dd/dc2/decimalchart__dialog_8cpp.html" title=" " alt="" coords="2217,93,2405,133"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="2749,44,2417,96,2406,98,2405,93,2416,91,2748,39"/>
+<area shape="rect" id="Node000011" href="$dd/d64/dialogaboutapp_8cpp.html" title=" " alt="" coords="2429,93,2617,133"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="2764,51,2595,96,2594,91,2763,46"/>
+<area shape="rect" id="Node000012" href="$d6/d89/dialoglayoutprogress_8cpp.html" title=" " alt="" coords="2641,93,2832,133"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="2813,56,2763,95,2760,91,2810,52"/>
+<area shape="rect" id="Node000013" href="$d5/d18/dialogpatternproperties_8cpp.html" title=" " alt="" coords="2856,93,3063,133"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="2885,52,2936,91,2933,95,2882,56"/>
+<area shape="rect" id="Node000014" href="$d5/dc5/dialogpreferences_8cpp.html" title=" " alt="" coords="3087,93,3275,133"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="2934,46,3108,91,3107,96,2933,51"/>
+<area shape="rect" id="Node000015" href="$dd/d54/export__layout__dialog_8cpp.html" title=" " alt="" coords="3299,93,3489,133"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="2946,38,3288,91,3299,93,3298,98,3287,96,2945,44"/>
+<area shape="rect" id="Node000016" href="$db/d5c/groups__widget_8cpp.html" title=" " alt="" coords="3513,93,3701,133"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="2946,32,3199,55,3502,91,3514,92,3513,98,3502,96,3198,60,2946,37"/>
+<area shape="rect" id="Node000017" href="$d0/dfa/layoutsettings__dialog_8cpp.html" title=" " alt="" coords="3725,93,3919,133"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="2946,29,3287,50,3500,68,3714,91,3725,92,3725,97,3714,96,3499,73,3286,55,2946,34"/>
+<area shape="rect" id="Node000018" href="$dd/d84/shortcuts__dialog_8cpp.html" title=" " alt="" coords="3943,93,4131,133"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="2946,26,3375,44,3652,63,3932,91,3943,92,3942,97,3931,96,3652,69,3375,50,2946,32"/>
+<area shape="rect" id="Node000019" href="$d2/df4/show__info__dialog_8cpp.html" title=" " alt="" coords="4155,93,4343,133"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="2946,25,3162,29,3459,40,3799,59,4144,91,4155,92,4154,97,4143,96,3799,65,3459,45,3162,35,2946,30"/>
+<area shape="rect" id="Node000020" href="$dc/d14/app_2seamly2d_2main_8cpp.html" title=" " alt="" coords="4367,101,4568,126"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="2946,24,3193,27,3543,37,3946,57,4153,72,4356,91,4407,98,4407,103,4355,96,4152,77,3945,62,3542,42,3193,33,2946,30"/>
+<area shape="rect" id="Node000021" href="$d8/dd9/mainwindow_8cpp.html" title=" " alt="" coords="4593,101,4843,126"/>
+<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="2946,24,3226,28,3630,38,4101,58,4343,72,4581,91,4645,98,4644,103,4580,96,4343,78,4100,63,3630,43,3225,33,2946,30"/>
+<area shape="rect" id="Node000022" href="$d8/de8/mainwindowsnogui_8cpp.html" title=" " alt="" coords="4868,101,5163,126"/>
+<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="2946,24,3264,28,3735,38,4289,57,4575,72,4856,91,4930,98,4929,103,4855,96,4575,77,4289,63,3735,43,3264,33,2946,30"/>
+<area shape="rect" id="Node000023" href="$d3/d49/vpattern_8cpp.html" title=" " alt="" coords="5187,93,5353,133"/>
+<area shape="poly" id="edge22_Node000001_Node000023" title=" " alt="" coords="2946,25,3395,29,4039,40,4695,60,4969,74,5176,91,5187,92,5186,97,5175,96,4968,79,4695,65,4039,45,3395,35,2946,30"/>
+</map>

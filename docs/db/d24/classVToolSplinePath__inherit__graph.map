@@ -1,5 +1,5 @@
 <map id="VToolSplinePath" name="VToolSplinePath">
-<area shape="rect" id="Node000001" title=" " alt="" coords="99,3225,325,3891"/>
+<area shape="rect" id="Node000001" title="The VToolSplinePath class tool for creation spline path." alt="" coords="102,3225,322,3891"/>
 <area shape="rect" id="Node000002" href="$d3/d64/classVAbstractSpline.html" title=" " alt="" coords="95,2272,329,3177"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,3191,215,3225,209,3225,209,3191"/>
 <area shape="rect" id="Node000003" href="$d2/df2/classVDrawTool.html" title="The VDrawTool abstract class for all draw tool." alt="" coords="5,1539,219,2224"/>

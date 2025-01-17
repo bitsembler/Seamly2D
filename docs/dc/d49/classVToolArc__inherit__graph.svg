@@ -124,9 +124,9 @@ var sectionId = 'dynsection-0';
 <polygon fill="white" stroke="transparent" points="242.5,-1109 67.5,-1109 67.5,-430 242.5,-430 242.5,-1109"/>
 <text text-anchor="start" x="117" y="-1096.5" font-family="Helvetica,sans-Serif" font-size="10.00">VAbstractSpline</text>
 <text text-anchor="start" x="72" y="-1081.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-1081.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_controlPoints</text>
+<text text-anchor="start" x="85" y="-1081.5" font-family="Helvetica,sans-Serif" font-size="10.00">controlPoints</text>
 <text text-anchor="start" x="72" y="-1066.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-1066.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_sceneType</text>
+<text text-anchor="start" x="85" y="-1066.5" font-family="Helvetica,sans-Serif" font-size="10.00">sceneType</text>
 <text text-anchor="start" x="72" y="-1051.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="85" y="-1051.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_isHovered</text>
 <text text-anchor="start" x="72" y="-1036.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
@@ -144,7 +144,7 @@ var sectionId = 'dynsection-0';
 <text text-anchor="start" x="72" y="-946.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="85" y="-946.5" font-family="Helvetica,sans-Serif" font-size="10.00">getTagName()</text>
 <text text-anchor="start" x="72" y="-931.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="85" y="-931.5" font-family="Helvetica,sans-Serif" font-size="10.00">showHandles()</text>
+<text text-anchor="start" x="85" y="-931.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShowHandles()</text>
 <text text-anchor="start" x="72" y="-916.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="85" y="-916.5" font-family="Helvetica,sans-Serif" font-size="10.00">getLineColor()</text>
 <text text-anchor="start" x="72" y="-901.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
@@ -174,7 +174,7 @@ var sectionId = 'dynsection-0';
 <text text-anchor="start" x="72" y="-721.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="85" y="-721.5" font-family="Helvetica,sans-Serif" font-size="10.00">makeToolTip()</text>
 <text text-anchor="start" x="72" y="-706.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-706.5" font-family="Helvetica,sans-Serif" font-size="10.00">refreshGeometry()</text>
+<text text-anchor="start" x="85" y="-706.5" font-family="Helvetica,sans-Serif" font-size="10.00">RefreshGeometry()</text>
 <text text-anchor="start" x="72" y="-691.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="85" y="-691.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShowTool()</text>
 <text text-anchor="start" x="72" y="-676.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
@@ -198,19 +198,19 @@ var sectionId = 'dynsection-0';
 <text text-anchor="start" x="72" y="-541.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="85" y="-541.5" font-family="Helvetica,sans-Serif" font-size="10.00">contextMenuEvent()</text>
 <text text-anchor="start" x="72" y="-526.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-526.5" font-family="Helvetica,sans-Serif" font-size="10.00">correctedSpline()</text>
+<text text-anchor="start" x="85" y="-526.5" font-family="Helvetica,sans-Serif" font-size="10.00">CorrectedSpline()</text>
 <text text-anchor="start" x="72" y="-511.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="85" y="-511.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShowToolVisualization()</text>
 <text text-anchor="start" x="72" y="-496.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-496.5" font-family="Helvetica,sans-Serif" font-size="10.00">initSplineToolConnections()</text>
+<text text-anchor="start" x="85" y="-496.5" font-family="Helvetica,sans-Serif" font-size="10.00">InitSplineToolConnections()</text>
 <text text-anchor="start" x="72" y="-481.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-481.5" font-family="Helvetica,sans-Serif" font-size="10.00">initSplinePathToolConnections()</text>
+<text text-anchor="start" x="85" y="-481.5" font-family="Helvetica,sans-Serif" font-size="10.00">InitSplinePathToolConnections()</text>
 <text text-anchor="start" x="72" y="-466.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-466.5" font-family="Helvetica,sans-Serif" font-size="10.00">initArcToolConnections()</text>
+<text text-anchor="start" x="85" y="-466.5" font-family="Helvetica,sans-Serif" font-size="10.00">InitArcToolConnections()</text>
 <text text-anchor="start" x="72" y="-451.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="85" y="-451.5" font-family="Helvetica,sans-Serif" font-size="10.00">initElArcToolConnections()</text>
+<text text-anchor="start" x="85" y="-451.5" font-family="Helvetica,sans-Serif" font-size="10.00">InitElArcToolConnections()</text>
 <text text-anchor="start" x="74.5" y="-436.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="85" y="-436.5" font-family="Helvetica,sans-Serif" font-size="10.00">initDefShape()</text>
+<text text-anchor="start" x="85" y="-436.5" font-family="Helvetica,sans-Serif" font-size="10.00">InitDefShape()</text>
 <polygon fill="#666666" stroke="#666666" points="68,-1091.5 68,-1091.5 243,-1091.5 243,-1091.5 68,-1091.5"/>
 <polygon fill="#666666" stroke="#666666" points="68,-1031.5 68,-1031.5 83,-1031.5 83,-1031.5 68,-1031.5"/>
 <polygon fill="#666666" stroke="#666666" points="83,-1031.5 83,-1031.5 243,-1031.5 243,-1031.5 83,-1031.5"/>

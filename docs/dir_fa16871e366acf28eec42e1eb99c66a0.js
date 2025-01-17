@@ -27,8 +27,6 @@ var dir_fa16871e366acf28eec42e1eb99c66a0 =
     [ "pen_toolbar.h", "d0/d8d/pen__toolbar_8h.html", "d0/d8d/pen__toolbar_8h" ],
     [ "piece_tablewidgetitem.cpp", "da/db4/piece__tablewidgetitem_8cpp.html", null ],
     [ "piece_tablewidgetitem.h", "dc/d1b/piece__tablewidgetitem_8h.html", "dc/d1b/piece__tablewidgetitem_8h" ],
-    [ "resize_handle.cpp", "d1/daa/resize__handle_8cpp.html", "d1/daa/resize__handle_8cpp" ],
-    [ "resize_handle.h", "db/d8d/resize__handle_8h.html", "db/d8d/resize__handle_8h" ],
     [ "scalesceneitems.cpp", "d4/d50/scalesceneitems_8cpp.html", null ],
     [ "scalesceneitems.h", "da/daf/scalesceneitems_8h.html", "da/daf/scalesceneitems_8h" ],
     [ "scene_rect.cpp", "d8/d76/scene__rect_8cpp.html", null ],

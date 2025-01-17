@@ -141,7 +141,7 @@
 <text text-anchor="start" x="30.5" y="-1543" font-family="Helvetica,sans-Serif" font-size="10.00">spinBoxAngle</text>
 <text text-anchor="start" x="17.5" y="-1528" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="30.5" y="-1528" font-family="Helvetica,sans-Serif" font-size="10.00">plainTextEditFormula</text>
-<text text-anchor="start" x="30.5" y="-1513" font-family="Helvetica,sans-Serif" font-size="10.00">and 12 more...</text>
+<text text-anchor="start" x="30.5" y="-1513" font-family="Helvetica,sans-Serif" font-size="10.00">and 11 more...</text>
 <text text-anchor="start" x="17.5" y="-1498" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="30.5" y="-1498" font-family="Helvetica,sans-Serif" font-size="10.00">DialogTool()</text>
 <text text-anchor="start" x="17.5" y="-1483" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
@@ -200,7 +200,7 @@
 <text text-anchor="start" x="17.5" y="-1078" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="30.5" y="-1078" font-family="Helvetica,sans-Serif" font-size="10.00">FillComboBoxPiecesList()</text>
 <text text-anchor="start" x="17.5" y="-1063" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="30.5" y="-1063" font-family="Helvetica,sans-Serif" font-size="10.00">fillComboBoxPoints()</text>
+<text text-anchor="start" x="30.5" y="-1063" font-family="Helvetica,sans-Serif" font-size="10.00">FillComboBoxPoints()</text>
 <text text-anchor="start" x="17.5" y="-1048" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="30.5" y="-1048" font-family="Helvetica,sans-Serif" font-size="10.00">FillComboBoxArcs()</text>
 <text text-anchor="start" x="17.5" y="-1033" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
@@ -211,7 +211,7 @@
 <text text-anchor="start" x="30.5" y="-1003" font-family="Helvetica,sans-Serif" font-size="10.00">FillComboBoxCurves()</text>
 <text text-anchor="start" x="17.5" y="-988" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="30.5" y="-988" font-family="Helvetica,sans-Serif" font-size="10.00">FillComboBoxTypeLine()</text>
-<text text-anchor="start" x="30.5" y="-973" font-family="Helvetica,sans-Serif" font-size="10.00">and 35 more...</text>
+<text text-anchor="start" x="30.5" y="-973" font-family="Helvetica,sans-Serif" font-size="10.00">and 34 more...</text>
 <text text-anchor="start" x="17.5" y="-958" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
 <text text-anchor="start" x="30.5" y="-958" font-family="Helvetica,sans-Serif" font-size="10.00">FindNotExcludedNodeDown()</text>
 <text text-anchor="start" x="17.5" y="-943" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>

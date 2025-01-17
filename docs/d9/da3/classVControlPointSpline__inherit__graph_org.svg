@@ -11,19 +11,19 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="The VControlPointSpline class control spline point.">
 <polygon fill="#999999" stroke="transparent" points="148,-319 14,-319 14,0 148,0 148,-319"/>
 <text text-anchor="start" x="32.5" y="-306.5" font-family="Helvetica,sans-Serif" font-size="10.00">VControlPointSpline</text>
 <text text-anchor="start" x="18" y="-291.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="31" y="-291.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_controlLine</text>
+<text text-anchor="start" x="31" y="-291.5" font-family="Helvetica,sans-Serif" font-size="10.00">controlLine</text>
 <text text-anchor="start" x="20.5" y="-276.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="31" y="-276.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_splineIndex</text>
+<text text-anchor="start" x="31" y="-276.5" font-family="Helvetica,sans-Serif" font-size="10.00">indexSpline</text>
 <text text-anchor="start" x="20.5" y="-261.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="31" y="-261.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_position</text>
+<text text-anchor="start" x="31" y="-261.5" font-family="Helvetica,sans-Serif" font-size="10.00">position</text>
 <text text-anchor="start" x="20.5" y="-246.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="31" y="-246.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_freeAngle</text>
+<text text-anchor="start" x="31" y="-246.5" font-family="Helvetica,sans-Serif" font-size="10.00">freeAngle</text>
 <text text-anchor="start" x="20.5" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="31" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_freeLength</text>
+<text text-anchor="start" x="31" y="-231.5" font-family="Helvetica,sans-Serif" font-size="10.00">freeLength</text>
 <text text-anchor="start" x="18" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="31" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">VControlPointSpline()</text>
 <text text-anchor="start" x="18" y="-201.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>

@@ -66,12 +66,12 @@
 <area shape="poly" id="edge32_Node000028_Node000033" title=" " alt="" coords="5422,1133,5363,1158,5300,1192,5237,1235,5209,1260,5183,1287,5147,1343,5120,1406,5115,1404,5142,1341,5179,1284,5205,1256,5234,1231,5297,1187,5361,1153,5420,1128"/>
 <area shape="rect" id="Node000034" href="$da/dde/classVisToolCubicBezierPath.html" title=" " alt="" coords="5193,1395,5394,1761"/>
 <area shape="poly" id="edge33_Node000028_Node000034" title=" " alt="" coords="5449,1201,5409,1286,5364,1396,5359,1394,5404,1284,5445,1198"/>
-<area shape="rect" id="Node000035" href="$d7/d4b/classVisToolCutArc.html" title=" " alt="" coords="5418,1455,5571,1701"/>
-<area shape="poly" id="edge34_Node000028_Node000035" title=" " alt="" coords="5497,1201,5497,1455,5492,1455,5492,1201"/>
-<area shape="rect" id="Node000036" href="$d1/dcd/classVisToolCutSpline.html" title=" " alt="" coords="5596,1455,5753,1701"/>
-<area shape="poly" id="edge35_Node000028_Node000036" title=" " alt="" coords="5547,1199,5586,1284,5618,1370,5644,1454,5639,1456,5613,1372,5582,1286,5543,1201"/>
-<area shape="rect" id="Node000037" href="$d4/dd9/classVisToolCutSplinePath.html" title=" " alt="" coords="5778,1455,5963,1701"/>
-<area shape="poly" id="edge36_Node000028_Node000037" title=" " alt="" coords="5569,1136,5618,1162,5671,1196,5723,1236,5767,1284,5794,1323,5816,1367,5848,1454,5843,1456,5811,1369,5790,1326,5763,1287,5719,1240,5668,1200,5616,1167,5567,1141"/>
+<area shape="rect" id="Node000035" href="$d7/d4b/classVisToolCutArc.html" title=" " alt="" coords="5418,1475,5571,1681"/>
+<area shape="poly" id="edge34_Node000028_Node000035" title=" " alt="" coords="5497,1201,5497,1475,5492,1475,5492,1201"/>
+<area shape="rect" id="Node000036" href="$d1/dcd/classVisToolCutSpline.html" title=" " alt="" coords="5596,1475,5753,1681"/>
+<area shape="poly" id="edge35_Node000028_Node000036" title=" " alt="" coords="5547,1199,5586,1284,5621,1381,5650,1474,5645,1476,5616,1383,5582,1286,5543,1201"/>
+<area shape="rect" id="Node000037" href="$d4/dd9/classVisToolCutSplinePath.html" title=" " alt="" coords="5778,1475,5963,1681"/>
+<area shape="poly" id="edge36_Node000028_Node000037" title=" " alt="" coords="5569,1136,5618,1162,5671,1196,5723,1236,5767,1284,5797,1329,5821,1377,5840,1427,5853,1474,5848,1476,5834,1429,5816,1379,5792,1331,5763,1287,5719,1240,5668,1200,5616,1167,5567,1141"/>
 <area shape="rect" id="Node000038" href="$d5/d62/classVisToolEllipticalArc.html" title=" " alt="" coords="5988,1415,6161,1741"/>
 <area shape="poly" id="edge37_Node000028_Node000038" title=" " alt="" coords="5569,1111,5662,1128,5771,1160,5827,1182,5882,1210,5933,1244,5978,1283,6002,1312,6021,1345,6050,1414,6045,1416,6017,1347,5997,1315,5974,1287,5929,1248,5879,1215,5825,1187,5769,1165,5661,1133,5569,1116"/>
 <area shape="rect" id="Node000039" href="$d1/de1/classVisToolInternalPath.html" title=" " alt="" coords="6185,1455,6359,1701"/>

@@ -1,14 +1,14 @@
 var dir_97d355521c4cf933b349974c8906fc73 =
 [
     [ "configpages", "dir_e4923d2acd3e9053b6364af89cb1744b.html", "dir_e4923d2acd3e9053b6364af89cb1744b" ],
-    [ "about2d_dialog.cpp", "d9/d7f/about2d__dialog_8cpp.html", null ],
-    [ "about2d_dialog.h", "de/da1/about2d__dialog_8h.html", "de/da1/about2d__dialog_8h" ],
     [ "abstractlayout_dialog.cpp", "dd/db4/abstractlayout__dialog_8cpp.html", null ],
     [ "abstractlayout_dialog.h", "d7/d9e/abstractlayout__dialog_8h.html", "d7/d9e/abstractlayout__dialog_8h" ],
     [ "calculator_dialog.cpp", "d7/dfa/calculator__dialog_8cpp.html", null ],
     [ "calculator_dialog.h", "d7/d73/calculator__dialog_8h.html", "d7/d73/calculator__dialog_8h" ],
     [ "decimalchart_dialog.cpp", "dd/dc2/decimalchart__dialog_8cpp.html", null ],
     [ "decimalchart_dialog.h", "dc/d9a/decimalchart__dialog_8h.html", "dc/d9a/decimalchart__dialog_8h" ],
+    [ "dialogaboutapp.cpp", "dd/d64/dialogaboutapp_8cpp.html", null ],
+    [ "dialogaboutapp.h", "da/d80/dialogaboutapp_8h.html", "da/d80/dialogaboutapp_8h" ],
     [ "dialogdatetimeformats.cpp", "da/dbc/dialogdatetimeformats_8cpp.html", null ],
     [ "dialogdatetimeformats.h", "d5/d11/dialogdatetimeformats_8h.html", "d5/d11/dialogdatetimeformats_8h" ],
     [ "dialoglayoutprogress.cpp", "d6/d89/dialoglayoutprogress_8cpp.html", null ],
@@ -35,7 +35,5 @@ var dir_97d355521c4cf933b349974c8906fc73 =
     [ "shortcuts_dialog.cpp", "dd/d84/shortcuts__dialog_8cpp.html", null ],
     [ "shortcuts_dialog.h", "d9/d49/shortcuts__dialog_8h.html", "d9/d49/shortcuts__dialog_8h" ],
     [ "show_info_dialog.cpp", "d2/df4/show__info__dialog_8cpp.html", null ],
-    [ "show_info_dialog.h", "dd/de2/show__info__dialog_8h.html", "dd/de2/show__info__dialog_8h" ],
-    [ "welcome_dialog.cpp", "df/d69/welcome__dialog_8cpp.html", null ],
-    [ "welcome_dialog.h", "d3/de1/welcome__dialog_8h.html", "d3/de1/welcome__dialog_8h" ]
+    [ "show_info_dialog.h", "dd/de2/show__info__dialog_8h.html", "dd/de2/show__info__dialog_8h" ]
 ];

@@ -365,18 +365,16 @@ var sectionId = 'dynsection-0';
 <g id="Node000012" class="node">
 <title>Node12</title>
 <g id="a_Node000012"><a xlink:href="../../d7/d4b/classVisToolCutArc.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="1043.5,-311.5 928.5,-311.5 928.5,-127.5 1043.5,-127.5 1043.5,-311.5"/>
-<text text-anchor="start" x="953" y="-299.5" font-family="Helvetica,sans-Serif" font-size="10.00">VisToolCutArc</text>
-<text text-anchor="start" x="933" y="-284.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="946" y="-284.5" font-family="Helvetica,sans-Serif" font-size="10.00">point</text>
+<polygon fill="white" stroke="transparent" points="1043.5,-296.5 928.5,-296.5 928.5,-142.5 1043.5,-142.5 1043.5,-296.5"/>
+<text text-anchor="start" x="953" y="-284.5" font-family="Helvetica,sans-Serif" font-size="10.00">VisToolCutArc</text>
 <text text-anchor="start" x="933" y="-269.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="946" y="-269.5" font-family="Helvetica,sans-Serif" font-size="10.00">arc1</text>
+<text text-anchor="start" x="946" y="-269.5" font-family="Helvetica,sans-Serif" font-size="10.00">point</text>
 <text text-anchor="start" x="933" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="946" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">arc2</text>
+<text text-anchor="start" x="946" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">arc1</text>
 <text text-anchor="start" x="933" y="-239.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="946" y="-239.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_length</text>
+<text text-anchor="start" x="946" y="-239.5" font-family="Helvetica,sans-Serif" font-size="10.00">arc2</text>
 <text text-anchor="start" x="933" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="946" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_direction</text>
+<text text-anchor="start" x="946" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">length</text>
 <text text-anchor="start" x="933" y="-209.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="946" y="-209.5" font-family="Helvetica,sans-Serif" font-size="10.00">VisToolCutArc()</text>
 <text text-anchor="start" x="933" y="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
@@ -384,15 +382,13 @@ var sectionId = 'dynsection-0';
 <text text-anchor="start" x="933" y="-179.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="946" y="-179.5" font-family="Helvetica,sans-Serif" font-size="10.00">RefreshGeometry()</text>
 <text text-anchor="start" x="933" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="946" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">setDirection()</text>
+<text text-anchor="start" x="946" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">setLength()</text>
 <text text-anchor="start" x="933" y="-149.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="946" y="-149.5" font-family="Helvetica,sans-Serif" font-size="10.00">setLength()</text>
-<text text-anchor="start" x="933" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="946" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
-<polygon fill="#666666" stroke="#666666" points="929,-294.5 929,-294.5 1044,-294.5 1044,-294.5 929,-294.5"/>
+<text text-anchor="start" x="946" y="-149.5" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
+<polygon fill="#666666" stroke="#666666" points="929,-279.5 929,-279.5 1044,-279.5 1044,-279.5 929,-279.5"/>
 <polygon fill="#666666" stroke="#666666" points="929,-219.5 929,-219.5 944,-219.5 944,-219.5 929,-219.5"/>
 <polygon fill="#666666" stroke="#666666" points="944,-219.5 944,-219.5 1044,-219.5 1044,-219.5 944,-219.5"/>
-<polygon fill="none" stroke="#666666" points="928.5,-127.5 928.5,-311.5 1043.5,-311.5 1043.5,-127.5 928.5,-127.5"/>
+<polygon fill="none" stroke="#666666" points="928.5,-142.5 928.5,-296.5 1043.5,-296.5 1043.5,-142.5 928.5,-142.5"/>
 </a>
 </g>
 </g>
@@ -400,7 +396,7 @@ var sectionId = 'dynsection-0';
 <g id="edge11_Node000001_Node000012" class="edge">
 <title>Node1&#45;&gt;Node12</title>
 <g id="a_edge11_Node000001_Node000012"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1037.87,-464.77C1028.26,-419.48 1015.71,-360.42 1005.37,-311.72"/>
+<path fill="none" stroke="#63b8ff" d="M1037.92,-465.01C1027.28,-414.89 1013.04,-347.81 1002.16,-296.59"/>
 <polygon fill="none" stroke="#63b8ff" points="1034.5,-465.74 1040,-474.79 1041.35,-464.29 1034.5,-465.74"/>
 </a>
 </g>
@@ -409,18 +405,16 @@ var sectionId = 'dynsection-0';
 <g id="Node000013" class="node">
 <title>Node13</title>
 <g id="a_Node000013"><a xlink:href="../../d1/dcd/classVisToolCutSpline.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="1180,-311.5 1062,-311.5 1062,-127.5 1180,-127.5 1180,-311.5"/>
-<text text-anchor="start" x="1080" y="-299.5" font-family="Helvetica,sans-Serif" font-size="10.00">VisToolCutSpline</text>
-<text text-anchor="start" x="1066" y="-284.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="1079" y="-284.5" font-family="Helvetica,sans-Serif" font-size="10.00">point</text>
+<polygon fill="white" stroke="transparent" points="1180,-296.5 1062,-296.5 1062,-142.5 1180,-142.5 1180,-296.5"/>
+<text text-anchor="start" x="1080" y="-284.5" font-family="Helvetica,sans-Serif" font-size="10.00">VisToolCutSpline</text>
 <text text-anchor="start" x="1066" y="-269.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="1079" y="-269.5" font-family="Helvetica,sans-Serif" font-size="10.00">spl1</text>
+<text text-anchor="start" x="1079" y="-269.5" font-family="Helvetica,sans-Serif" font-size="10.00">point</text>
 <text text-anchor="start" x="1066" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="1079" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">spl2</text>
+<text text-anchor="start" x="1079" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">spl1</text>
 <text text-anchor="start" x="1066" y="-239.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="1079" y="-239.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_length</text>
+<text text-anchor="start" x="1079" y="-239.5" font-family="Helvetica,sans-Serif" font-size="10.00">spl2</text>
 <text text-anchor="start" x="1066" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="1079" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_direction</text>
+<text text-anchor="start" x="1079" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">length</text>
 <text text-anchor="start" x="1066" y="-209.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="1079" y="-209.5" font-family="Helvetica,sans-Serif" font-size="10.00">VisToolCutSpline()</text>
 <text text-anchor="start" x="1066" y="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
@@ -428,15 +422,13 @@ var sectionId = 'dynsection-0';
 <text text-anchor="start" x="1066" y="-179.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="1079" y="-179.5" font-family="Helvetica,sans-Serif" font-size="10.00">RefreshGeometry()</text>
 <text text-anchor="start" x="1066" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="1079" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">setDirection()</text>
+<text text-anchor="start" x="1079" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">setLength()</text>
 <text text-anchor="start" x="1066" y="-149.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="1079" y="-149.5" font-family="Helvetica,sans-Serif" font-size="10.00">setLength()</text>
-<text text-anchor="start" x="1066" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="1079" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
-<polygon fill="#666666" stroke="#666666" points="1062,-294.5 1062,-294.5 1180,-294.5 1180,-294.5 1062,-294.5"/>
+<text text-anchor="start" x="1079" y="-149.5" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
+<polygon fill="#666666" stroke="#666666" points="1062,-279.5 1062,-279.5 1180,-279.5 1180,-279.5 1062,-279.5"/>
 <polygon fill="#666666" stroke="#666666" points="1062,-219.5 1062,-219.5 1077,-219.5 1077,-219.5 1062,-219.5"/>
 <polygon fill="#666666" stroke="#666666" points="1077,-219.5 1077,-219.5 1180,-219.5 1180,-219.5 1077,-219.5"/>
-<polygon fill="none" stroke="#666666" points="1062,-127.5 1062,-311.5 1180,-311.5 1180,-127.5 1062,-127.5"/>
+<polygon fill="none" stroke="#666666" points="1062,-142.5 1062,-296.5 1180,-296.5 1180,-142.5 1062,-142.5"/>
 </a>
 </g>
 </g>
@@ -444,7 +436,7 @@ var sectionId = 'dynsection-0';
 <g id="edge12_Node000001_Node000013" class="edge">
 <title>Node1&#45;&gt;Node13</title>
 <g id="a_edge12_Node000001_Node000013"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1068.35,-464.77C1078.11,-419.48 1090.84,-360.42 1101.34,-311.72"/>
+<path fill="none" stroke="#63b8ff" d="M1068.3,-465.01C1079.1,-414.89 1093.56,-347.81 1104.6,-296.59"/>
 <polygon fill="none" stroke="#63b8ff" points="1064.88,-464.28 1066.19,-474.79 1071.72,-465.76 1064.88,-464.28"/>
 </a>
 </g>
@@ -453,18 +445,16 @@ var sectionId = 'dynsection-0';
 <g id="Node000014" class="node">
 <title>Node14</title>
 <g id="a_Node000014"><a xlink:href="../../d4/dd9/classVisToolCutSplinePath.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="1337.5,-311.5 1198.5,-311.5 1198.5,-127.5 1337.5,-127.5 1337.5,-311.5"/>
-<text text-anchor="start" x="1217" y="-299.5" font-family="Helvetica,sans-Serif" font-size="10.00">VisToolCutSplinePath</text>
-<text text-anchor="start" x="1203" y="-284.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="1216" y="-284.5" font-family="Helvetica,sans-Serif" font-size="10.00">point</text>
+<polygon fill="white" stroke="transparent" points="1337.5,-296.5 1198.5,-296.5 1198.5,-142.5 1337.5,-142.5 1337.5,-296.5"/>
+<text text-anchor="start" x="1217" y="-284.5" font-family="Helvetica,sans-Serif" font-size="10.00">VisToolCutSplinePath</text>
 <text text-anchor="start" x="1203" y="-269.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="1216" y="-269.5" font-family="Helvetica,sans-Serif" font-size="10.00">splPath1</text>
+<text text-anchor="start" x="1216" y="-269.5" font-family="Helvetica,sans-Serif" font-size="10.00">point</text>
 <text text-anchor="start" x="1203" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="1216" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">splPath2</text>
+<text text-anchor="start" x="1216" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">splPath1</text>
 <text text-anchor="start" x="1203" y="-239.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="1216" y="-239.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_length</text>
+<text text-anchor="start" x="1216" y="-239.5" font-family="Helvetica,sans-Serif" font-size="10.00">splPath2</text>
 <text text-anchor="start" x="1203" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="1216" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">m_direction</text>
+<text text-anchor="start" x="1216" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">length</text>
 <text text-anchor="start" x="1203" y="-209.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="1216" y="-209.5" font-family="Helvetica,sans-Serif" font-size="10.00">VisToolCutSplinePath()</text>
 <text text-anchor="start" x="1203" y="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
@@ -472,15 +462,13 @@ var sectionId = 'dynsection-0';
 <text text-anchor="start" x="1203" y="-179.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="1216" y="-179.5" font-family="Helvetica,sans-Serif" font-size="10.00">RefreshGeometry()</text>
 <text text-anchor="start" x="1203" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="1216" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">setDirection()</text>
+<text text-anchor="start" x="1216" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">setLength()</text>
 <text text-anchor="start" x="1203" y="-149.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="1216" y="-149.5" font-family="Helvetica,sans-Serif" font-size="10.00">setLength()</text>
-<text text-anchor="start" x="1203" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="1216" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
-<polygon fill="#666666" stroke="#666666" points="1199,-294.5 1199,-294.5 1338,-294.5 1338,-294.5 1199,-294.5"/>
+<text text-anchor="start" x="1216" y="-149.5" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
+<polygon fill="#666666" stroke="#666666" points="1199,-279.5 1199,-279.5 1338,-279.5 1338,-279.5 1199,-279.5"/>
 <polygon fill="#666666" stroke="#666666" points="1199,-219.5 1199,-219.5 1214,-219.5 1214,-219.5 1199,-219.5"/>
 <polygon fill="#666666" stroke="#666666" points="1214,-219.5 1214,-219.5 1338,-219.5 1338,-219.5 1214,-219.5"/>
-<polygon fill="none" stroke="#666666" points="1198.5,-127.5 1198.5,-311.5 1337.5,-311.5 1337.5,-127.5 1198.5,-127.5"/>
+<polygon fill="none" stroke="#666666" points="1198.5,-142.5 1198.5,-296.5 1337.5,-296.5 1337.5,-142.5 1198.5,-142.5"/>
 </a>
 </g>
 </g>
@@ -488,7 +476,7 @@ var sectionId = 'dynsection-0';
 <g id="edge13_Node000001_Node000014" class="edge">
 <title>Node1&#45;&gt;Node14</title>
 <g id="a_edge13_Node000001_Node000014"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M1107.41,-507.74C1135.11,-490.98 1167.41,-467.46 1189,-439 1217.28,-401.72 1236.16,-353.37 1248.34,-311.62"/>
+<path fill="none" stroke="#63b8ff" d="M1107.41,-507.74C1135.11,-490.98 1167.41,-467.46 1189,-439 1220.76,-397.15 1240.65,-341.32 1252.53,-296.57"/>
 <polygon fill="none" stroke="#63b8ff" points="1105.43,-504.84 1098.59,-512.94 1108.99,-510.87 1105.43,-504.84"/>
 </a>
 </g>

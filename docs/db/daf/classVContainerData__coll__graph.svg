@@ -57,7 +57,7 @@ var sectionId = 'dynsection-1';
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="A data container class that uses Qt&#39;s implicit sharing mechanism.">
+<g id="a_Node000001"><a xlink:title=" ">
 <polygon fill="#999999" stroke="transparent" points="512,-94 397,-94 397,0 512,0 512,-94"/>
 <text text-anchor="start" x="416" y="-82" font-family="Helvetica,sans-Serif" font-size="10.00">VContainerData</text>
 <text text-anchor="start" x="401.5" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
@@ -265,7 +265,7 @@ var sectionId = 'dynsection-1';
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="../../d3/d44/classVTranslateMeasurements.html" target="_top" xlink:title="Manages the translation of measurement&#45;related strings.">
+<g id="a_Node000008"><a xlink:href="../../d3/d44/classVTranslateMeasurements.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="transparent" points="1082,-846 921,-846 921,-512 1082,-512 1082,-846"/>
 <text text-anchor="start" x="940" y="-834" font-family="Helvetica,sans-Serif" font-size="10.00">VTranslateMeasurements</text>
 <text text-anchor="start" x="1000" y="-819" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>

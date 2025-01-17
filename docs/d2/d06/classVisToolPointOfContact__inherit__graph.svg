@@ -46,7 +46,7 @@
   </g>
 </defs>
 <script type="application/ecmascript">
-var viewWidth = 250;
+var viewWidth = 244;
 var viewHeight = 1212;
 var sectionId = 'dynsection-0';
 </script>
@@ -58,42 +58,42 @@ var sectionId = 'dynsection-0';
 <g id="Node000001" class="node">
 <title>Node1</title>
 <g id="a_Node000001"><a xlink:title=" ">
-<polygon fill="#999999" stroke="transparent" points="195,-244 50,-244 50,0 195,0 195,-244"/>
-<text text-anchor="start" x="68.5" y="-232" font-family="Helvetica,sans-Serif" font-size="10.00">VisToolPointOfContact</text>
-<text text-anchor="start" x="57" y="-217" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="67.5" y="-217" font-family="Helvetica,sans-Serif" font-size="10.00">lineP2Id</text>
-<text text-anchor="start" x="57" y="-202" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="67.5" y="-202" font-family="Helvetica,sans-Serif" font-size="10.00">radiusId</text>
-<text text-anchor="start" x="57" y="-187" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="67.5" y="-187" font-family="Helvetica,sans-Serif" font-size="10.00">point</text>
-<text text-anchor="start" x="57" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="67.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">lineP1</text>
-<text text-anchor="start" x="57" y="-157" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="67.5" y="-157" font-family="Helvetica,sans-Serif" font-size="10.00">lineP2</text>
-<text text-anchor="start" x="57" y="-142" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="67.5" y="-142" font-family="Helvetica,sans-Serif" font-size="10.00">arc_point</text>
-<text text-anchor="start" x="57" y="-127" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="67.5" y="-127" font-family="Helvetica,sans-Serif" font-size="10.00">circle</text>
-<text text-anchor="start" x="57" y="-112" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="67.5" y="-112" font-family="Helvetica,sans-Serif" font-size="10.00">radius</text>
-<text text-anchor="start" x="54.5" y="-97" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="67.5" y="-97" font-family="Helvetica,sans-Serif" font-size="10.00">VisToolPointOfContact()</text>
-<text text-anchor="start" x="54.5" y="-82" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="67.5" y="-82" font-family="Helvetica,sans-Serif" font-size="10.00">~VisToolPointOfContact()</text>
-<text text-anchor="start" x="54.5" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="67.5" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">RefreshGeometry()</text>
-<text text-anchor="start" x="54.5" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="67.5" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">setLineP2Id()</text>
-<text text-anchor="start" x="54.5" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="67.5" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00">setRadiusId()</text>
-<text text-anchor="start" x="54.5" y="-22" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="67.5" y="-22" font-family="Helvetica,sans-Serif" font-size="10.00">setRadius()</text>
-<text text-anchor="start" x="54.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="67.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
-<polygon fill="#666666" stroke="#666666" points="50.5,-227 50.5,-227 195.5,-227 195.5,-227 50.5,-227"/>
-<polygon fill="#666666" stroke="#666666" points="50.5,-107 50.5,-107 65.5,-107 65.5,-107 50.5,-107"/>
-<polygon fill="#666666" stroke="#666666" points="65.5,-107 65.5,-107 195.5,-107 195.5,-107 65.5,-107"/>
-<polygon fill="none" stroke="#666666" points="50,0 50,-244 195,-244 195,0 50,0"/>
+<polygon fill="#999999" stroke="transparent" points="193,-244 48,-244 48,0 193,0 193,-244"/>
+<text text-anchor="start" x="66.5" y="-232" font-family="Helvetica,sans-Serif" font-size="10.00">VisToolPointOfContact</text>
+<text text-anchor="start" x="55" y="-217" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="65.5" y="-217" font-family="Helvetica,sans-Serif" font-size="10.00">lineP2Id</text>
+<text text-anchor="start" x="55" y="-202" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="65.5" y="-202" font-family="Helvetica,sans-Serif" font-size="10.00">radiusId</text>
+<text text-anchor="start" x="55" y="-187" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="65.5" y="-187" font-family="Helvetica,sans-Serif" font-size="10.00">point</text>
+<text text-anchor="start" x="55" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="65.5" y="-172" font-family="Helvetica,sans-Serif" font-size="10.00">lineP1</text>
+<text text-anchor="start" x="55" y="-157" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="65.5" y="-157" font-family="Helvetica,sans-Serif" font-size="10.00">lineP2</text>
+<text text-anchor="start" x="55" y="-142" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="65.5" y="-142" font-family="Helvetica,sans-Serif" font-size="10.00">arc_point</text>
+<text text-anchor="start" x="55" y="-127" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="65.5" y="-127" font-family="Helvetica,sans-Serif" font-size="10.00">circle</text>
+<text text-anchor="start" x="55" y="-112" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
+<text text-anchor="start" x="65.5" y="-112" font-family="Helvetica,sans-Serif" font-size="10.00">radius</text>
+<text text-anchor="start" x="52.5" y="-97" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="65.5" y="-97" font-family="Helvetica,sans-Serif" font-size="10.00">VisToolPointOfContact()</text>
+<text text-anchor="start" x="52.5" y="-82" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="65.5" y="-82" font-family="Helvetica,sans-Serif" font-size="10.00">~VisToolPointOfContact()</text>
+<text text-anchor="start" x="52.5" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="65.5" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">RefreshGeometry()</text>
+<text text-anchor="start" x="52.5" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="65.5" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">setLineP2Id()</text>
+<text text-anchor="start" x="52.5" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="65.5" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00">setRadiusId()</text>
+<text text-anchor="start" x="52.5" y="-22" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="65.5" y="-22" font-family="Helvetica,sans-Serif" font-size="10.00">setRadius()</text>
+<text text-anchor="start" x="52.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="65.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
+<polygon fill="#666666" stroke="#666666" points="48.5,-227 48.5,-227 193.5,-227 193.5,-227 48.5,-227"/>
+<polygon fill="#666666" stroke="#666666" points="48.5,-107 48.5,-107 63.5,-107 63.5,-107 48.5,-107"/>
+<polygon fill="#666666" stroke="#666666" points="63.5,-107 63.5,-107 193.5,-107 193.5,-107 63.5,-107"/>
+<polygon fill="none" stroke="#666666" points="48,0 48,-244 193,-244 193,0 48,0"/>
 </a>
 </g>
 </g>
@@ -101,34 +101,34 @@ var sectionId = 'dynsection-0';
 <g id="Node000002" class="node">
 <title>Node2</title>
 <g id="a_Node000002"><a xlink:href="../../de/d0e/classVisLine.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="168.5,-479 76.5,-479 76.5,-280 168.5,-280 168.5,-479"/>
-<text text-anchor="start" x="104.5" y="-466.5" font-family="Helvetica,sans-Serif" font-size="10.00">VisLine</text>
-<text text-anchor="start" x="120.5" y="-451.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="80.5" y="-436.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="93.5" y="-436.5" font-family="Helvetica,sans-Serif" font-size="10.00">VisLine()</text>
-<text text-anchor="start" x="80.5" y="-421.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="93.5" y="-421.5" font-family="Helvetica,sans-Serif" font-size="10.00">~VisLine()</text>
-<text text-anchor="start" x="80.5" y="-406.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="93.5" y="-406.5" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
-<text text-anchor="start" x="80.5" y="-391.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="93.5" y="-391.5" font-family="Helvetica,sans-Serif" font-size="10.00">CorrectAngle()</text>
-<text text-anchor="start" x="80.5" y="-376.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="93.5" y="-376.5" font-family="Helvetica,sans-Serif" font-size="10.00">Ray()</text>
-<text text-anchor="start" x="80.5" y="-361.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="93.5" y="-361.5" font-family="Helvetica,sans-Serif" font-size="10.00">Ray()</text>
-<text text-anchor="start" x="80.5" y="-346.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="93.5" y="-346.5" font-family="Helvetica,sans-Serif" font-size="10.00">Axis()</text>
-<text text-anchor="start" x="80.5" y="-331.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="93.5" y="-331.5" font-family="Helvetica,sans-Serif" font-size="10.00">Axis()</text>
-<text text-anchor="start" x="80.5" y="-316.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="93.5" y="-316.5" font-family="Helvetica,sans-Serif" font-size="10.00">initPen()</text>
-<text text-anchor="start" x="80.5" y="-301.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="93.5" y="-301.5" font-family="Helvetica,sans-Serif" font-size="10.00">AddOnScene()</text>
-<text text-anchor="start" x="80.5" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
-<text text-anchor="start" x="93.5" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">DrawRay()</text>
-<polygon fill="#666666" stroke="#666666" points="76.5,-461.5 76.5,-461.5 168.5,-461.5 168.5,-461.5 76.5,-461.5"/>
-<polygon fill="#666666" stroke="#666666" points="76.5,-446.5 76.5,-446.5 168.5,-446.5 168.5,-446.5 76.5,-446.5"/>
-<polygon fill="none" stroke="#666666" points="76.5,-280 76.5,-479 168.5,-479 168.5,-280 76.5,-280"/>
+<polygon fill="white" stroke="transparent" points="166.5,-479 74.5,-479 74.5,-280 166.5,-280 166.5,-479"/>
+<text text-anchor="start" x="102.5" y="-466.5" font-family="Helvetica,sans-Serif" font-size="10.00">VisLine</text>
+<text text-anchor="start" x="118.5" y="-451.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="78.5" y="-436.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="91.5" y="-436.5" font-family="Helvetica,sans-Serif" font-size="10.00">VisLine()</text>
+<text text-anchor="start" x="78.5" y="-421.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="91.5" y="-421.5" font-family="Helvetica,sans-Serif" font-size="10.00">~VisLine()</text>
+<text text-anchor="start" x="78.5" y="-406.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="91.5" y="-406.5" font-family="Helvetica,sans-Serif" font-size="10.00">type()</text>
+<text text-anchor="start" x="78.5" y="-391.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
+<text text-anchor="start" x="91.5" y="-391.5" font-family="Helvetica,sans-Serif" font-size="10.00">CorrectAngle()</text>
+<text text-anchor="start" x="78.5" y="-376.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="91.5" y="-376.5" font-family="Helvetica,sans-Serif" font-size="10.00">Ray()</text>
+<text text-anchor="start" x="78.5" y="-361.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="91.5" y="-361.5" font-family="Helvetica,sans-Serif" font-size="10.00">Ray()</text>
+<text text-anchor="start" x="78.5" y="-346.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="91.5" y="-346.5" font-family="Helvetica,sans-Serif" font-size="10.00">Axis()</text>
+<text text-anchor="start" x="78.5" y="-331.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="91.5" y="-331.5" font-family="Helvetica,sans-Serif" font-size="10.00">Axis()</text>
+<text text-anchor="start" x="78.5" y="-316.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="91.5" y="-316.5" font-family="Helvetica,sans-Serif" font-size="10.00">initPen()</text>
+<text text-anchor="start" x="78.5" y="-301.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="91.5" y="-301.5" font-family="Helvetica,sans-Serif" font-size="10.00">AddOnScene()</text>
+<text text-anchor="start" x="78.5" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">#</text>
+<text text-anchor="start" x="91.5" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">DrawRay()</text>
+<polygon fill="#666666" stroke="#666666" points="74.5,-461.5 74.5,-461.5 166.5,-461.5 166.5,-461.5 74.5,-461.5"/>
+<polygon fill="#666666" stroke="#666666" points="74.5,-446.5 74.5,-446.5 166.5,-446.5 166.5,-446.5 74.5,-446.5"/>
+<polygon fill="none" stroke="#666666" points="74.5,-280 74.5,-479 166.5,-479 166.5,-280 74.5,-280"/>
 </a>
 </g>
 </g>
@@ -136,8 +136,8 @@ var sectionId = 'dynsection-0';
 <g id="edge1_Node000001_Node000002" class="edge">
 <title>Node2&#45;&gt;Node1</title>
 <g id="a_edge1_Node000001_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M122.5,-269.53C122.5,-261.13 122.5,-252.62 122.5,-244.15"/>
-<polygon fill="none" stroke="#63b8ff" points="119,-269.72 122.5,-279.72 126,-269.72 119,-269.72"/>
+<path fill="none" stroke="#63b8ff" d="M120.5,-269.53C120.5,-261.13 120.5,-252.62 120.5,-244.15"/>
+<polygon fill="none" stroke="#63b8ff" points="117,-269.72 120.5,-279.72 124,-269.72 117,-269.72"/>
 </a>
 </g>
 </g>
@@ -236,8 +236,8 @@ var sectionId = 'dynsection-0';
 <g id="edge2_Node000002_Node000003" class="edge">
 <title>Node3&#45;&gt;Node2</title>
 <g id="a_edge2_Node000002_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M103.96,-504.74C105.26,-495.99 106.53,-487.49 107.75,-479.31"/>
-<polygon fill="none" stroke="#63b8ff" points="100.48,-504.31 102.47,-514.72 107.41,-505.34 100.48,-504.31"/>
+<path fill="none" stroke="#63b8ff" d="M102.53,-504.74C103.79,-495.99 105.02,-487.49 106.21,-479.31"/>
+<polygon fill="none" stroke="#63b8ff" points="99.05,-504.32 101.08,-514.72 105.98,-505.32 99.05,-504.32"/>
 </a>
 </g>
 </g>
@@ -268,10 +268,10 @@ var sectionId = 'dynsection-0';
 <g id="Node000005" class="node">
 <title>Node5</title>
 <g id="a_Node000005"><a xlink:href="../../dd/da2/classVScaledLine.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="242,-886.5 133,-886.5 133,-747.5 242,-747.5 242,-886.5"/>
-<text text-anchor="start" x="158" y="-874" font-family="Helvetica,sans-Serif" font-size="10.00">VScaledLine</text>
+<polygon fill="white" stroke="transparent" points="234,-886.5 133,-886.5 133,-747.5 234,-747.5 234,-886.5"/>
+<text text-anchor="start" x="154" y="-874" font-family="Helvetica,sans-Serif" font-size="10.00">VScaledLine</text>
 <text text-anchor="start" x="140" y="-859" font-family="Helvetica,sans-Serif" font-size="10.00">&#45;</text>
-<text text-anchor="start" x="150.5" y="-859" font-family="Helvetica,sans-Serif" font-size="10.00">m_defaultWidth</text>
+<text text-anchor="start" x="150.5" y="-859" font-family="Helvetica,sans-Serif" font-size="10.00">basicWidth</text>
 <text text-anchor="start" x="137.5" y="-844" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="150.5" y="-844" font-family="Helvetica,sans-Serif" font-size="10.00">VScaledLine()</text>
 <text text-anchor="start" x="137.5" y="-829" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
@@ -283,13 +283,13 @@ var sectionId = 'dynsection-0';
 <text text-anchor="start" x="137.5" y="-784" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="150.5" y="-784" font-family="Helvetica,sans-Serif" font-size="10.00">paint()</text>
 <text text-anchor="start" x="137.5" y="-769" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="150.5" y="-769" font-family="Helvetica,sans-Serif" font-size="10.00">getDefaultWidth()</text>
+<text text-anchor="start" x="150.5" y="-769" font-family="Helvetica,sans-Serif" font-size="10.00">GetBasicWidth()</text>
 <text text-anchor="start" x="137.5" y="-754" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
-<text text-anchor="start" x="150.5" y="-754" font-family="Helvetica,sans-Serif" font-size="10.00">setDefaultWidth()</text>
-<polygon fill="#666666" stroke="#666666" points="133.5,-869 133.5,-869 242.5,-869 242.5,-869 133.5,-869"/>
+<text text-anchor="start" x="150.5" y="-754" font-family="Helvetica,sans-Serif" font-size="10.00">setBasicWidth()</text>
+<polygon fill="#666666" stroke="#666666" points="133.5,-869 133.5,-869 234.5,-869 234.5,-869 133.5,-869"/>
 <polygon fill="#666666" stroke="#666666" points="133.5,-854 133.5,-854 148.5,-854 148.5,-854 133.5,-854"/>
-<polygon fill="#666666" stroke="#666666" points="148.5,-854 148.5,-854 242.5,-854 242.5,-854 148.5,-854"/>
-<polygon fill="none" stroke="#666666" points="133,-747.5 133,-886.5 242,-886.5 242,-747.5 133,-747.5"/>
+<polygon fill="#666666" stroke="#666666" points="148.5,-854 148.5,-854 234.5,-854 234.5,-854 148.5,-854"/>
+<polygon fill="none" stroke="#666666" points="133,-747.5 133,-886.5 234,-886.5 234,-747.5 133,-747.5"/>
 </a>
 </g>
 </g>
@@ -297,8 +297,8 @@ var sectionId = 'dynsection-0';
 <g id="edge4_Node000002_Node000005" class="edge">
 <title>Node5&#45;&gt;Node2</title>
 <g id="a_edge4_Node000002_Node000005"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M175.78,-737.51C164.99,-665.18 148.92,-557.54 137.26,-479.37"/>
-<polygon fill="none" stroke="#63b8ff" points="172.33,-738.1 177.27,-747.47 179.26,-737.07 172.33,-738.1"/>
+<path fill="none" stroke="#63b8ff" d="M172.15,-737.51C161.68,-665.18 146.11,-557.54 134.8,-479.37"/>
+<polygon fill="none" stroke="#63b8ff" points="168.69,-738.08 173.59,-747.47 175.62,-737.08 168.69,-738.08"/>
 </a>
 </g>
 </g>
@@ -306,13 +306,13 @@ var sectionId = 'dynsection-0';
 <g id="Node000006" class="node">
 <title>Node6</title>
 <g id="a_Node000006"><a xlink:title=" ">
-<polygon fill="white" stroke="transparent" points="239.5,-1204 135.5,-1204 135.5,-1155 239.5,-1155 239.5,-1204"/>
-<text text-anchor="start" x="140.5" y="-1191.5" font-family="Helvetica,sans-Serif" font-size="10.00">QGraphicsLineItem</text>
-<text text-anchor="start" x="185.5" y="-1176.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<text text-anchor="start" x="185.5" y="-1161.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#666666" stroke="#666666" points="135.5,-1186.5 135.5,-1186.5 239.5,-1186.5 239.5,-1186.5 135.5,-1186.5"/>
-<polygon fill="#666666" stroke="#666666" points="135.5,-1171.5 135.5,-1171.5 239.5,-1171.5 239.5,-1171.5 135.5,-1171.5"/>
-<polygon fill="none" stroke="#666666" points="135.5,-1155 135.5,-1204 239.5,-1204 239.5,-1155 135.5,-1155"/>
+<polygon fill="white" stroke="transparent" points="235.5,-1204 131.5,-1204 131.5,-1155 235.5,-1155 235.5,-1204"/>
+<text text-anchor="start" x="136.5" y="-1191.5" font-family="Helvetica,sans-Serif" font-size="10.00">QGraphicsLineItem</text>
+<text text-anchor="start" x="181.5" y="-1176.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="start" x="181.5" y="-1161.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="#666666" stroke="#666666" points="131.5,-1186.5 131.5,-1186.5 235.5,-1186.5 235.5,-1186.5 131.5,-1186.5"/>
+<polygon fill="#666666" stroke="#666666" points="131.5,-1171.5 131.5,-1171.5 235.5,-1171.5 235.5,-1171.5 131.5,-1171.5"/>
+<polygon fill="none" stroke="#666666" points="131.5,-1155 131.5,-1204 235.5,-1204 235.5,-1155 131.5,-1155"/>
 </a>
 </g>
 </g>
@@ -320,8 +320,8 @@ var sectionId = 'dynsection-0';
 <g id="edge5_Node000005_Node000006" class="edge">
 <title>Node6&#45;&gt;Node5</title>
 <g id="a_edge5_Node000005_Node000006"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M187.5,-1144.63C187.5,-1085.83 187.5,-963.79 187.5,-886.67"/>
-<polygon fill="none" stroke="#63b8ff" points="184,-1144.85 187.5,-1154.85 191,-1144.85 184,-1144.85"/>
+<path fill="none" stroke="#63b8ff" d="M183.5,-1144.63C183.5,-1085.83 183.5,-963.79 183.5,-886.67"/>
+<polygon fill="none" stroke="#63b8ff" points="180,-1144.85 183.5,-1154.85 187,-1144.85 180,-1144.85"/>
 </a>
 </g>
 </g>

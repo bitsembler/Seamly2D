@@ -1,27 +1,27 @@
 <map id="VisToolCubicBezier" name="VisToolCubicBezier">
-<area shape="rect" id="Node000001" title=" " alt="" coords="593,1940,767,2165"/>
-<area shape="rect" id="Node000002" href="$db/d76/classVisPath.html" title=" " alt="" coords="435,1658,557,1823"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="554,1834,616,1938,611,1941,549,1837"/>
-<area shape="rect" id="Node000003" href="$d7/d24/classVisualization.html" title=" " alt="" coords="127,813,281,1599"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="289,1382,344,1489,404,1597,441,1656,436,1659,399,1600,339,1492,285,1385"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="609,1940,783,2165"/>
+<area shape="rect" id="Node000002" href="$db/d76/classVisPath.html" title=" " alt="" coords="451,1658,573,1823"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="570,1834,632,1938,627,1941,565,1837"/>
+<area shape="rect" id="Node000003" href="$d7/d24/classVisualization.html" title=" " alt="" coords="135,813,289,1599"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="297,1374,356,1485,420,1597,457,1656,453,1659,415,1600,351,1488,293,1377"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="5,345,72,411"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="45,424,60,570,87,750,130,938,125,940,81,751,54,570,40,425"/>
-<area shape="rect" id="Node000005" href="$d2/d83/classVContainer.html" title="Manages a collection of geometric objects, pieces, paths, and variables." alt="" coords="96,5,312,751"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="207,751,207,796,201,796,201,751"/>
-<area shape="rect" id="Node000006" href="$d3/d85/classVCurvePathItem.html" title=" " alt="" coords="414,1103,578,1309"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="499,1323,499,1658,493,1658,493,1323"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="336,345,475,411"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="413,424,488,1103,482,1104,408,424"/>
-<area shape="rect" id="Node000008" href="$d5/dc2/classQVector.html" title=" " alt="" coords="499,338,677,418"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="586,418,512,1088,506,1087,581,418"/>
-<area shape="rect" id="Node000009" href="$d5/dc2/classQVector.html" title=" " alt="" coords="701,345,848,411"/>
-<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="780,411,782,487,773,589,761,644,743,697,717,747,683,791,672,800,659,804,636,804,613,804,603,807,593,815,569,844,549,875,520,945,504,1018,497,1087,491,1086,499,1017,515,944,544,873,564,841,589,811,601,803,613,799,636,799,659,799,669,795,679,787,713,744,738,695,756,642,767,588,776,487,775,411"/>
-<area shape="rect" id="Node000010" href="$d8/dbf/classVScaledEllipse.html" title=" " alt="" coords="607,1678,753,1803"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="683,1803,683,1924,677,1924,677,1803"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="603,1173,757,1239"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="683,1253,683,1678,677,1678,677,1253"/>
-<area shape="rect" id="Node000012" href="$dd/da2/classVScaledLine.html" title=" " alt="" coords="778,1648,923,1833"/>
-<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="802,1835,752,1927,747,1924,798,1832"/>
-<area shape="rect" id="Node000013" title=" " alt="" coords="781,1173,920,1239"/>
-<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="853,1253,853,1648,848,1648,848,1253"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="45,424,59,570,71,660,87,750,110,855,138,958,133,960,105,856,81,751,66,661,54,570,39,425"/>
+<area shape="rect" id="Node000005" href="$d2/d83/classVContainer.html" title="The VContainer class container of all variables." alt="" coords="97,5,327,751"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="215,751,215,796,209,796,209,751"/>
+<area shape="rect" id="Node000006" href="$d3/d85/classVCurvePathItem.html" title=" " alt="" coords="430,1103,594,1309"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="515,1323,515,1658,509,1658,509,1323"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="352,345,491,411"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="429,424,504,1103,498,1104,424,424"/>
+<area shape="rect" id="Node000008" href="$d5/dc2/classQVector.html" title=" " alt="" coords="515,338,693,418"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="602,418,528,1088,522,1087,597,418"/>
+<area shape="rect" id="Node000009" href="$d5/dc2/classQVector.html" title=" " alt="" coords="717,345,864,411"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="796,411,798,487,789,589,777,644,759,697,733,747,699,791,688,800,675,804,652,804,629,804,619,807,609,815,585,844,565,875,536,945,520,1018,513,1087,507,1086,515,1017,531,944,560,873,580,841,605,811,617,803,629,799,652,799,675,799,685,795,695,787,729,744,754,695,772,642,783,588,792,487,791,411"/>
+<area shape="rect" id="Node000010" href="$d8/dbf/classVScaledEllipse.html" title=" " alt="" coords="623,1678,769,1803"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="699,1803,699,1924,693,1924,693,1803"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="619,1173,773,1239"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="699,1253,699,1678,693,1678,693,1253"/>
+<area shape="rect" id="Node000012" href="$dd/da2/classVScaledLine.html" title=" " alt="" coords="797,1648,931,1833"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="817,1835,767,1927,762,1924,812,1832"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="797,1173,936,1239"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="869,1253,867,1648,862,1648,864,1253"/>
 </map>
