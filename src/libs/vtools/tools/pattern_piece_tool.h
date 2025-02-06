@@ -62,6 +62,7 @@
 
 #include "../vwidgets/vtextgraphicsitem.h"
 #include "../vwidgets/vgrainlineitem.h"
+#include "../../vgeometry/blendervpiece.h"
 
 class DialogTool;
 class NonScalingFillPathItem;
@@ -127,6 +128,10 @@ public:
 
     virtual QRectF       boundingRect() const Q_DECL_OVERRIDE;
     virtual QPainterPath shape() const Q_DECL_OVERRIDE;
+
+    QSharedPointer<BlenderVPiece> getBlenderPieceById(quint32 id);
+    void openTransformationDialog(QSharedPointer<BlenderVPiece> blenderPiece);
+    void openRotationDialog(QSharedPointer<BlenderVPiece> blenderPiece);
 
 public slots:
     virtual void         FullUpdateFromFile () Q_DECL_OVERRIDE;

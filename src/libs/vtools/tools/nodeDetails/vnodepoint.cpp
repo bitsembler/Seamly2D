@@ -70,8 +70,12 @@
 #include <QToolTip>
 #include <QRect>
 #include <new>
+#include <QInputDialog>
+#include <QLoggingCategory>
 
 #include "../../../vgeometry/vpointf.h"
+#include "../../../vgeometry/blendermanager.h"
+#include "../../../vgeometry/blendervpiece.h"
 #include "../../../vwidgets/vgraphicssimpletextitem.h"
 #include "../../undocommands/label/showpointname.h"
 #include "../../undocommands/label/movelabel.h"
@@ -86,6 +90,9 @@
 #include "../vdatatool.h"
 #include "../pattern_piece_tool.h"
 #include "vabstractnode.h"
+#include "../../../vformat/measurements.h"
+
+Q_LOGGING_CATEGORY(nodes, "nodes");
 
 const QString VNodePoint::ToolType = QStringLiteral("modeling");
 
@@ -334,10 +341,19 @@ void VNodePoint::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
         actionShowPointName->setCheckable(true);
         actionShowPointName->setChecked(VAbstractTool::data.GeometricObject<VPointF>(m_id)->isShowPointName());
 
+        auto *separator = new QAction(this);
+        separator->setSeparator(true);
+        menu.addAction(separator);
+
+        QAction *actionSetBlenderPieceAnchorPoint = menu.addAction(QIcon("://toolicon/32x32/anchor_point.png"),
+                                                                   tr("Set Blender Piece Anchor Point"));
+
         QAction *selectedAction = menu.exec(event->screenPos());
         if (selectedAction == actionShowPointName)
         {
             qApp->getUndoStack()->push(new ShowPointName(doc, m_id, selectedAction->isChecked()));
+        } else if (selectedAction == actionSetBlenderPieceAnchorPoint) {
+            openMeasurementSelection();
         }
     }
 }
@@ -370,4 +386,33 @@ void VNodePoint::allowTextHover(bool enabled)
 void VNodePoint::allowTextSelectable(bool enabled)
 {
     m_pointName->setFlag(QGraphicsItem::ItemIsSelectable, enabled);
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void VNodePoint::openMeasurementSelection()
+{
+
+    //TODO: USE THE ACTUAL PIECE ID AND NOT m_id
+    QSharedPointer<BlenderVPiece> blenderPiece = BlenderManager::instance().getBlenderPieceById(m_id);
+
+    if(blenderPiece) {
+        //TODO: LOAD ALL MEASUREMENTS IN LIST
+        QStringList options = doc->ListMeasurements();
+
+        bool ok;
+        QString selected = QInputDialog::getItem(nullptr, "Select an anchoring measurement option",
+                                                 "Choose an option:", options, 0, false, &ok);
+
+        if (ok) {
+            blenderPiece->setAnchoringPoint(
+                    qMakePair(
+                            QString(VAbstractTool::data.GetGObject(m_id)->name()),
+                            QString(selected))
+            );
+            qCDebug(nodes) << "Set Anchoring point with name: " <<
+                           VAbstractTool::data.GetGObject(m_id)->name() <<
+                           " and value " << selected;
+            update();
+        }
+    }
 }

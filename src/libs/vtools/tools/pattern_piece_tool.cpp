@@ -60,6 +60,7 @@
 #include "nodeDetails/vtoolinternalpath.h"
 #include "../dialogs/tools/piece/pattern_piece_dialog.h"
 #include "../ifc/xml/vpatternconverter.h"
+#include "../../vgeometry/blendermanager.h"
 #include "../vgeometry/varc.h"
 #include "../vgeometry/vellipticalarc.h"
 #include "../vgeometry/vcubicbezier.h"
@@ -92,7 +93,9 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QPainterPathStroker>
+#include <QLoggingCategory>
 
+Q_LOGGING_CATEGORY(pieces, "pieces");
 
 // Current version of seam allowance tag need for backward compatibility
 const quint8 PatternPieceTool::pieceVersion = 2;
@@ -1168,6 +1171,47 @@ void PatternPieceTool::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
     bool lock = !piece.isLocked();
 
     QMenu menu;
+    QSharedPointer<BlenderVPiece> blenderPiece = BlenderManager::instance().getBlenderPieceById(m_id);
+    qCDebug(pieces) << "Blender Piece ID:" << m_id;
+
+    QString pieceTransformationActionWording = "Set Transformation for Blender";
+    if (
+            blenderPiece &&
+                    blenderPiece->getPosition().x() != 0 &&
+                    blenderPiece->getPosition().y() != 0 &&
+                    blenderPiece->getPosition().z() != 0
+            )
+    {
+        pieceTransformationActionWording = tr("Reset Transformation (%1, %2, %3) for Blender").
+                arg(blenderPiece->getPosition().x()).
+                arg(blenderPiece->getPosition().y()).
+                arg(blenderPiece->getPosition().z());
+    }
+
+    QAction *actionSetPieceTransformation = menu.addAction(QIcon("://toolicon/32x32/move.png"),
+                                                           pieceTransformationActionWording);
+
+    QString pieceRotationActionWording = "Set Rotation for Blender";
+    if (
+            blenderPiece &&
+                    blenderPiece->getRotation().x() != 0 &&
+                    blenderPiece->getRotation().y() != 0 &&
+                    blenderPiece->getRotation().z() != 0
+            )
+    {
+        pieceRotationActionWording = tr("Reset Rotation (%1, %2, %3) for Blender").
+                arg(blenderPiece->getRotation().x()).
+                arg(blenderPiece->getRotation().y()).
+                arg(blenderPiece->getRotation().z());
+    }
+
+    QAction *actionSetPieceRotation = menu.addAction(QIcon("://toolicon/32x32/rotation.png"),
+                                                     pieceRotationActionWording);
+
+    auto *separator = new QAction(this);
+    separator->setSeparator(true);
+    menu.addAction(separator);
+
     QAction *editProperties = menu.addAction(QIcon::fromTheme("preferences-other"), tr("Properties") + "\tP");
     editProperties->setEnabled(lock);
 
@@ -1175,7 +1219,7 @@ void PatternPieceTool::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
     actionLockPiece->setCheckable(true);
     actionLockPiece->setChecked(piece.isLocked());
 
-    QAction *separator = new QAction(this);
+    separator = new QAction(this);
     separator->setSeparator(true);
     menu.addAction(separator);
 
@@ -1282,6 +1326,12 @@ void PatternPieceTool::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
     else if (selectedAction == rename)
     {
         renamePiece(piece);
+    }
+    else if (selectedAction == actionSetPieceTransformation) {
+        openTransformationDialog(blenderPiece);
+    }
+    else if (selectedAction == actionSetPieceRotation) {
+        openRotationDialog(blenderPiece);
     }
     else if (selectedAction == deletePiece)
     {
@@ -2193,6 +2243,50 @@ void PatternPieceTool::lowerItemToBottom(QGraphicsItem *item)
                     item->stackBefore(items.at(i));
                 }
             }
+        }
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::openTransformationDialog(QSharedPointer<BlenderVPiece> blenderPiece) {
+    if (blenderPiece) {
+        bool okX, okY, okZ;
+
+        double deltaX = QInputDialog::getDouble(
+                nullptr, tr("Set X Offset"), tr("Enter X transformation:"),
+                blenderPiece->getPosition().x(), -1000, 1000, 2, &okX);
+        double deltaY = QInputDialog::getDouble(
+                nullptr, tr("Set Y Offset"), tr("Enter Y transformation:"),
+                blenderPiece->getPosition().y(), -1000, 1000, 2, &okY);
+        double deltaZ = QInputDialog::getDouble(
+                nullptr, tr("Set Z Offset"), tr("Enter Z transformation:"),
+                blenderPiece->getPosition().z(), -1000, 1000, 2, &okZ);
+
+        if (okX && okY && okZ) {
+            blenderPiece->setPosition(deltaX, deltaY, deltaZ);
+            update();
+        }
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void PatternPieceTool::openRotationDialog(QSharedPointer<BlenderVPiece> blenderPiece) {
+    if (blenderPiece) {
+        bool okX, okY, okZ;
+
+        double deltaX = QInputDialog::getDouble(
+                nullptr, tr("Set X Offset"), tr("Enter X rotation:"),
+                blenderPiece->getRotation().x(), -1000, 1000, 2, &okX);
+        double deltaY = QInputDialog::getDouble(
+                nullptr, tr("Set Y Offset"), tr("Enter Y rotation:"),
+                blenderPiece->getRotation().y(), -1000, 1000, 2, &okY);
+        double deltaZ = QInputDialog::getDouble(
+                nullptr, tr("Set Z Offset"), tr("Enter Z rotation:"),
+                blenderPiece->getRotation().z(), -1000, 1000, 2, &okZ);
+
+        if (okX && okY && okZ) {
+            blenderPiece->setRotation(deltaX, deltaY, deltaZ);
+            update();
         }
     }
 }
