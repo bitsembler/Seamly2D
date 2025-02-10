@@ -345,15 +345,30 @@ void VNodePoint::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
         separator->setSeparator(true);
         menu.addAction(separator);
 
+        QSharedPointer<BlenderVPiece> blenderPiece = BlenderManager::instance().getBlenderPieceById(getPieceId());
+        QString anchoringPieceActionWording = "Set Blender Piece Anchor Point";
+        bool removeAnchoringPoint = false;
+        if (blenderPiece && !blenderPiece->getAnchoringPoint().first.isEmpty() &&
+            !blenderPiece->getAnchoringPoint().second.isEmpty()) {
+
+            removeAnchoringPoint = true;
+            anchoringPieceActionWording = tr("Remove blender piece anchoring point (%1, %2)").
+                    arg(blenderPiece->getAnchoringPoint().first).
+                    arg(blenderPiece->getAnchoringPoint().second);
+        }
+
         QAction *actionSetBlenderPieceAnchorPoint = menu.addAction(QIcon("://toolicon/32x32/anchor_point.png"),
-                                                                   tr("Set Blender Piece Anchor Point"));
+                                                                   anchoringPieceActionWording);
 
         QAction *selectedAction = menu.exec(event->screenPos());
         if (selectedAction == actionShowPointName)
         {
             qApp->getUndoStack()->push(new ShowPointName(doc, m_id, selectedAction->isChecked()));
         } else if (selectedAction == actionSetBlenderPieceAnchorPoint) {
-            openMeasurementSelection();
+            if (removeAnchoringPoint)
+                blenderPiece->setAnchoringPoint(QPair<QString, QString>());
+            else
+                openMeasurementSelection(blenderPiece);
         }
     }
 }
@@ -389,30 +404,38 @@ void VNodePoint::allowTextSelectable(bool enabled)
 }
 
 //---------------------------------------------------------------------------------------------------------------------
-void VNodePoint::openMeasurementSelection()
+void VNodePoint::openMeasurementSelection(QSharedPointer<BlenderVPiece> blenderPiece)
 {
+    if(blenderPiece == nullptr) {
+        qCWarning(nodes) << "Blender piece is null";
+        return;
+    }
 
-    //TODO: USE THE ACTUAL PIECE ID AND NOT m_id
-    QSharedPointer<BlenderVPiece> blenderPiece = BlenderManager::instance().getBlenderPieceById(m_id);
+    //TODO: LOAD ALL MEASUREMENTS IN LIST
+    QStringList options = doc->ListMeasurements();
 
-    if(blenderPiece) {
-        //TODO: LOAD ALL MEASUREMENTS IN LIST
-        QStringList options = doc->ListMeasurements();
+    bool ok;
+    QString selected = QInputDialog::getItem(nullptr, "Select an anchoring measurement option",
+                                             "Choose an option:", options, 0, false, &ok);
 
-        bool ok;
-        QString selected = QInputDialog::getItem(nullptr, "Select an anchoring measurement option",
-                                                 "Choose an option:", options, 0, false, &ok);
+    if (ok) {
+        blenderPiece->setAnchoringPoint(
+                qMakePair(
+                        QString(VAbstractTool::data.GetGObject(m_id)->name()),
+                        QString(selected))
+        );
+        update();
+    }
+}
 
-        if (ok) {
-            blenderPiece->setAnchoringPoint(
-                    qMakePair(
-                            QString(VAbstractTool::data.GetGObject(m_id)->name()),
-                            QString(selected))
-            );
-            qCDebug(nodes) << "Set Anchoring point with name: " <<
-                           VAbstractTool::data.GetGObject(m_id)->name() <<
-                           " and value " << selected;
-            update();
+//---------------------------------------------------------------------------------------------------------------------
+qint32 VNodePoint::getPieceId() const {
+    for (auto it = VAbstractTool::data.DataPieces()->begin(); it != VAbstractTool::data.DataPieces()->end(); it++){
+        for (auto v : it.value().GetPath().GetNodes()) {
+            if (v.GetId() == this->m_id) {
+                return it.key();
+            }
         }
     }
+    return -1;
 }

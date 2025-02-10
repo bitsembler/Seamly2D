@@ -14,7 +14,7 @@ class BlenderVPiece {
 public:
     BlenderVPiece(float x = .0f, float y = .0f, float z = .0f,
                   float rotationX = .0f, float rotationY = .0f, float rotationZ = .0f,
-                  QPair<QString, QString> anchoringPoint = QPair<QString, QString>("unknown", "unknown"));
+                  QPair<QString, QString> anchoringPoint = QPair<QString, QString>());
 
     void setPosition(float x, float y, float z);
     void setRotation(float rotationX, float rotationY, float rotationZ);

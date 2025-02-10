@@ -65,6 +65,7 @@
 #include "../vmisc/def.h"
 #include "vabstractnode.h"
 #include "../vwidgets/vscenepoint.h"
+#include "../../../vgeometry/blendervpiece.h"
 
 /**
  * @brief The VNodePoint class point detail node.
@@ -84,7 +85,8 @@ public:
 
     virtual void    setPointNamePosition(quint32 id, const QPointF &pos) Q_DECL_OVERRIDE;
     virtual void    setPointNameVisiblity(quint32 id, bool visible) Q_DECL_OVERRIDE;
-    void openMeasurementSelection();
+    void openMeasurementSelection(QSharedPointer<BlenderVPiece> blenderPiece);
+    qint32 getPieceId() const;
 
 signals:
     /**
