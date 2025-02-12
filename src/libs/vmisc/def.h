@@ -116,6 +116,7 @@ enum class LayoutExportFormat : char
     DXF_AC1024_ASTM = 35, /* ACAD 2010. */
     DXF_AC1027_ASTM = 36, /* ACAD 2013. */
     TIF = 37,             /* TIFF */
+    JSON = 38,            /* JSON */
     COUNT                 /*Use only for validation*/
 };
 

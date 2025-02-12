@@ -365,6 +365,8 @@ QString ExportLayoutDialog::exportFormatSuffix(LayoutExportFormat format)
             return ".ppm";
         case LayoutExportFormat::OBJ:
             return ".obj";
+        case LayoutExportFormat::JSON:
+            return ".json";
         case LayoutExportFormat::PS:
             return ".ps";
         case LayoutExportFormat::EPS:
@@ -605,6 +607,7 @@ void ExportLayoutDialog::showExportFiles()
         case LayoutExportFormat::PS:
         case LayoutExportFormat::EPS:
         case LayoutExportFormat::TIF:
+        case LayoutExportFormat::JSON:
         default:
             ui->binaryDXF_CheckBox->setEnabled(false);
             break;

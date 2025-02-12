@@ -122,6 +122,7 @@ QVector<std::pair<QString, LayoutExportFormat>> ExportFormatCombobox::initFormat
     InitFormat(LayoutExportFormat::BMP);
     InitFormat(LayoutExportFormat::TIF);
     InitFormat(LayoutExportFormat::PPM);
+    InitFormat(LayoutExportFormat::JSON);
     InitFormat(LayoutExportFormat::OBJ);
     if (supportPSTest())
     {
@@ -218,6 +219,8 @@ QString ExportFormatCombobox::exportFormatDescription(LayoutExportFormat format)
             return QString("BMP %1 (*.bmp)").arg(filesStr);
         case LayoutExportFormat::TIF:
             return QString("TIF %1 (*.tif)").arg(filesStr);
+        case LayoutExportFormat::JSON:
+            return QString("JSON %1 (*.json)").arg(filesStr);
         case LayoutExportFormat::PPM:
             return QString("PPM %1 (*.ppm)").arg(filesStr);
         case LayoutExportFormat::OBJ:

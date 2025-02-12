@@ -64,6 +64,8 @@
 #include "../vpatterndb/floatItemData/vpiecelabeldata.h"
 #include "../vpatterndb/floatItemData/vpatternlabeldata.h"
 #include "../vpatterndb/floatItemData/vgrainlinedata.h"
+#include "../vpatterndb/vpiecenode.h"
+#include "../vgeometry/vpointf.h"
 #include "../vpatterndb/measurements_def.h"
 #include "../vtools/tools/vabstracttool.h"
 #include "../vtools/tools/pattern_piece_tool.h"
@@ -251,6 +253,49 @@ void MainWindowsNoGUI::ErrorConsoleMode(const LayoutErrors &state)
     qApp->exit(V_EX_DATAERR);
 }
 
+void MainWindowsNoGUI::exportOnlyPiecesToJson(const ExportLayoutDialog &dialog) {
+    QJsonObject jsonObj;
+    auto data = pattern->DataPieces();
+    for (auto it = data->begin(); it != data->end(); it++) {
+        QJsonObject pieceData;
+        QJsonArray points;
+
+        for (auto p : it.value().GetPath().PathPoints(this->pattern)) {
+            QJsonObject pointData;
+            pointData["x"] = p.x();
+            pointData["y"] = p.y();
+
+            for (auto v : it.value().GetPath().GetNodes()) {
+
+                VAbstractTool *nodeTool = qobject_cast<VAbstractTool*>(VAbstractPattern::getTool(v.GetId()));
+                auto obj = nodeTool->getData()->GetGObject(v.GetId());
+                if (obj->getType() == GOType::Point) {
+                    const QSharedPointer<VPointF> point = pattern->GeometricObject<VPointF>(v.GetId());
+                    if (QVector2D(point.get()->x(), point.get()->y()).distanceToPoint(QVector2D(p.x(), p.y())) < 1e-5 ) {
+                        pointData["label"] = QString(nodeTool->getData()->GetGObject(v.GetId())->name());
+                        break;
+                    }
+
+                }
+            }
+            points.append(pointData);
+        }
+
+        pieceData["points"] = points;
+        jsonObj[it.value().GetName()] = pieceData;
+    }
+
+    QJsonDocument jsonDoc(jsonObj);
+    QFile file(dialog.path() + dialog.fileName() + dialog.exportFormatSuffix(dialog.format()));
+    if (!file.open(QIODevice::WriteOnly)) {
+        qWarning() << "Could not open file for writing:" << file.errorString();
+        return;
+    }
+    file.write(jsonDoc.toJson());
+    file.close();
+
+}
+
 //---------------------------------------------------------------------------------------------------------------------
 void MainWindowsNoGUI::ExportData(const QVector<VLayoutPiece> &pieceList, const ExportLayoutDialog &dialog)
 {
@@ -286,8 +331,9 @@ void MainWindowsNoGUI::ExportData(const QVector<VLayoutPiece> &pieceList, const 
         {
             exportPiecesAsApparelLayout(dialog, pieceList);
         }
-    }
-    else
+    } else if (format == LayoutExportFormat::JSON) {
+        exportOnlyPiecesToJson(dialog);
+    } else
     {
         if (dialog.mode() == Draw::Layout)
         {
@@ -1152,6 +1198,9 @@ void MainWindowsNoGUI::ObjFile(const QString &name, QGraphicsRectItem *paper, QG
     generator.setSize(paper->rect().size().toSize());
     generator.setResolution(static_cast<int>(PrintDPI));
     QPainter painter;
+    for (auto i : scene->items()) {
+
+    }
     painter.begin(&generator);
     scene->render(&painter, paper->rect(), paper->rect(), Qt::IgnoreAspectRatio);
     painter.end();

@@ -203,6 +203,7 @@ private:
                           bool ignoreMargins, const QMarginsF &margins);
 
     void exportPiecesAsFlatLayout(const ExportLayoutDialog &dialog, const QVector<VLayoutPiece> &pieceList);
+    void exportOnlyPiecesToJson(const ExportLayoutDialog &dialog);
 };
 
 #endif // MAINWINDOWSNOGUI_H
