@@ -66,6 +66,7 @@
 #include "../vpatterndb/floatItemData/vgrainlinedata.h"
 #include "../vpatterndb/vpiecenode.h"
 #include "../vgeometry/vpointf.h"
+#include "../vgeometry/blendermanager.h"
 #include "../vpatterndb/measurements_def.h"
 #include "../vtools/tools/vabstracttool.h"
 #include "../vtools/tools/pattern_piece_tool.h"
@@ -254,51 +255,107 @@ void MainWindowsNoGUI::ErrorConsoleMode(const LayoutErrors &state)
 }
 
 void MainWindowsNoGUI::exportOnlyPiecesToJson(const ExportLayoutDialog &dialog) {
-    QJsonObject jsonObj;
-    auto data = pattern->DataPieces();
-    for (auto it = data->begin(); it != data->end(); it++) {
+    QJsonArray piecesArray;
+    auto piecesHash = pattern->DataPieces();
+
+    for (auto pieceHash = piecesHash->begin(); pieceHash != piecesHash->end(); pieceHash++) {
         QJsonObject pieceData;
-        QJsonArray points;
+        pieceData["name"] = pieceHash.value().GetName();
 
-        for (auto p : it.value().GetPath().PathPoints(this->pattern)) {
-            QJsonObject pointData;
-            pointData["x"] = p.x();
-            pointData["y"] = p.y();
+        QJsonObject nodes;
+        QSet<QString> uniquePoints;
+        QHash<QString, QString> pointLabels;
+        int undefinedCounter = 1;
 
-            for (auto v : it.value().GetPath().GetNodes()) {
-
-                VAbstractTool *nodeTool = qobject_cast<VAbstractTool*>(VAbstractPattern::getTool(v.GetId()));
-                auto obj = nodeTool->getData()->GetGObject(v.GetId());
-                if (obj->getType() == GOType::Point) {
-                    const QSharedPointer<VPointF> point = pattern->GeometricObject<VPointF>(v.GetId());
-                    if (QVector2D(point.get()->x(), point.get()->y()).distanceToPoint(QVector2D(p.x(), p.y())) < 1e-5 ) {
-                        pointData["label"] = QString(nodeTool->getData()->GetGObject(v.GetId())->name());
-                        break;
-                    }
-
-                }
+        for (auto point : pieceHash.value().GetPath().PathPoints(this->pattern)) {
+            QString key = QString("%1,%2").arg(point.x()).arg(point.y());
+            if (!uniquePoints.contains(key)) {
+                uniquePoints.insert(key);
+                QString nodeName = QString("undefined%1").arg(undefinedCounter++);
+                pointLabels[key] = nodeName;
+                nodes[nodeName] = QJsonObject{{"x", point.x()}, {"y", point.y()}};
             }
-            points.append(pointData);
         }
 
-        pieceData["points"] = points;
-        jsonObj[it.value().GetName()] = pieceData;
+        for (auto node : pieceHash.value().GetPath().GetNodes()) {
+            VAbstractTool *nodeTool = qobject_cast<VAbstractTool *>(VAbstractPattern::getTool(node.GetId()));
+            auto obj = nodeTool->getData()->GetGObject(node.GetId());
+
+            if (obj->getType() == GOType::Point) {
+                const QSharedPointer<VPointF> currentPoint = pattern->GeometricObject<VPointF>(node.GetId());
+                QString key = QString("%1,%2").arg(currentPoint->x()).arg(currentPoint->y());
+
+                if (uniquePoints.contains(key)) {
+                    QString nodeName = obj->name().isEmpty() ? pointLabels[key] : obj->name();
+                    pointLabels[key] = nodeName;
+                    nodes[nodeName] = QJsonObject{{"x", currentPoint->x()}, {"y", currentPoint->y()}};
+                }
+            }
+        }
+
+        pieceData["nodes"] = nodes;
+
+        QSharedPointer<BlenderVPiece> blenderPiece = BlenderManager::instance().getBlenderPieceById(pieceHash.key());
+
+        if (blenderPiece) {
+            QJsonObject transformation;
+            QVector3D position = blenderPiece->getPosition();
+            QVector3D rotation = blenderPiece->getRotation();
+            QPair<QString, QString> anchoringPoint = blenderPiece->getAnchoringPoint();
+            bool shouldAddTransformationTag = false;
+
+            if (!position.isNull() && position.x() != 0 && position.y() != 0 && position.z() != 0) {
+                shouldAddTransformationTag = true;
+                transformation["position"] = QJsonObject{{"x", position.x()},
+                                                         {"y", position.y()},
+                                                         {"z", position.z()}};
+            }
+
+            if (!rotation.isNull() && rotation.x() != 0 && rotation.y() != 0 && rotation.z() != 0) {
+                shouldAddTransformationTag = true;
+                transformation["rotation"] = QJsonObject{{"x", rotation.x()},
+                                                         {"y", rotation.y()},
+                                                         {"z", rotation.z()}};
+            }
+
+            if (!anchoringPoint.first.isEmpty() && !anchoringPoint.second.isEmpty()) {
+                shouldAddTransformationTag = true;
+                QJsonObject anchor;
+                anchor["node"] = anchoringPoint.first;
+                anchor["description"] = anchoringPoint.second;
+                transformation["anchor"] = anchor;
+            }
+
+
+            if(shouldAddTransformationTag){
+                pieceData["transformation"] = transformation;
+            }
+        }
+
+        piecesArray.append(pieceData);
     }
 
+    QJsonObject jsonObj;
+    jsonObj["pieces"] = piecesArray;
+
     QJsonDocument jsonDoc(jsonObj);
-    QFile file(dialog.path() + dialog.fileName() + dialog.exportFormatSuffix(dialog.format()));
+    QFile file(dialog.path() + "/" + dialog.fileName() + dialog.exportFormatSuffix(dialog.format()));
+
+    qDebug() << "Path: " << file.fileName();
     if (!file.open(QIODevice::WriteOnly)) {
         qWarning() << "Could not open file for writing:" << file.errorString();
         return;
     }
+
     file.write(jsonDoc.toJson());
     file.close();
 
+    QMessageBox::information(nullptr, "Export Successful", "The JSON file has been exported successfully.");
 }
 
+
 //---------------------------------------------------------------------------------------------------------------------
-void MainWindowsNoGUI::ExportData(const QVector<VLayoutPiece> &pieceList, const ExportLayoutDialog &dialog)
-{
+void MainWindowsNoGUI::ExportData(const QVector <VLayoutPiece> &pieceList, const ExportLayoutDialog &dialog) {
     const LayoutExportFormat format = dialog.format();
 
     if (format == LayoutExportFormat::DXF_AC1006_AAMA ||
@@ -309,38 +366,29 @@ void MainWindowsNoGUI::ExportData(const QVector<VLayoutPiece> &pieceList, const 
         format == LayoutExportFormat::DXF_AC1018_AAMA ||
         format == LayoutExportFormat::DXF_AC1021_AAMA ||
         format == LayoutExportFormat::DXF_AC1024_AAMA ||
-        format == LayoutExportFormat::DXF_AC1027_AAMA)
-    {
-        if (dialog.mode() == Draw::Layout)
-        {
-            for (int i = 0; i < piecesOnLayout.size(); ++i)
-            {
+        format == LayoutExportFormat::DXF_AC1027_AAMA) {
+        if (dialog.mode() == Draw::Layout) {
+            for (int i = 0; i < piecesOnLayout.size(); ++i) {
                 const QString name = QString("%1/%2_0%3%4")
-                .arg(dialog.path())                                          //1
-                .arg(dialog.fileName())                                      //2
-                .arg(QString::number(i+1))                                   //3
-                .arg(ExportLayoutDialog::exportFormatSuffix(dialog.format())); //4
+                        .arg(dialog.path())                                          //1
+                        .arg(dialog.fileName())                                      //2
+                        .arg(QString::number(i + 1))                                   //3
+                        .arg(ExportLayoutDialog::exportFormatSuffix(dialog.format())); //4
 
                 QGraphicsRectItem *paper = qgraphicsitem_cast<QGraphicsRectItem *>(papers.at(i));
                 SCASSERT(paper != nullptr)
 
                 ExportApparelLayout(dialog, piecesOnLayout.at(i), name, paper->rect().size().toSize());
             }
-        }
-        else
-        {
+        } else {
             exportPiecesAsApparelLayout(dialog, pieceList);
         }
     } else if (format == LayoutExportFormat::JSON) {
         exportOnlyPiecesToJson(dialog);
-    } else
-    {
-        if (dialog.mode() == Draw::Layout)
-        {
+    } else {
+        if (dialog.mode() == Draw::Layout) {
             ExportFlatLayout(dialog, scenes, papers, shadows, pieces, ignoreMargins, margins);
-        }
-        else
-        {
+        } else {
             exportPiecesAsFlatLayout(dialog, pieceList);
         }
     }
@@ -1198,9 +1246,6 @@ void MainWindowsNoGUI::ObjFile(const QString &name, QGraphicsRectItem *paper, QG
     generator.setSize(paper->rect().size().toSize());
     generator.setResolution(static_cast<int>(PrintDPI));
     QPainter painter;
-    for (auto i : scene->items()) {
-
-    }
     painter.begin(&generator);
     scene->render(&painter, paper->rect(), paper->rect(), Qt::IgnoreAspectRatio);
     painter.end();

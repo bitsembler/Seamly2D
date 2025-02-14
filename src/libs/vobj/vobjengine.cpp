@@ -189,10 +189,6 @@ void VObjEngine::drawPath(const QPainterPath &path)
 {
     QPolygonF polygon = path.toFillPolygon(transform);
     polygon = MakePointsUnique(polygon);// Points must be unique
-    qDebug() << "Shape";
-    for (auto  p = polygon.begin(); p != polygon.end(); ++p) {
-        qDebug() << *p;
-    }
     if (polygon.size() < 3)
     {
         return;
@@ -289,7 +285,6 @@ QPaintEngine::Type VObjEngine::type() const
 //---------------------------------------------------------------------------------------------------------------------
 void VObjEngine::drawPoints(const QPointF *points, int pointCount)
 {
-
     for (int i = 0; i < pointCount; ++i)
     {
         qreal x = ((points[i].x() - 0)/qFloor(size.width()/2.0)) - 1.0;
