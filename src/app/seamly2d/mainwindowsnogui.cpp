@@ -262,40 +262,38 @@ void MainWindowsNoGUI::exportOnlyPiecesToJson(const ExportLayoutDialog &dialog) 
         QJsonObject pieceData;
         pieceData["name"] = pieceHash.value().GetName();
 
-        QJsonObject nodes;
+        QJsonArray nodes;
         QSet<QString> uniquePoints;
         QHash<QString, QString> pointLabels;
         int undefinedCounter = 1;
 
-        for (auto point : pieceHash.value().GetPath().PathPoints(this->pattern)) {
-            QString key = QString("%1,%2").arg(point.x()).arg(point.y());
-            if (!uniquePoints.contains(key)) {
-                uniquePoints.insert(key);
-                QString nodeName = QString("undefined%1").arg(undefinedCounter++);
-                pointLabels[key] = nodeName;
-                nodes[nodeName] = QJsonObject{{"x", point.x()}, {"y", point.y()}};
-            }
-        }
-
-        for (auto node : pieceHash.value().GetPath().GetNodes()) {
+        for (auto node: pieceHash.value().GetPath().GetNodes()) {
             VAbstractTool *nodeTool = qobject_cast<VAbstractTool *>(VAbstractPattern::getTool(node.GetId()));
             auto obj = nodeTool->getData()->GetGObject(node.GetId());
 
             if (obj->getType() == GOType::Point) {
                 const QSharedPointer<VPointF> currentPoint = pattern->GeometricObject<VPointF>(node.GetId());
                 QString key = QString("%1,%2").arg(currentPoint->x()).arg(currentPoint->y());
+                pointLabels[key] = obj->name();
+            }
+        }
 
-                if (uniquePoints.contains(key)) {
-                    QString nodeName = obj->name().isEmpty() ? pointLabels[key] : obj->name();
-                    pointLabels[key] = nodeName;
-                    nodes[nodeName] = QJsonObject{{"x", currentPoint->x()}, {"y", currentPoint->y()}};
-                }
+        for (auto point: pieceHash.value().GetPath().PathPoints(this->pattern)) {
+            QString key = QString("%1,%2").arg(point.x()).arg(point.y());
+
+            if(!uniquePoints.contains(key)) {
+                uniquePoints.insert(key);
+                nodes.push_back(QJsonObject{
+                        {"name",pointLabels.contains(key) ? pointLabels[key] :"undefined"},
+                        {"x",    point.x()},
+                        {"y",    point.y()}});
             }
         }
 
         pieceData["nodes"] = nodes;
 
-        QSharedPointer<BlenderVPiece> blenderPiece = BlenderManager::instance().getBlenderPieceById(pieceHash.key());
+        QSharedPointer<BlenderVPiece> blenderPiece =
+                BlenderManager::instance().getBlenderPieceById(pieceHash.key());
 
         if (blenderPiece) {
             QJsonObject transformation;
@@ -325,7 +323,6 @@ void MainWindowsNoGUI::exportOnlyPiecesToJson(const ExportLayoutDialog &dialog) 
                 anchor["description"] = anchoringPoint.second;
                 transformation["anchor"] = anchor;
             }
-
 
             if(shouldAddTransformationTag){
                 pieceData["transformation"] = transformation;
